@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kondur Skateboard</title>
+    <link rel="icon" href="img/logoKondur.png" />
+    <link rel="stylesheet" href="Css/normalize.css" />
+    <link rel="stylesheet" href="Css/estilos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="cabezera">
+        <h1>
+            <a href="index.html">Kondur Skateboards</a>
+        </h1>
+
+        <nav class="navegacion">
+            <ul class="lista-navegacion">
+                <li>
+                    <a href="productos.html">Productos</a>
+                </li>
+                <li>
+                    <a href="team.html">Team Kondur</a>
+                </li>
+                <li>
+                    <a href="checks.html">Checks</a>
+                </li>
+                <li>
+                    <a href="contacto.html">Contacto</a>
+                </li>
+                <li>
+                    <div class="box">
+                        <div class="container-1">
+                            <span class="icon"><i class="fa fa-search"></i></span>
+                            <input type="search" id="search" placeholder="¿Que desea buscar?" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contenedor-form-compra">
+
+            <form action="#" class="formulario-pago">
+
+                <h1 class="titulo-pago">último páso para comprar nuestros productos</h1>
+
+                <h2 class="titulo-pago">Información de facturación:</h2>
+
+                <br>
+                
+                <div class="data-user">
+                    <label for="nombre" class="label-form-pago">Nombre:</label>
+                    <input type="text" class="inp-txt-pago" />
+                
+                    <br />
+                
+                    <label for="apellido" class="label-form-pago">Apellido:</label>
+                    <input type="text" class="inp-txt-pago" />
+                
+                    <br />
+                
+                    <label for="usuario" class="label-form-pago">Usuario:</label>
+                    <input type="text" class="inp-txt-pago" />
+                
+                    <br />
+                
+                    <label for="email" class="label-form-pago">Email:</label>
+                    <input type="email" class="inp-txt-pago"/>
+                
+                    <br />
+                
+                    <label for="direccion" class="label-form-pago">Dirección:</label>
+                    <input type="text" class="inp-txt-pago" />
+                
+                    <br />
+                </div>
+
+                <div class="direccion-pago">
+                    <label for="pais" class="label-form-pago">País:</label>
+                    <select>
+                        <option value="seleccionePais">-Seleccione un pais-</option>
+                        <option value="arg">Argentina</option>
+                    </select>
+
+                    <label for="provincia" class="label-form-pago">Provincia:</label>
+                    <select>
+                        <option value="seleccionePais">-Seleccione una provincia-</option>
+                        <option value="buenosaires">Buenos Aires</option>
+                        <option value="capitalfederal">Capital Federal</option>
+                        <option value="catamarca">Catamarca</option>
+                        <option value="chaco">Chaco</option>
+                        <option value="chubut">Chubut</option>
+                        <option value="cordoba">Córdoba</option>
+                        <option value="corrientes">Corrientes</option>
+                        <option value="entrerios">Entre Ríos</option>
+                        <option value="formosa">Formosa</option>
+                        <option value="jujuy">Jujuy</option>
+                        <option value="lapampa">La Pampa</option>
+                        <option value="larioja">La Rioja</option>
+                        <option value="mendoza">Mendoza</option>
+                        <option value="misiones">Misiones</option>
+                        <option value="neuquen">Neuquén</option>
+                        <option value="rionegro">Río Negro</option>
+                        <option value="salta">Salta</option>
+                        <option value="sanjuan">San Juan</option>
+                        <option value="sanluis">San Luis</option>
+                        <option value="santacruz">Santa Cruz</option>
+                        <option value="santafe">Santa Fe</option>
+                        <option value="santiagodelestero">Santiago del Estero</option>
+                        <option value="tierradelfuego">Tierra del Fuego</option>
+                        <option value="tucuman">Tucumán</option>
+                    </select>
+
+                    <label for="codigopostal" class="label-form-pago">Código Postal:</label>
+                    <input type="text" class="inp-txt-pago" />
+                </div>
+
+                <hr/>
+
+                <div class="data-direccion">
+                    <input type="checkbox" value="confirmacion1" class="seleccion"/>
+                    <label for="confirmacion1" class="label-form-pago">La dirección de envío es la misma que mi dirección de
+                        facturación</label>
+                
+                    <br />
+                
+                    <input type="checkbox" value="confirmacion2" class="seleccion"/>
+                    <label for="confirmacion2" class="label-form-pago">Guarde esta información para la próxima vez</label>
+                </div>
+                
+                <hr />
+                
+                <h2>Método de pago:</h2>
+                <div class="metodo-pago">
+                    
+                
+                    <input type="radio" value="creditcard" class="seleccion"/>
+                    <label for="creditcard" class="label-form-pago">Tarjeta de crédito</label>
+                
+                    <br />
+                
+                    <input type="radio" value="debitcard" class="seleccion"/>
+                    <label for="debitcard" class="label-form-pago">Tarjeta de débito</label>
+                
+                    <br />
+                
+                    <input type="radio" value="mercadopago" class="seleccion"/>
+                    <label for="mercadopago" class="label-form-pago">Mercado Pago</label>
+                </div>
+
+                <hr/>
+
+                <h2>Datos de la tarjeta:</h2>
+
+                <div class="data-tarjeta">
+                    <label for="nombretarjeta" class="label-form-pago">Nombre en la tarjeta</label>
+                    <input type="text" class="inp-txt-pago" />
+                
+                    <br />
+                
+                    <label for="numerotarjeta" class="label-form-pago">Número de la tarjeta</label>
+                    <input type="text" class="inp-txt-pago" />
+                
+                    <br />
+                
+                    <label for="expiracion" class="label-form-pago">Expira</label>
+                    <input type="date" />
+                
+                    <br />
+                
+                    <label for="cvv" class="label-form-pago">CVV</label>
+                    <input type="text" class="inp-txt-pago" />
+                </div>
+
+                <hr/>
+
+                <button type="submit" value="enviar" class="btn-form-enviar">
+                    Comprar
+                </button>
+
+                <p><span class="cosito">*</span>Todos los campos son obligatorios</p>
+
+            </form>
+
+            <div class="btn-volver">
+                <a href="productos.html">Volver al producto</a>
+            </div>            
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="contenido-footer_imagen">
+            <a href="index.html">
+                <img src="img/tituloKondur.png" alt="Logo Kondur" />
+            </a>
+        </div>
+
+        <div class="contenido-footer__redes">
+            <nav class="navegacion-footer">
+                <a href="https://www.facebook.com/KondurSkateboards/" target="_blank">
+                    <img src="img/icono-facebook.png" alt="Icono facebook" />
+                </a>
+
+                <a href="https://www.instagram.com/kondurskateboards/" target="_blank">
+                    <img src="img/icono-instagram.png" alt="Icono Instagram" />
+                </a>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>

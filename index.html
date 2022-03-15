@@ -1,147 +1,168 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kondur Skateboards</title>
     <link rel="icon" href="img/logoKondur.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap" rel="stylesheet">    
-    
-    <link rel="stylesheet" href="sass/custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="Css/normalize.css">
-  </head>
+    <link rel="stylesheet" href="sass/custom.css" />
 
-  <body>
+    <link rel="stylesheet" href="Css/normalize.css" />
+    <link rel="stylesheet" href="Css/styles.css" />
+</head>
 
-    <header class="">
-       
-        <nav class="">
-            <ul class="">
-                <li>
-                    <a href="inicio_sesion.html">Iniciar Sesión</a>
-                </li>
-            </ul>
-        </nav>
-       
-        <h1>
-            <a href="index.html">Kondur Skateboards</a>
-        </h1>
+<body>
+    <header class="container-fluid bg-black">
+        <div class="row col col-sm col-lg titulo">
+            <h1 class="text-primary text-center display-1 text-uppercase fw-bold">
+                Kondur Skateboards
+            </h1>
+        </div>
 
-        <nav class="">
-            <ul class="">
-                <li>
-                    <a href="productos.html">Productos</a>
-                </li>
-                <li>
-                    <a href="team.html">Team Kondur</a>
-                </li>
-                <li>
-                    <a href="checks.html">Checks</a>
-                </li>
-                <li>
-                    <a href="contacto.html">Contacto</a>
-                </li>
-                <li>
-                    <div class="">
-                        <div class="">
-                            <span class="icon"><i class="fa fa-search"></i></span>
-                            <input type="search" id="search" placeholder="¿Que desea buscar?" />
-                        </div>
-                    </div>
-                </li>
-                                
-            </ul>
-        </nav>
+        <div class="container pb-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+                <img src="img/logoKondur.png" alt="Logo águila kondur"  style="height: 70px;">
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-md-3 fs-3">
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="team.html">Team Kondur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="checks.html">Checks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Buscar" />
+                </form>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-primary me-2">
+                        Ingresar
+                    </button>
+                    <button type="button" class="btn btn-primary">Registrarse</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <ul class="nav fs-3">
+                            <li class="nav-item">
+                            <a class="nav-link px-2 text-primary" href="productos.html">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link px-2 text-primary" href="team.html">Team Kondur</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link px-2 text-primary" href="checks.html">Checks</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link px-2 text-primary" href="contacto.html">Contacto</a>
+                            </li>
+                        </ul> -->
     </header>
-    
-    <main class="principal">
 
+    <main class="principal">
         <h2>Bienvenidx a Kondur</h2>
 
         <div class="contenido">
-
             <h3>¿Quienes somos?</h3>
 
             <p>
-                Kondur Skateboards es una marca de tablas de skate elaboradas con guatambu Premium y resina epoxi de la mejor calidad. 
-                Somos una marca originada y residente de la ciudad de San Fernando del Valle de Catamarca, surgida la idea y el proyecto de esta marca en una conversación entre dos amigos ( Santiago Nieto y Francisco Aguirre). 
-               <br> 
-                Hoy en dia llevamos cuatro años consolidándonos en el mercado local, avalando a dos grandes skaters de nuestra ciudad, Cristian Martinez y Joaquin Saez. 
-                Nuestra idea es representar los paisajes y la hermosa cultura que podemos encontrar en la provincia de Catamarca, apostando a diseñadores locales.
+                Kondur Skateboards es una marca de tablas de skate elaboradas con
+                guatambu Premium y resina epoxi de la mejor calidad. Somos una marca
+                originada y residente de la ciudad de San Fernando del Valle de
+                Catamarca, surgida la idea y el proyecto de esta marca en una
+                conversación entre dos amigos ( Santiago Nieto y Francisco Aguirre).
+                <br />
+                Hoy en dia llevamos cuatro años consolidándonos en el mercado local,
+                avalando a dos grandes skaters de nuestra ciudad, Cristian Martinez y
+                Joaquin Saez. Nuestra idea es representar los paisajes y la hermosa
+                cultura que podemos encontrar en la provincia de Catamarca, apostando
+                a diseñadores locales.
             </p>
-    
-            <img src="img/logoKondur.png" alt="logo kondur">
-            
+
+            <img src="img/logoKondur.png" alt="logo kondur" />
+
             <h3>Nuestros Objetivos</h3>
 
             <p>
-                    
-                Nuestro principal objetivo principal es promover el skate, tanto en nuestra ciudad como en el interior de la provincia y en el resto del país. Actualmente contamos con dos corredores pero apuntamos a incorporar nuevos exponentes, siempre buscando amistad y compañerismo en ellos. 
-                <br>
-                <br>
-                Nuestra idea es ayudar a chicxs con dificultades a la hora de conseguir sus tablas, evitando asi que estén tiempo sin patinar y sin progresar. 
-                <br>
-                <br>
-                Otro de nuestros objetivos es llegar a todos los skateshops del país y poder brindar sponsor a chicxs de todo el país, no solo de nuestra provincia. 
-                <br>
-                <br>
-                Y como objetivo final es el rodaje y la publicación de video partes de skate, en las cuales estamos trabajando actualmente con nuestro amigo @cabezavideos.
-
+                Nuestro principal objetivo principal es promover el skate, tanto en
+                nuestra ciudad como en el interior de la provincia y en el resto del
+                país. Actualmente contamos con dos corredores pero apuntamos a
+                incorporar nuevos exponentes, siempre buscando amistad y compañerismo
+                en ellos.
+                <br />
+                <br />
+                Nuestra idea es ayudar a chicxs con dificultades a la hora de
+                conseguir sus tablas, evitando asi que estén tiempo sin patinar y sin
+                progresar.
+                <br />
+                <br />
+                Otro de nuestros objetivos es llegar a todos los skateshops del país y
+                poder brindar sponsor a chicxs de todo el país, no solo de nuestra
+                provincia.
+                <br />
+                <br />
+                Y como objetivo final es el rodaje y la publicación de video partes de
+                skate, en las cuales estamos trabajando actualmente con nuestro amigo
+                @cabezavideos.
             </p>
 
-            <img src="img/Algunas tablas/IMG_6916.JPG" alt="logo kondur">
+            <img src="img/Algunas tablas/IMG_6916.JPG" alt="logo kondur" />
 
             <h3>¿ Que significa Kondur?</h3>
 
             <p>
-                “Kondur” significa condor joven en el lenguaje quechua, lenguaje que utilizaban los aborígenes que habitaban la zona de lo que 
-                hoy en dia es Catamarca. Elegimos este nombre para poner en valor dicho lenguaje y porque nos sentimos identificados con su 
-                significado, ya que eramos muy jóvenes al momento de fundar la marca y estábamos “tomando vuelo”, como un condor.
+                “Kondur” significa condor joven en el lenguaje quechua, lenguaje que
+                utilizaban los aborígenes que habitaban la zona de lo que hoy en dia
+                es Catamarca. Elegimos este nombre para poner en valor dicho lenguaje
+                y porque nos sentimos identificados con su significado, ya que eramos
+                muy jóvenes al momento de fundar la marca y estábamos “tomando vuelo”,
+                como un condor.
             </p>
-
         </div>
-        
-
     </main>
 
     <footer class="footer">
-
         <div class="contenido-footer_imagen">
             <a href="index.html">
-                <img src="img/tituloKondur.png" alt="Logo Kondur">
+                <img src="img/tituloKondur.png" alt="Logo Kondur" />
             </a>
         </div>
 
-
         <div class="contenido-footer__redes">
-
             <nav class="navegacion-footer">
+                <a href="https://www.facebook.com/KondurSkateboards/" target="_blank">
+                    <img src="img/icono-facebook.png" alt="Icono facebook" />
+                </a>
 
-               <a href="https://www.facebook.com/KondurSkateboards/" target="_blank">
-                   <img src="img/icono-facebook.png" alt="Icono facebook">
-               </a>
-               
-               <a href="https://www.instagram.com/kondurskateboards/" target="_blank">
-                   <img src="img/icono-instagram.png" alt="Icono Instagram">
-               </a>
+                <a href="https://www.instagram.com/kondurskateboards/" target="_blank">
+                    <img src="img/icono-instagram.png" alt="Icono Instagram" />
+                </a>
 
-               <a href="#" target="_blank">
-                   <img src="img/icono-gmail.png" alt="Icono gmail">
-               </a>
-
+                <a href="#" target="_blank">
+                    <img src="img/icono-gmail.png" alt="Icono gmail" />
+                </a>
             </nav>
-
         </div>
-
     </footer>
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-  </body>
+</body>
 
 </html>

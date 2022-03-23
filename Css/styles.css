@@ -1,6 +1,12 @@
+/* HEADER */
 .titulo{
     height: 180px;
 }
 .titulo h1{
     padding-top: 30px;
 } 
+
+/* CONTENIDO PRINCIPAL */
+.principal{
+    margin-top: 150px;
+}

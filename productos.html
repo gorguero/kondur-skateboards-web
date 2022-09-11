@@ -1,185 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kondur Skateboard</title>
     <link rel="icon" href="img/logoKondur.png" />
-    <link rel="stylesheet" href="Css/normalize.css">
-    <link rel="stylesheet" href="Css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.cs">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min">
-</head>
-<body>
-    
-    <header class="cabezera">
-       
-        <h1>
-            <a href="index.html">Kondur Skateboard</a>
-        </h1>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
 
-        <nav class="navegacion">
-            <ul class="lista-navegacion">
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="team.html">Team Kondur</a>
-                </li>
-                <li>
-                    <a href="checks.html">Checks</a>
-                </li>
-                <li>
-                    <a href="contacto.html">Contacto</a>
-                </li>
-                <li>
-                    <div class="box">
-                        <div class="container-1">
-                            <span class="icon"><i class="fa fa-search"></i></span>
-                            <input type="search" id="search" placeholder="¿Que desea buscar?" />
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+    <link rel="stylesheet" href="sass/custom.css" />
+
+    <link rel="stylesheet" href="Css/normalize.css" />
+    <link rel="stylesheet" href="Css/styles.css" />
+</head>
+
+<body class="bg-primary">
+
+    <header class="container-fluid bg-black">
+        <div class="row col col-sm col-lg titulo">
+            <h1 class="text-primary text-center display-1 text-uppercase fw-bold user-select-none">
+                Kondur Skateboards
+            </h1>
+        </div>
+
+        <div class="container pb-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+                <a href="index.html">
+                    <img src="img/logoKondur.png" alt="Logo águila kondur" style="height: 70px;">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-md-3 fs-3">
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="team.html">Team Kondur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="checks.html">Checks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
+                        aria-label="Buscar" />
+                </form>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-primary me-2">
+                        Ingresar
+                    </button>
+                    <button type="button" class="btn btn-primary">Registrarse</button>
+                </div>
+
+            </div>
+        </div>
+
     </header>
 
-    
+    <section class="container-fluid">
 
-    <section class="contenedor-productos">
+        <div class="row titulo-box align-items-center col col-sm col-lg">
+            <h2 class="text-center text-uppercase fw-bold text-black titulo">Nuestros productos</h2>
+        </div>
 
-        <h2>Nuestros Productos</h2>
+        <h3 class="text-uppercase text-center fw-bold titulo-producto ps-3 w-25 ">Tablas</h3>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center col col-sm col-lg">
+            <div class="col producto-card">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/Modelo1.JPG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Macetrip</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
         
-        <h3>Tablas</h3>
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/modelo2.JPG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Ambato</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
         
-        <article class="articulo">
-
-            <div class="card">
-                
-                <div class="caja-imagen">
-                    <img src="img/Algunas tablas/Modelo1.JPG" alt="tabla blanca">
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
                 </div>
-
-                <div class="contenido-articulo">
-
-                    <p><span>Modelo:</span> Macetrip</p>
-                    <p><span>Medida:</span> 8 - 8.25 - 8.50</p>
-                    <p><span>Precio:</span> $3500</p>
-
-                </div>
-
-                <div class="btn-agregar-carrito">
-                    <a href="producto_tabla1.html">Ver más</a>
-                </div>
-
-            </div>
-            
-            <div class="card">
-                
-                <div class="caja-imagen">
-                    <img src="img/Algunas tablas/modelo2.JPG" alt="tabla negra">
-                </div>
-
-                <div class="contenido-articulo">
-
-                    <p><span>Modelo:</span> Ambato</p>
-                    <p><span>Medidas:</span> 8 - 8.25 - 8.50</p>
-                    <p><span>Precio:</span> $3500</p>
-
-                </div>
-
-                <div class="btn-agregar-carrito">
-                    <a href="producto_tabla2.html">Ver más</a>
-                </div>
-
             </div>
 
-            <div class="card">
-                
-                <div class="caja-imagen">
-                    <img src="img/Algunas tablas/modelo3.PNG" alt="tabla blanca" >
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/modelo3.PNG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Kondor</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
                 </div>
-
-                <div class="contenido-articulo">
-
-                    <p><span>Modelo:</span> Kondor</p>
-                    <p><span>Medida:</span> 8 - 8.25 - 8.50</p>
-                    <p><span>Precio:</span> $3500</p>
-
-                </div>
-
-                <div class="btn-agregar-carrito">
-                    <a href="producto_tabla3.html">Ver más</a>
-                </div>
-
             </div>
 
-            <div class="card">
-                
-               <div class="caja-imagen">
-                <img src="img/Algunas tablas/Modelo4.PNG" alt="tabla blanca">
-               </div>
-
-                <div class="contenido-articulo">
-
-                    <p><span>Modelo:</span> Geometric Andino</p>
-                    <p><span>Medida:</span> 8 - 8.25 - 8.50</p>
-                    <p><span>Precio:</span> $3500</p>
-
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/Modelo4.PNG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Geometric Andino</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
                 </div>
-
-                <div class="btn-agregar-carrito">
-                    <a href="producto_tabla4.html">Ver más</a>
-                </div>
-
             </div>
 
-            <div class="card">
-                
-                <div class="caja-imagen">
-                    <img src="img/Algunas tablas/IMG_6910.JPG" alt="tabla blanca" class="prueba">
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/IMG_6910.JPG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Filo/Entre montañas</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
                 </div>
-
-                <div class="contenido-articulo">
-
-                    <p><span>Modelo:</span> Filo/Entre montañas</p>
-                    <p><span>Medida:</span> 8 - 8.25 - 8.50</p>
-                    <p><span>Precio:</span> $3500</p>
-
-                </div>
-
-                <div class="btn-agregar-carrito">
-                    <a href="producto_tabla5.html">Ver más</a>
-                </div>
-
-            </div>
-
-            <div class="card">
-                
-                <div class="caja-imagen">
-                    <img src="img/Algunas tablas/IMG_7609.PNG" alt="tabla blanca" class="prueba">
-                </div>
-
-                <div class="contenido-articulo">
-
-                    <p><span>Modelo:</span> San Pedro</p>
-                    <p><span>Medida:</span> 8 - 8.25 - 8.50</p>
-                    <p><span>Precio:</span> $3500</p>
-
-                </div>
-
-                <div class="btn-agregar-carrito">
-                    <a href="producto_tabla6.html">Ver más</a>
-                </div>
-
             </div>
 
 
-        </article>    
+        </div>
+       
+
+        <h3 class="text-uppercase text-center fw-bold titulo-producto ps-3 w-25">Lijas</h3>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center col col-sm col-lg">
+            <div class="col producto-card">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Lijas/IMG_7608.PNG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Kactus</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Lijas/lija-mob.jpg" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Ambato</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/modelo3.PNG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Kondor</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/Modelo4.PNG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Geometric Andino</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/IMG_6910.JPG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Filo/Entre montañas</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <h3 class="text-uppercase text-center fw-bold titulo-producto ps-3 w-25">Indumentaria</h3>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center col col-sm col-lg">
+            <div class="col producto-card">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/Modelo1.JPG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Macetrip</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/modelo2.JPG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Ambato</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/modelo3.PNG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Kondor</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/Modelo4.PNG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Geometric Andino</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+            <div class="col producto-card">
+                <div class="card" style="width: 18rem;">
+                    <img src="img/Algunas tablas/IMG_6910.JPG" alt="tabla blanca" class="card-img-top" height="400px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pt-3 pb-3 text-uppercase">Filo/Entre montañas</h5>
+                        <p class="fs-4 mt-4"><span class="text-uppercase fw-bold">Medida:</span> 8 - 8.25 - 8.50</p>
+                        <p class="fs-4"><span class="text-uppercase fw-bold">Precio:</span> $3500</p>
+                    </div>
+        
+                    <a href="producto_tabla1.html" class="btn btn-dark w-50 m-auto mb-4 btn-comprar">Comprar</a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--
         
         <h3>Lijas</h3>
 
@@ -208,7 +319,7 @@
             <div class="card">
                 
                 <div class="caja-imagen">
-                    <img src="img/Lijas/lija-mob.jpg" alt="Lijas de skate">
+                    <img  alt="Lijas de skate">
                 </div>
 
                 <div class="contenido-articulo">
@@ -331,40 +442,38 @@
 
             </div>
 
-        </article>
+        </article> -->
 
     </section>
 
-    <footer class="footer">
+    <footer class="bg-black ">
+        <div class="container">
+            <div class="row mt-4">
+                <ul class="nav col-md-12 justify-content-center my-3">
 
-        <div class="contenido-footer_imagen">
-            <a href="index.html">
-                <img src="img/tituloKondur.png" alt="Logo Kondur">
-            </a>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary fs-4" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary fs-4" href="team.html">Team Kondur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary fs-4" href="checks.html">Checks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-primary fs-4" href="contacto.html">Contacto</a>
+                    </li>
+
+                </ul>
+                <a href="index.html"
+                    class="col-md-12 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="img/tituloKondur.png" alt="">
+                </a>
+            </div>
         </div>
-
-
-        <div class="contenido-footer__redes">
-
-            <nav class="navegacion-footer">
-
-               <a href="https://www.facebook.com/KondurSkateboards/" target="_blank">
-                   <img src="img/icono-facebook.png" alt="Icono facebook">
-               </a>
-               
-               <a href="https://www.instagram.com/kondurskateboards/" target="_blank">
-                   <img src="img/icono-instagram.png" alt="Icono Instagram">
-               </a>
-
-               <a href="#" target="_blank">
-                   <img src="img/icono-gmail.png" alt="Icono gmail">
-               </a>
-
-            </nav>
-
-        </div>
-
     </footer>
 
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </body>
+
 </html>

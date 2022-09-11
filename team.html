@@ -1,195 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kondur Skateboard</title>
-    <link rel="icon" href="img/logoKondur.png" />
-    <link rel="stylesheet" href="Css/normalize.css" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kondur Skateboard</title>
+  <link rel="icon" href="img/logoKondur.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
 
-  </head>
+  <link rel="stylesheet" href="sass/custom.css" />
 
-  <body>
-    <header class="cabezera">
-      <h1>
-        <a href="index.html">Kondur Skateboards</a>
-      </h1>
+  <link rel="stylesheet" href="Css/normalize.css" />
+  <link rel="stylesheet" href="Css/styles.css" />
 
-      <nav class="navegacion">
-        <ul class="lista-navegacion">
-          <li>
-            <a href="index.html">Inicio</a>
-          </li>
-          <li>
-            <a href="productos.html">Productos</a>
-          </li>
-          <li>
-            <a href="checks.html">Checks</a>
-          </li>
-          <li>
-            <a href="contacto.html">Contacto</a>
-          </li>
-          <li>
-            <div class="box">
-              <div class="container-1">
-                <span class="icon"><i class="fa fa-search"></i></span>
-                <input
-                  type="search"
-                  id="search"
-                  placeholder="¿Que desea buscar?"
-                />
-              </div>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </header>
+</head>
 
-    <div class="contenedor-biografia">
-      <h2>Nuestro team</h2>
+<body class="bg-primary">
 
-      <div class="contenedor-rider">
-
-        <div class="contenido-rider">
-
-          <div class="img-rider">
-            <img
-              src="img/Corredores/Joaquin/IMG_7613.PNG"
-              alt="Joaquin Ollie Gap"
-            />
-          </div>
-
-          <div class="biografia">
-
-            <p>
-              Joaquin Saez: <br />
-              <br>
-              Skater catamarqueño de
-              17 años, una persona capaz de sacar risas y buenos momentos de
-              cualquier lado, capaz de sorprendernos a todos con su talento y su
-              energía, siempre volando sobre su tabla como un autentico condor.
-              <br />
-              <br>
-              Joaquin es un gran valor, un gran amigo y un gran personaje lleno
-              de felicidad y ganas de divertirse. Podríamos decir que el no
-              patina, vuela, a gran velocidad, siempre tiene alguna locura para
-              dejarnos a todos con la boca abierta.
-            </p>
-
-          </div>        
-
-        </div>
-
-        <div class="redes">
-
-          <div class="contenido-footer__redes">
-
-            <nav class="navegacion-footer">
-
-              <a href="https://www.facebook.com/profile.php?id=100011428943707" target="_blank">
-                <img src="img/icono-facebook.png" alt="Icono facebook" />
-              </a>
-    
-              <a
-                href="https://www.instagram.com/joaquinnsaez/"
-                target="_blank"
-              >
-                <img src="img/icono-instagram.png" alt="Icono Instagram" />
-              </a>
-    
-            </nav>
-
-          </div>
-
-        </div>
-
-        <div class="contenido-rider">
-            <div class="img-rider">
-              <img
-                src="img/Corredores/Santi/IMG_4148.JPG"
-                alt="Santi Ollie"
-              />
-            </div>
-  
-            <div class="biografia">
-              <p>
-                Santiago Nieto:
-                <br>
-                <br>
-	              Creador de la marca desde hace ya 4 años. 
-                Skater catamarqueño de 24 pirulos, siempre podras verlo dando la demo en cualquier pista y hasta en la calle.
-                Con una sonrisa brillante y magia en sus pies, siempre sacará un truco bajo la manga para dejarnos de cara. 
-                Siempre apoyando y promoviendo el skateboarding en su ciudad y donde vuele.              
-              </p>              
-
-            </div>
-        </div>
-
-        <div class="redes">
-
-          <div class="contenido-footer__redes">
-
-            <nav class="navegacion-footer">
-
-              <a href="https://www.facebook.com/santi.nieskate" target="_blank">
-                <img src="img/icono-facebook.png" alt="Icono facebook" />
-              </a>
-    
-              <a
-                href="https://www.instagram.com/santi.nie/"
-                target="_blank"
-              >
-                <img src="img/icono-instagram.png" alt="Icono Instagram" />
-              </a>
-    
-            </nav>
-
-          </div>
-
-        </div>
-
-      </div>
+  <header class="container-fluid bg-black">
+    <div class="row col col-sm col-lg titulo">
+        <h1 class="text-primary text-center display-1 text-uppercase fw-bold user-select-none">
+            Kondur Skateboards
+        </h1>
     </div>
 
-    <div class="clearfix"></div>
+    <div class="container pb-4">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-    <footer class="footer">
-      <div class="contenido-footer_imagen">
-        <a href="index.html">
-          <img src="img/tituloKondur.png" alt="Logo Kondur" />
+            <a href="index.html">
+                <img src="img/logoKondur.png" alt="Logo águila kondur" style="height: 70px;">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-md-3 fs-3">
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary" href="productos.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary" href="team.html">Team Kondur</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary" href="checks.html">Checks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary" href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark" placeholder="Buscar..."
+                    aria-label="Buscar" />
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-primary me-2">
+                    Ingresar
+                </button>
+                <button type="button" class="btn btn-primary">Registrarse</button>
+            </div>
+
+        </div>
+    </div>
+
+  </header>
+
+  <div class="m-auto container-fluid mt-5">
+
+    <h2 class="titulo titulo-box text-center pt-5 fw-bold text-black text-uppercase">Nuestro team</h2>
+
+    <div class="row d-flex justify-content-around align-items-center mt-5" style="margin-bottom: 120px;">
+
+      <div class="col-12 col-md-5 col-lg-5">
+        <img src="img/Corredores/Joaquin/IMG_7613.PNG" alt="logo kondur" class="img-fluid mx-auto d-block h-50" />
+      </div>
+
+      <div class="col-12 col-md-5 col-lg-7">
+
+          <h3 class="display-5 fw-bolder text-center text-black">Joaquin Saez</h3>
+
+          <p class="fs-2 text-black">
+           <span class="ms-4">Skater</span>  catamarqueño de
+            17 años, una persona capaz de sacar risas y buenos momentos de
+            cualquier lado, capaz de sorprendernos a todos con su talento y su
+            energía, siempre volando sobre su tabla como un autentico condor.
+            <br />
+            <br>
+            <span class="ms-4">Joaquin</span> es un gran valor, un gran amigo y un gran personaje lleno
+            de felicidad y ganas de divertirse. Podríamos decir que el no
+            patina, vuela, a gran velocidad, siempre tiene alguna locura para
+            dejarnos a todos con la boca abierta.
+          </p>
+
+      </div>
+
+      <!--REDES-->
+      <div class="col-12 d-flex justify-content-around w-50" style="margin-top: 140px;">
+
+        <a href="https://www.facebook.com/profile.php?id=100011428943707" target="_blank" class="bg-dark rounded-3">
+          <img src="img/icono-facebook.png" alt="Icono facebook" height="80px" />
         </a>
+  
+        <a href="https://www.instagram.com/joaquinnsaez/" target="_blank" >
+          <img src="img/icono-instagram.png" alt="Icono Instagram" height="80px" class="bg-dark" style="border-radius: 25px;"/>          
+        </a>
+
       </div>
 
-      <div class="contenido-footer__redes">
-        <nav class="navegacion-footer">
-          <a href="https://www.facebook.com/KondurSkateboards/" target="_blank">
-            <img src="img/icono-facebook.png" alt="Icono facebook" />
-          </a>
+    </div>
 
-          <a
-            href="https://www.instagram.com/kondurskateboards/"
-            target="_blank"
-          >
-            <img src="img/icono-instagram.png" alt="Icono Instagram" />
-          </a>
+    <hr class="w-50 mx-auto">
 
-          <a href="#" target="_blank">
-            <img src="img/icono-gmail.png" alt="Icono gmail" />
-          </a>
-        </nav>
+    <div class="row d-flex justify-content-around align-items-center mt-5" style="margin-bottom: 120px;">
+
+      <div class="col-12 col-md-5 col-lg-7">
+
+          <h3 class="display-5 fw-bolder text-center text-black">Santiago Nieto</h3>
+
+          <p class="fs-2 text-black">
+            <span class="ms-4">Creador</span> de la marca desde hace ya 4 años.
+            Skater catamarqueño de 24 pirulos, siempre podras verlo dando la demo en cualquier pista y hasta en la
+            calle.
+            <br>
+            <span class="ms-4">Con</span> una sonrisa brillante y magia en sus pies, siempre sacará un truco bajo la manga para dejarnos de cara.
+            Siempre apoyando y promoviendo el skateboarding en su ciudad y donde vuele.
+          </p>
+
       </div>
-    </footer>
 
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  </body>
+      <div class="col-12 col-md-5 col-lg-5">
+        <img src="img/Corredores/Santi/IMG_4148.JPG" alt="Santi Ollie" class="img-fluid mx-auto d-block h-50" />
+      </div>
+
+      <!--REDES-->
+      <div class="col-12 d-flex justify-content-around w-50" style="margin-top: 140px;">
+
+        <a href="https://www.facebook.com/santi.nieskate" target="_blank" class="bg-dark rounded-3">
+          <img src="img/icono-facebook.png" alt="Icono facebook" height="80px" />
+        </a>
+  
+        <a href="https://www.instagram.com/santi.nie/" target="_blank" >
+          <img src="img/icono-instagram.png" alt="Icono Instagram" height="80px" class="bg-dark" style="border-radius: 25px;"/>          
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="clearfix"></div>
+
+  <footer class="bg-black ">
+    <div class="container">
+        <div class="row mt-5">
+            <ul class="nav col-md-12 justify-content-center my-3">
+    
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary fs-4" href="productos.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary fs-4" href="team.html">Team Kondur</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary fs-4" href="checks.html">Checks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 text-primary fs-4" href="contacto.html">Contacto</a>
+                </li>
+    
+            </ul>
+            <a href="index.html" class="col-md-12 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="img/tituloKondur.png" alt="">
+            </a>
+        </div>
+    </div>
+</footer>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+
 </html>

@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    min-height: 100vh;
+}
+
+.fondo-black{
+    background-image: url(./assets/imagenes/fondo.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: 100% 100%;
+}

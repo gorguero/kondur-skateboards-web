@@ -1,0 +1,13 @@
+/* NOVEDADES HOME */
+.contenedor-novedades{
+    max-width: 950px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.192);
+}
+.contenedor-novedades img{
+    height: 250px;
+    width: 250px;
+}
+.contenedor-novedades p{
+    margin-bottom: 0;
+}

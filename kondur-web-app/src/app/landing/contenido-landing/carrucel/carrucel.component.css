@@ -1,0 +1,8 @@
+/*CARRUSEL*/
+.contenedor-carrucel{
+    height: 500px;
+}
+.carousel img{
+    max-height: 500px;
+    margin: 0 auto;
+}

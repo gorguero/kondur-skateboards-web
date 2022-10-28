@@ -3,9 +3,21 @@ body{
 }
 
 .fondo-black{
-    background-image: url(./assets/imagenes/fondo.png);
+    background-color: #f77a00;
+    background-image: url(./assets/imagenes/fondo-landing.png);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
-    background-size: 100% 100%;
+    background-size: 100% 60%;
+    background-position: bottom;
+}
+
+.fondo-white{
+    background-color: white;
+    background-image: url(./assets/imagenes/fondo-naranja.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: 100% 60%;
+    background-position: bottom;
 }

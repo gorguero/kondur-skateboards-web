@@ -5,31 +5,31 @@
 <!-- MENU DESPLEGABLE -->
 <div class="offcanvas offcanvas-start bg-black" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title text-light" id="offcanvasDarkNavbarLabel">Kondur Skateboards</h5>
+        <h5 class="offcanvas-title text-light text-uppercase fw-bold" id="offcanvasDarkNavbarLabel">Kondur Skateboards</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 dropend">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link active" aria-current="page" routerLink="tienda">Inicio</a>
             </li>
           
-             <li class="nav-item"> <!-- Revisar bug -->
-                <a role="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+             <li class="nav-item">
+                <a routerLink="/tienda" routerLinkActive="activebutton" role="button" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false">
                     Productos
                 </a>
                 <ul class="dropdown-menu bg-black">
-                    <li><a href="#">Indumentaria</a></li>
-                    <li><a href="#">Tablas</a></li>
-                    <li><a href="#">Lijas</a></li>
+                    <li><a href="#" class="ms-2 nav-link">Indumentaria</a></li>
+                    <li><a href="#" class="ms-2 nav-link">Tablas</a></li>
+                    <li><a href="#" class="ms-2 nav-link">Lijas</a></li>
                 </ul>
             </li>
                        
             <li class="nav-item">
-                <a class="nav-link" href="#">Checks</a>
+                <a class="nav-link active" href="#">Checks</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Nosotros</a>
+                <a class="nav-link active" href="#">Nosotros</a>
             </li>
             <li class="nav-item">
                 <a class="btn-registrate fw-bold text-white" href="#">REGISTRATE</a>

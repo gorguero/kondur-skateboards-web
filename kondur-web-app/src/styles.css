@@ -11,3 +11,13 @@ body{
     background-size: 100% 60%;
     background-position: bottom;
 }
+
+.fondo-white{
+    background-color: white;
+    background-image: url(./assets/imagenes/fondo-naranja.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: 100% 60%;
+    background-position: bottom;
+}

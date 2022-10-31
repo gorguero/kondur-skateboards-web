@@ -4,6 +4,7 @@ import { PrincipalPageComponent } from './principal-page/principal-page.componen
 import { CarrucelComponent } from './contenido-landing/carrucel/carrucel.component';
 import { ProductosDestacadosComponent } from './contenido-landing/productos-destacados/productos-destacados.component';
 import { IconosLandingComponent } from './contenido-landing/iconos-landing/iconos-landing.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { IconosLandingComponent } from './contenido-landing/iconos-landing/icono
     IconosLandingComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     PrincipalPageComponent

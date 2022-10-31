@@ -1,4 +1,5 @@
 /* NAVBAR */
+
 .navbar-nav li:hover>ul.dropdown-menu{
     display: block;
 }

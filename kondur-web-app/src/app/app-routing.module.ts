@@ -4,7 +4,7 @@ import { PrincipalPageComponent } from './landing/principal-page/principal-page.
 import { TiendaPageComponent } from './tienda/tienda-page/tienda-page.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'/tienda', pathMatch: 'full'},
+  {path: '', redirectTo:'/home', pathMatch: 'full'},
   {path: 'home', component: PrincipalPageComponent},
   {path: 'tienda', component: TiendaPageComponent}
 ];

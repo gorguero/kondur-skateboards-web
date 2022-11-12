@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingModule } from './landing/landing.module';
 import { TiendaModule } from './tienda/tienda.module';
+import { ChecksModule } from './checks/checks.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TiendaModule } from './tienda/tienda.module';
     AppRoutingModule,
     SharedModule,
     LandingModule,
-    TiendaModule
+    TiendaModule,
+    ChecksModule
   ],
   providers: [],
   bootstrap: [AppComponent]

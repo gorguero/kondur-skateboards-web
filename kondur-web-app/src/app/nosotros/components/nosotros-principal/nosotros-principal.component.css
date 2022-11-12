@@ -1,0 +1,17 @@
+.fondo-nosotros{
+    background-color: #f8ae6346;
+    margin-top: 50px;
+    padding-top: 80px;
+}
+.contenedor-info{
+    background-color: rgba(0, 0, 0, 0.658);
+}
+.espaciado{
+    padding: 0px 70px;
+}
+
+.titulo-nosotros{
+    font-size: 60px;
+    letter-spacing: 13px;
+    margin-bottom: 70px;
+}

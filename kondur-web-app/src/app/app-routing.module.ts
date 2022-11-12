@@ -5,6 +5,7 @@ import { PrincipalPageComponent } from './landing/components/principal-page/prin
 import { ProductoComponent } from './tienda/pages/producto/producto.component';
 import { TiendaPageComponent } from './tienda/components/tienda-page/tienda-page.component';
 import { ChecksPrincipalComponent } from './checks/components/checks-principal/checks-principal.component';
+import { NosotrosPrincipalComponent } from './nosotros/components/nosotros-principal/nosotros-principal.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'checks',
     component: ChecksPrincipalComponent
+  },
+  {
+    path: 'nosotros',
+    component: NosotrosPrincipalComponent
   }
 ];
 

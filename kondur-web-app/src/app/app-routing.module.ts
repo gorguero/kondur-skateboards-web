@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PrincipalPageComponent } from './landing/principal-page/principal-page.component';
+import { PrincipalPageComponent } from './landing/components/principal-page/principal-page.component';
 import { ProductoComponent } from './tienda/producto/producto.component';
 import { TiendaPageComponent } from './tienda/tienda-page/tienda-page.component';
 

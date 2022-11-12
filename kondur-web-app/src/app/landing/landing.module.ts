@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrincipalPageComponent } from './principal-page/principal-page.component';
-import { CarrucelComponent } from './contenido-landing/carrucel/carrucel.component';
-import { ProductosDestacadosComponent } from './contenido-landing/productos-destacados/productos-destacados.component';
-import { IconosLandingComponent } from './contenido-landing/iconos-landing/iconos-landing.component';
+import { PrincipalPageComponent } from './components/principal-page/principal-page.component';
+import { CarrucelComponent } from './pages/carrucel/carrucel.component';
+import { ProductosDestacadosComponent } from './pages/productos-destacados/productos-destacados.component';
+import { IconosLandingComponent } from './pages/iconos-landing/iconos-landing.component';
 import { SharedModule } from '../shared/shared.module';
 
 

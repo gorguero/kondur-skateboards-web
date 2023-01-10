@@ -9,6 +9,7 @@ import { LandingModule } from './landing/landing.module';
 import { TiendaModule } from './tienda/tienda.module';
 import { ChecksModule } from './checks/checks.module';
 import { NosotrosModule } from './nosotros/nosotros.module';
+import { SignupModule } from './signup/signup.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NosotrosModule } from './nosotros/nosotros.module';
     LandingModule,
     TiendaModule,
     ChecksModule,
-    NosotrosModule
+    NosotrosModule,
+    SignupModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,12 @@
-/* NAVBAR */
-
-.navbar-nav li:hover>ul.dropdown-menu{
-    display: block;
+.mat-expansion-panel{
+    background: none;
 }
-.dropdown-menu a{
-    text-decoration: none;
+
+/* NAVBAR */
+.list__button{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
 }

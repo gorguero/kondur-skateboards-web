@@ -10,6 +10,7 @@ import { TiendaModule } from './tienda/tienda.module';
 import { ChecksModule } from './checks/checks.module';
 import { NosotrosModule } from './nosotros/nosotros.module';
 import { SignupModule } from './signup/signup.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SignupModule } from './signup/signup.module';
     TiendaModule,
     ChecksModule,
     NosotrosModule,
-    SignupModule
+    SignupModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

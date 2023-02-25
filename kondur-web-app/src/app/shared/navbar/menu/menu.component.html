@@ -8,41 +8,63 @@
         <h5 class="offcanvas-title text-light text-uppercase fw-bold" id="offcanvasDarkNavbarLabel">Kondur Skateboards</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 dropend">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Inicio</a>
+    <nav class="nav">
+        <mat-accordion>
+        <ul class=" navbar-nav justify-content-end flex-grow-1 pe-3 dropend">
+
+            <li class="ms-1">
+                <div class="list__button">
+                    <h2>
+                    <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Inicio</a>
+                    </h2>
+                </div>
             </li>
-          
-             <li class="nav-item">
-                <a routerLink="/tienda" routerLinkActive="activebutton" role="button" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false">
-                    Productos
-                </a>
-                <ul class="dropdown-menu bg-black">
-                    <li><a href="#" class="ms-2 nav-link">Indumentaria</a></li>
-                    <li><a href="#" class="ms-2 nav-link">Tablas</a></li>
-                    <li><a href="#" class="ms-2 nav-link">Lijas</a></li>
-                </ul>
+
+            <li>
+                <div>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                               <h3>
+                                    <a class="nav-link active " routerLink="/tienda" routerLinkActive="active" >Tienda</a>
+                               </h3>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <a href="#" class="nav-link">Indumentaria</a>
+                        <a href="#" class="nav-link">Tablas</a>
+                        <a href="#" class="nav-link">Lijas</a>
+                    </mat-expansion-panel>
+                </div>
             </li>
-                       
-            <li class="nav-item">
-                <a class="nav-link active" routerLink="/checks" routerLinkActive="active">Checks</a>
+
+
+            <li class="ms-1">
+                <div class="list__button">
+                    <h3>
+                        <a routerLink="/checks" routerLinkActive="active" class="nav-link active">Checks</a>
+                    </h3>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Nosotros</a>
+
+            <li class="ms-1">
+                <div class="list__button">
+                    <h3>
+                        <a routerLink="/nosotros" routerLinkActive="active" class="nav-link active">Nosotros</a>
+                    </h3>
+                </div>
+
             </li>
-            <li class="nav-item">
-                <a class="btn-registrate fw-bold text-white" href="#">REGISTRATE</a>
+
+
+            <li class="">
+                <div class="list__button">
+                    <a class="btn-registrate fw-bold text-white" href="#">REGISTRATE</a>
+                </div>
             </li>
+
         </ul>
-        <!-- <form class="d-flex mt-3" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" type="submit">Search</button>
-        </form> -->
-        <br>
-        <br>
-        <br>
-        <img class="ms-5 " src="../../../../assets/imagenes/logo-kondur.png" style="width: 200px; height:200px " alt="">
-    </div>
+    </mat-accordion>
+    </nav>
+    <img class="mx-auto " src="../../../../assets/imagenes/logo-kondur.png" style="width: 180px; height:180px " alt="">
     
 </div>

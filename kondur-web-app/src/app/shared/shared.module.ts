@@ -6,6 +6,7 @@ import { MenuComponent } from './navbar/menu/menu.component';
 import { LoginComponent } from './navbar/login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -18,11 +19,12 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatExpansionModule
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ]
 })
 export class SharedModule { }

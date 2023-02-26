@@ -11,6 +11,7 @@ import { ChecksModule } from './checks/checks.module';
 import { NosotrosModule } from './nosotros/nosotros.module';
 import { SignupModule } from './signup/signup.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ChecksModule,
     NosotrosModule,
     SignupModule,
+    AdminModule,
     BrowserAnimationsModule
   ],
   providers: [],

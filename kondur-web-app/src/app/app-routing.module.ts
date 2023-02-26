@@ -7,6 +7,7 @@ import { TiendaPageComponent } from './tienda/components/tienda-page/tienda-page
 import { ChecksPrincipalComponent } from './checks/components/checks-principal/checks-principal.component';
 import { NosotrosPrincipalComponent } from './nosotros/components/nosotros-principal/nosotros-principal.component';
 import { RegisterComponent } from './signup/components/register/register.component';
+import { ProductosComponent } from './admin/productos/productos.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: RegisterComponent
+  },
+  {
+    path: 'admin',
+    component: ProductosComponent
   }
 ];
 

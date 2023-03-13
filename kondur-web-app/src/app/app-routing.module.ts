@@ -8,6 +8,7 @@ import { ChecksPrincipalComponent } from './checks/components/checks-principal/c
 import { NosotrosPrincipalComponent } from './nosotros/components/nosotros-principal/nosotros-principal.component';
 import { RegisterComponent } from './signup/components/register/register.component';
 import { ProductosComponent } from './admin/productos/productos.component';
+import { CarritoComponent } from './carrito/components/carrito/carrito.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'admin',
     component: ProductosComponent
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent
   }
 ];
 

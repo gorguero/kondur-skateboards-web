@@ -1,0 +1,33 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 2 / 6 / 4; }
+.div2 { grid-area: 2 / 2 / 3 / 4; }
+.div3 { grid-area: 3 / 2 / 4 / 4; }
+.div4 { grid-area: 4 / 2 / 5 / 4; }
+.div6 { grid-area: 1 / 4 / 6 / 12; }
+
+h2{
+    color: white;
+    transition: background-color .5s;
+}
+h2:hover{
+    color: black;
+    background-color:white;
+}
+
+
+
+
+.text {
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+}

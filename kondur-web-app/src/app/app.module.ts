@@ -12,6 +12,7 @@ import { NosotrosModule } from './nosotros/nosotros.module';
 import { SignupModule } from './signup/signup.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminModule } from './admin/admin.module';
     NosotrosModule,
     SignupModule,
     AdminModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    UsuarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

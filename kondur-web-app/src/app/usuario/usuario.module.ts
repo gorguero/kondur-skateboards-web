@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    MatExpansionModule
   ],
   exports:[
     PerfilComponent

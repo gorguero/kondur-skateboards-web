@@ -13,6 +13,7 @@ import { SignupModule } from './signup/signup.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
 import { CarritoModule } from './carrito/carrito.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { CarritoModule } from './carrito/carrito.module';
     SignupModule,
     AdminModule,
     BrowserAnimationsModule,
-    CarritoModule
+    CarritoModule,
+    BrowserAnimationsModule,
+    UsuarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,13 +8,16 @@ import { ChecksPrincipalComponent } from './checks/components/checks-principal/c
 import { NosotrosPrincipalComponent } from './nosotros/components/nosotros-principal/nosotros-principal.component';
 import { RegisterComponent } from './signup/components/register/register.component';
 import { ProductosComponent } from './admin/productos/productos.component';
+import { FacturasComponent } from './admin/facturas/facturas.component';
+import { ChecksComponent } from './admin/checks/checks.component';
+import { PerfilComponent } from './usuario/perfil/perfil.component';
 import { CarritoComponent } from './carrito/components/carrito/carrito.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo:'/home',
-     pathMatch: 'full'
+    pathMatch: 'full'
   },
   {
     path: 'home', 
@@ -42,6 +45,19 @@ const routes: Routes = [
   {
     path: 'admin',
     component: ProductosComponent
+  },
+  {
+    path: 'admin/facturas',
+    component: FacturasComponent
+  },
+  {
+    path: 'admin/checks',
+    component: ChecksComponent
+  }
+  ,
+  {
+    path: 'perfil',
+    component: PerfilComponent
   },
   {
     path: 'carrito',

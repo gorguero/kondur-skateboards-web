@@ -42,7 +42,7 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'admin',
+    path: 'admin/productos',
     component: ProductosComponent
   },
   {

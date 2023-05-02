@@ -8,41 +8,37 @@
                             <div class="card bg-dark" style="border-radius: 15px;">
                                 <div class="card-body p-5">
                                     <h2 class="text-uppercase text-light text-center mb-5">Regístrate</h2>
-                                    <form>
+                                    <form class="form-floating" [formGroup]="registroForm" (ngSubmit)="registrarUsuario()">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label text-light" for="form3Example1cg">Nombre completo</label>
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                            <label class="form-label text-light">Nombre completo</label>
+                                            <input type="text" formControlName="nombre" class="form-control form-control-lg" />
+                                            <!-- MENSAJE DE VALIDACION -->
+                                            <div *ngIf="registroForm.get('nombre')?.invalid && (registroForm.get('nombre')?.dirty || registroForm.get('nombre')?.touched)" class="invalid-feedback">Por favor complete el campo</div>
                                         </div>
-
                                         <div class="form-outline mb-4">
                                             <label class="form-label text-light" for="form3Example3cg">Correo electronico</label>
-                                            <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                                            <input type="email" formControlName="email" class="form-control form-control-lg" />
                                         </div>
-
                                         <div class="form-outline mb-4">
                                             <label class="form-label text-light" for="form3Example1cg">Usuario</label>
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"/>
+                                            <input type="text" formControlName="usuario" class="form-control form-control-lg"/>
                                         </div>
-
                                         <div class="form-outline mb-4">
                                             <label class="form-label text-light" for="form3Example4cg">Contraseña</label>
-                                            <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                                            <input type="password" formControlName="contrasenia" class="form-control form-control-lg" />
                                         </div>
-
                                         <div class="form-outline mb-4">
                                             <label class="form-label text-light" for="form3Example4cdg">Repite tu contraseña</label>
-                                            <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                                            <input type="password" formControlName="repContrasenia" class="form-control form-control-lg" />
                                         </div>
-
                                         <div class="form-check d-flex justify-content-center mb-5">
-                                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                                            <input class="form-check-input me-2" type="checkbox" formControlName="terminos"/>
                                             <label class="form-check-label text-light" for="form2Example3g">
                                                 Estoy de acuerdo con todos los <a href="#!" class="text-warning"><u>Terminos y servicios</u></a>
                                             </label>
                                         </div>
-
                                         <div class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
+                                            <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
                                                 Registrarse
                                             </button>
                                         </div>

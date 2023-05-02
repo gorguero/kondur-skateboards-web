@@ -20,7 +20,10 @@ h2:hover{
     color: black;
     background-color:white;
 }
-
+.active h2{
+    background-color: white;
+    color: black;
+}
 
 
 

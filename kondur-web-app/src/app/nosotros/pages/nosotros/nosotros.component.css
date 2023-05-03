@@ -1,7 +1,4 @@
-.contenedor-info {
+.contenedor-info{
     background-color: rgba(0, 0, 0, 0.658);
-    max-height: 60vh;
-    min-height: 60vh;
-    padding: 20px;
-  }
-  
+    height: 60vh;
+}

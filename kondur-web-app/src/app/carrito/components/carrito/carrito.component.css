@@ -1,0 +1,12 @@
+h1{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.fullHeight {
+    height: 100vh;
+}
+
+table{
+    background-color: white;
+}

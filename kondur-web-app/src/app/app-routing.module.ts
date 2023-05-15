@@ -11,6 +11,7 @@ import { ProductosComponent } from './admin/productos/productos.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
 import { ChecksComponent } from './admin/checks/checks.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { LoginComponent } from './signin/login/login.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'signin',
+    component: LoginComponent
+  },
+  {
     path: 'admin/productos',
     component: ProductosComponent
   },
@@ -52,8 +57,7 @@ const routes: Routes = [
   {
     path: 'admin/checks',
     component: ChecksComponent
-  }
-  ,
+  },
   {
     path: 'perfil',
     component: PerfilComponent

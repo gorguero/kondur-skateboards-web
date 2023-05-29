@@ -25,3 +25,8 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* PERMITE CAMBIAR EL COLOR DEL INDICADOR DEL MENU DESPLEGABLE EN EL PERFIL */
+.mat-expansion-indicator::after {
+    color: white; /* Cambia el color a tu elección */
+}

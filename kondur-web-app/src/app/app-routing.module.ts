@@ -11,6 +11,7 @@ import { ProductosComponent } from './admin/productos/productos.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
 import { ChecksComponent } from './admin/checks/checks.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { CarritoComponent } from './carrito/components/carrito/carrito.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
   },
   {
     path: 'tienda', 
-    component: TiendaPageComponent},
+    component: TiendaPageComponent
+  },
   {
     path: 'producto', 
     component: ProductoComponent
@@ -57,6 +59,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: PerfilComponent
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent
   }
 ];
 

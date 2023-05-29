@@ -1,3 +1,8 @@
+.separador{
+    padding-top: 50px;
+    margin-top: 40px;
+}
+
 .titulo-team{
     font-size: 60px;
     letter-spacing: 9px;
@@ -8,3 +13,4 @@
 .panelDeDatos{
     width: 49%;
 }
+

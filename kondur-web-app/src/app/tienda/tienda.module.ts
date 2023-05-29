@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TiendaPageComponent } from './components/tienda-page/tienda-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductoComponent } from './pages/producto/producto.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { ProductoComponent } from './pages/producto/producto.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     TiendaPageComponent

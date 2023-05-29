@@ -5,6 +5,7 @@ import { CarrucelComponent } from './pages/carrucel/carrucel.component';
 import { ProductosDestacadosComponent } from './pages/productos-destacados/productos-destacados.component';
 import { IconosLandingComponent } from './pages/iconos-landing/iconos-landing.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     PrincipalPageComponent

@@ -13,6 +13,7 @@ import { SignupModule } from './signup/signup.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { SigninModule } from './signin/signin.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     ChecksModule,
     NosotrosModule,
     SignupModule,
+    SigninModule,
     AdminModule,
     BrowserAnimationsModule,
     UsuarioModule

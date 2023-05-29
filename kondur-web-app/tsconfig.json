@@ -22,6 +22,9 @@
       "es2020",
       "dom"
     ],
+    "paths": {
+      "tslib":["./node_modules/tslib/tslib.d.ts"]
+    },
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

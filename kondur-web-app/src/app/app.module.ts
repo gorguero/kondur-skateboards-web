@@ -12,6 +12,7 @@ import { NosotrosModule } from './nosotros/nosotros.module';
 import { SignupModule } from './signup/signup.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
+import { CarritoModule } from './carrito/carrito.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { SigninModule } from './signin/signin.module';
 
@@ -30,6 +31,8 @@ import { SigninModule } from './signin/signin.module';
     SignupModule,
     SigninModule,
     AdminModule,
+    BrowserAnimationsModule,
+    CarritoModule,
     BrowserAnimationsModule,
     UsuarioModule
   ],

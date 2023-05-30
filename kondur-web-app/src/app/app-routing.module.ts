@@ -5,7 +5,6 @@ import { LayoutHomeComponent } from './principal/home/components/layout-home/lay
 import { ProductoComponent } from './tienda/pages/producto/producto.component';
 import { TiendaPageComponent } from './tienda/components/tienda-page/tienda-page.component';
 import { ChecksPrincipalComponent } from './checks/components/checks-principal/checks-principal.component';
-import { NosotrosPrincipalComponent } from './nosotros/components/nosotros-principal/nosotros-principal.component';
 import { RegisterComponent } from './signup/components/register/register.component';
 import { ProductosComponent } from './admin/productos/productos.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
@@ -13,6 +12,7 @@ import { ChecksComponent } from './admin/checks/checks.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
 import { LoginComponent } from './signin/login/login.component';
+import { LayoutComponent } from './principal/nosotros/components/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -38,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: 'nosotros',
-    component: NosotrosPrincipalComponent
+    component: LayoutComponent
   },
   {
     path: 'signup',

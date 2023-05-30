@@ -6,7 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TiendaModule } from './tienda/tienda.module';
-import { ChecksModule } from './checks/checks.module';
+import { ChecksModule } from './principal/checks/checks.module';
 import { SignupModule } from './signup/signup.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';

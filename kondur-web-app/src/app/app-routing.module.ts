@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutHomeComponent } from './principal/home/components/layout-home/layout-home.component';
 import { ProductoComponent } from './tienda/pages/producto/producto.component';
 import { TiendaPageComponent } from './tienda/components/tienda-page/tienda-page.component';
-import { ChecksPrincipalComponent } from './checks/components/checks-principal/checks-principal.component';
 import { RegisterComponent } from './signup/components/register/register.component';
 import { ProductosComponent } from './admin/productos/productos.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
@@ -13,6 +12,7 @@ import { PerfilComponent } from './usuario/perfil/perfil.component';
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
 import { LoginComponent } from './signin/login/login.component';
 import { LayoutComponent } from './principal/nosotros/components/layout/layout.component';
+import { LayoutChecksComponent } from './principal/checks/components/layout-checks/layout-checks.component';
 
 const routes: Routes = [
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'checks',
-    component: ChecksPrincipalComponent
+    component: LayoutChecksComponent
   },
   {
     path: 'nosotros',

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TiendaPageComponent } from './components/tienda-page/tienda-page.component';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { RouterModule } from '@angular/router';
+import { LayoutTiendaComponent } from './components/layout-tienda/layout-tienda.component';
 
 
 
 @NgModule({
   declarations: [
-    TiendaPageComponent,
+    LayoutTiendaComponent,
     ProductoComponent,
   ],
   imports: [
@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   exports: [
-    TiendaPageComponent
+    LayoutTiendaComponent
   ]
 })
 export class TiendaModule { }

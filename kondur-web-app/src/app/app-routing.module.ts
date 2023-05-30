@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutHomeComponent } from './principal/home/components/layout-home/layout-home.component';
-import { ProductoComponent } from './tienda/pages/producto/producto.component';
-import { TiendaPageComponent } from './tienda/components/tienda-page/tienda-page.component';
+import { ProductoComponent } from './principal/tienda/pages/producto/producto.component';
 import { RegisterComponent } from './signup/components/register/register.component';
 import { ProductosComponent } from './admin/productos/productos.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
@@ -13,6 +12,7 @@ import { CarritoComponent } from './shared/header/carrito/carrito.component';
 import { LoginComponent } from './signin/login/login.component';
 import { LayoutComponent } from './principal/nosotros/components/layout/layout.component';
 import { LayoutChecksComponent } from './principal/checks/components/layout-checks/layout-checks.component';
+import { LayoutTiendaComponent } from './principal/tienda/components/layout-tienda/layout-tienda.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'tienda', 
-    component: TiendaPageComponent
+    component: LayoutTiendaComponent
   },
   {
     path: 'producto', 

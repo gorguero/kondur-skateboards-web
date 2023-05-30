@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PrincipalPageComponent } from './landing/components/principal-page/principal-page.component';
+import { LayoutHomeComponent } from './principal/home/components/layout-home/layout-home.component';
 import { ProductoComponent } from './tienda/pages/producto/producto.component';
 import { TiendaPageComponent } from './tienda/components/tienda-page/tienda-page.component';
 import { ChecksPrincipalComponent } from './checks/components/checks-principal/checks-principal.component';
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'home', 
-    component: PrincipalPageComponent
+    component: LayoutHomeComponent
   },
   {
     path: 'tienda', 

@@ -5,7 +5,6 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingModule } from './landing/landing.module';
 import { TiendaModule } from './tienda/tienda.module';
 import { ChecksModule } from './checks/checks.module';
 import { NosotrosModule } from './nosotros/nosotros.module';
@@ -15,6 +14,7 @@ import { AdminModule } from './admin/admin.module';
 import { CarritoModule } from './carrito/carrito.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { SigninModule } from './signin/signin.module';
+import { HomeModule } from './principal/home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { SigninModule } from './signin/signin.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    LandingModule,
+    HomeModule,
     TiendaModule,
     ChecksModule,
     NosotrosModule,

@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutHomeComponent } from './principal/home/components/layout-home/layout-home.component';
 import { ProductoComponent } from './principal/tienda/pages/producto/producto.component';
-import { RegisterComponent } from './signup/components/register/register.component';
+import { RegisterComponent } from './sesion/signup/register/register.component';
 import { ProductosComponent } from './admin/productos/productos.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
 import { ChecksComponent } from './admin/checks/checks.component';
-import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { PerfilComponent } from './sesion/usuario/perfil/perfil.component';
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
-import { LoginComponent } from './signin/login/login.component';
+import { LoginComponent } from './sesion/signin/login/login.component';
 import { LayoutComponent } from './principal/nosotros/components/layout/layout.component';
 import { LayoutChecksComponent } from './principal/checks/components/layout-checks/layout-checks.component';
 import { LayoutTiendaComponent } from './principal/tienda/components/layout-tienda/layout-tienda.component';

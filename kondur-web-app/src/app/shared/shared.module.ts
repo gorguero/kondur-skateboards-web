@@ -6,6 +6,7 @@ import { MenuComponent } from './header/navbar/menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { CarritoComponent } from './header/carrito/carrito.component';
 
 
 
@@ -13,6 +14,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
   declarations: [
     HeaderComponent,
     MenuComponent,
+    CarritoComponent,
     FooterComponent,
   ],
   imports: [

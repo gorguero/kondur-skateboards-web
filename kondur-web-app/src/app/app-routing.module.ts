@@ -11,7 +11,7 @@ import { ProductosComponent } from './admin/productos/productos.component';
 import { FacturasComponent } from './admin/facturas/facturas.component';
 import { ChecksComponent } from './admin/checks/checks.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
-import { CarritoComponent } from './carrito/components/carrito/carrito.component';
+import { CarritoComponent } from './shared/header/carrito/carrito.component';
 import { LoginComponent } from './signin/login/login.component';
 
 const routes: Routes = [

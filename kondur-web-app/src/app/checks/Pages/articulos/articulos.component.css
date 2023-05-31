@@ -1,6 +1,29 @@
-.contenedor-info{
-    background-color: rgba(0, 0, 0, 0.658);
-}
 .separador{
     margin-bottom: 170px;
+}
+.contenedor-info{
+    /* background-color: rgba(0, 0, 0, 0.658); */
+    background-color:#f77a00;
+}
+.fondo-contenido{
+    background-color: rgb(29, 29, 29);
+    border-radius: 10px;
+}
+.contenedor-info2{
+    background-color: rgb(29, 29, 29);
+}
+.fondo-contenido2{
+    background-color:#f77a00;
+    border-radius: 10px;
+}
+.img-filmer{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+}
+.ig-filmer{
+    color: white;
+}
+.ig-filmer:hover {
+    color: black; /* Cambia el color a tu preferencia */
 }

@@ -14,7 +14,7 @@
 
 h2{
     color: white;
-    transition: background-color .5s;
+    transition: background-color 0.3s ease;
 }
 h2:hover{
     color: black;

@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RegisterComponent } from './sesion/components/register/register.component';
-import { PerfilComponent } from './sesion/components/perfil/perfil.component';
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
-import { LoginComponent } from './sesion/components/login/login.component';
 
 const routes: Routes = [
   {
@@ -16,6 +13,10 @@ const routes: Routes = [
     path: 'sesion',
     loadChildren: () => import('./sesion/sesion.module').then( m => m.SesionModule)
   },
+  { //SHARED
+    path: 'carrito',
+    component: CarritoComponent
+  },
   {
     path: '',
     loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalModule)
@@ -25,24 +26,6 @@ const routes: Routes = [
     redirectTo:'principal',
     pathMatch: 'full'
   },
-
-  // {//SESION
-  //   path: 'signup',
-  //   component: RegisterComponent
-  // },
-  // {//SESION
-  //   path: 'signin',
-  //   component: LoginComponent
-  // },
-  // { //SESION
-  //   path: 'perfil',
-  //   component: PerfilComponent
-  // },
-
-  { //SHARED
-    path: 'carrito',
-    component: CarritoComponent
-  }
 ];
 
 @NgModule({

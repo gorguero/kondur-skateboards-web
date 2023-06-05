@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductosComponent } from './productos/productos.component';
+import { ProductosComponent } from './components/productos/productos.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { FacturasComponent } from './facturas/facturas.component';
-import { ChecksComponent } from './checks/checks.component';
+import { FacturasComponent } from './components/facturas/facturas.component';
+import { ChecksComponent } from './components/checks/checks.component';
+import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
+import { AdminRoutingModule } from './admin-routing.module';
 
 
 
@@ -12,15 +14,17 @@ import { ChecksComponent } from './checks/checks.component';
   declarations: [
     ProductosComponent,
     FacturasComponent,
-    ChecksComponent
+    ChecksComponent,
+    LayoutAdminComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    AdminRoutingModule
   ],
   exports:[
-    ProductosComponent
+    LayoutAdminComponent
   ]
 })
 export class AdminModule { }

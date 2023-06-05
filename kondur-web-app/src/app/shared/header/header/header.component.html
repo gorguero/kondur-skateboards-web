@@ -1,0 +1,47 @@
+<header class="bg-black fixed-top">
+    <div class="container">
+
+        <!-- <app-menu></app-menu> -->
+        <div class="d-flex justify-content-between">
+            <div class="d-flex">
+                
+                <!-- MENU OFFCANVAS -->
+                <nav class="navbar navbar-dark">
+                    <app-menu></app-menu>    
+                </nav>
+                
+                <!-- LETRAS KONDUR -->
+                <a routerLink="/home" routerLinkActive="active">
+                    <img src="../../../assets/imagenes/logo-letras-kondur-blanco.png" style="width: 200px; height:auto" class="d-inline-block align-middle ms-5" alt="Letras kondur Logo">
+                </a>
+            </div>
+            
+            <!-- LOGO DE CARRITO Y INICIO DE SESION -->
+            <div class="d-flex align-items-center">
+                <a routerLink="/carrito" routerLinkActive="active" class="me-4">
+                    <h1 class="text-light"><i class="bi bi-cart-fill" width="30" height="30" alt="carrito de compra"></i></h1>
+                </a>
+                <button 
+                    class="btn btn-outline-warning flex-shrink-0"
+                    type="button"
+                    routerLink="./sesion/components/login/login.component.html" routerLinkActive="active">
+                    <i class="bi bi-person-fill"></i>
+                    Iniciar Sesión
+                </button>
+                <!-- DROPDOWN -->
+                <!-- <div class="dropdown">
+                    <a class="" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <h1 class="text-light"><i class="bi bi-person-fill"></i></h1>
+                    </a>
+                  
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" routerLink="/perfil" routerLinkActive="active"> <i class="bi bi-person me-2"></i>Mi perfil</a></li>
+                      <li><a class="dropdown-item" href="#"> <i class="bi bi-bag me-2"></i>Mis compras</a></li>
+                      <li><a class="dropdown-item" routerLink="/admin/productos" routerLinkActive="active"> <i class="bi bi-archive me-2"></i>Administrar</a></li>
+                      <li><a class="dropdown-item" href="#"> <i class="bi bi-box-arrow-left me-2"></i>Cerrar session</a></li>
+                    </ul>
+                </div>-->
+            </div> 
+        </div>
+    </div>
+</header>

@@ -5,6 +5,7 @@ import { LayoutChecksComponent } from './checks/layout-checks/layout-checks.comp
 import { LayoutNosotrosComponent } from './nosotros/layout-nosotros/layout-nosotros.component';
 import { LayoutTiendaComponent } from './tienda/layout-tienda/layout-tienda.component';
 import { LandingComponent } from './home/components/landing/landing.component';
+import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.component';
 
 const routes: Routes = [
     {
@@ -15,6 +16,7 @@ const routes: Routes = [
             {path:'checks', component: LayoutChecksComponent},
             {path:'nosotros', component: LayoutNosotrosComponent},
             {path:'tienda', component: LayoutTiendaComponent},
+            {path:'tienda/tablas', component: TablasPageComponent},
             {path:'**', redirectTo:'home'},
         ]
     }

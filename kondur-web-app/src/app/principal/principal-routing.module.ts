@@ -7,6 +7,7 @@ import { LayoutTiendaComponent } from './tienda/layout-tienda/layout-tienda.comp
 import { LandingComponent } from './home/components/landing/landing.component';
 import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.component';
 import { IndumentariaPageComponent } from './tienda/pages/indumentaria-page/indumentaria-page.component';
+import { LijasPageComponent } from './tienda/pages/lijas-page/lijas-page.component';
 
 const routes: Routes = [
     {
@@ -19,6 +20,7 @@ const routes: Routes = [
             {path:'tienda', component: LayoutTiendaComponent},
             {path:'tienda/tablas', component: TablasPageComponent},
             {path:'tienda/indumentaria', component: IndumentariaPageComponent},
+            {path:'tienda/lijas', component: LijasPageComponent},
             {path:'**', redirectTo:'home'},
         ]
     }

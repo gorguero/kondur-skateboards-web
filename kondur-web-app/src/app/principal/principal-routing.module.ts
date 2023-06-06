@@ -6,6 +6,7 @@ import { LayoutNosotrosComponent } from './nosotros/layout-nosotros/layout-nosot
 import { LayoutTiendaComponent } from './tienda/layout-tienda/layout-tienda.component';
 import { LandingComponent } from './home/components/landing/landing.component';
 import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.component';
+import { IndumentariaPageComponent } from './tienda/pages/indumentaria-page/indumentaria-page.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,7 @@ const routes: Routes = [
             {path:'nosotros', component: LayoutNosotrosComponent},
             {path:'tienda', component: LayoutTiendaComponent},
             {path:'tienda/tablas', component: TablasPageComponent},
+            {path:'tienda/indumentaria', component: IndumentariaPageComponent},
             {path:'**', redirectTo:'home'},
         ]
     }

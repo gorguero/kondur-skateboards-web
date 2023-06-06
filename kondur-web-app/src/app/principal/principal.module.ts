@@ -16,6 +16,7 @@ import { ProductoComponent } from './tienda/components/producto/producto.compone
 import { PrincipalRoutingModule } from './principal-routing.module';
 import { LandingComponent } from './home/components/landing/landing.component';
 import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.component';
+import { IndumentariaPageComponent } from './tienda/pages/indumentaria-page/indumentaria-page.component';
 
 
 
@@ -37,6 +38,7 @@ import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.comp
     ProductoComponent,
     LandingComponent,
     TablasPageComponent,
+    IndumentariaPageComponent,
   ],
   imports: [
     CommonModule,

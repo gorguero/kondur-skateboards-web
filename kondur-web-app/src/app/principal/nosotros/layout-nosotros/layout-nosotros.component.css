@@ -1,14 +1,15 @@
 .fondo-nosotros{
     background-color: #f8ae6346;
-    margin-top: 50px;
-    padding-top: 80px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    padding: 80px;
 }
 .contenedor-info{
     background-color: rgba(0, 0, 0, 0.658);
 }
-.espaciado{
+/* .espaciado{
     padding: 0px 70px;
-}
+} */
 
 .titulo-nosotros{
     font-size: 60px;

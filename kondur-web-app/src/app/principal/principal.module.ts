@@ -15,6 +15,9 @@ import { LayoutTiendaComponent } from './tienda/layout-tienda/layout-tienda.comp
 import { ProductoComponent } from './tienda/components/producto/producto.component';
 import { PrincipalRoutingModule } from './principal-routing.module';
 import { LandingComponent } from './home/components/landing/landing.component';
+import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.component';
+import { IndumentariaPageComponent } from './tienda/pages/indumentaria-page/indumentaria-page.component';
+import { LijasPageComponent } from './tienda/pages/lijas-page/lijas-page.component';
 
 
 
@@ -35,6 +38,9 @@ import { LandingComponent } from './home/components/landing/landing.component';
     LayoutTiendaComponent,
     ProductoComponent,
     LandingComponent,
+    TablasPageComponent,
+    IndumentariaPageComponent,
+    LijasPageComponent,
   ],
   imports: [
     CommonModule,

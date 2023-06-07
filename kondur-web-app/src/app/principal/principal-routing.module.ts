@@ -5,6 +5,10 @@ import { LayoutChecksComponent } from './checks/layout-checks/layout-checks.comp
 import { LayoutNosotrosComponent } from './nosotros/layout-nosotros/layout-nosotros.component';
 import { LayoutTiendaComponent } from './tienda/layout-tienda/layout-tienda.component';
 import { LandingComponent } from './home/components/landing/landing.component';
+import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.component';
+import { IndumentariaPageComponent } from './tienda/pages/indumentaria-page/indumentaria-page.component';
+import { LijasPageComponent } from './tienda/pages/lijas-page/lijas-page.component';
+import { ProductoComponent } from './tienda/components/producto/producto.component';
 
 const routes: Routes = [
     {
@@ -15,6 +19,10 @@ const routes: Routes = [
             {path:'checks', component: LayoutChecksComponent},
             {path:'nosotros', component: LayoutNosotrosComponent},
             {path:'tienda', component: LayoutTiendaComponent},
+            {path:'tienda/tablas', component: TablasPageComponent},
+            {path:'tienda/indumentaria', component: IndumentariaPageComponent},
+            {path:'tienda/lijas', component: LijasPageComponent},
+            {path:'tienda/:id', component: ProductoComponent},
             {path:'**', redirectTo:'home'},
         ]
     }

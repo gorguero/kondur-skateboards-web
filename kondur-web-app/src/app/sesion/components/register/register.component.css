@@ -1,3 +1,32 @@
 .separador{
     margin-top: 80px;
 }
+.fondo-formulario{
+    background-color: #f77a00;
+}
+.estirar{
+    padding-top: 100px;
+}
+.logo-login{
+    width: 480px;
+    height:480px;
+}
+.borde-formularios{
+   border-radius: 20px;
+}
+.txt-ingresar{
+    color: black;
+}
+
+.txt-ingresar:hover{
+    color: white;
+}
+.btn-registrarse{
+    border: none;
+}
+
+.btn-registrarse:hover{
+    background: black;
+    border: none;
+    color: white;
+}

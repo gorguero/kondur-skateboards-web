@@ -11,3 +11,22 @@
     width: 480px;
     height:480px;
 }
+.borde-formularios{
+   border-radius: 20px;
+}
+.txt-registrarse{
+    color: black;
+}
+
+.txt-registrarse:hover{
+    color: white;
+}
+.btn-ingresar{
+    border: none;
+}
+
+.btn-ingresar:hover{
+    background: black;
+    border: none;
+    color: white;
+}

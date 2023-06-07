@@ -1,78 +1,32 @@
 <app-header></app-header>
-<!-- <div class="fondo-black h-100">
-    <section class="container pt-5 pb-5 separador">
-        <div>
-            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-                <div class="container h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="card bg-dark" style="border-radius: 15px;">
-                                <div class="card-body p-5">
-                                    <h2 class="text-uppercase text-light text-center mb-5">Regístrate</h2>
-                                    <form class="form-floating">
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label text-light" for="form3Example1cg">Usuario</label>
-                                            <input type="text" formControlName="usuario" class="form-control form-control-lg"/>
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label text-light" for="form3Example4cg">Contraseña</label>
-                                            <input type="password" formControlName="contrasenia" class="form-control form-control-lg" />
-                                        </div>
-                                        <div class="d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
-                                                Iniciar Sesion
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div> -->
 <div class="container-fluid h-100">
     <div class="row h-100 align-items-center">
-        <div class="col bg-black justify-content-center h-100 d-flex align-items-center pt-5">
-            <!-- <form class="form-floating w-100">
-                <div class="form-outline mb-4">
-                    <label class="form-label text-light" for="form3Example1cg">Usuario</label>
-                    <input type="text" formControlName="usuario" class="form-control form-control-lg"/>
-                </div>
-                <div class="form-outline mb-4">
-                    <label class="form-label text-light" for="form3Example4cg">Contraseña</label>
-                    <input type="password" formControlName="contrasenia" class="form-control form-control-lg" />
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
-                        Iniciar Sesion
-                    </button>
-                </div>
-            </form> -->
+        <div class="col bg-black justify-content-center h-100 d-flex align-items-center pt-5"> 
             <img class="logo-login opacity-75" src="../../../assets/imagenes/logo-kondur.png" alt="">
         </div>
         <div class="col fondo-formulario h-100 d-flex align-items-center justify-content-center">
-           <div>
-            <h2 class="fw-bold text-center">Sing In | Sing Up</h2>
-            <form class="form-floating ">
-                <div class="form-outline mb-4">
-                    <label class="form-label text-light" for="form3Example1cg">Usuario</label>
-                    <input type="text" formControlName="usuario" class="form-control form-control-lg"/>
-                </div>
-                <div class="form-outline mb-4">
-                    <label class="form-label text-light" for="form3Example4cg">Contraseña</label>
-                    <input type="password" formControlName="contrasenia" class="form-control form-control-lg" />
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
-                        Iniciar Sesion
-                    </button>
-                </div>
-            </form>
+           <div class="shadow-lg p-5 borde-formularios">
+                <h2 class="fw-bold text-center">
+                    <a class="text-decoration-none text-white text-uppercase" routerLink="./login.component.html" routerLinkActive="active">Ingresar</a>
+                    |
+                    <a class="text-decoration-none text-uppercase txt-registrarse" routerLink="/sesion/Register" routerLinkActive="active">Registrarse</a>
+                </h2>
+                <form class="form-floating ">
+                    <div class="form-outline mb-4">
+                        <label class="form-label text-light" for="validationDefault01">Usuario</label>
+                        <input type="text" formControlName="usuario" id="validationDefault01" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label text-light" for="form3Example4cg">Contraseña</label>
+                        <input type="password" formControlName="contrasenia" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold btn-ingresar">
+                            Iniciar Sesion
+                        </button>   
+                    </div>
+                </form>
            </div>
         </div>
     </div>
 </div>
-<app-footer></app-footer>

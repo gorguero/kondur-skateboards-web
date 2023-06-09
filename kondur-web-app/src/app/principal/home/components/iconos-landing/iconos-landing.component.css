@@ -1,42 +1,42 @@
 
 .separador{
-    margin-top: 100px;
-    margin-bottom: 500px;
+  margin-top: 100px;
+  padding-bottom: 200px;
 }
 .contenedor-iconos{
-    max-width: 950px;
+  max-width: 950px;
 }
 .iconos-home {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
   
-  .iconos-home .col-4 {
-    width: 25%;
-    margin: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  }
+.iconos-home .col-4 {
+  width: 25%;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
   
-  .iconos-home img {
-    height: 100px;
-    width: 100px;
-    margin-right: 20px;
-  }
+.iconos-home img {
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+}
   
-  .iconos-home h5 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .iconos-home p {
-    font-size: 14px;
-    color: #777;
-  }
+.iconos-home h5 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.iconos-home p {
+  font-size: 14px;
+  color: #777;
+}
   

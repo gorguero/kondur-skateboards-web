@@ -1,40 +1,31 @@
-/* h1{
-    padding-top: 100px;
-    padding-bottom: 100px;
+.contenedor-carrito{
+    background: rgba(255, 255, 255, 0.623);
+    border-radius: 20px;
+}
+th h1{
+    margin: 0;
+    font-weight: bold;
+}
+td p{
+    margin: 0;
 }
 
-.fullHeight {
-    height: 100vh;
-}
-
-table{
-    background-color: white;
-} */
-.parent {
-    display: grid;
-    grid-template-columns: repeat(12, 2fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-}
-
-.div1 { grid-area: 1 / 2 / 6 / 4; }
-.div2 { grid-area: 2 / 2 / 3 / 4; }
-.div3 { grid-area: 3 / 2 / 4 / 4; }
-.div4 { grid-area: 4 / 2 / 5 / 4; }
-.div6 { grid-area: 1 / 4 / 6 / 12; }
-
-h2{
+.btn-vaciar{
+    background: black;
     color: white;
-    transition: background-color .5s;
+    
 }
-h2:hover{
-    color: black;
-    background-color:white;
+.btn-vaciar:hover{
+    background: red;
+    color: white;
 }
-.active h2{
-    background-color: white;
-    color: black;
+.btn-continuar{
+    background: black;
+    color: white;
+    
+}
+.btn-continuar:hover{
+    background: green;
 }
 
 .text {
@@ -44,3 +35,13 @@ h2:hover{
     display: inline-block;
     text-overflow: ellipsis;
 }
+.img-carrito{
+    width: 50px;
+}
+.limit-width {
+    max-width: 200px; /* Puedes ajustar el valor según tus necesidades */
+    
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+  

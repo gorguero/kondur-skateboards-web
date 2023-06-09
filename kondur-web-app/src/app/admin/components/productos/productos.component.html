@@ -1,150 +1,151 @@
 <div class="fondo-black">
+  <app-header></app-header>
   <div class="p-5">
     <h1 class="text-uppercase text-black fw-bold text-center pt-5">
-        Administrar Productos
+      Administrar Productos
     </h1>
     <div class="parent mb-5 mt-2">
-        <!-- MENU DE CRUDS -->
-        <div class="div1 bg-black p-3 rounded"> 
-            <div class="div2 text-center mt-4">
-                <a class="text-decoration-none" routerLink="/admin/productos" routerLinkActive="active">
-                    <h2 class=" border-bottom border-white">Productos</h2>
-                </a>
-                <a class="text-decoration-none" routerLink="/admin/facturas" routerLinkActive="active">
-                    <h2 class="border-bottom border-white">Facturas</h2>
-                </a>
-                <a class="text-decoration-none" routerLink="/admin/checks" routerLinkActive="active">
-                    <h2 class="border-bottom border-white">Checks</h2>
-                </a>
-            </div>
-        </div>
-        <!-- TABLA CRUD -->
-        <div class="div6 bg-white ms-2 rounded">
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <span class="titulo">LISTADO DE PRODUCTOS</span>
-                            <button class="btn btn-success float-end" >Agregar</button>
-                            <!-- TABLA -->
-                            <table class="table table-striped mt-3">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Descripcion</th>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">Medidas</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Stock</th>
-                                    <th scope="col">Acciones</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td class="align-middle"><p>111111</p></td>
-                                    <td class="align-middle"><p>222222222</p></td>
-                                    <td class="align-middle"><p>3333333333</p></td>
-                                    <td class="align-middle"><p>4</p></td>
-                                    <td class="align-middle"><p>55555555</p></td>
-                                    <td class="align-middle"><p>4</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr >
-                                    <td><p>111111</p></td>
-                                    <td><p>222222222</p></td>
-                                    <td><p>3333333333</p></td>
-                                    <td><p>4</p></td>
-                                    <td><p>55555555</p></td>
-                                    <td><p>4</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr >
-                                    <td><p>111111</p></td>
-                                    <td><p>222222222</p></td>
-                                    <td><p>3333333333</p></td>
-                                    <td><p>4</p></td>
-                                    <td><p>55555555</p></td>
-                                    <td><p>4</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr >
-                                    <td><p>111111</p></td>
-                                    <td><p>222222222</p></td>
-                                    <td><p>3333333333</p></td>
-                                    <td><p>4</p></td>
-                                    <td><p>55555555</p></td>
-                                    <td><p>4</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr >
-                                    <td><p>111111</p></td>
-                                    <td><p>222222222</p></td>
-                                    <td><p>3333333333</p></td>
-                                    <td><p>4</p></td>
-                                    <td><p>55555555</p></td>
-                                    <td><p>4</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                            </table>
-                            <!-- PAGINADO -->
-                            <nav aria-label="Page navigation example" style="display:inline-block">
-                                <ul class="pagination">
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                      <span aria-hidden="true">&laquo;</span>
+      <!-- MENU DE CRUDS -->
+      <div class="div1 bg-black p-3 rounded"> 
+          <div class="div2 text-center mt-4">
+              <a class="text-decoration-none" routerLink="/admin/productos" routerLinkActive="active">
+                  <h2 class=" border-bottom border-white">Productos</h2>
+              </a>
+              <a class="text-decoration-none" routerLink="/admin/facturas" routerLinkActive="active">
+                  <h2 class="border-bottom border-white">Facturas</h2>
+              </a>
+              <a class="text-decoration-none" routerLink="/admin/checks" routerLinkActive="active">
+                  <h2 class="border-bottom border-white">Checks</h2>
+              </a>
+          </div>
+      </div>
+      <!-- TABLA CRUD -->
+      <div class="div6 bg-white ms-2 rounded">
+          <div class="row">
+              <div class="col">
+                  <div class="card">
+                      <div class="card-body text-center">
+                          <span class="titulo">LISTADO DE PRODUCTOS</span>
+                          <button class="btn btn-success float-end" >Agregar</button>
+                          <!-- TABLA -->
+                          <table class="table table-striped mt-3">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Descripcion</th>
+                                  <th scope="col">Imagen</th>
+                                  <th scope="col">Medidas</th>
+                                  <th scope="col">Precio</th>
+                                  <th scope="col">Stock</th>
+                                  <th scope="col">Acciones</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="align-middle"><p>111111</p></td>
+                                  <td class="align-middle"><p>222222222</p></td>
+                                  <td class="align-middle"><p>3333333333</p></td>
+                                  <td class="align-middle"><p>4</p></td>
+                                  <td class="align-middle"><p>55555555</p></td>
+                                  <td class="align-middle"><p>4</p></td>
+                                  <td class="d-flex justify-content-around">
+                                    <a href="">
+                                      <h1><i class="bi bi-pencil-fill"></i></h1>
                                     </a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                      <span aria-hidden="true">&raquo;</span>
+                                    <a  href="">
+                                      <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
                                     </a>
-                                  </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td><p>111111</p></td>
+                                  <td><p>222222222</p></td>
+                                  <td><p>3333333333</p></td>
+                                  <td><p>4</p></td>
+                                  <td><p>55555555</p></td>
+                                  <td><p>4</p></td>
+                                  <td class="d-flex justify-content-around">
+                                    <a href="">
+                                      <h1><i class="bi bi-pencil-fill"></i></h1>
+                                    </a>
+                                    <a  href="">
+                                      <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td><p>111111</p></td>
+                                  <td><p>222222222</p></td>
+                                  <td><p>3333333333</p></td>
+                                  <td><p>4</p></td>
+                                  <td><p>55555555</p></td>
+                                  <td><p>4</p></td>
+                                  <td class="d-flex justify-content-around">
+                                    <a href="">
+                                      <h1><i class="bi bi-pencil-fill"></i></h1>
+                                    </a>
+                                    <a  href="">
+                                      <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td><p>111111</p></td>
+                                  <td><p>222222222</p></td>
+                                  <td><p>3333333333</p></td>
+                                  <td><p>4</p></td>
+                                  <td><p>55555555</p></td>
+                                  <td><p>4</p></td>
+                                  <td class="d-flex justify-content-around">
+                                    <a href="">
+                                      <h1><i class="bi bi-pencil-fill"></i></h1>
+                                    </a>
+                                    <a  href="">
+                                      <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tr >
+                                  <td><p>111111</p></td>
+                                  <td><p>222222222</p></td>
+                                  <td><p>3333333333</p></td>
+                                  <td><p>4</p></td>
+                                  <td><p>55555555</p></td>
+                                  <td><p>4</p></td>
+                                  <td class="d-flex justify-content-around">
+                                    <a href="">
+                                      <h1><i class="bi bi-pencil-fill"></i></h1>
+                                    </a>
+                                    <a  href="">
+                                      <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                                    </a>
+                                  </td>
+                                </tr>
+                              </tbody>
+                          </table>
+                          <!-- PAGINADO -->
+                          <nav aria-label="Page navigation example" style="display:inline-block">
+                              <ul class="pagination">
+                                <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                  </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                  </a>
+                                </li>
+                              </ul>
+                          </nav>
+                      </div>
+                  </div>
               </div>
-        </div>
+            </div>
+      </div>
     </div>
   </div>
   <app-footer></app-footer>

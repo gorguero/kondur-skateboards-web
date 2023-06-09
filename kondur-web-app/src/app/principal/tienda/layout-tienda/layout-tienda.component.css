@@ -12,6 +12,8 @@
 /*Productos*/
 .fondo-productos{
     background-color: #f8ae6346;
+    margin-top: 180px;
+    margin-bottom: 80px;
 }
 .caja-products{
     height: 270px;

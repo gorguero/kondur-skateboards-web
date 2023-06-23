@@ -1,5 +1,4 @@
-<div class="fondo-black">
-  <app-header></app-header>
+<div class="fondo-orange">
   <div class="p-5">
     <h1 class="text-uppercase text-black fw-bold text-center pt-5">
         Administrar Facturas
@@ -8,13 +7,13 @@
         <!-- MENU DE CRUDS -->
         <div class="div1 bg-black p-3 rounded"> 
             <div class="div2 text-center mt-4">
-                <a class="text-decoration-none" routerLink="/admin/productos" routerLinkActive="active">
+                <a class="text-decoration-none" routerLink="/administrador/productos" routerLinkActive="active">
                     <h2 class=" border-bottom border-white">Productos</h2>
                 </a>
-                <a class="text-decoration-none" routerLink="/admin/facturas" routerLinkActive="active">
+                <a class="text-decoration-none" routerLink="/administrador/facturas" routerLinkActive="active">
                     <h2 class="border-bottom border-white">Facturas</h2>
                 </a>
-                <a class="text-decoration-none" routerLink="/admin/checks" routerLinkActive="active">
+                <a class="text-decoration-none" routerLink="/administrador/checks" routerLinkActive="active">
                     <h2 class="border-bottom border-white">Checks</h2>
                 </a>
             </div>
@@ -26,7 +25,6 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <span class="titulo">LISTADO DE FACTURAS</span>
-                            <button class="btn btn-success float-end" >Agregar</button>
                             <!-- TABLA -->
                             <table class="table table-striped mt-3">
                                 <thead>

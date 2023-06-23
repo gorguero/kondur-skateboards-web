@@ -4,232 +4,232 @@
         Administrar Checks
     </h1>
     <div class="parent mb-5 mt-2">
-        <!-- MENU DE CRUDS -->
-        <div class="div1 bg-black p-3 rounded">
-            <div class="div2 text-center mt-4">
-              <a class="text-decoration-none" routerLink="/administrador/productos" routerLinkActive="active">
-                <h2 class=" border-bottom border-white">Productos</h2>
-              </a>
-              <a class="text-decoration-none" routerLink="/administrador/facturas" routerLinkActive="active">
-                <h2 class="border-bottom border-white">Facturas</h2>
-              </a>
-              <a class="text-decoration-none" routerLink="/administrador/checks" routerLinkActive="active">
-                <h2 class="border-bottom border-white">Checks</h2>
-              </a>
-            </div>
+      <!-- MENU DE CRUDS -->
+      <div class="div1 bg-black p-3 rounded">
+        <div class="div2 text-center mt-4">
+          <a class="text-decoration-none" routerLink="/administrador/productos" routerLinkActive="active">
+            <h2 class=" border-bottom border-white">Productos</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/facturas" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Facturas</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/checks" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Checks</h2>
+          </a>
         </div>
-        <!-- TABLA CRUD -->
-        <div class="div6 bg-white ms-2 rounded">
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <span class="titulo">LISTADO DE CHECKS</span>
-                            <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Agregar
-                            </button>
-                            <!-- MODAL -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title fw-bold fs-5">Agregar Checks</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <div class="row">
-                                      <div class="col-md-6">
-                                        <div class="form-group text-start mb-3">
-                                          <label for="nombre">Titulo de Check:</label>
-                                          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto" required>
-                                        </div>
-                                        <div class="form-group text-start mb-3">
-                                          <label for="imagen">Imagen del filmer:</label>
-                                          <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL de la imagen" required>
-                                        </div>
-                                        <div class="form-group text-start mb-3">
-                                          <label for="descripcion">Descripción:</label>
-                                          <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
-                                        </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="form-group text-start mb-3">
-                                          <label for="precio">Contacto:</label>
-                                          <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
-                                        </div>
-                                        <div class="form-group text-start mb-3">
-                                          <label for="imagen">Url del video:</label>
-                                          <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL de la imagen" required>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                  </div>
-                                </div>
-                              </div>
+      </div>
+      <!-- TABLA CRUD -->
+      <div class="div6 bg-white ms-2 rounded">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body text-center">
+                <span class="titulo">LISTADO DE CHECKS</span>
+                <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Agregar
+                </button>
+                <!-- MODAL -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title fw-bold fs-5">Agregar Checks</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group text-start mb-3">
+                              <label for="nombre">Titulo de Check:</label>
+                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto" required>
                             </div>
-                            <!-- TABLA -->
-                            <table class="table table-striped mt-3">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Titulo</th>
-                                    <th scope="col">Descripción</th>
-                                    <th scope="col">IG raider</th>
-                                    <th scope="col">Filmador</th>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">URL</th>
-                                    <th scope="col">Acciones</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td class="align-middle"><p>Los pibes maestros</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                                        </div>
-                                    </td>
-                                    <td class="align-middle"><p>@igejemplo</p></td>
-                                    <td class="align-middle"><p>Santi</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                                        </div>
-                                    </td>
-                                    <td class="d-flex justify-content-around">
-                                        <a href="">
-                                          <h1><i class="bi bi-pencil-fill"></i></h1>
-                                        </a>
-                                        <a  href="">
-                                          <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                        </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>Los pibes maestros</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                                        </div>
-                                    </td>
-                                    <td class="align-middle"><p>@igejemplo</p></td>
-                                    <td class="align-middle"><p>Santi</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                                        </div>
-                                    </td>
-                                    <td class="d-flex justify-content-around">
-                                        <a href="">
-                                          <h1><i class="bi bi-pencil-fill"></i></h1>
-                                        </a>
-                                        <a  href="">
-                                          <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                        </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>Los pibes maestros</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                                        </div>
-                                    </td>
-                                    <td class="align-middle"><p>@igejemplo</p></td>
-                                    <td class="align-middle"><p>Santi</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                                        </div>
-                                    </td>
-                                    <td class="d-flex justify-content-around">
-                                        <a href="">
-                                          <h1><i class="bi bi-pencil-fill"></i></h1>
-                                        </a>
-                                        <a  href="">
-                                          <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                        </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>Los pibes maestros</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                                        </div>
-                                    </td>
-                                    <td class="align-middle"><p>@igejemplo</p></td>
-                                    <td class="align-middle"><p>Santi</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                                        </div>
-                                    </td>
-                                    <td class="d-flex justify-content-around">
-                                        <a href="">
-                                          <h1><i class="bi bi-pencil-fill"></i></h1>
-                                        </a>
-                                        <a  href="">
-                                          <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                        </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>Los pibes maestros</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                                        </div>
-                                    </td>
-                                    <td class="align-middle"><p>@igejemplo</p></td>
-                                    <td class="align-middle"><p>Santi</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle ">
-                                        <div class="text">
-                                            https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                                        </div>
-                                    </td>
-                                    <td class="d-flex justify-content-around">
-                                        <a href="">
-                                          <h1><i class="bi bi-pencil-fill"></i></h1>
-                                        </a>
-                                        <a  href="">
-                                          <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                        </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                            </table>
-                            <!-- PAGINADO -->
-                            <nav aria-label="Page navigation example" style="display:inline-block">
-                                <ul class="pagination">
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                      <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                      <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                  </li>
-                                </ul>
-                            </nav>
+                            <div class="form-group text-start mb-3">
+                              <label for="imagen">Imagen del filmer:</label>
+                              <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                            </div>
+                            <div class="form-group text-start mb-3">
+                              <label for="descripcion">Descripción:</label>
+                              <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group text-start mb-3">
+                              <label for="precio">Contacto:</label>
+                              <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
+                            </div>
+                            <div class="form-group text-start mb-3">
+                              <label for="imagen">Url del video:</label>
+                              <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                            </div>
+                          </div>
                         </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                      </div>
                     </div>
+                  </div>
                 </div>
+                <!-- TABLA -->
+                <table class="table table-striped mt-3">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">IG raider</th>
+                        <th scope="col">Filmador</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="align-middle"><p>Los pibes maestros</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
+                            </div>
+                        </td>
+                        <td class="align-middle"><p>@igejemplo</p></td>
+                        <td class="align-middle"><p>Santi</p></td>
+                        <td class="align-middle"><p>23/06/23</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
+                            </div>
+                        </td>
+                        <td class="d-flex justify-content-around">
+                            <a href="">
+                              <h1><i class="bi bi-pencil-fill"></i></h1>
+                            </a>
+                            <a  href="">
+                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                            </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="align-middle"><p>Los pibes maestros</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
+                            </div>
+                        </td>
+                        <td class="align-middle"><p>@igejemplo</p></td>
+                        <td class="align-middle"><p>Santi</p></td>
+                        <td class="align-middle"><p>23/06/23</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
+                            </div>
+                        </td>
+                        <td class="d-flex justify-content-around">
+                            <a href="">
+                              <h1><i class="bi bi-pencil-fill"></i></h1>
+                            </a>
+                            <a  href="">
+                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                            </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="align-middle"><p>Los pibes maestros</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
+                            </div>
+                        </td>
+                        <td class="align-middle"><p>@igejemplo</p></td>
+                        <td class="align-middle"><p>Santi</p></td>
+                        <td class="align-middle"><p>23/06/23</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
+                            </div>
+                        </td>
+                        <td class="d-flex justify-content-around">
+                            <a href="">
+                              <h1><i class="bi bi-pencil-fill"></i></h1>
+                            </a>
+                            <a  href="">
+                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                            </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="align-middle"><p>Los pibes maestros</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
+                            </div>
+                        </td>
+                        <td class="align-middle"><p>@igejemplo</p></td>
+                        <td class="align-middle"><p>Santi</p></td>
+                        <td class="align-middle"><p>23/06/23</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
+                            </div>
+                        </td>
+                        <td class="d-flex justify-content-around">
+                            <a href="">
+                              <h1><i class="bi bi-pencil-fill"></i></h1>
+                            </a>
+                            <a  href="">
+                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                            </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="align-middle"><p>Los pibes maestros</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
+                            </div>
+                        </td>
+                        <td class="align-middle"><p>@igejemplo</p></td>
+                        <td class="align-middle"><p>Santi</p></td>
+                        <td class="align-middle"><p>23/06/23</p></td>
+                        <td class="align-middle ">
+                            <div class="text">
+                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
+                            </div>
+                        </td>
+                        <td class="d-flex justify-content-around">
+                            <a href="">
+                              <h1><i class="bi bi-pencil-fill"></i></h1>
+                            </a>
+                            <a  href="">
+                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                            </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                <!-- PAGINADO -->
+                <nav aria-label="Page navigation example" style="display:inline-block">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                </nav>
               </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </div>

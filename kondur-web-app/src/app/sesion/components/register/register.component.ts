@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,8 @@ export class RegisterComponent implements OnInit {
     codPostal: [''],
     terminos: ['', Validators.required],
   });
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private fb: FormBuilder, private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     this.registroForm.reset();
@@ -52,9 +54,7 @@ export class RegisterComponent implements OnInit {
     }
 
     return null;
-
   }
-
   /* FIN VALIDACIONES Y MENSAJES DE RESPUESTA */
 
   registrarUsuario():void{
@@ -65,6 +65,11 @@ export class RegisterComponent implements OnInit {
     }
 
     console.log(this.registroForm.value);
+
+    this.usuarioService.registrarUsuario( this.registroForm.value )
+      .subscribe( resp => {
+        console.log(resp);
+      })
 
     this.registroForm.reset();
 

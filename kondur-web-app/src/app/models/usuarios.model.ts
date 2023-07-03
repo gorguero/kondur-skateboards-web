@@ -8,7 +8,7 @@ export class Usuarios {
     public repeatPass?: string,
     public creadoEn?: Date,
     public actualizadoEn?: Date,
-    public rol?: 'ADMIN_ROLE' | 'USER_ROLE',
+    public rol?: string,
     public estado?: boolean,
     public direcciones?: string[],
   ) {}

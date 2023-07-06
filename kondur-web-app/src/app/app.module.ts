@@ -10,6 +10,8 @@ import { AdminModule } from './admin/admin.module';
 import { PrincipalModule } from './principal/principal.module';
 import { SesionModule } from './sesion/sesion.module';
 
+import { HttpClientModule} from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,

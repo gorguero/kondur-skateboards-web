@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
-import { FacturasComponent } from './admin/components/facturas/facturas.component';
+import { VentasComponent } from './admin/components/ventas/ventas.component';
 
 const routes: Routes = [
   {
-    path: 'facturas', component: FacturasComponent
+    path: 'ventas', component: VentasComponent
   },
   {
     path: 'administrador',

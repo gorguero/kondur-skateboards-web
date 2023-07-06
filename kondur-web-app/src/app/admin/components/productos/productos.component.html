@@ -90,84 +90,22 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
                         <th scope="col">Imagen</th>
-                        <th scope="col">Medidas</th>
+                        <th scope="col">Medida</th>
+                        <th scope="col">Talle</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="align-middle"><p>111111</p></td>
-                        <td class="align-middle"><p>222222222</p></td>
-                        <td class="align-middle"><p>3333333333</p></td>
-                        <td class="align-middle"><p>4</p></td>
-                        <td class="align-middle"><p>55555555</p></td>
-                        <td class="align-middle"><p>4</p></td>
-                        <td class="d-flex justify-content-around">
-                          <a href="">
-                            <h1><i class="bi bi-pencil-fill"></i></h1>
-                          </a>
-                          <a  href="">
-                            <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr >
-                        <td><p>111111</p></td>
-                        <td><p>222222222</p></td>
-                        <td><p>3333333333</p></td>
-                        <td><p>4</p></td>
-                        <td><p>55555555</p></td>
-                        <td><p>4</p></td>
-                        <td class="d-flex justify-content-around">
-                          <a href="">
-                            <h1><i class="bi bi-pencil-fill"></i></h1>
-                          </a>
-                          <a  href="">
-                            <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr >
-                        <td><p>111111</p></td>
-                        <td><p>222222222</p></td>
-                        <td><p>3333333333</p></td>
-                        <td><p>4</p></td>
-                        <td><p>55555555</p></td>
-                        <td><p>4</p></td>
-                        <td class="d-flex justify-content-around">
-                          <a href="">
-                            <h1><i class="bi bi-pencil-fill"></i></h1>
-                          </a>
-                          <a  href="">
-                            <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr >
-                        <td><p>111111</p></td>
-                        <td><p>222222222</p></td>
-                        <td><p>3333333333</p></td>
-                        <td><p>4</p></td>
-                        <td><p>55555555</p></td>
-                        <td><p>4</p></td>
-                        <td class="d-flex justify-content-around">
-                          <a href="">
-                            <h1><i class="bi bi-pencil-fill"></i></h1>
-                          </a>
-                          <a  href="">
-                            <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr >
-                        <td><p>111111</p></td>
-                        <td><p>222222222</p></td>
-                        <td><p>3333333333</p></td>
-                        <td><p>4</p></td>
-                        <td><p>55555555</p></td>
-                        <td><p>4</p></td>
+                      <tr *ngFor="let producto of listProductos">
+                        <td class="align-middle">{{producto.nombreProducto}}</td>
+                        <td class="align-middle">{{producto.descripcion}}</td>
+                        <td class="align-middle">{{producto.imagen}}</td>
+                        <td class="align-middle">{{producto.medida}}</td>
+                        <td class="align-middle">{{producto.talle}}</td>
+                        <td class="align-middle">{{producto.precio}}</td>
+                        <td class="align-middle">{{producto.stock}}</td>
                         <td class="d-flex justify-content-around">
                           <a href="">
                             <h1><i class="bi bi-pencil-fill"></i></h1>

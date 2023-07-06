@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -17,14 +18,16 @@ export class RegisterComponent implements OnInit {
     nickname: ['', [Validators.required, Validators.minLength(5)]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     repPassword: ['', [Validators.required, Validators.minLength(8)]],
-    calle1: [''],
-    calle2: [''],
-    altura: [''],
-    codPostal: [''],
+    direcciones: this.fb.group({
+      calle1: [''],
+      calle2: [''],
+      altura: [''],
+      codPostal: [''],
+    }),
     terminos: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private usuarioService: UsuarioService) { }
+  constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
     this.registroForm.reset();
@@ -58,18 +61,23 @@ export class RegisterComponent implements OnInit {
   /* FIN VALIDACIONES Y MENSAJES DE RESPUESTA */
 
   registrarUsuario():void{
-    
+    console.log(this.registroForm.value)
     if( this.registroForm.invalid ) {
       this.registroForm.markAllAsTouched();
       return;
     }
-
-    console.log(this.registroForm.value);
-
     this.usuarioService.registrarUsuario( this.registroForm.value )
-      .subscribe( resp => {
-        console.log(resp);
-      })
+      .subscribe(
+        {
+          next: resp => {
+            console.log(resp)
+            this.router.navigate(['/home'])
+          },
+          error: err => {
+            console.log(err);
+          }
+        }
+    );
 
     this.registroForm.reset();
 

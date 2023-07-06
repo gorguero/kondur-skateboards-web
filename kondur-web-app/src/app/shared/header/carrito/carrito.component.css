@@ -44,4 +44,6 @@ td p{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-  
+#tabla-scroll {
+    overflow-y: scroll;
+}

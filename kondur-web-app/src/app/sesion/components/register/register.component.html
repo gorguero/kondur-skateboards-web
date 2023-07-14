@@ -3,15 +3,15 @@
         <div class="col bg-black justify-content-center h-100 d-flex align-items-center pt-5"> 
             <img class="logo-login opacity-75" src="../../../assets/imagenes/logo-kondur.png" alt="">
         </div>
-        <div class="col fondo-formulario h-100 d-flex align-items-center justify-content-center">
+        <div class="col fondo-formulario  h-100 d-flex align-items-center justify-content-center">
            <div class="shadow-lg p-5 borde-formularios">
                 <h2 class="fw-bold text-center">
                     <a class="text-decoration-none text-uppercase txt-ingresar" routerLink="../login/login.component.html"routerLinkActive="active">Ingresar</a>
                     |
                     <a class="text-decoration-none text-white text-uppercase txt-registrarse" routerLink="/sesion/Register" routerLinkActive="active">Registrarse</a>
                 </h2>
-                <form class="form-floating" [formGroup]="registroForm" (ngSubmit)="registrarUsuario()" autocomplete="off">
-                    <div class="d-flex justify-content-around">
+                <form class="form-floating  formulario-scrollable pb-3" [formGroup]="registroForm" (ngSubmit)="registrarUsuario()" autocomplete="off">
+                    <div class="d-flex justify-content-around max-height scrollspy-example " data-bs-smooth-scroll="true">
 
                         <div class="me-4">
 

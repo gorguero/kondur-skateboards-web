@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
         {
           next: resp => {
             console.log(resp)
-            this.router.navigate(['/home'])
+            this.router.navigate(['/sesion/Login']);
           },
           error: err => {
             console.log(err);

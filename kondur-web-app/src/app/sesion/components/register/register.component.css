@@ -3,6 +3,7 @@
 } */
 .fondo-formulario{
     background-color: #f77a00;
+    padding-top: 100px;
 }
 /* .estirar{
     padding-top: 100px;
@@ -13,6 +14,9 @@
 }
 .borde-formularios{
    border-radius: 20px;
+   height: 500px;
+   padding-bottom: 300px;
+   
 }
 .txt-ingresar{
     color: black;
@@ -30,3 +34,33 @@
     border: none;
     color: white;
 }
+.max-height{
+    max-height: 500px;
+}
+.formulario-scrollable {
+    overflow-y: auto; /* Hace que el contenido sea desplazable verticalmente */
+    max-height: 400px; /* Establece la altura máxima del formulario */
+    padding-right: 20px;
+}
+/* Estilos para la barra de desplazamiento */
+.formulario-scrollable::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+    width: 6px;
+  }
+  
+  /* Estilos para el track de la barra de desplazamiento (la parte gris) */
+  .formulario-scrollable::-webkit-scrollbar-track {
+    background: #f1f1f100; /* Color de fondo del track */
+  }
+  
+  /* Estilos para el thumb de la barra de desplazamiento (el control deslizante) */
+  .formulario-scrollable::-webkit-scrollbar-thumb {
+    background: #000000; /* Color del thumb */
+    border-radius: 5px; /* Borde redondeado del thumb */
+  }
+  
+  /* Estilos para el thumb de la barra de desplazamiento al pasar el mouse sobre él */
+  .formulario-scrollable::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del thumb al pasar el mouse sobre él */
+  }
+    

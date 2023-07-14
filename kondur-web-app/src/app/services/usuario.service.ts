@@ -13,7 +13,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   registrarUsuario( data: Registro ){
-    return this.http.post(`${url_base}/api/usuarios`, data);
+    return this.http.post(`${url_base}/usuarios`, data);
   }
 
 }

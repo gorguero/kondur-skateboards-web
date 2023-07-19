@@ -34,7 +34,7 @@
                 <!-- MODAL -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content">
+                    <form class="modal-content" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
                       <div class="modal-header">
                         <h5 class="modal-title fw-bold fs-5">Agregar Producto</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -42,36 +42,89 @@
                       <div class="modal-body">
                         <div class="row">
                           <div class="col-md-6">
-                            <div class="form-group text-start mb-3">
+                            <div class="form-group text-start mb-3 has-validation">
                               <label for="nombre">Nombre del Producto:</label>
-                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto" required>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="nombreProducto" type="text" class="form-control"
+                              [ngClass]="{'is-invalid': productoForm.get('nombreProducto')?.hasError('required') && productoForm.get('nombreProducto')?.touched}" id="nombre" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingrese el nombre del producto" required>
+                              <div class="invalid-feedback">
+                                El nombre del producto <strong>es obligatorio.</strong>
+                              </div>
                             </div>
-                            <div class="form-group text-start mb-3">
+
+                            <div class="form-group text-start mb-3 has-validation">
                               <label for="imagen">Imagen del Producto:</label>
-                              <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="imagen" type="url" class="form-control" 
+                              [ngClass]="{'is-invalid': productoForm.get('imagen')?.hasError('required') && productoForm.get('imagen')?.touched}" id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                              <div class="invalid-feedback">
+                                La imagen del producto <strong>es obligatorio.</strong>
+                              </div>
                             </div>
-                            <div class="form-group text-start mb-3">
+
+                            <div class="form-group text-start mb-3 has-validation">
                               <label for="descripcion">Descripción del Producto:</label>
-                              <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
+                              <!-- Logica de validacion input vacio -->
+                              <textarea formControlName="descripcion" class="form-control"
+                              [ngClass]="{'is-invalid': productoForm.get('descripcion')?.hasError('required') && productoForm.get('descripcion')?.touched}" id="descripcion" placeholder="Ingrese la descripción del producto" required>
+                              </textarea>
+                              <div class="invalid-feedback">
+                                La descripción del producto <strong>es obligatorio.</strong>
+                              </div>
                             </div>
                           </div>
                           <div class="col-md-6">
-                            <div class="form-group text-start mb-3">
-                              <label for="precio">Precio del Producto:</label>
-                              <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="precio">Precio:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="precio" type="number"
+                              [ngClass]="{'is-invalid': productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched}" class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
+                              <div class="invalid-feedback">
+                                El precio del producto <strong>es obligatorio.</strong>
+                              </div>
                             </div>
-                            <div class="form-group text-start mb-3">
-                              <label for="stock">Stock del Producto:</label>
-                              <input type="number" class="form-control" id="stock" placeholder="Ingrese el stock del producto" required>
+
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="stock">Stock:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="stock" type="number"
+                              [ngClass]="{'is-invalid': productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched}" class="form-control" id="stock" placeholder="Ingrese el stock del producto" required>
+                              <div class="invalid-feedback">
+                                El stock del producto <strong>es obligatorio.</strong>
+                              </div>
                             </div>
-                            <div class="form-group text-start mb-3">
+
+                            <div class="form-group text-start mb-3 has-validation">
                               <label for="categoria">Categoría del Producto:</label>
-                              <select class="form-select" id="categoria" required>
+                              <!-- Logica de validacion input vacio -->
+                              <select formControlName="categoria" [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
+                               class="form-select" id="categoria" (change)="onSelectChange($event)" required>
                                 <option value="">Seleccione una categoría</option>
                                 <option value="indumentaria">Indumentaria</option>
                                 <option value="tablas">Tablas</option>
                                 <option value="lijas">Lijas</option>
                               </select>
+                              <div class="invalid-feedback">
+                                La categoría del producto <strong>es obligatorio.</strong>
+                              </div>
+                            </div>
+                            <div class="form-group text-start mb-3 d-flex align-content-around">
+                              <div class="has-validation" *ngIf="input1Habilitado" type="text" >
+                                <label for="medida" >Medida</label>
+                                <input  formControlName="medida" [ngClass]="{'is-invalid': productoForm.get('medida')?.hasError('required') && productoForm.get('medida')?.touched}"
+                                class="form-control" type="number" [disabled]="!input1Habilitado">
+                                <div class="invalid-feedback">
+                                  La medida <strong>es obligatoria.</strong>
+                                </div>
+                              </div>
+                              <div class="has-validation" *ngIf="input2Habilitado">
+                                <label for="talle">Talle</label>
+                                <input [ngClass]="{'is-invalid': productoForm.get('talle')?.hasError('required') && productoForm.get('talle')?.touched}"
+                                formControlName="talle" class="form-control" type="text"  type="text" [disabled]="!input2Habilitado">
+                                <div class="invalid-feedback">
+                                  El talle <strong>es obligatorio.</strong>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -80,7 +133,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                       </div>
-                    </div>
+                    </form>
                   </div>
                 </div>
                 <!-- TABLA -->

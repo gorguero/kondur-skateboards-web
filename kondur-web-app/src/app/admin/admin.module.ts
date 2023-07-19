@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+// Componentes
 import { ProductosComponent } from './components/productos/productos.component';
 import { SharedModule } from '../shared/shared.module';
-import { RouterModule } from '@angular/router';
 import { ChecksComponent } from './components/checks/checks.component';
 import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -23,7 +26,8 @@ import { TeamComponent } from './components/team/team.component';
     CommonModule,
     SharedModule,
     RouterModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
   ],
   exports:[
     LayoutAdminComponent

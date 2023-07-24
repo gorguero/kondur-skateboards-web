@@ -28,7 +28,7 @@
             <div class="card">
               <div class="card-body text-center">
                 <span class="titulo">LISTADO DE PRODUCTOS</span>
-                <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="resetearFormulario()">
                   Agregar
                 </button>
                 <!-- MODAL -->
@@ -99,7 +99,7 @@
                               <!-- Logica de validacion input vacio -->
                               <select formControlName="categoria" [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
                                class="form-select" id="categoria" (change)="onSelectChange($event)" required>
-                                <option value="">Seleccione una categoría</option>
+                                <option value="" selected>Seleccione una categoría</option>
                                 <option value="indumentaria">Indumentaria</option>
                                 <option value="tablas">Tablas</option>
                                 <option value="lijas">Lijas</option>
@@ -111,7 +111,8 @@
                             <div class="form-group text-start mb-3 d-flex align-content-around">
                               <div class="has-validation" *ngIf="input1Habilitado" type="text" >
                                 <label for="medida" >Medida</label>
-                                <input  formControlName="medida" [ngClass]="{'is-invalid': productoForm.get('medida')?.hasError('required') && productoForm.get('medida')?.touched}"
+                                <!-- Logica de validacion input vacio -->
+                                <input  formControlName="medida" [ngClass]="{'is-invalid': (productoForm.get('medida')?.hasError('required') || productoForm.hasError('atLeastOneFieldRequired')) && productoForm.get('medida')?.touched}"
                                 class="form-control" type="number" [disabled]="!input1Habilitado">
                                 <div class="invalid-feedback">
                                   La medida <strong>es obligatoria.</strong>
@@ -119,7 +120,8 @@
                               </div>
                               <div class="has-validation" *ngIf="input2Habilitado">
                                 <label for="talle">Talle</label>
-                                <input [ngClass]="{'is-invalid': productoForm.get('talle')?.hasError('required') && productoForm.get('talle')?.touched}"
+                                <!-- Logica de validacion input vacio -->
+                                <input [ngClass]="{'is-invalid': (productoForm.get('talle')?.hasError('required') || productoForm.hasError('atLeastOneFieldRequired')) && productoForm.get('talle')?.touched}"
                                 formControlName="talle" class="form-control" type="text"  type="text" [disabled]="!input2Habilitado">
                                 <div class="invalid-feedback">
                                   El talle <strong>es obligatorio.</strong>
@@ -130,8 +132,8 @@
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary" (click)="resetearFormulario()" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid"  data-bs-dismiss="modal">Guardar</button>
                       </div>
                     </form>
                   </div>
@@ -141,8 +143,6 @@
                     <thead>
                       <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Imagen</th>
                         <th scope="col">Medida</th>
                         <th scope="col">Talle</th>
                         <th scope="col">Precio</th>
@@ -153,8 +153,6 @@
                     <tbody>
                       <tr *ngFor="let producto of listProductos">
                         <td class="align-middle">{{producto.nombreProducto}}</td>
-                        <td class="align-middle">{{producto.descripcion}}</td>
-                        <td class="align-middle">{{producto.imagen}}</td>
                         <td class="align-middle">{{producto.medida}}</td>
                         <td class="align-middle">{{producto.talle}}</td>
                         <td class="align-middle">{{producto.precio}}</td>

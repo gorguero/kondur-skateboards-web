@@ -100,11 +100,11 @@ export class ProductosComponent {
     this._productoService.guardarProducto(PRODUCTO).subscribe(data =>{
       this.toastr.success('Se agrego un producto exitosamente!', 'Producto agregado');
       window.location.reload();
-      
     }, error => {
       console.log(error);
       this.productoForm.reset();}
-    )}
+    )
+  }
 
   obtenerProductos(){
     this._productoService.getProducto().subscribe(data =>{

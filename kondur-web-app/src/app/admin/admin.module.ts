@@ -4,13 +4,14 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Componentes
-import { ProductosComponent } from './components/productos/productos.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 import { SharedModule } from '../shared/shared.module';
-import { ChecksComponent } from './components/checks/checks.component';
+import { ChecksComponent } from './pages/checks/checks.component';
 import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
-import { VentasComponent } from './components/ventas/ventas.component';
-import { TeamComponent } from './components/team/team.component';
+import { VentasComponent } from './pages/ventas/ventas.component';
+import { TeamComponent } from './pages/team/team.component';
+import { ProductoComponent } from './components/producto/producto.component';
 
 
 
@@ -20,7 +21,8 @@ import { TeamComponent } from './components/team/team.component';
     VentasComponent,
     ChecksComponent,
     LayoutAdminComponent,
-    TeamComponent
+    TeamComponent,
+    ProductoComponent
   ],
   imports: [
     CommonModule,

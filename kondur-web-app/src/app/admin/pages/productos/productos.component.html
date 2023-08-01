@@ -1,0 +1,196 @@
+<div class="fondo-orange">
+  <div class="p-5">
+    <h1 class="text-uppercase text-black fw-bold text-center pt-5">
+      Administrar Productos
+    </h1>
+    <div class="parent mb-5 mt-2">
+      <!-- MENU DE CRUDS -->
+      <div class="div1 bg-black p-3 rounded"> 
+        <div class="div2 text-center mt-4">
+          <a class="text-decoration-none" routerLink="/administrador/productos" routerLinkActive="active">
+            <h2 class=" border-bottom border-white">Productos</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/ventas" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Ventas</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/checks" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Checks</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/team" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Team</h2>
+          </a>
+        </div>
+      </div>
+      <!-- TABLA CRUD -->
+      <div class="div6 bg-white ms-2 rounded">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body text-center">
+                <span class="titulo">LISTADO DE PRODUCTOS</span>
+                <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="resetearFormulario()">
+                  Agregar
+                </button>
+                <!-- MODAL -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <form class="modal-content" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+                      <div class="modal-header">
+                        <h5 class="modal-title fw-bold fs-5">Agregar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="nombre">Nombre del Producto:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="nombreProducto" type="text" class="form-control"
+                              [ngClass]="{'is-invalid': productoForm.get('nombreProducto')?.hasError('required') && productoForm.get('nombreProducto')?.touched}" id="nombre" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingrese el nombre del producto" required>
+                              <div class="invalid-feedback">
+                                El nombre del producto <strong>es obligatorio.</strong>
+                              </div>
+                            </div>
+
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="imagen">Imagen del Producto:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="imagen" type="url" class="form-control" 
+                              [ngClass]="{'is-invalid': productoForm.get('imagen')?.hasError('required') && productoForm.get('imagen')?.touched}" id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                              <div class="invalid-feedback">
+                                La imagen del producto <strong>es obligatorio.</strong>
+                              </div>
+                            </div>
+
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="descripcion">Descripción del Producto:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <textarea formControlName="descripcion" class="form-control"
+                              [ngClass]="{'is-invalid': productoForm.get('descripcion')?.hasError('required') && productoForm.get('descripcion')?.touched}" id="descripcion" placeholder="Ingrese la descripción del producto" required>
+                              </textarea>
+                              <div class="invalid-feedback">
+                                La descripción del producto <strong>es obligatorio.</strong>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="precio">Precio:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="precio" type="number"
+                              [ngClass]="{'is-invalid': productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched}" class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
+                              <div class="invalid-feedback">
+                                El precio del producto <strong>es obligatorio.</strong>
+                              </div>
+                            </div>
+
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="stock">Stock:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <input formControlName="stock" type="number"
+                              [ngClass]="{'is-invalid': productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched}" class="form-control" id="stock" placeholder="Ingrese el stock del producto" required>
+                              <div class="invalid-feedback">
+                                El stock del producto <strong>es obligatorio.</strong>
+                              </div>
+                            </div>
+
+                            <div class="form-group text-start mb-3 has-validation">
+                              <label for="categoria">Categoría del Producto:</label>
+                              <!-- Logica de validacion input vacio -->
+                              <select formControlName="categoria" [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
+                               class="form-select" id="categoria" (change)="onSelectChange($event)" required>
+                                <option value="" selected>Seleccione una categoría</option>
+                                <option value="indumentaria">Indumentaria</option>
+                                <option value="tablas">Tablas</option>
+                                <option value="lijas">Lijas</option>
+                              </select>
+                              <div class="invalid-feedback">
+                                La categoría del producto <strong>es obligatorio.</strong>
+                              </div>
+                            </div>
+                            <div class="form-group text-start mb-3 d-flex align-content-around">
+                              <div class="has-validation" *ngIf="input1Habilitado" type="text" >
+                                <label for="medida" >Medida</label>
+                                <!-- Logica de validacion input vacio -->
+                                <input  formControlName="medida" [ngClass]="{'is-invalid': (productoForm.get('medida')?.hasError('required') || productoForm.hasError('atLeastOneFieldRequired')) && productoForm.get('medida')?.touched}"
+                                class="form-control" type="number" [disabled]="!input1Habilitado">
+                                <div class="invalid-feedback">
+                                  La medida <strong>es obligatoria.</strong>
+                                </div>
+                              </div>
+                              <div class="has-validation" *ngIf="input2Habilitado">
+                                <label for="talle">Talle</label>
+                                <!-- Logica de validacion input vacio -->
+                                <input [ngClass]="{'is-invalid': (productoForm.get('talle')?.hasError('required') || productoForm.hasError('atLeastOneFieldRequired')) && productoForm.get('talle')?.touched}"
+                                formControlName="talle" class="form-control" type="text"  type="text" [disabled]="!input2Habilitado">
+                                <div class="invalid-feedback">
+                                  El talle <strong>es obligatorio.</strong>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="resetearFormulario()" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid"  data-bs-dismiss="modal">Guardar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!-- TABLA -->
+                <table class="table table-striped mt-3">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Medida</th>
+                        <th scope="col">Talle</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let producto of listProductos">
+                        <td class="align-middle">{{producto.nombreProducto}}</td>
+                        <td class="align-middle">{{producto.medida}}</td>
+                        <td class="align-middle">{{producto.talle}}</td>
+                        <td class="align-middle">{{producto.precio}}</td>
+                        <td class="align-middle">{{producto.stock}}</td>
+                        <td class="d-flex justify-content-around">
+                          <a routerLink="/administrador/productos/:id" routerLinkActive="active">
+                            <h1><i class="bi bi-pencil-fill"></i></h1>
+                          </a>
+                          <a>
+                            <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                <!-- PAGINADO -->
+                <nav aria-label="Page navigation example" style="display:inline-block">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
-import { VentasComponent } from './admin/components/ventas/ventas.component';
+import { VentasComponent } from './admin/pages/ventas/ventas.component';
 
 const routes: Routes = [
   {

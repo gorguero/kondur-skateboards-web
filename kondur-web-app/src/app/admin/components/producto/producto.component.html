@@ -1,0 +1,146 @@
+<div class="fondo-white">
+    <section class="container fondo-productos p-5">
+        <div class="fondo-contenido p-3">
+            <!-- Breadcrumb -->
+            <!-- <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#" class="text-decoration-none text-light">Tienda</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#" class="text-decoration-none text-light">Remeras</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#" class="text-decoration-none text-light">Remera Kondur Total Black</a>
+                    </li>
+                </ol>
+            </nav> -->
+            <div class="row align-items-center pe-3">
+                <div class="col-md-6 text-center">
+                    <img id="producto-principal" class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                </div>
+                <div class="col-md-6 contenedor-info p-3">
+                    <h1 class="display-5 fw-bolder">Remera Kondur Total Black</h1>
+                    <div class="fs-5 mb-5">
+                        <span>$1300.00</span>
+                    </div>
+                    <p class="lead">es una remerita linda xd</p>  
+                    <h3>Seleccione el talle:</h3>
+                    <select class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
+                        <option value="0">Seleccione un talle</option>
+                        <option value="1">S</option>
+                        <option value="2">M</option>
+                        <option value="3">L</option>
+                        <option value="4">XL</option>
+                        <option value="5">XLL</option>
+                    </select>
+                    <h3 class="mt-4">Cantidad:</h3>
+                    <div class="input-group mb-3 w-25">
+                        <input type="number" class="form-control" aria-label="Number" aria-describedby="basic-addon1" value="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 fondo-contenido p-3 text-white">
+            <form class="modal-content">
+                <div class="modal-header">
+                  <h5 class=" fs-5">Agregar Producto</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group text-start mb-3 has-validation">
+                        <label for="nombre">Nombre del Producto:</label>
+                        <!-- Logica de validacion input vacio -->
+                        <input formControlName="nombreProducto" type="text" class="form-control"
+                         required>
+                        <div class="invalid-feedback">
+                          El nombre del producto <strong>es obligatorio.</strong>
+                        </div>
+                      </div>
+        
+                      <div class="form-group text-start mb-3 has-validation">
+                        <label for="imagen">Imagen del Producto:</label>
+                        <!-- Logica de validacion input vacio -->
+                        <input formControlName="imagen" type="url" class="form-control" 
+                         id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                        <div class="invalid-feedback">
+                          La imagen del producto <strong>es obligatorio.</strong>
+                        </div>
+                      </div>
+        
+                      <div class="form-group text-start mb-3 has-validation">
+                        <label for="descripcion">Descripción del Producto:</label>
+                        <!-- Logica de validacion input vacio -->
+                        <textarea formControlName="descripcion" class="form-control"
+                        id="descripcion" placeholder="Ingrese la descripción del producto" required>
+                        </textarea>
+                        <div class="invalid-feedback">
+                          La descripción del producto <strong>es obligatorio.</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group text-start mb-3 has-validation">
+                        <label for="precio">Precio:</label>
+                        <!-- Logica de validacion input vacio -->
+                        <input formControlName="precio" type="number"
+                         class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
+                        <div class="invalid-feedback">
+                          El precio del producto <strong>es obligatorio.</strong>
+                        </div>
+                      </div>
+        
+                      <div class="form-group text-start mb-3 has-validation">
+                        <label for="stock">Stock:</label>
+                        <!-- Logica de validacion input vacio -->
+                        <input formControlName="stock" type="number"
+                         class="form-control" id="stock" placeholder="Ingrese el stock del producto" required>
+                        <div class="invalid-feedback">
+                          El stock del producto <strong>es obligatorio.</strong>
+                        </div>
+                      </div>
+        
+                      <div class="form-group text-start mb-3 has-validation">
+                        <label for="categoria">Categoría del Producto:</label>
+                        <!-- Logica de validacion input vacio -->
+                        <select formControlName="categoria" class="form-select" id="categoria" required>
+                          <option value="" selected>Seleccione una categoría</option>
+                          <option value="indumentaria">Indumentaria</option>
+                          <option value="tablas">Tablas</option>
+                          <option value="lijas">Lijas</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          La categoría del producto <strong>es obligatorio.</strong>
+                        </div>
+                      </div>
+                      <div class="form-group text-start mb-3 d-flex align-content-around">
+                        <div class="has-validation me-3"  type="text" >
+                          <label for="medida" >Medida</label>
+                          <!-- Logica de validacion input vacio -->
+                          <input  formControlName="medida" class="form-control" type="number" >
+                          <div class="invalid-feedback">
+                            La medida <strong>es obligatoria.</strong>
+                          </div>
+                        </div>
+                        <div class="has-validation" >
+                          <label for="talle">Talle</label>
+                          <!-- Logica de validacion input vacio -->
+                          <input formControlName="talle" class="form-control" type="text"  type="text" >
+                          <div class="invalid-feedback">
+                            El talle <strong>es obligatorio.</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button routerLink="/administrador/productos" routerLinkActive="active" type="button" class="btn btn-secondary me-3 ">volver</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

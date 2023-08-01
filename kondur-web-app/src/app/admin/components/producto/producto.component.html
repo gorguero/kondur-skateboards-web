@@ -44,7 +44,7 @@
         <div class="mt-4 fondo-contenido p-3 text-white">
             <form class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title fw-bold fs-5">Agregar Producto</h5>
+                  <h5 class=" fs-5">Agregar Producto</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -116,7 +116,7 @@
                         </div>
                       </div>
                       <div class="form-group text-start mb-3 d-flex align-content-around">
-                        <div class="has-validation"  type="text" >
+                        <div class="has-validation me-3"  type="text" >
                           <label for="medida" >Medida</label>
                           <!-- Logica de validacion input vacio -->
                           <input  formControlName="medida" class="form-control" type="number" >
@@ -137,8 +137,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary me-3 "  data-bs-dismiss="modal">volver</button>
-                  <button type="submit" class="btn btn-primary"   data-bs-dismiss="modal">Guardar</button>
+                  <button routerLink="/administrador/productos" routerLinkActive="active" type="button" class="btn btn-secondary me-3 ">volver</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>

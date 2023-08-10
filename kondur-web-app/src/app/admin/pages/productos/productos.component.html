@@ -153,17 +153,17 @@
                     <tbody>
                       <tr *ngFor="let producto of listProductos">
                         <td class="align-middle">{{producto.nombreProducto}}</td>
-                        <td class="align-middle">{{producto.medida}}</td>
+                        <td class="align-middle">{{producto.estado}}</td>
                         <td class="align-middle">{{producto.talle}}</td>
                         <td class="align-middle">{{producto.precio}}</td>
                         <td class="align-middle">{{producto.stock}}</td>
                         <td class="d-flex justify-content-around">
-                          <a routerLink="/administrador/productos/:id" routerLinkActive="active">
+                          <a [routerLink]="['/administrador/productos', producto._id]" routerLinkActive="active">
                             <h1><i class="bi bi-pencil-fill"></i></h1>
                           </a>
-                          <a>
+                          <!-- <a>
                             <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                          </a>
+                          </a> -->
                         </td>
                       </tr>
                     </tbody>

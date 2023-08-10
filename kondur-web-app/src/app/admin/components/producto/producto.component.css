@@ -32,3 +32,18 @@
     opacity: 1;
     visibility: visible;
 }
+
+/* ZOOM A LA IMAGEN DEL PRODUCTO */
+.zoomable-image {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .image-container:hover .zoomable-image {
+    transform: scale(1.2); /* Aumenta la escala al 120% */
+  }
+
+  .image-container {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}

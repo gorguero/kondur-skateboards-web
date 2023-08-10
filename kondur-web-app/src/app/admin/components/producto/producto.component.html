@@ -1,30 +1,17 @@
 <div class="fondo-white">
     <section class="container fondo-productos p-5">
         <div class="fondo-contenido p-3">
-            <!-- Breadcrumb -->
-            <!-- <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="#" class="text-decoration-none text-light">Tienda</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="#" class="text-decoration-none text-light">Remeras</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="#" class="text-decoration-none text-light">Remera Kondur Total Black</a>
-                    </li>
-                </ol>
-            </nav> -->
             <div class="row align-items-center pe-3">
-                <div class="col-md-6 text-center">
-                    <img id="producto-principal" class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                <div class="col-md-6 text-center image-container">
+                    <img  id="producto-principal" class="card-img-top zoomable-image" src='{{producto.imagen}}' border='0' alt='{{producto.nombreProducto}}'/>
+                    <!-- <img id="producto-principal" class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." /> -->
                 </div>
-                <div class="col-md-6 contenedor-info p-3">
-                    <h1 class="display-5 fw-bolder">Remera Kondur Total Black</h1>
+                <div class="col-md-6 contenedor-info p-3" *ngIf="producto">
+                    <h1 class="display-5 fw-bolder">{{producto.nombreProducto}}</h1>
                     <div class="fs-5 mb-5">
-                        <span>$1300.00</span>
+                        <span>${{producto.precio}}</span>
                     </div>
-                    <p class="lead">es una remerita linda xd</p>  
+                    <p class="lead">{{producto.descripcion}}</p>  
                     <h3>Seleccione el talle:</h3>
                     <select class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
                         <option value="0">Seleccione un talle</option>
@@ -42,10 +29,9 @@
             </div>
         </div>
         <div class="mt-4 fondo-contenido p-3 text-white">
-            <form class="modal-content">
+            <form class="modal-content" [formGroup]="productoForm" (ngSubmit)="editarProducto()">
                 <div class="modal-header">
-                  <h5 class=" fs-5">Agregar Producto</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="fs-5">Editar Producto</h5>
                 </div>
                 <div class="modal-body">
                   <div class="row">
@@ -80,6 +66,8 @@
                           La descripción del producto <strong>es obligatorio.</strong>
                         </div>
                       </div>
+
+                      
                     </div>
                     <div class="col-md-6">
                       <div class="form-group text-start mb-3 has-validation">
@@ -106,7 +94,7 @@
                         <label for="categoria">Categoría del Producto:</label>
                         <!-- Logica de validacion input vacio -->
                         <select formControlName="categoria" class="form-select" id="categoria" required>
-                          <option value="" selected>Seleccione una categoría</option>
+                          <option value="">Seleccione una categoría</option>
                           <option value="indumentaria">Indumentaria</option>
                           <option value="tablas">Tablas</option>
                           <option value="lijas">Lijas</option>
@@ -140,7 +128,27 @@
                   <button routerLink="/administrador/productos" routerLinkActive="active" type="button" class="btn btn-secondary me-3 ">volver</button>
                   <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
-            </form>
+              </form>
+              <!-- Boton modal para borrar producto -->
+              <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger me-3">Deshabilitar producto</button>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">¿Desea borrar este producto?</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                      <p>Esta por borrar el producto {{producto.nombreProducto}}. ¿Desea continuar?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button (click)="deshabilitarProducto()" type="button" class="btn btn-primary">Borrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
     </section>
 </div>

@@ -35,42 +35,50 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title fw-bold fs-5">Agregar Checks</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group text-start mb-3">
-                              <label for="nombre">Titulo de Check:</label>
-                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto" required>
+                      <!-- FORMULARIO -->
+                      <form action="" class="modal-content" [formGroup]="checkForm" (ngSubmit)="agregarCheck()">
+                        <div class="modal-header">
+                          <h5 class="modal-title fw-bold fs-5">Agregar Checks</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group text-start mb-3">
+                                <label for="nombre">Titulo de Check:</label>
+                                <input type="text" formControlName="titulo" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto" required>
+                              </div>
+                              <div class="form-group text-start mb-3">
+                                <label >Rider:</label>
+                                <select formControlName="contacto" id="" class="form-select">
+                                  <option value="" selected>Seleccione un corredor</option>
+                                  <option value="rider1">Rider02</option>
+                                  <option value="rider2">Rider03</option>
+                                  <option value="rider3">Rider04</option>
+                                </select>
+                              </div>
+                              <div class="form-group text-start mb-3">
+                                <label for="descripcion">Descripción:</label>
+                                <textarea class="form-control" formControlName="decripcion" id="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
+                              </div>
                             </div>
-                            <div class="form-group text-start mb-3">
-                              <label for="imagen">Imagen del filmer:</label>
-                              <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL de la imagen" required>
-                            </div>
-                            <div class="form-group text-start mb-3">
-                              <label for="descripcion">Descripción:</label>
-                              <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group text-start mb-3">
-                              <label for="precio">Contacto:</label>
-                              <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
-                            </div>
-                            <div class="form-group text-start mb-3">
-                              <label for="imagen">Url del video:</label>
-                              <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                            <div class="col-md-6">
+                              <div class="form-group text-start mb-3">
+                                <label for="imagen">Ig del filmer:</label>
+                                <input type="url" formControlName="ig_filmer" class="form-control" id="imagen" placeholder="Ingrese el ig del filmer" required>
+                              </div>
+                              <div class="form-group text-start mb-3">
+                                <label for="imagen">Url del video:</label>
+                                <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL del video" required>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                      </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" (click)="resetearFormulario()" data-bs-dismiss="modal">Cancelar</button>
+                          <button type="submit" class="btn btn-primary"  >Guardar</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -79,132 +87,25 @@
                     <thead>
                       <tr>
                         <th scope="col">Titulo</th>
-                        <th scope="col">Descripción</th>
                         <th scope="col">IG raider</th>
                         <th scope="col">Filmador</th>
-                        <th scope="col">Fecha</th>
                         <th scope="col">URL</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="align-middle"><p>Los pibes maestros</p></td>
+                      <tr *ngFor="let check of listChecks">
+                        <td class="align-middle">{{check.titulo}}</td>
+                        <td class="align-middle"><p>@{{check.ig_filmer}}</p></td>
+                        <td class="align-middle"><p>{{check.ig_rider}}</p></td>
                         <td class="align-middle ">
                             <div class="text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                            </div>
-                        </td>
-                        <td class="align-middle"><p>@igejemplo</p></td>
-                        <td class="align-middle"><p>Santi</p></td>
-                        <td class="align-middle"><p>23/06/23</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
+                                {{check.url_video}}
                             </div>
                         </td>
                         <td class="d-flex justify-content-around">
                             <a href="">
                               <h1><i class="bi bi-pencil-fill"></i></h1>
-                            </a>
-                            <a  href="">
-                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                            </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="align-middle"><p>Los pibes maestros</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                            </div>
-                        </td>
-                        <td class="align-middle"><p>@igejemplo</p></td>
-                        <td class="align-middle"><p>Santi</p></td>
-                        <td class="align-middle"><p>23/06/23</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                            </div>
-                        </td>
-                        <td class="d-flex justify-content-around">
-                            <a href="">
-                              <h1><i class="bi bi-pencil-fill"></i></h1>
-                            </a>
-                            <a  href="">
-                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                            </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="align-middle"><p>Los pibes maestros</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                            </div>
-                        </td>
-                        <td class="align-middle"><p>@igejemplo</p></td>
-                        <td class="align-middle"><p>Santi</p></td>
-                        <td class="align-middle"><p>23/06/23</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                            </div>
-                        </td>
-                        <td class="d-flex justify-content-around">
-                            <a href="">
-                              <h1><i class="bi bi-pencil-fill"></i></h1>
-                            </a>
-                            <a  href="">
-                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                            </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="align-middle"><p>Los pibes maestros</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                            </div>
-                        </td>
-                        <td class="align-middle"><p>@igejemplo</p></td>
-                        <td class="align-middle"><p>Santi</p></td>
-                        <td class="align-middle"><p>23/06/23</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                            </div>
-                        </td>
-                        <td class="d-flex justify-content-around">
-                            <a href="">
-                              <h1><i class="bi bi-pencil-fill"></i></h1>
-                            </a>
-                            <a  href="">
-                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                            </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="align-middle"><p>Los pibes maestros</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nemo, harum numquam dignissimos doloremque soluta, cumque quam tenetur nihil aliquam rerum quae. Quae laudantium sequi aut veritatis adipisci molestiae possimus?
-                            </div>
-                        </td>
-                        <td class="align-middle"><p>@igejemplo</p></td>
-                        <td class="align-middle"><p>Santi</p></td>
-                        <td class="align-middle"><p>23/06/23</p></td>
-                        <td class="align-middle ">
-                            <div class="text">
-                                https://www.youtube.com/watch?v=-iQRaZje0RA&list=RDMM&index=23
-                            </div>
-                        </td>
-                        <td class="d-flex justify-content-around">
-                            <a href="">
-                              <h1><i class="bi bi-pencil-fill"></i></h1>
-                            </a>
-                            <a  href="">
-                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
                             </a>
                         </td>
                       </tr>

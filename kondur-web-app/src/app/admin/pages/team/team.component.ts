@@ -63,7 +63,7 @@ export class TeamComponent {
     this.teamForm.reset();
   }
 
-  eliminarCorredor(id: string) {
+  eliminarCorredor(id: any) {
     if (confirm('¿Estás seguro de que deseas eliminar este corredor?')) {
       this._teamService.deshabilitarCorredor(id).subscribe(
         () => {

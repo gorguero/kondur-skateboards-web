@@ -41,15 +41,15 @@ export class ChecksComponent {
   }
 
   agregarCheck(){
-    console.log(this.checkForm);
+    console.log(this.checkForm + 'es comdasdbasda');
     console.log(this.checkForm.get('check')?.value);
 
     const CHECK: Check ={
       titulo: this.checkForm.get('titulo')?.value,
       descripcion: this.checkForm.get('descripcion')?.value,
-      ig_filmer: this.checkForm.get('filmer_name')?.value,
-      ig_rider: this.checkForm.get('contacto')?.value,
-      img_rider: this.checkForm.get('img_filmer')?.value,
+      ig_filmer: this.checkForm.get('ig_filmer')?.value,
+      ig_rider: this.checkForm.get('ig_rider')?.value,
+      img_rider: this.checkForm.get('img_rider')?.value,
       url_video: this.checkForm.get('url_video')?.value
     }
     console.log(CHECK);
@@ -65,6 +65,20 @@ export class ChecksComponent {
   //resetea el formulario al apretar cancelar
   resetearFormulario() {
     this.checkForm.reset();
+  }
+
+  eliminarCheck(id: any) {
+    if (confirm('¿Estás seguro de que deseas eliminar este video?')) {
+      this._checkService.deshabilitarCheck(id).subscribe(
+        () => {
+          this.toastr.success('El corredor se eliminó exitosamente', 'Corredor eliminado');
+          this.obtenerChecks(); // Actualiza la lista después de eliminar
+        },error => {
+          console.log(error);
+          this.toastr.error('Hubo un error al eliminar el corredor', 'Error');
+        }
+      );
+    }
   }
 
 }

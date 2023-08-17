@@ -16,8 +16,21 @@ export class CheckService{
     getCheck(): Observable<any>{
         return this.http.get(this.url);
     }
+    
+    //trae un solo check
+    obtenerCheck(id: string): Observable<any>{
+        return this.http.get(this.url + id);
+    }
 
     guardarCheck(check: Check): Observable<any>{
         return this.http.post(this.url, check);
+    }
+
+    editarCheck(id: string, check: Check): Observable<any>{
+        return this.http.put(this.url + id, check);
+    }
+
+    deshabilitarCheck(id: string): Observable<any>{
+        return this.http.delete(this.url + id);
     }
 }

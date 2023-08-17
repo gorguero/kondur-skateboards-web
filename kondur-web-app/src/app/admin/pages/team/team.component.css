@@ -24,3 +24,8 @@ h2:hover{
     background-color: white;
     color: black;
 }
+
+/* PARA EL BOTOND DE BORRAR */
+.puntero{
+    cursor: pointer;
+}

@@ -12,7 +12,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class ProductoComponent {
   id: string | null;
-  producto: any;
+  producto: any = {};
 
  
   constructor(private fb: FormBuilder,
@@ -91,32 +91,18 @@ export class ProductoComponent {
     }
   }
   deshabilitarProducto(){
-      if (this.id !== null){
-        this._productoService.deshabilitarProducto(this.id).subscribe(
-          ()=>{
-            this.toastr.error('El producto ha sido eliminado.', 'Producto Deshabilitado');
-            this.router.navigate(['/administrador/productos']).then(() => {
-              window.location.reload();
-          });
-          
-          },(error) => {
-            console.error(error);
-          }
-        );
-      }
+    if (this.id !== null){
+      this._productoService.deshabilitarProducto(this.id).subscribe(
+        ()=>{
+          this.toastr.error('El producto ha sido eliminado.', 'Producto Deshabilitado');
+          this.router.navigate(['/administrador/productos']).then(() => {
+            window.location.reload();
+        });
+        
+        },(error) => {
+          console.error(error);
+        }
+      );
     }
-  // deshabilitarProducto() {
-  //   if (this.id !== null) {
-  //     this._productoService.cambiarEstadoProducto(this.id, false).subscribe(
-  //       () => {
-  //         this.toastr.info('El producto ha sido deshabilitado.', 'Producto Deshabilitado');
-  //         // Puedes redirigir al usuario a la lista de productos o realizar otras acciones aquí
-  //       },
-  //       (error) => {
-  //         console.error(error);
-  //       }
-  //     );
-  //   }
-  // }
-  
+  } 
 }

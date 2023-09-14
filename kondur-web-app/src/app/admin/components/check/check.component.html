@@ -1,0 +1,135 @@
+<div class="container fondo-checks p-5">
+    <section class="card fondo-contenido pt-4 pb-4 mb-5 row d-flex justify-content-center align-items-center">
+        <!-- VIDEO -->
+        <div class="container d-flex justify-content-center align-items-center">
+          <iframe width="1000" height="500" [src]="getVideoIframe(check.url_video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- <iframe width="1000" height="500" src="https://www.youtube.com/embed/wZsuHGHCGLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    
+            <!-- <iframe width="1000" height="500" [src]="getSafeVideoUrl(check.url_video)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <!-- <iframe width="560" height="315" src="{{check.url_video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+            
+        </div>
+        
+        <!--Contenido del articulo-->
+        <div class="card w-75 mt-4 p-4 contenedor-info">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <!-- IMAGEN DEL RIDER -->
+                    <img class="img-filmer" src="{{check.img_rider}}" alt="">
+                </div>
+                <div class=" ms-3 me-3">
+                    <h2 class="text-white text-uppercase">
+                        {{check.titulo}}
+                    </h2>
+                    <p class="text-white">
+                        {{check.descripcion}}
+                    </p>
+                    <p class="text-white">
+                        <!-- IG DEL RIDER -->
+                        <i class="bi bi-instagram me-1"></i>
+                        <a class="text-decoration-none ig-filmer" href="">@{{check.ig_rider}}</a>
+                    </p>
+                    <p class="text-white">
+                        <i class="bi bi-camera-video"></i>
+                        <a class="text-decoration-none ig-filmer" href=""> @{{check.ig_filmer}}</a>  
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- FORMULARIO -->
+    <form [formGroup]="checkForm" (ngSubmit)="editarCheck()">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold fs-5">Editar Check</h5>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group text-start mb-3">
+                <label >Titulo de Check:</label>
+                <input type="text" formControlName="titulo" class="form-control" id="titulo" required>
+                <!-- Logica de validacion input vacio -->
+               <div class="invalid-feedback">
+                 El titulo del check <strong>es obligatorio.</strong>
+               </div>
+              </div>
+              <div class="form-group text-start mb-3">
+                <label>Ig del rider:</label>
+                <div class="input-group">
+                    <div class="input-group-text">@</div>
+                    <input type="text" formControlName="ig_rider" class="form-control" id="autoSizingInputGroup" placeholder="Ingrese el @ en Instagram" required>
+                </div>
+                <div class="invalid-feedback">
+                    El instagram del rider <strong>es obligatorio.</strong>
+                </div>
+              </div>
+              <div class="form-group text-start mb-3">
+                <label>Imagen del rider:</label>
+                <input type="text" formControlName="img_rider" class="form-control" placeholder="Ingrese la URL de la imagen" required>
+                <div class="invalid-feedback">
+                    La imagen del rider <strong>es obligatorio.</strong>
+                  </div>
+              </div>
+              <div class="form-group text-start mb-3">
+                <label for="descripcion">Descripción:</label>
+                <textarea formControlName="descripcion" class="form-control"
+                    id="descripcion" placeholder="Ingrese la descripción del producto" required>
+                </textarea>
+                <div class="invalid-feedback">
+                   La descripcion del check <strong>es obligatorio.</strong>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group text-start mb-3">
+                <label>Ig del filmer:</label>
+                <div class="input-group">
+                    <div class="input-group-text">@</div>
+                    <input type="text" formControlName="ig_filmer" class="form-control" id="autoSizingInputGroup" placeholder="Ingrese el @ en Instagram" required>
+                </div>
+                <div class="invalid-feedback">
+                    El instagram del filmer <strong>es obligatorio.</strong>
+                </div>
+              </div>
+              <div class="form-group text-start mb-3">
+                <label>Url del video:</label>
+                <input type="text" formControlName="url_video" class="form-control" placeholder="Ingrese la URL del Youtube" required>
+                <div class="invalid-feedback">
+                    El URL del video <strong>es obligatorio.</strong>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer mt-3 d-flex justify-content-between">
+          <div>
+            <!-- Boton modal para borrar check -->
+            <button type="button"  data-bs-toggle="modal" data-bs-target="#eliminarcheck" class="btn btn-danger me-3">Deshabilitar check</button>
+            <!-- Modal -->
+            <div class="modal fade" id="eliminarcheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">¿Desea borrar este check?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-dark">
+                    <p>Esta por borrar el video {{check.titulo}}. ¿Desea continuar?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button (click)="deshabilitarCheck()" type="button" class="btn btn-primary">Borrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-secondary me-3" routerLink="/administrador/checks" routerLinkActive="active">Volver</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+    </form>
+</div>

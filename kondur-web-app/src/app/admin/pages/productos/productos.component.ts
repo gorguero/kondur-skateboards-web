@@ -115,4 +115,18 @@ export class ProductosComponent {
     })
   }
 
+  eliminarProducto(id: any) {
+    if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
+      this._productoService.deshabilitarProducto(id).subscribe(
+        () => {
+          this.toastr.success('El corredor se eliminó exitosamente', 'Corredor eliminado');
+          this.obtenerProductos(); // Actualiza la lista después de eliminar
+        },error => {
+          console.log(error);
+          this.toastr.error('Hubo un error al eliminar el corredor', 'Error');
+        }
+      );
+    }
+  }
+
 }

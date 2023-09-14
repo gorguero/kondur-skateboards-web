@@ -12,7 +12,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { TeamComponent } from './pages/team/team.component';
 import { ProductoComponent } from './components/producto/producto.component';
-
+import { CheckComponent } from './components/check/check.component';
+import { CorredorComponent } from './components/corredor/corredor.component';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { ProductoComponent } from './components/producto/producto.component';
     ChecksComponent,
     LayoutAdminComponent,
     TeamComponent,
-    ProductoComponent
+    ProductoComponent,
+    CheckComponent,
+    CorredorComponent,
   ],
   imports: [
     CommonModule,

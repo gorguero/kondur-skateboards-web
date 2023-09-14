@@ -1,0 +1,18 @@
+.contenedor-info{
+    background-color: rgba(0, 0, 0, 0.658);
+}
+
+.titulo-team{
+    font-size: 60px;
+    letter-spacing: 9px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+
+.fondo-nosotros{
+    background-color: #f8ae6346;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    padding: 80px;
+}

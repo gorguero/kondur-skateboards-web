@@ -73,7 +73,7 @@
                               <div class="form-group text-start mb-3">
                                 <label for="facebook">Facebook del corredor:</label>
                                 <input type="text" class="form-control" formControlName="facebook"
-                                 placeholder="Ingrese el Facebook del producto" required>
+                                 placeholder="Ingrese el Facebook del producto">
                               </div>
                               <div class="form-group text-start mb-3">
                                 <label for="stock">Biografia:</label>
@@ -111,12 +111,12 @@
                           <td class="align-middle"><p>{{corredor.instagram}}</p></td>
                           <td class="align-middle"><p>{{corredor._id}}</p></td>
                           <td class="d-flex justify-content-around">
-                            <a href="">
+                            <a [routerLink]="['/administrador/team', corredor._id]" routerLinkActive="active" href="">
                               <h1><i class="bi bi-pencil-fill"></i></h1>
                             </a>
-                            <!-- <a (click)="eliminarCorredor(corredor._id)">
-                              <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                            </a> -->
+                            <a class="puntero" (click)="eliminarCorredor(corredor._id)">
+                              <h1><i class="bi bi-trash3-fill text-danger "></i></h1>
+                            </a>
                           </td>
                         </tr>
                       </tbody>

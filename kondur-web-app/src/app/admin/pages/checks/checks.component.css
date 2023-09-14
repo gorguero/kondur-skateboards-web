@@ -25,12 +25,15 @@ h2:hover{
     color: black;
 }
 
-
-
 .text {
     width: 100px;
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
     text-overflow: ellipsis;
+}
+
+/* PARA EL BOTOND DE BORRAR */
+.puntero{
+    cursor: pointer;
 }

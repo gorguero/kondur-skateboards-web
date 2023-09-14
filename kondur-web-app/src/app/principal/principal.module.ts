@@ -18,6 +18,7 @@ import { LandingComponent } from './home/components/landing/landing.component';
 import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.component';
 import { IndumentariaPageComponent } from './tienda/pages/indumentaria-page/indumentaria-page.component';
 import { LijasPageComponent } from './tienda/pages/lijas-page/lijas-page.component';
+import {YouTubePlayerModule} from '@angular/youtube-player';
 
 
 
@@ -46,7 +47,8 @@ import { LijasPageComponent } from './tienda/pages/lijas-page/lijas-page.compone
     CommonModule,
     SharedModule,
     RouterModule,
-    PrincipalRoutingModule
+    PrincipalRoutingModule,
+    YouTubePlayerModule
   ],
   exports:[
     LandingComponent,

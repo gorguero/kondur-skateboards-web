@@ -1,0 +1,108 @@
+<section class="container fondo-nosotros">
+  <div class=" rounded-4 row d-flex justify-content-center align-items-center">
+    <div class="card w-75 mt-4 p-4 contenedor-info">
+      <div class="row align-items-center">
+        <div class="col w-50">
+          <img class="w-100" src="{{corredor.url_imagen}}" alt="">
+        </div>
+        <div class="col">
+          <h2 class="text-white text-uppercase">
+            {{corredor.nombre_rider}}
+        </h2>
+          <p class="text-white">
+            {{corredor.biografia}}
+          </p>
+          <p class="text-white">
+            <i class="bi bi-instagram"></i>
+            {{corredor.instagram}}
+          </p>
+          <p class="text-white">
+            <i class="bi bi-camera-video"></i>
+            {{corredor.facebook}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="modal-content mt-5 contenedor-info p-3 rounded-4 text-white" [formGroup]="corredorForm" (ngSubmit)="editarCorredor()">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5">Agregar Corredor</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group text-start mb-3">
+              <label for="nombre">Nombre completo del corredor:</label>
+              <input type="text" formControlName="nombre_rider" class="form-control"
+                placeholder="Ingrese el nombre completo del corredor" required>
+              <div class="invalid-feedback">
+                El nombre del corredor <strong>es obligatorio.</strong>
+              </div>
+            </div>
+
+            <div class="form-group text-start mb-3">
+              <label for="imagen">Imagen del Corredor:</label>
+              <input type="url" class="form-control" formControlName="url_imagen"
+                placeholder="Ingrese la URL de la imagen" required>
+              <div class="invalid-feedback">
+                La imagen del corredor <strong>es obligatoria.</strong>
+              </div>
+            </div>
+            <div class="form-group text-start mb-3">
+              <label for="instagram">IG del Corredor:</label>
+              <input type="url" class="form-control" formControlName="instagram"
+              
+                placeholder="IG del corredor" required>
+                <div class="invalid-feedback">
+                El Instagram del corredor <strong>es obligatorio.</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group text-start mb-3">
+              <label for="facebook">Facebook del corredor:</label>
+              <input type="text" class="form-control" formControlName="facebook"
+                placeholder="Ingrese el Facebook del producto">
+            </div>
+            <div class="form-group text-start mb-3">
+              <label for="stock">Biografia:</label>
+              <textarea class="form-control" formControlName="biografia"
+                placeholder="Ingrese la biografia del producto" required></textarea>
+              <div class="invalid-feedback">
+                La biografia del corredor <strong>es obligatoria.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer mt-3 d-flex justify-content-between">
+        <div>
+          <!-- Boton modal para borrar corredor -->
+          <button type="button"  data-bs-toggle="modal" data-bs-target="#eliminarcorredor" class="btn btn-danger float-start me-3">Deshabilitar corredor</button>
+          <!-- Modal -->
+          <div class="modal fade" id="eliminarcorredor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">¿Desea borrar este corredor?</h1>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body text-dark">
+                 <p>Esta por borrar el corredor {{corredor.titulo}}. ¿Desea continuar?</p>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                 <button (click)="deshabilitarCorredor()" type="button" class="btn btn-danger">Borrar</button>
+               </div>
+             </div>
+           </div>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary me-2" routerLink="/administrador/team" routerLinkActive="active" data-bs-dismiss="modal">Volver</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+  </form>
+   
+</section>

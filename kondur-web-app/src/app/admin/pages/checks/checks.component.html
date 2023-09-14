@@ -45,31 +45,31 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group text-start mb-3">
-                                <label for="nombre">Titulo de Check:</label>
-                                <input type="text" formControlName="titulo" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto" required>
+                                <label >Titulo de Check:</label>
+                                <input type="text" formControlName="titulo" class="form-control" id="nombre" placeholder="Ingrese el titulo" required>
                               </div>
                               <div class="form-group text-start mb-3">
-                                <label >Rider:</label>
-                                <select formControlName="contacto" id="" class="form-select">
-                                  <option value="" selected>Seleccione un corredor</option>
-                                  <option value="rider1">Rider02</option>
-                                  <option value="rider2">Rider03</option>
-                                  <option value="rider3">Rider04</option>
-                                </select>
+                                <label>Ig del rider:</label>
+                                <input type="text" formControlName="ig_rider" class="form-control" placeholder="Ingrese el @ en Instagram" required>
                               </div>
                               <div class="form-group text-start mb-3">
-                                <label for="descripcion">Descripción:</label>
-                                <textarea class="form-control" formControlName="decripcion" id="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
+                                <label>Imagen del rider:</label>
+                                <input type="text" formControlName="img_rider" class="form-control" placeholder="Ingrese la URL de la imagen" required>
                               </div>
                             </div>
+
                             <div class="col-md-6">
                               <div class="form-group text-start mb-3">
-                                <label for="imagen">Ig del filmer:</label>
-                                <input type="url" formControlName="ig_filmer" class="form-control" id="imagen" placeholder="Ingrese el ig del filmer" required>
+                                <label for="descripcion">Descripción:</label>
+                                <textarea class="form-control" formControlName="descripcion" placeholder="Ingrese la descripción" required></textarea>
                               </div>
                               <div class="form-group text-start mb-3">
-                                <label for="imagen">Url del video:</label>
-                                <input type="url" class="form-control" id="imagen" placeholder="Ingrese la URL del video" required>
+                                <label>Ig del filmer:</label>
+                                <input type="text" formControlName="ig_filmer" class="form-control" placeholder="Ingrese el @ de Instagram" required>
+                              </div>
+                              <div class="form-group text-start mb-3">
+                                <label>Url del video:</label>
+                                <input type="text" formControlName="url_video" class="form-control" placeholder="Ingrese la URL del Youtube" required>
                               </div>
                             </div>
                           </div>
@@ -104,8 +104,11 @@
                             </div>
                         </td>
                         <td class="d-flex justify-content-around">
-                            <a href="">
+                            <a [routerLink]="['/administrador/checks', check._id]" routerLinkActive="active">
                               <h1><i class="bi bi-pencil-fill"></i></h1>
+                            </a>
+                            <a class="puntero" (click)="eliminarCheck(check._id)">
+                              <h1><i class="bi bi-trash3-fill text-danger "></i></h1>
                             </a>
                         </td>
                       </tr>

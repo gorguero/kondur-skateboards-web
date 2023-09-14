@@ -4,11 +4,11 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center col col-sm col-lg">
 
-        <div class="col-md-4 col-sm-6 mt-5">
+        <div class="col-md-4 col-sm-6 mt-5" *ngFor="let tabla of tablaList">
             <div class="card bg-dark prueba">
                 <img src="../../../../assets/imagenes/skate4.png" class="card-img-top" alt="...">
                 <div class="card-body text-center">
-                    <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
+                    <p class="card-text fw-bold text-white">{{tabla.nombreProducto}}</p>
                     <p class="text-white">$1500.00</p>
                     <div class="d-flex justify-content-around">
                         <a routerLink="/tienda/:id" routerLinkActive="active" class="btn btn-outline-warning">Ver más</a>
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6 mt-5">
+        <!-- <div class="col-md-4 col-sm-6 mt-5">
             <div class="card bg-dark prueba">
                 <img src="../../../../assets/imagenes/skate5.png" class="card-img-top" alt="...">
                 <div class="card-body text-center">
@@ -120,7 +120,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>  -->
 
     </div>
 

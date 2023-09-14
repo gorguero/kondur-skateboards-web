@@ -124,31 +124,35 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button routerLink="/administrador/productos" routerLinkActive="active" type="button" class="btn btn-secondary me-3 ">volver</button>
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-              </form>
-              <!-- Boton modal para borrar producto -->
-              <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger me-3">Deshabilitar producto</button>
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">¿Desea borrar este producto?</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                      <p>Esta por borrar el producto {{producto.nombreProducto}}. ¿Desea continuar?</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      <button (click)="deshabilitarProducto()" type="button" class="btn btn-primary">Borrar</button>
+                <div class="modal-footer mt-3 d-flex justify-content-between">
+                  <div>
+                    <!-- Boton modal para borrar producto -->
+                    <button type="button"  data-bs-toggle="modal" data-bs-target="#eliminarproducto" class="btn btn-danger me-3">Deshabilitar producto</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="eliminarproducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">¿Desea borrar este producto?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body text-dark">
+                            <p>Esta por borrar el producto {{producto.nombreProducto}}. ¿Desea continuar?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button (click)="deshabilitarProducto()" type="button" class="btn btn-primary">Borrar</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <div>
+                    <button routerLink="/administrador/productos" routerLinkActive="active" type="button" class="btn btn-secondary me-3 ">volver</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
                 </div>
-              </div>
+            </form>
         </div>
     </section>
 </div>

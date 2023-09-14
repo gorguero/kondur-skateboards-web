@@ -1,96 +1,37 @@
-<section class=" card fondo-contenido pt-4 pb-4 mb-5 row d-flex justify-content-center align-items-center">
+<section class=" card fondo-contenido pt-4 pb-4 mb-5 row d-flex justify-content-center align-items-center"
+        *ngFor="let check of listChecks">
     <!-- VIDEO -->
     <div class="container d-flex justify-content-center align-items-center">
-        <iframe width="1000" height="500" src="https://www.youtube.com/embed/wZsuHGHCGLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+      <iframe width="1000" height="500" [src]="getVideoIframe(check.url_video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <!-- <iframe width="1000" height="500" src="https://www.youtube.com/embed/wZsuHGHCGLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
+        <!-- <iframe width="1000" height="500" [src]="getSafeVideoUrl(check.url_video)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <!-- <iframe width="560" height="315" src="{{check.url_video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+        
+    </div>
+    
     <!--Contenido del articulo-->
     <div class="card w-75 mt-4 p-4 contenedor-info">
-        <div class="d-flex justify-content-around align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
             <div>
-                <img class="img-filmer" src="../../../../assets/imagenes/skate1.png" alt="">
+                <!-- IMAGEN DEL RIDER -->
+                <img class="img-filmer" src="{{check.img_rider}}" alt="">
             </div>
-            <div class="ms-5">
+            <div class=" ms-3 me-3">
                 <h2 class="text-white text-uppercase">
-                    Pibes maestros
+                    {{check.titulo}}
                 </h2>
                 <p class="text-white">
-                    Los pibes saliendo a gozar una tarde de sábado por nuestro querido valle central. Paseando,
-                    patinando y disfrutand las plazas de nuestra Catamarca nos encontramos con la plaza del maestro y descubriendo sus lugares para patinar y disfrutar de una buena tarde de skate y amigos.
+                    {{check.descripcion}}
                 </p>
                 <p class="text-white">
+                    <!-- IG DEL RIDER -->
                     <i class="bi bi-instagram me-1"></i>
-                    <a class="text-decoration-none ig-filmer" href="">@kondurskateboards</a>
+                    <a class="text-decoration-none ig-filmer" href="">@{{check.ig_rider}}</a>
                 </p>
                 <p class="text-white">
                     <i class="bi bi-camera-video"></i>
-                    Filmador
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class=" card fondo-contenido pt-4 pb-4 mb-5 row d-flex justify-content-center align-items-center">
-    <!-- VIDEO -->
-    <div class="container d-flex justify-content-center align-items-center">
-        <iframe width="1000" height="500" src="https://www.youtube.com/embed/wZsuHGHCGLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
-    <!--Contenido del articulo-->
-    <div class="card w-75 mt-4 p-4 contenedor-info">
-        <div class="d-flex justify-content-around align-items-center">
-            <div>
-                <img class="img-filmer" src="../../../../assets/imagenes/skate1.png" alt="">
-            </div>
-            <div class="ms-5">
-                <h2 class="text-white text-uppercase">
-                    Pibes maestros
-                </h2>
-                <p class="text-white">
-                    Los pibes saliendo a gozar una tarde de sábado por nuestro querido valle central. Paseando,
-                    patinando y disfrutand las plazas de nuestra Catamarca nos encontramos con la plaza del maestro y descubriendo sus lugares para patinar y disfrutar de una buena tarde de skate y amigos.
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-instagram me-1"></i>
-                    <a class="text-decoration-none ig-filmer" href="">@kondurskateboards</a>
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-camera-video"></i>
-                    Filmador
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class=" card fondo-contenido pt-4 pb-4 mb-5 row d-flex justify-content-center align-items-center">
-    <!-- VIDEO -->
-    <div class="container d-flex justify-content-center align-items-center">
-        <iframe width="1000" height="500" src="https://www.youtube.com/embed/wZsuHGHCGLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
-    <!--Contenido del articulo-->
-    <div class="card w-75 mt-4 p-4 contenedor-info">
-        <div class="d-flex justify-content-around align-items-center">
-            <div>
-                <img class="img-filmer" src="../../../../assets/imagenes/skate1.png" alt="">
-            </div>
-            <div class="ms-5">
-                <h2 class="text-white text-uppercase">
-                    Pibes maestros
-                </h2>
-                <p class="text-white">
-                    Los pibes saliendo a gozar una tarde de sábado por nuestro querido valle central. Paseando,
-                    patinando y disfrutand las plazas de nuestra Catamarca nos encontramos con la plaza del maestro y descubriendo sus lugares para patinar y disfrutar de una buena tarde de skate y amigos.
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-instagram me-1"></i>
-                    <a class="text-decoration-none ig-filmer" href="">@kondurskateboards</a>
-                </p>
-                <p class="text-white">
-                    <i class="bi bi-camera-video"></i>
-                    Filmador
+                    <a class="text-decoration-none ig-filmer" href=""> @{{check.ig_filmer}}</a>  
                 </p>
             </div>
         </div>

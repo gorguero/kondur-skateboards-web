@@ -10,7 +10,7 @@ import { CheckService } from 'src/app/services/check.service';
   styleUrls: ['./checks.component.css']
 })
 export class ChecksComponent {
-  listChecks: Check[]=[];
+  listChecks: Check[]= [];
 
   constructor(private fb: FormBuilder,
               private _checkService: CheckService,
@@ -39,6 +39,7 @@ export class ChecksComponent {
       console.log(error);
     })
   }
+  
 
   agregarCheck(){
     console.log(this.checkForm + 'es comdasdbasda');

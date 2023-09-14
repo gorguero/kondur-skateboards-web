@@ -111,7 +111,7 @@
                           <td class="align-middle"><p>{{corredor.instagram}}</p></td>
                           <td class="align-middle"><p>{{corredor._id}}</p></td>
                           <td class="d-flex justify-content-around">
-                            <a href="">
+                            <a [routerLink]="['/administrador/team', corredor._id]" routerLinkActive="active" href="">
                               <h1><i class="bi bi-pencil-fill"></i></h1>
                             </a>
                             <a class="puntero" (click)="eliminarCorredor(corredor._id)">

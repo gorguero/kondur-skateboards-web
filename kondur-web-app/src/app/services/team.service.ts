@@ -13,8 +13,8 @@ export class TeamService{
     constructor(private http: HttpClient) { }
 
     getTeam(): Observable<any>{
-        return this.http.get(this.url);
-      }
+    return this.http.get(this.url);
+    }
     guardarCorredor(corredor: Team): Observable<any>{
     return this.http.post(this.url, corredor);
     }

@@ -143,6 +143,7 @@
                     <thead>
                       <tr>
                         <th scope="col">Nombre</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Medida</th>
                         <th scope="col">Talle</th>
                         <th scope="col">Precio</th>
@@ -153,6 +154,7 @@
                     <tbody>
                       <tr *ngFor="let producto of listProductos">
                         <td class="align-middle">{{producto.nombreProducto}}</td>
+                        <td class="align-middle">{{producto.categoria}}</td>
                         <td class="align-middle">{{producto.medida}}</td>
                         <td class="align-middle">{{producto.talle}}</td>
                         <td class="align-middle">{{producto.precio}}</td>

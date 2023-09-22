@@ -4,6 +4,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { PerfilComponent } from "./components/perfil/perfil.component";
 import { LayoutSesionComponent } from "./layout-sesion/layout-sesion.component";
+import { AuthGuard } from "../guards/auth.guard";
 
 const routes: Routes = [
     {
@@ -12,7 +13,7 @@ const routes: Routes = [
         children: [
             {path:'Login', component: LoginComponent},
             {path:'Register', component: RegisterComponent},
-            {path:'MiPerfil', component: PerfilComponent},
+            {path:'MiPerfil', component: PerfilComponent, canActivate:[AuthGuard]},
             {path:'**', redirectTo:'Login'},
         ]
     }

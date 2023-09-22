@@ -8,10 +8,12 @@ import { LayoutAdminComponent } from "./layout-admin/layout-admin.component";
 import { ProductoComponent } from "./components/producto/producto.component";
 import { CheckComponent } from "./components/check/check.component";
 import { CorredorComponent } from "./components/corredor/corredor.component";
+import { AdminGuard } from "../guards/admin.guard";
 
 const routes: Routes = [
     {
         path: '',
+        canActivate: [AdminGuard],
         component: LayoutAdminComponent,
         children: [
             {path:'productos', component: ProductosComponent},

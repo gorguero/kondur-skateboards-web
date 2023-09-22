@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    // this.registroForm.reset();
+    this.registroForm.reset();
   }
 
   registrarUsuario():void{
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
         {
           next: resp => {
             console.log(resp)
-            this.toastr.success('¡Usuario registrado correctamente!', `¡Bienvenido!`);
+            this.toastr.success('Gracias por registrarte', `¡Usuario registrado correctamente!`);
 
             setTimeout(() => {
               this.router.navigate(['/sesion/Login']);
@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
         }
     );
   
-    // this.registroForm.reset();
+    this.registroForm.reset();
   }
   
   /* VALIDACIONES Y MENSAJES DE RESPUESTA */

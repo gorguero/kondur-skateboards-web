@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Registro } from '../interfaces/registro.interface';
 import { Login } from '../interfaces/login.interface';
-import { tap } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 const url_base = environment.url_base;
 
@@ -38,6 +39,21 @@ export class UsuarioService {
 
   logout(){
     localStorage.removeItem('token');
+  }
+
+  renovarToken(): Observable<boolean>{
+    return this.http.get(`${url_base}/auth/renovartoken`, {
+      headers: {
+        'x-token': localStorage.getItem('token') || ''
+      }
+    }).pipe( 
+      map((resp:any) => {
+        console.log('Info desde el servicio');
+        console.log(resp);
+        return true;
+      }),
+      catchError( error => of(false) )
+     )
   }
 
 }

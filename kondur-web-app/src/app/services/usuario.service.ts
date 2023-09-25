@@ -22,15 +22,16 @@ export class UsuarioService {
     return localStorage.getItem('token') || '';
   }
 
-  almacenarLocalStorage(token: string){
+  almacenarLocalStorage(token: string, menu: any){
     localStorage.setItem('token', token);
+    localStorage.setItem('menu', JSON.stringify(menu));
   }
 
   registrarUsuario( data: Registro ){
     return this.http.post(`${url_base}/usuarios`, data)
     .pipe(
       tap( (resp:any) => {
-        this.almacenarLocalStorage(resp.token);
+        this.almacenarLocalStorage(resp.token, resp.menu);
       } )
     );
   }
@@ -39,13 +40,14 @@ export class UsuarioService {
     return this.http.post(`${url_base}/auth/login`, data)
       .pipe(
         tap( (resp:any) => {
-          this.almacenarLocalStorage(resp.token);
+          this.almacenarLocalStorage(resp.token, resp.menu);
         } )
       );
   }
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
   }
 
   renovarToken(): Observable<boolean>{
@@ -58,7 +60,7 @@ export class UsuarioService {
         
        const {nombre, apellido, nickname, email, rol, estado, uid} = resp.usuario;
 
-       this.almacenarLocalStorage(resp.token);
+       this.almacenarLocalStorage(resp.token, resp.menu);
        this.usuario = new Usuarios(nombre, apellido, nickname, email, '', '', undefined, undefined, rol, estado, uid);
        console.log(this.usuario)
   

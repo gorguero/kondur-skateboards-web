@@ -20,8 +20,6 @@ export class AdminGuard implements CanActivate {
         tap( isLogged => {
           if(!isLogged){
             this.router.navigate(['/sesion/Login']);
-            console.log('Informacion desde el guard')
-            console.log(isLogged)
           }
           console.log('Informacion desde el guard')
           console.log(isLogged)

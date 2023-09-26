@@ -39,7 +39,6 @@ export class RegisterComponent implements OnInit {
   }
 
   registrarUsuario():void{
-    console.log(this.registroForm.value)
 
     if( this.registroForm.invalid ) {
       this.registroForm.markAllAsTouched();
@@ -50,7 +49,6 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         {
           next: resp => {
-            console.log(resp)
             this.toastr.success('Gracias por registrarte', `¡Usuario registrado correctamente!`);
 
             setTimeout(() => {

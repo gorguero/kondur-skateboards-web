@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user.interfaces';
+import Usuarios from 'src/app/models/usuarios.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { MenuService } from 'src/app/services/menu.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -13,15 +16,17 @@ export class HeaderComponent implements OnInit {
   public menuList: any[] = [];
   public userLogged:any;
   
-  constructor(private usuarioService:UsuarioService, private router:Router, public menuService:MenuService){}
+  constructor(private auth:AuthService, private router:Router, public menuService:MenuService){}
 
   ngOnInit(): void {
     this.menuList = this.menuService.cargarMenu();
+    // this.userLogged = this.auth.getDecodedToken();
+    console.log(this.userLogged);
   }
 
   logout(){
-    this.usuarioService.logout();
-    window.location.replace('/sesion/Login');
+    this.auth.logout();
+    this.router.navigateByUrl('/sesion/login');
   }
 
 }

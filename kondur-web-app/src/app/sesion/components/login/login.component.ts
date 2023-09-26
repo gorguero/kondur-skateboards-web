@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,11 @@ export class LoginComponent {
     password: ['', Validators.required]
   });
 
+  public userLogged:any;
+
   formSubmit:boolean = false;
 
-  constructor(private fb:FormBuilder, private usuarioService:UsuarioService, private router:Router, private toastr: ToastrService){}
+  constructor(private fb:FormBuilder, private auth:AuthService, private router:Router, private toastr: ToastrService){}
 
   login(){
     this.formSubmit = true;
@@ -27,11 +30,11 @@ export class LoginComponent {
       return;
     }
     
-    this.usuarioService.login( this.loginForm.value )
+    this.auth.login( this.loginForm.value )
       .subscribe(
         {
           next: resp => {
-            console.log(resp)
+            // console.log(resp);
             this.toastr.success('Nos alegrá mucho que estes por aquí', `¡Bienvenido!`);
   
             setTimeout(() => {

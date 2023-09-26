@@ -21,16 +21,16 @@
                 <a routerLink="/carrito" routerLinkActive="active" class="me-4">
                     <h1 class="text-light"><i class="bi bi-cart-fill" width="30" height="30" alt="carrito de compra"></i></h1>
                 </a>
-                <!-- <button 
+                <button *ngIf="!userLogged"
                     class="btn btn-outline-warning flex-shrink-0"
                     type="button"
                     routerLink="./sesion/components/login/login.component.html" routerLinkActive="active">
                     <i class="bi bi-person-fill"></i>
                     Iniciar Sesión
-                </button> -->
+                </button>
 
                 <!-- DROPDOWN  -->
-                <div class="dropdown">
+                <div class="dropdown" *ngIf="userLogged">
                     <a class="" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <h1 class="text-light"><i class="bi bi-person-fill"></i></h1>
                     </a>

@@ -31,7 +31,6 @@ export class TeamComponent {
 
   obtenerTeam(){
     this._teamService.getTeam().subscribe(data =>{
-      console.log(data);
       this.listTeam = data;
     }, error =>{
       console.log(error);

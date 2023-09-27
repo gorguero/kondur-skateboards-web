@@ -9,25 +9,16 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private auth:AuthService, private router:Router) {
-    
-  }
+  constructor(private auth:AuthService, private router:Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot) {
-      return this.auth.renovarToken()
-        .pipe(
-          tap( isLogged => {
-            if(!isLogged){
-              this.router.navigate(['/sesion/Login']);
-              console.log('Informacion desde el guard')
-              console.log(isLogged)
-            }
-            console.log('Informacion desde el guard')
-            console.log(isLogged)
-          } )
-        )
+  canActivate():any{
+
+    if( !this.auth.isAuthenticated(['ADMIN_ROLE']) ){
+      this.router.navigateByUrl('/sesion/login');
+      return false;
+    }
+    
+    return true;
   }
   
 }

@@ -15,13 +15,15 @@ export class HeaderComponent implements OnInit {
 
   public menuList: any[] = [];
   public userLogged:any;
+  public token:any = '';
   
-  constructor(private auth:AuthService, private router:Router, public menuService:MenuService){}
+  constructor(private auth:AuthService, private router:Router, public menuService:MenuService){
+    this.token = localStorage.getItem('token');
+  }
 
   ngOnInit(): void {
     this.menuList = this.menuService.cargarMenu();
-    // this.userLogged = this.auth.getDecodedToken();
-    console.log(this.userLogged);
+    this.userLogged = this.auth.getDecodedToken( this.token );
   }
 
   logout(){

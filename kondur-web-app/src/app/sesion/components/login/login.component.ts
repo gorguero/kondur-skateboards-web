@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   public loginForm: FormGroup = this.fb.group({
     nickname: ['',[Validators.required]],
@@ -18,10 +18,19 @@ export class LoginComponent {
   });
 
   public userLogged:any;
+  public token: string = '';
 
   formSubmit:boolean = false;
 
-  constructor(private fb:FormBuilder, private auth:AuthService, private router:Router, private toastr: ToastrService){}
+  constructor(private fb:FormBuilder, private auth:AuthService, private router:Router, private toastr: ToastrService){
+    this.token = this.auth.token;
+  }
+
+  ngOnInit(): void {
+    if(this.token){
+      this.router.navigateByUrl('/home');
+    }
+  }
 
   login(){
     this.formSubmit = true;

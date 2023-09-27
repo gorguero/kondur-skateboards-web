@@ -13,7 +13,7 @@ const routes: Routes = [
         children: [
             {path:'Login', component: LoginComponent},
             {path:'Register', component: RegisterComponent},
-            {path:'MiPerfil', component: PerfilComponent, canActivate:[AuthGuard]},
+            {path:'MiPerfil', component: PerfilComponent},
             {path:'**', redirectTo:'Login'},
         ]
     }

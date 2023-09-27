@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { User } from '../interfaces/user.interfaces';
 import { Login } from '../interfaces/login.interface';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import Usuarios from '../models/usuarios.model';
-
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 const url_base = environment.url_base;
 
@@ -22,17 +21,43 @@ export class AuthService {
     return localStorage.getItem('token') || '';
   }
 
-  // getDecodedToken(): any | null {
-  //   if (this.token) {
-  //     // Decodificar el JWT y devolverlo como objeto
-  //     const tokenParts = this.token.split('.');
-  //     if (tokenParts.length === 3) {
-  //       const payload = JSON.parse(atob(tokenParts[1]));
-  //       return payload;
-  //     }
-  //   }
-  //   return null;
-  // }
+  getDecodedToken(token:any): any | null {
+    if (this.token) {
+      // Decodificar el JWT y devolverlo como objeto
+      const helper = new JwtHelperService();
+      let decodedToken = helper.decodeToken(token);
+      return decodedToken;
+    }
+    return null;
+  }
+
+  public isAuthenticated( allowRoles: string[] ):boolean{
+    
+    //Validamos el token
+    const token = this.token;
+
+    if(!token){
+      return false;
+    }
+
+    //Verificación y decodificación del token
+    try {
+      
+      let decodedToken = this.getDecodedToken(token);
+
+      if( !decodedToken ){
+        localStorage.removeItem('token');
+        return false;
+      }
+
+      return allowRoles.includes( decodedToken['rol'] );
+
+    } catch (error) {
+      localStorage.removeItem('token');
+      return false;
+    }
+
+  }
 
   almacenarLocalStorage(token: string, menu: any){
     localStorage.setItem('token', token);
@@ -59,7 +84,6 @@ export class AuthService {
 
        this.almacenarLocalStorage(resp.token, resp.menu);
        this.user = new Usuarios(nombre, apellido, nickname, email, '', '', undefined, undefined, rol, estado, uid);
-       console.log(this.user)
   
         return true;
       }),

@@ -26,7 +26,7 @@
   </div>
   <form class="modal-content mt-5 contenedor-info p-3 rounded-4 text-white" [formGroup]="corredorForm" (ngSubmit)="editarCorredor()">
       <div class="modal-header">
-        <h5 class="modal-title fs-5">Agregar Corredor</h5>
+        <h5 class="modal-title fs-5">Editar Corredor</h5>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -48,6 +48,8 @@
                 La imagen del corredor <strong>es obligatoria.</strong>
               </div>
             </div>
+          </div>
+          <div class="col-md-6">
             <div class="form-group text-start mb-3">
               <label for="instagram">IG del Corredor:</label>
               <input type="url" class="form-control" formControlName="instagram"
@@ -56,13 +58,6 @@
                 <div class="invalid-feedback">
                 El Instagram del corredor <strong>es obligatorio.</strong>
               </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group text-start mb-3">
-              <label for="facebook">Facebook del corredor:</label>
-              <input type="text" class="form-control" formControlName="facebook"
-                placeholder="Ingrese el Facebook del producto">
             </div>
             <div class="form-group text-start mb-3">
               <label for="stock">Biografia:</label>

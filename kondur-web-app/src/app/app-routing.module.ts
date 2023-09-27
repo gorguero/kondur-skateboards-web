@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
 import { VentasComponent } from './admin/pages/ventas/ventas.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'administrador',
-    // component: ProductosComponent
+    canActivate: [AuthGuard],
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule)
   },
   {

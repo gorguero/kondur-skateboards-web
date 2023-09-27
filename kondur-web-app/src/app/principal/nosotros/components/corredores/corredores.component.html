@@ -2,90 +2,34 @@
 
 <section class="row d-flex justify-content-center align-items-center">
 
-        <div class="card w-75 mt-4 p-4 contenedor-info">
+    <!--Si no hay corredores-->
+    <div class="alert alert-danger text-center w-50 mt-3" *ngIf="listCorredores.length === 0; else listaTeam">
+        No hay corredores disponibles
+    </div>
+
+    <!--Si hay corredores-->
+    <ng-template #listaTeam>
+        <div class="card w-75 mt-4 p-4 contenedor-info" *ngFor="let corredor of listCorredores">
             <div class="row align-items-center">
-                <div class="col w-50">
-                    <img class="w-100" src="./img/Remeras/remera kondur 1.png" alt="">
+                <div class="col w-100">
+                    <img class="w-100" [src]="corredor.url_imagen" [alt]="corredor.nombre_rider">
                 </div>
 
                 <div class="col">
                     <h2 class="text-white text-uppercase">
-                        Santi Niets
+                        {{ corredor.nombre_rider }}
                     </h2>
                     <p class="text-white">
-                        Los pibes saliendo a gozar una tarde de sábado por nuestro querido valle central. Paseando,
-                        patinando y disfrutand las plazas de nuestra Catamarca nos encontramos con la plaza del maestro y descubriendo sus lugares para patinar y disfrutar de una buena tarde de skate y amigos.
+                        {{ corredor.biografia }}
                     </p>
                     <p class="text-white">
                         <i class="bi bi-instagram"></i>
-                        @kondurskateboards
-                    </p>
-                    <p class="text-white">
-                        <i class="bi bi-camera-video"></i>
-                        Facbook
+                        {{ corredor.instagram }}
                     </p>
 
                 </div>
             </div>
-
-
         </div>
+    </ng-template>
 
-        <div class="card w-75 mt-4 p-4 contenedor-info">
-            <div class="row align-items-center">
-                <div class="col w-50">
-                    <img class="w-100" src="./img/Remeras/remera kondur 1.png" alt="">
-                </div>
-
-                <div class="col">
-                    <h2 class="text-white text-uppercase">
-                        Joaquin Saez
-                    </h2>
-                    <p class="text-white">
-                        Los pibes saliendo a gozar una tarde de sábado por nuestro querido valle central. Paseando,
-                        patinando y disfrutand las plazas de nuestra Catamarca nos encontramos con la plaza del maestro y descubriendo sus lugares para patinar y disfrutar de una buena tarde de skate y amigos.
-                    </p>
-                    <p class="text-white">
-                        <i class="bi bi-instagram"></i>
-                        @kondurskateboards
-                    </p>
-                    <p class="text-white">
-                        <i class="bi bi-camera-video"></i>
-                        Facebook
-                    </p>
-
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="card w-75 mt-4 p-4 contenedor-info">
-            <div class="row align-items-center">
-                <div class="col w-50">
-                    <img class="w-100" src="./img/Remeras/remera kondur 1.png" alt="">
-                </div>
-
-                <div class="col">
-                    <h2 class="text-white text-uppercase">
-                        Agustin Nose Cuanto
-                    </h2>
-                    <p class="text-white">
-                        Los pibes saliendo a gozar una tarde de sábado por nuestro querido valle central. Paseando,
-                        patinando y disfrutand las plazas de nuestra Catamarca nos encontramos con la plaza del maestro y descubriendo sus lugares para patinar y disfrutar de una buena tarde de skate y amigos.
-                    </p>
-                    <p class="text-white">
-                        <i class="bi bi-instagram"></i>
-                        @kondurskateboards
-                    </p>
-                    <p class="text-white">
-                        <i class="bi bi-camera-video"></i>
-                        Facebook
-                    </p>
-
-                </div>
-            </div>
-
-
-        </div>
 </section>

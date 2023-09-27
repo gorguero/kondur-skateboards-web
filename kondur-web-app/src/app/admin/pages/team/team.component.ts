@@ -31,7 +31,6 @@ export class TeamComponent {
 
   obtenerTeam(){
     this._teamService.getTeam().subscribe(data =>{
-      console.log(data);
       this.listTeam = data;
     }, error =>{
       console.log(error);
@@ -39,8 +38,6 @@ export class TeamComponent {
   }
 
   agregarCorredor(){
-    console.log(this.teamForm);
-    console.log(this.teamForm.get('team')?.value);
 
     const CORREDOR: Team ={
       nombre_rider: this.teamForm.get('nombre_rider')?.value,
@@ -49,13 +46,27 @@ export class TeamComponent {
       instagram: this.teamForm.get('instagram')?.value,
       facebook: this.teamForm.get('facebook')?.value
     }
-    console.log(CORREDOR);
-    this._teamService.guardarCorredor(CORREDOR).subscribe(data =>{
-      this.toastr.success('Se agrego un corredor exitosamente!', 'Corredor agregado');
-      window.location.reload();
-    }, error => {
-      console.log(error);
-      this.teamForm.reset();}
+
+    this._teamService.guardarCorredor(CORREDOR).subscribe(
+      {
+        next: data =>{
+          this.toastr.success('Se agrego un corredor exitosamente!', 'Corredor agregado');
+          window.location.reload();
+        }, 
+        error: err => {
+          const errorBiografiaExist = err.error.errors.biografia;
+          const errorNombreRiderExist = err.error.errors.nombre_rider;
+
+          if(errorBiografiaExist){
+            this.toastr.error(`${errorBiografiaExist.msg}`, 'Error');
+          }
+
+          if(errorNombreRiderExist){
+            this.toastr.error(`${errorNombreRiderExist.msg}`, 'Error');
+          }
+          this.teamForm.reset();
+        }
+      }
     )
   }
   //resetea el formulario al apretar cancelar

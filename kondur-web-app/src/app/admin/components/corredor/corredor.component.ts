@@ -74,12 +74,36 @@ export class CorredorComponent {
     }
     if(this.id !== null){
       console.log(CORREDOR);
-      this._teamService.editarCorredor(this.id, CORREDOR).subscribe(data =>{
-      this.toastr.info('Se actualizo el corredor exitosamente!', 'Corredor actualizado');
-      window.location.reload();
-      }, error => {
-        console.log(error);
-        this.corredorForm.reset();}
+      this._teamService.editarCorredor(this.id, CORREDOR).subscribe(
+        {
+          next: data =>{
+            this.toastr.info('Se actualizo el corredor exitosamente!', 'Corredor actualizado');
+            window.location.reload();
+          }, 
+           error: err => {
+            console.log(err);
+
+            const errorBiografiaExist = err.error.errors.biografia;
+            const errorInstagramExist = err.error.errors.instagram;
+            const errorNombreRiderExist = err.error.errors.nombre_rider;
+            const errorUrlImagenExist = err.error.errors.url_imagen;
+
+            if(errorBiografiaExist){
+              this.toastr.error(`${errorBiografiaExist.msg}`, 'Error');
+            }
+            if(errorInstagramExist){
+              this.toastr.error(`${errorInstagramExist.msg}`, 'Error');
+            }
+            if(errorNombreRiderExist){
+              this.toastr.error(`${errorNombreRiderExist.msg}`, 'Error');
+            }
+            if(errorUrlImagenExist){
+              this.toastr.error(`${errorUrlImagenExist.msg}`, 'Error');
+            }
+
+            this.corredorForm.reset();
+          } 
+        }
       )
     }
   }

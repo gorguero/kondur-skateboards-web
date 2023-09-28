@@ -27,7 +27,7 @@ export class UsuarioService {
     return this.http.post(`${url_base}/usuarios`, data)
     .pipe(
       tap( (resp:any) => {
-        this.almacenarLocalStorage(resp.token, resp.menu);
+        
       } )
     );
   }

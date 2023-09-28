@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  
   // ESPACIO PARA VALIDACION DE FORMULARIO DE REGISTRO
   public registroForm: FormGroup = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(3)]],
@@ -27,23 +28,66 @@ export class RegisterComponent implements OnInit {
     terminos: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder, 
+    private usuarioService: UsuarioService, 
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.registroForm.reset();
   }
 
+  registrarUsuario():void{
+
+    if( this.registroForm.invalid ) {
+      this.registroForm.markAllAsTouched();
+      return;
+    }
+
+    this.usuarioService.registrarUsuario( this.registroForm.value )
+      .subscribe(
+        {
+          next: resp => {
+            this.toastr.success('Gracias por registrarte', `¡Usuario registrado correctamente!`);
+
+            setTimeout(() => {
+              this.router.navigate(['/sesion/Login']);
+            }, 1000);
+
+          },
+          error: err => {
+            const errorEmailExist = err.error.errors.email;
+            const errorNicknameExist = err.error.errors.nickname;
+
+            if( errorEmailExist && errorNicknameExist ){
+              this.toastr.error(`El email: ${errorEmailExist.value} y el username ${errorNicknameExist.value} ya están registrados`, 'Campos ya existentes');
+            }else{
+              if( errorEmailExist ){
+                this.toastr.error(`${errorEmailExist.msg}`, 'Error');
+              }
+              if( errorNicknameExist ){
+                this.toastr.error(`${errorNicknameExist.msg}`, 'Error');
+              }
+            }
+          }
+        }
+    );
+  
+    this.registroForm.reset();
+  }
+  
   /* VALIDACIONES Y MENSAJES DE RESPUESTA */
   isValidField( field:string ):boolean | null{
     return this.registroForm.controls[field].errors && this.registroForm.controls[field].touched;
   }
-
+  
   getFieldError( field:string ):string | null{
-
+    
     if( !this.registroForm.controls[field] ) return null;
-
+    
     const errors = this.registroForm.controls[field].errors || {};
-
+    
     for (const key of Object.keys(errors)) {
       
       switch(key){
@@ -60,26 +104,4 @@ export class RegisterComponent implements OnInit {
   }
   /* FIN VALIDACIONES Y MENSAJES DE RESPUESTA */
 
-  registrarUsuario():void{
-    console.log(this.registroForm.value)
-    if( this.registroForm.invalid ) {
-      this.registroForm.markAllAsTouched();
-      return;
-    }
-    this.usuarioService.registrarUsuario( this.registroForm.value )
-      .subscribe(
-        {
-          next: resp => {
-            console.log(resp)
-            this.router.navigate(['/sesion/Login']);
-          },
-          error: err => {
-            console.log(err);
-          }
-        }
-    );
-
-    this.registroForm.reset();
-
-  }
 }

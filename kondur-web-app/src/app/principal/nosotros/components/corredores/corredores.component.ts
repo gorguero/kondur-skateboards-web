@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Team } from 'src/app/models/team.model';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-corredores',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CorredoresComponent implements OnInit {
 
-  constructor() { }
+  public listCorredores: any[] = [];
+
+  constructor(private teamService: TeamService) { }
 
   ngOnInit(): void {
+    this.obtenerCorredores();
+  }
+
+  obtenerCorredores() {
+    return this.teamService.getTeam().subscribe(
+      data => {
+        this.listCorredores = data;
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
 }

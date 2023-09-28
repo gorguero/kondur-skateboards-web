@@ -8,10 +8,11 @@ export class Usuarios {
     public repeatPass?: string,
     public creadoEn?: Date,
     public actualizadoEn?: Date,
-    public rol?: string,
+    public rol?: 'ADMIN_ROLE' | 'USER_ROLE',
     public estado?: boolean,
+    public uid?: string,
     public direcciones?: string[],
   ) {}
 }
 
-module.exports = Usuarios;
+export default Usuarios;

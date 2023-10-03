@@ -1,17 +1,17 @@
 <div class="fondo-white">
-    <section class="container fondo-productos p-5">
+    <section class="container fondo-productos p-5" >
         <div class="fondo-contenido p-3">
             <!-- Breadcrumb -->
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-decoration-none text-light">Tienda</a>
+                        <a routerLink="/tienda" routerLinkActive="true" class="text-decoration-none text-light">Tienda</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="#" class="text-decoration-none text-light">Remeras</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-decoration-none text-light">Remera Kondur Total Black</a>
+                        <a href="#" class="text-decoration-none text-light">{{producto.nombreProducto}}</a>
                     </li>
                 </ol>
             </nav>
@@ -20,12 +20,12 @@
                     <img id="producto-principal" class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
                 </div>
                 <div class="col-md-6 contenedor-info p-3">
-                    <h1 class="display-5 fw-bolder">Remera Kondur Total Black</h1>
+                    <h1 class="display-5 fw-bolder">{{producto.nombreProducto }}</h1>
                     <div class="fs-5 mb-5">
                         <span class="text-decoration-line-through">$1500.00</span>
-                        <span>$1300.00</span>
+                        <span>${{producto.precio}}</span>
                     </div>
-                    <p class="lead">es una remerita linda xd</p>  
+                    <p class="lead">{{producto.descripcion}}</p>  
                     <h3>Seleccione el talle:</h3>
                     <select class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
                         <option value="0">Seleccione un talle</option>

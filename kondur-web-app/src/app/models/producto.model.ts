@@ -1,26 +1,45 @@
-export class Producto{
+export class Producto {
     _id?: string;
     nombreProducto: string;
     descripcion: string;
     imagen: string;
     precio: number;
-    stock: number;
     categoria: string;
-    talle: string;
-    medida: string;
+    tallas: { nombre: string, cantidad: number }[]; // Arreglo de tallas o medidas
+    estado?: boolean;
     creadoEn?: Date;
-    estado?: boolean
-    constructor(nombreProducto: string, decripcion: string, imagen: string, precio: number, stock: number, categoria: string, talle: string, medida: string, creadoEn: Date, estado: boolean){
-        this.nombreProducto= nombreProducto,
-        this.descripcion= decripcion,
-        this.imagen= imagen,
-        this.precio= precio,
-        this.stock= stock,
-        this.categoria= categoria,
-        this.talle= talle,
-        this.medida= medida,
-        this.creadoEn= creadoEn,
-        this.estado= estado
+  
+    constructor(
+      nombreProducto: string,
+      descripcion: string,
+      imagen: string,
+      precio: number,
+      categoria: string,
+      tallas: { nombre: string, cantidad: number }[], // Incluye las tallas o medidas
+      estado: boolean,
+      creadoEn: Date
+    ) {
+      this.nombreProducto = nombreProducto;
+      this.descripcion = descripcion;
+      this.imagen = imagen;
+      this.precio = precio;
+      this.categoria = categoria;
+      this.tallas = tallas;
+      this.estado = estado;
+      this.creadoEn = creadoEn;
     }
+  }
+  
+export class Talla {
+_id?: string;
+nombre: string;
+cantidad: number;
+
+constructor(nombre: string, cantidad: number) {
+    this.nombre = nombre;
+    this.cantidad = cantidad;
 }
+}
+
 module.exports = Producto;
+  

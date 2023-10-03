@@ -24,13 +24,13 @@ export class LayoutTiendaComponent implements OnInit{
     this._productoService.getProducto().subscribe( data =>{
 
       /* Filtramos por indumentaria */
-      this.indumentariaList = data.filter( (item: { categoria: string; }) => item.categoria === 'Indumentaria' );
+      this.indumentariaList = data.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
 
       /* Filtramos por tablas */
-      this.tablasList = data.filter( (item: { categoria: string; }) => item.categoria === 'Tablas' );
+      this.tablasList = data.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
 
       /* Filtramos por lijas */
-      this.lijasList = data.filter( (item: { categoria: string; }) => item.categoria === 'Lijas' );
+      this.lijasList = data.filter( (item: { categoria: string; }) => item.categoria === 'lijas' );
 
       this.productosList = data;
       console.log(data);

@@ -85,20 +85,10 @@
                             </div>
 
                             <div class="form-group text-start mb-3 has-validation">
-                              <label for="stock">Stock:</label>
-                              <!-- Logica de validacion input vacio -->
-                              <input formControlName="stock" type="number"
-                              [ngClass]="{'is-invalid': productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched}" class="form-control" id="stock" placeholder="Ingrese el stock del producto" required>
-                              <div class="invalid-feedback">
-                                El stock del producto <strong>es obligatorio.</strong>
-                              </div>
-                            </div>
-
-                            <div class="form-group text-start mb-3 has-validation">
                               <label for="categoria">Categoría del Producto:</label>
                               <!-- Logica de validacion input vacio -->
                               <select formControlName="categoria" [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
-                               class="form-select" id="categoria" (change)="onSelectChange($event)" required>
+                               class="form-select" id="categoria" required>
                                 <option value="" selected>Seleccione una categoría</option>
                                 <option value="indumentaria">Indumentaria</option>
                                 <option value="tablas">Tablas</option>
@@ -108,26 +98,26 @@
                                 La categoría del producto <strong>es obligatorio.</strong>
                               </div>
                             </div>
-                            <div class="form-group text-start mb-3 d-flex align-content-around">
-                              <div class="has-validation" *ngIf="input1Habilitado" type="text" >
-                                <label for="medida" >Medida</label>
-                                <!-- Logica de validacion input vacio -->
-                                <input  formControlName="medida" [ngClass]="{'is-invalid': (productoForm.get('medida')?.hasError('required') || productoForm.hasError('atLeastOneFieldRequired')) && productoForm.get('medida')?.touched}"
-                                class="form-control" type="number" [disabled]="!input1Habilitado">
-                                <div class="invalid-feedback">
-                                  La medida <strong>es obligatoria.</strong>
+                            <!-- FORM TALLAS -->
+                            <div formArrayName="tallas">
+                              <!-- CAMPO TALLES Y CANTIDAD DE CADA TALLE -->
+                              <ng-container *ngFor="let tallaGroup of tallas.controls; let i = index" [formGroupName]="i">
+                                <div class="form-group text-start mb-3 d-flex align-content-around">
+                                  <div class="has-validation">
+                                    <label for="nombre{{ i }}">Talle</label>
+                                    <input formControlName="nombre" type="text" class="form-control" id="nombre{{ i }}">
+                                  </div>
+                                  <div class="has-validation">
+                                    <label for="cantidad{{ i }}">Cantidad</label>
+                                    <input formControlName="cantidad" type="number" class="form-control" id="cantidad{{ i }}">
+                                  </div>
+                                  <button (click)="eliminarTalla(i)">Eliminar</button>
+                                  <!-- Botón para agregar nueva talla -->
                                 </div>
-                              </div>
-                              <div class="has-validation" *ngIf="input2Habilitado">
-                                <label for="talle">Talle</label>
-                                <!-- Logica de validacion input vacio -->
-                                <input [ngClass]="{'is-invalid': (productoForm.get('talle')?.hasError('required') || productoForm.hasError('atLeastOneFieldRequired')) && productoForm.get('talle')?.touched}"
-                                formControlName="talle" class="form-control" type="text"  type="text" [disabled]="!input2Habilitado">
-                                <div class="invalid-feedback">
-                                  El talle <strong>es obligatorio.</strong>
-                                </div>
-                              </div>
+                              </ng-container>
+                              <button type="button" (click)="agregarTalla()">Agregar Talla</button>
                             </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -143,20 +133,16 @@
                     <thead>
                       <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Medida</th>
-                        <th scope="col">Talle</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Precio</th>
-                        <th scope="col">Stock</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let producto of listProductos">
                         <td class="align-middle">{{producto.nombreProducto}}</td>
-                        <td class="align-middle">{{producto.medida}}</td>
-                        <td class="align-middle">{{producto.talle}}</td>
+                        <td class="align-middle">{{producto.categoria}}</td>
                         <td class="align-middle">{{producto.precio}}</td>
-                        <td class="align-middle">{{producto.stock}}</td>
                         <td class="d-flex justify-content-around">
                           <a [routerLink]="['/administrador/productos', producto._id]" routerLinkActive="active">
                             <h1><i class="bi bi-pencil-fill"></i></h1>
@@ -164,9 +150,6 @@
                           <a class="puntero" (click)="eliminarProducto(producto._id)">
                             <h1><i class="bi bi-trash3-fill text-danger "></i></h1>
                           </a>
-                          <!-- <a>
-                            <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                          </a> -->
                         </td>
                       </tr>
                     </tbody>

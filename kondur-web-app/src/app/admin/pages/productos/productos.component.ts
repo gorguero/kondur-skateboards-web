@@ -14,10 +14,12 @@ export class ProductosComponent {
   categoriaSeleccionada: string;
   input1Habilitado: boolean;
   input2Habilitado: boolean;
-  listProductos: Producto[] = []
+  listProductos: Producto[] = [];
+  sumaCantidadesTallas: number = 0;
 
   ngOnInit(): void {
     this.obtenerProductos();
+    // this.calcularSumaCantidadesTallas();
   }
 
   constructor(private fb: FormBuilder,
@@ -57,6 +59,18 @@ export class ProductosComponent {
     const tallas = this.productoForm.get('tallas') as FormArray;
     tallas.removeAt(index);
   }
+  // CALCULO DE TOTAL DE TALLAS DISPONIBLES
+  
+
+  // calcularSumaCantidadesTallas() {
+  //   this.sumaCantidadesTallas = 0; // Reinicializa la suma a 0 antes de calcular
+
+  //   for (const producto of this.listProductos) {
+  //     for (const talla of producto.tallas) {
+  //       this.sumaCantidadesTallas += talla.cantidad;
+  //     }
+  //   }
+  // }
 
   
   // funcion que me permite validar si una de las
@@ -110,7 +124,7 @@ export class ProductosComponent {
 
     this._productoService.guardarProducto(PRODUCTO).subscribe(data =>{
       this.toastr.success('Se agrego un producto exitosamente!', 'Producto agregado');
-      // window.location.reload();
+      window.location.reload();
     }, error => {
       console.log(error);
       this.productoForm.reset();}

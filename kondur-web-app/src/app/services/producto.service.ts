@@ -23,8 +23,8 @@ export class ProductoService {
     return this.http.get<Producto>(`${this.url}${id}`);
   }
 
-  editarProducto(id: string, producto: Producto): Observable<Producto> {
-    return this.http.put<Producto>(`${this.url}${id}`, producto);
+  editarProducto(id: string, producto: Producto): Observable<any> {
+    return this.http.put(this.url + id, producto);
   }
 
   deshabilitarProducto(id: string): Observable<any> {

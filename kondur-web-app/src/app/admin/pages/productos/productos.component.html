@@ -135,6 +135,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
@@ -143,6 +144,7 @@
                         <td class="align-middle">{{producto.nombreProducto}}</td>
                         <td class="align-middle">{{producto.categoria}}</td>
                         <td class="align-middle">{{producto.precio}}</td>
+                        <!-- <td class="align-middle">{{calcularSumaCantidadesTallas()}}</td> Mostrar la suma de cantidades -->
                         <td class="d-flex justify-content-around">
                           <a [routerLink]="['/administrador/productos', producto._id]" routerLinkActive="active">
                             <h1><i class="bi bi-pencil-fill"></i></h1>

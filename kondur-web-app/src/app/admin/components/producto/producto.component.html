@@ -28,8 +28,9 @@
                 </div>
             </div>
         </div>
+        <!-- FORNMULARIO PARA EDITAR -->
         <div class="mt-4 fondo-contenido p-3 text-white">
-            <form class="modal-content">
+            <form [formGroup]="productoForm" (ngSubmit)="editarProducto()" class="modal-content">
                 <div class="modal-header">
                   <h5 class="fs-5">Editar Producto</h5>
                 </div>
@@ -80,21 +81,22 @@
                         </div>
                       </div>
         
-                      <div class="form-group text-start mb-3 has-validation">
+                      <!-- <div class="form-group text-start mb-3 has-validation">
                         <label for="stock">Stock:</label>
-                        <!-- Logica de validacion input vacio -->
+                         Logica de validacion input vacio
                         <input formControlName="stock" type="number"
                          class="form-control" id="stock" placeholder="Ingrese el stock del producto" required>
                         <div class="invalid-feedback">
                           El stock del producto <strong>es obligatorio.</strong>
                         </div>
-                      </div>
+                      </div>-->
         
                       <div class="form-group text-start mb-3 has-validation">
                         <label for="categoria">Categoría del Producto:</label>
+                        <p>{{producto.categoria}}</p>
                         <!-- Logica de validacion input vacio -->
                         <select formControlName="categoria" class="form-select" id="categoria" required>
-                          <option value="">Seleccione una categoría</option>
+                          <option value=""></option>
                           <option value="indumentaria">Indumentaria</option>
                           <option value="tablas">Tablas</option>
                           <option value="lijas">Lijas</option>
@@ -103,24 +105,26 @@
                           La categoría del producto <strong>es obligatorio.</strong>
                         </div>
                       </div>
-                      <div class="form-group text-start mb-3 d-flex align-content-around">
+                      <div *ngFor="let talla of producto.tallas">
+                        <p>Nombre de Talla: {{ talla.nombre }}</p>
+                        <p>Cantidad: {{ talla.cantidad }}</p>
+                      </div>
+                      <!-- <div class="form-group text-start mb-3 d-flex align-content-around">
                         <div class="has-validation me-3"  type="text" >
                           <label for="medida" >Medida</label>
-                          <!-- Logica de validacion input vacio -->
-                          <input  formControlName="medida" class="form-control" type="number" >
+                          <input  formControlName="talla" class="form-control" type="number" >
                           <div class="invalid-feedback">
                             La medida <strong>es obligatoria.</strong>
                           </div>
                         </div>
                         <div class="has-validation" >
                           <label for="talle">Talle</label>
-                          <!-- Logica de validacion input vacio -->
-                          <input formControlName="talle" class="form-control" type="text"  type="text" >
+                          <input formControlName="talla" class="form-control" type="text"  type="text" >
                           <div class="invalid-feedback">
                             El talle <strong>es obligatorio.</strong>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>

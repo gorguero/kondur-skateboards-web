@@ -28,16 +28,25 @@ export class ProductoComponent {
     this.obtenerProducto();
   }
 
+  // public productoForm: FormGroup = this.fb.group({
+  //   nombreProducto:['',Validators.required],
+  //   descripcion:['',Validators.required],
+  //   imagen:['',Validators.required],
+  //   precio:['',Validators.required],
+  //   stock:['',Validators.required],
+  //   categoria:['',Validators.required],
+  //   talle:[''],
+  //   medida:[''],
+  // });
   public productoForm: FormGroup = this.fb.group({
-    nombreProducto:['',Validators.required],
-    descripcion:['',Validators.required],
-    imagen:['',Validators.required],
-    precio:['',Validators.required],
-    stock:['',Validators.required],
-    categoria:['',Validators.required],
-    talle:[''],
-    medida:[''],
-  });
+    nombreProducto: ['', Validators.required],
+    descripcion: ['', Validators.required],
+    imagen: ['', Validators.required],
+    precio: ['', Validators.required],
+    categoria: ['', Validators.required],
+    tallas: this.fb.array([]),
+     
+  }, { });
 
   obtenerProducto(){
     if(this.id !== null){
@@ -60,36 +69,40 @@ export class ProductoComponent {
           descripcion:data.descripcion,
           imagen:data.imagen,
           precio:data.precio,
-          // stock:data.stock,
           categoria:data.categoria,
-        //   talle:data.talle,
-        //   medida:data.medida,
+          tallas:data.tallas
         })
       })
     }
   }
   
-  // editarProducto(){
-  //   const PRODUCTO: Producto ={
-  //     nombreProducto: this.productoForm.get('nombreProducto')?.value,
-  //     descripcion: this.productoForm.get('descripcion')?.value,
-  //     imagen: this.productoForm.get('imagen')?.value,
-  //     precio: this.productoForm.get('precio')?.value,
-  //     // stock: this.productoForm.get('stock')?.value,
-  //     categoria: this.productoForm.get('categoria')?.value,
-  //     // talle: this.productoForm.get('talle')?.value,
-  //     // medida: this.productoForm.get('medida')?.value
-  //   }
-  //   if(this.id !== null){
-  //     console.log(PRODUCTO);
-  //     this._productoService.editarProducto(this.id, PRODUCTO).subscribe(data =>{
-  //     this.toastr.info('Se actualizo el producto exitosamente!', 'Producto actualizado');
-  //     }, error => {
-  //       console.log(error);
-  //       this.productoForm.reset();}
-  //     )
-  //   }
-  // }
+  editarProducto(){
+    const nombreProducto = this.productoForm.get('nombreProducto')?.value;
+    const descripcion = this.productoForm.get('descripcion')?.value;
+    const imagen = this.productoForm.get('imagen')?.value;
+    const precio = this.productoForm.get('precio')?.value;
+    const categoria = this.productoForm.get('categoria')?.value;
+    const tallas = this.productoForm.get('tallas')?.value as Talla[];
+
+    const PRODUCTO: Producto = {
+      nombreProducto,
+      descripcion,
+      imagen,
+      precio,
+      categoria,
+      tallas// Puedes establecer la fecha de creación
+    };
+    if(this.id !== null){
+      console.log(PRODUCTO);
+      this._productoService.editarProducto(this.id, PRODUCTO).subscribe(data =>{
+      this.toastr.info('Se actualizo el producto exitosamente!', 'Producto actualizado');
+      window.location.reload();
+      }, error => {
+        console.log(error);
+        this.productoForm.reset();}
+      )
+    }
+  }
   deshabilitarProducto(){
     if (this.id !== null){
       this._productoService.deshabilitarProducto(this.id).subscribe(

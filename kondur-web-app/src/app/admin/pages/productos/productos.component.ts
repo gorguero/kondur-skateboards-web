@@ -36,7 +36,7 @@ export class ProductosComponent {
     imagen: ['', Validators.required],
     precio: ['', Validators.required],
     categoria: ['', Validators.required],
-     tallas: this.fb.array([]),
+    tallas: this.fb.array([]),
      
   }, { });
 

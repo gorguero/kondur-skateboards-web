@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Producto,Talla } from 'src/app/models/producto.model';
@@ -48,6 +48,10 @@ export class ProductoComponent {
      
   }, { });
 
+  get tallas(){
+    return this.productoForm.get('tallas') as FormArray;
+  }
+  
   obtenerProducto(){
     if(this.id !== null){
       this._productoService.obtenerProducto(this.id).subscribe(data => {
@@ -96,12 +100,17 @@ export class ProductoComponent {
       console.log(PRODUCTO);
       this._productoService.editarProducto(this.id, PRODUCTO).subscribe(data =>{
       this.toastr.info('Se actualizo el producto exitosamente!', 'Producto actualizado');
-      window.location.reload();
+      // window.location.reload();
       }, error => {
         console.log(error);
         this.productoForm.reset();}
       )
     }
+  }
+  // Eliminar una talla o medida específica por índice
+  eliminarTalla(index: number) {
+  const tallas = this.productoForm.get('tallas') as FormArray;
+  tallas.removeAt(index);
   }
   deshabilitarProducto(){
     if (this.id !== null){

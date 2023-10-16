@@ -67,8 +67,6 @@
                           La descripción del producto <strong>es obligatorio.</strong>
                         </div>
                       </div>
-
-                      
                     </div>
                     <div class="col-md-6">
                       <div class="form-group text-start mb-3 has-validation">
@@ -81,20 +79,8 @@
                         </div>
                       </div>
         
-                      <!-- <div class="form-group text-start mb-3 has-validation">
-                        <label for="stock">Stock:</label>
-                         Logica de validacion input vacio
-                        <input formControlName="stock" type="number"
-                         class="form-control" id="stock" placeholder="Ingrese el stock del producto" required>
-                        <div class="invalid-feedback">
-                          El stock del producto <strong>es obligatorio.</strong>
-                        </div>
-                      </div>-->
-        
                       <div class="form-group text-start mb-3 has-validation">
                         <label for="categoria">Categoría del Producto:</label>
-                        <p>{{producto.categoria}}</p>
-                        <!-- Logica de validacion input vacio -->
                         <select formControlName="categoria" class="form-select" id="categoria" required>
                           <option value=""></option>
                           <option value="indumentaria">Indumentaria</option>
@@ -109,22 +95,20 @@
                         <p>Nombre de Talla: {{ talla.nombre }}</p>
                         <p>Cantidad: {{ talla.cantidad }}</p>
                       </div>
-                      <!-- <div class="form-group text-start mb-3 d-flex align-content-around">
-                        <div class="has-validation me-3"  type="text" >
-                          <label for="medida" >Medida</label>
-                          <input  formControlName="talla" class="form-control" type="number" >
-                          <div class="invalid-feedback">
-                            La medida <strong>es obligatoria.</strong>
+                      
+                      <ng-container *ngFor="let talla of tallas.controls; let i = index">
+                        <div class="form-group text-start mb-3 d-flex justify-content-between align-content-around">
+                          <div class="has-validation">
+                            <label for="nombre{{ i }}">Nombre de Talla</label>
+                            <input formControlName="nombre" type="text" class="form-control" id="nombre{{ i }}" >
                           </div>
-                        </div>
-                        <div class="has-validation" >
-                          <label for="talle">Talle</label>
-                          <input formControlName="talla" class="form-control" type="text"  type="text" >
-                          <div class="invalid-feedback">
-                            El talle <strong>es obligatorio.</strong>
+                          <div class="has-validation">
+                            <label for="cantidad{{ i }}">Cantidad</label>
+                            <input formControlName="cantidad" type="number" class="form-control" id="cantidad{{ i }}" >
                           </div>
+                          <button (click)="eliminarTalla(i)">Eliminar</button>
                         </div>
-                      </div> -->
+                      </ng-container>
                     </div>
                   </div>
                 </div>

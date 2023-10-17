@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Producto,Talla } from 'src/app/models/producto.model';
@@ -39,14 +39,13 @@ export class ProductoComponent {
   //   medida:[''],
   // });
   public productoForm: FormGroup = this.fb.group({
-    nombreProducto: ['', Validators.required],
-    descripcion: ['', Validators.required],
-    imagen: ['', Validators.required],
-    precio: ['', Validators.required],
-    categoria: ['', Validators.required],
-    tallas: this.fb.array([]),
-     
-  }, { });
+                        nombreProducto: ['', Validators.required],
+                        descripcion: ['', Validators.required],
+                        imagen: ['', Validators.required],
+                        precio: ['', Validators.required],
+                        categoria: ['', Validators.required],
+                        tallas: this.fb.array([])
+                      },{ });
 
   get tallas(){
     return this.productoForm.get('tallas') as FormArray;
@@ -55,7 +54,7 @@ export class ProductoComponent {
   obtenerProducto(){
     if(this.id !== null){
       this._productoService.obtenerProducto(this.id).subscribe(data => {
-        console.log(data);
+        // console.log(data);
           this.producto = data;
         },
         (error) => {
@@ -87,7 +86,10 @@ export class ProductoComponent {
     const precio = this.productoForm.get('precio')?.value;
     const categoria = this.productoForm.get('categoria')?.value;
     const tallas = this.productoForm.get('tallas')?.value as Talla[];
-
+    console.log(this.productoForm.get('tallas')?.value);
+    
+    
+    
     const PRODUCTO: Producto = {
       nombreProducto,
       descripcion,
@@ -97,6 +99,7 @@ export class ProductoComponent {
       tallas// Puedes establecer la fecha de creación
     };
     if(this.id !== null){
+      // console.log(PRODUCTO.tallas);
       console.log(PRODUCTO);
       this._productoService.editarProducto(this.id, PRODUCTO).subscribe(data =>{
       this.toastr.info('Se actualizo el producto exitosamente!', 'Producto actualizado');

@@ -91,24 +91,33 @@
                           La categoría del producto <strong>es obligatorio.</strong>
                         </div>
                       </div>
-                      <div *ngFor="let talla of producto.tallas">
-                        <p>Nombre de Talla: {{ talla.nombre }}</p>
-                        <p>Cantidad: {{ talla.cantidad }}</p>
+
+                      <div *ngFor="let talla of producto.tallas let i = index">
+                        <div class="form-group text-start mb-3 d-flex justify-content-between align-content-around">
+                          <!-- <p>Nombre de Talla: {{ talla.nombre }}</p> -->
+                          <input formControlName="talla.nombre" type="text" class="form-control" [value]="talla.nombre">
+                          <!-- <p>Cantidad: {{ talla.cantidad }}</p> -->
+                          <input formControlName="talla.nombre" type="number" class="form-control" [value]="talla.cantidad">
+                          <button type="button" (click)="eliminarTalla(talla[i]._id)">Eliminar</button>
+                        </div>
                       </div>
                       
-                      <ng-container *ngFor="let talla of tallas.controls; let i = index">
-                        <div class="form-group text-start mb-3 d-flex justify-content-between align-content-around">
-                          <div class="has-validation">
-                            <label for="nombre{{ i }}">Nombre de Talla</label>
-                            <input formControlName="nombre" type="text" class="form-control" id="nombre{{ i }}" >
+                      <!-- <ng-container *ngIf="producto && producto.tallas">
+                        <div *ngFor="let talla of producto.tallas; let i = index">
+
+                          <div class="form-group text-start mb-3 d-flex justify-content-between align-content-around">
+                            <div class="has-validation">
+                              <label for="nombre{{ i }}">Nombre de Talla</label>
+                              <input [formControl]="talla.get('nombre')" type="text" class="form-control" id="nombre{{ i }}" [value]="talla.nombre">
+                            </div>
+                            <div class="has-validation">
+                              <label for="cantidad{{ i }}">Cantidad</label>
+                              <input [formControl]="talla.get('cantidad')" type="number" class="form-control" id="cantidad{{ i }}" [value]="talla.cantidad">
+                            </div>
+                            <button (click)="eliminarTalla(i)">Eliminar</button>
                           </div>
-                          <div class="has-validation">
-                            <label for="cantidad{{ i }}">Cantidad</label>
-                            <input formControlName="cantidad" type="number" class="form-control" id="cantidad{{ i }}" >
-                          </div>
-                          <button (click)="eliminarTalla(i)">Eliminar</button>
                         </div>
-                      </ng-container>
+                      </ng-container> -->
                     </div>
                   </div>
                 </div>

@@ -31,14 +31,14 @@ export class Producto {
   }
   
 export class Talla {
-_id?: string;
-nombre: string;
-cantidad: number;
+  _id?: string;
+  nombre: string;
+  cantidad: number;
 
-constructor(nombre: string, cantidad: number) {
-    this.nombre = nombre;
-    this.cantidad = cantidad;
-}
+  constructor(nombre: string, cantidad: number) {
+      this.nombre = nombre;
+      this.cantidad = cantidad;
+  }
 }
 
 module.exports = Producto;

@@ -133,7 +133,6 @@ export class ProductosComponent {
   }
   obtenerProductos(){
     this._productoService.getProducto().subscribe(data =>{
-      // console.log(data);
       this.listProductos = data;
     }, error =>{
       console.log(error);

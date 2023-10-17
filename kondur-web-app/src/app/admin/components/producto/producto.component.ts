@@ -54,7 +54,7 @@ export class ProductoComponent {
   obtenerProducto(){
     if(this.id !== null){
       this._productoService.obtenerProducto(this.id).subscribe(data => {
-        // console.log(data);
+        console.log(data);
           this.producto = data;
         },
         (error) => {
@@ -86,7 +86,6 @@ export class ProductoComponent {
     const precio = this.productoForm.get('precio')?.value;
     const categoria = this.productoForm.get('categoria')?.value;
     const tallas = this.productoForm.get('tallas')?.value as Talla[];
-    console.log(this.productoForm.get('tallas')?.value);
     
     
     
@@ -96,6 +95,7 @@ export class ProductoComponent {
       imagen,
       precio,
       categoria,
+      estado: true,
       tallas// Puedes establecer la fecha de creación
     };
     if(this.id !== null){

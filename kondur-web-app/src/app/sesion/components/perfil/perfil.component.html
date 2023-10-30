@@ -13,33 +13,27 @@
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example1cg">Nombre completo:</label>
                             <h3 class="text-white fw-bold">
-                                Ramirez Carlos
+                                {{ usuarioActual.nombre }} {{usuarioActual.apellido}}
                             </h3>
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example2cg">Nombre de usuario:</label>
                             <h3 class="text-white fw-bold">
-                                carloxx
+                                {{ usuarioActual.nickname }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example3cg">Mi correo electronico:</label>
                             <h3 class="text-white fw-bold">
-                                calitoskpo000@gmail.com
+                                {{ usuarioActual.email }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example5cg">Telefono:</label>
                             <h3 class="text-white fw-bold">
-                                03834-283401
-                            </h3>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example6cg">DNI:</label>
-                            <h3 class="text-white fw-bold">
-                                419826682
+                                {{ usuarioActual.nro_contacto }}
                             </h3>
                         </div>
                     </div>
@@ -50,38 +44,39 @@
                 </div>
 
                 <div class="card bg-dark" style="border-radius: 15px;">
-                    <div class="card-body p-5">
+                    <div class="card-body p-5" *ngFor="let item of usuarioDirecciones">
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example7cg">Calle/Avenida:</label>
                             <h3 class="text-white fw-bold">
-                                Avellaneda 186
+                                {{ item.calle1 }}
+                            </h3>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label text-light" for="form3Example7cg">Altura:</label>
+                            <h3 class="text-white fw-bold">
+                                {{ item.altura }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example8cg">Código postal:</label>
                             <h3 class="text-white fw-bold">
-                                4700
+                                {{ item.codpostal }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example9cg">Provincia:</label>
                             <h3 class="text-white fw-bold">
-                                Catamarca
+                                {{ item.provincia }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example10cg">Ciudad:</label>
                             <h3 class="text-white fw-bold">
-                                San Fernando del Valle de Catamarca
-                            </h3>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example11cg">Telefono de contacto:</label>
-                            <h3 class="text-white fw-bold">
-                                (3834)507609
+                                {{ item.ciudad }}
                             </h3>
                         </div>
                     </div>

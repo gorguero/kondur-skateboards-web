@@ -27,9 +27,17 @@ export class UsuarioService {
     return this.http.post(`${url_base}/usuarios`, data)
     .pipe(
       tap( (resp:any) => {
-        this.almacenarLocalStorage(resp.token, resp.menu);
+        
       } )
     );
+  }
+
+  obtenerUsuario( data:string ): Observable<Usuarios>{
+    return this.http.get<Usuarios>(`${url_base}/usuarios/byid?data=${data}`);
+  }
+
+  updateUsuario( id:string, userUpdate:Usuarios ):Observable<Usuarios>{
+    return this.http.put<Usuarios>(`${url_base}/usuarios/${id}`, userUpdate);
   }
 
 }

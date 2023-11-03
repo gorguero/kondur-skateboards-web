@@ -13,33 +13,27 @@
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example1cg">Nombre completo:</label>
                             <h3 class="text-white fw-bold">
-                                Ramirez Carlos
+                                {{ usuarioActual.nombre }} {{usuarioActual.apellido}}
                             </h3>
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example2cg">Nombre de usuario:</label>
                             <h3 class="text-white fw-bold">
-                                carloxx
+                                {{ usuarioActual.nickname }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example3cg">Mi correo electronico:</label>
                             <h3 class="text-white fw-bold">
-                                calitoskpo000@gmail.com
+                                {{ usuarioActual.email }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example5cg">Telefono:</label>
                             <h3 class="text-white fw-bold">
-                                03834-283401
-                            </h3>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example6cg">DNI:</label>
-                            <h3 class="text-white fw-bold">
-                                419826682
+                                {{ usuarioActual.nro_contacto }}
                             </h3>
                         </div>
                     </div>
@@ -50,38 +44,39 @@
                 </div>
 
                 <div class="card bg-dark" style="border-radius: 15px;">
-                    <div class="card-body p-5">
+                    <div class="card-body p-5" *ngFor="let item of usuarioActual.direcciones">
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example7cg">Calle/Avenida:</label>
                             <h3 class="text-white fw-bold">
-                                Avellaneda 186
+                                {{ item.calle1 }}
+                            </h3>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label text-light" for="form3Example7cg">Altura:</label>
+                            <h3 class="text-white fw-bold">
+                                {{ item.altura }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example8cg">Código postal:</label>
                             <h3 class="text-white fw-bold">
-                                4700
+                                {{ item.codpostal }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example9cg">Provincia:</label>
                             <h3 class="text-white fw-bold">
-                                Catamarca
+                                {{ item.provincia }}
                             </h3>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label text-light" for="form3Example10cg">Ciudad:</label>
                             <h3 class="text-white fw-bold">
-                                San Fernando del Valle de Catamarca
-                            </h3>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example11cg">Telefono de contacto:</label>
-                            <h3 class="text-white fw-bold">
-                                (3834)507609
+                                {{ item.ciudad }}
                             </h3>
                         </div>
                     </div>
@@ -99,29 +94,76 @@
                                 </mat-expansion-panel-header>
                                 <div class="card  border-0 mt-3">
                                     <div class="card-body p-2">
-                                        <form>
+                                        <form [formGroup]="editUserForm" (ngSubmit)="updateUser()">
                                             <div class="form-outline mb-4">
-                                                <label class="form-label " for="form3Example1cg">Nombre completo</label>
-                                                <input type="text" id="form3Example12cg" class="form-control form-control-lg" value="Ramirez Carlos"/>
+                                                <label class="form-label " for="form3Example1cg">Nombre</label>
+                                                <input type="text" formControlName="nombre" class="form-control form-control-lg"/>
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label " for="form3Example1cg">Apellido</label>
+                                                <input type="text" formControlName="apellido" class="form-control form-control-lg"/>
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label " for="form3Example1cg">Nombre de usuario</label>
+                                                <input type="text" formControlName="nickname" class="form-control form-control-lg"/>
                                             </div>
                 
                                             <div class="form-outline mb-4">
                                                 <label class="form-label " for="form3Example3cg">Correo electronico</label>
-                                                <input type="email" id="form3Example13cg" class="form-control form-control-lg" value="calitoskpo000@gmail.com" />
+                                                <input type="email" formControlName="email" class="form-control form-control-lg"/>
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label " for="form3Example3cg">Teléfono</label>
+                                                <input type="email" formControlName="nro_contacto" class="form-control form-control-lg"/>
                                             </div>
                 
-                                            <div class="form-outline mb-4">
+                                            <!-- <div class="form-outline mb-4">
                                                 <label class="form-label " for="form3Example4cg">Contraseña</label>
-                                                <input type="password" id="form3Example14cg" class="form-control form-control-lg" value="12414231" />
+                                                <input type="password" formControlName="" class="form-control form-control-lg"/>
+                                            </div> -->
+
+                                            <hr>
+
+                                            <h4 class="fs-5 fw-bold">Dirección</h4>
+                                            <div formGroupName="direcciones">
+
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="form3Example18cg">Provincia</label>
+                                                    <input type="text" formControlName="provincia" class="form-control form-control-lg" />
+                                                </div>
+                    
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="form3Example4cdg">Ciudad</label>
+                                                    <input type="text" formControlName="ciudad" class="form-control form-control-lg"/>
+                                                </div>
+    
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="form3Example1cg">Calle principal</label>
+                                                    <input type="text" formControlName="calle1" class="form-control form-control-lg"/>
+                                                </div>
+    
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="form3Example1cg">Calle secundaria</label>
+                                                    <input type="text" formControlName="calle2" class="form-control form-control-lg"/>
+                                                </div>
+    
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="form3Example1cg">Altura</label>
+                                                    <input type="text" formControlName="altura" class="form-control form-control-lg"/>
+                                                </div>
+                    
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="form3Example3cg">Código postal</label>
+                                                    <input type="text" formControlName="codPostal" class="form-control form-control-lg"/>
+                                                </div>
+
                                             </div>
-                
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label " for="form3Example4cdg">Repite la nueva contraseña</label>
-                                                <input type="password" id="form3Example15cdg" class="form-control form-control-lg" />
-                                            </div>
-                
+
                                             <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
+                                                <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
                                                     Guardar
                                                 </button>
                                             </div>
@@ -133,7 +175,7 @@
                     </ul>
                 </mat-accordion>
 
-                <mat-accordion>
+                <!-- <mat-accordion>
                     <ul class=" navbar-nav justify-content-end flex-grow-1 pe-3 dropend mt-5">
                         <li>
                             <mat-expansion-panel class="bg-white" style="border-radius: 15px;">
@@ -181,7 +223,7 @@
                             </mat-expansion-panel>
                         </li>
                     </ul>
-                </mat-accordion>
+                </mat-accordion> -->
             </div>
         </div>
     </div>

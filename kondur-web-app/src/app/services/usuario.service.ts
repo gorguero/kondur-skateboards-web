@@ -32,4 +32,12 @@ export class UsuarioService {
     );
   }
 
+  obtenerUsuario( data:string ): Observable<Usuarios>{
+    return this.http.get<Usuarios>(`${url_base}/usuarios/byid?data=${data}`);
+  }
+
+  updateUsuario( id:string, userUpdate:Usuarios ):Observable<Usuarios>{
+    return this.http.put<Usuarios>(`${url_base}/usuarios/${id}`, userUpdate);
+  }
+
 }

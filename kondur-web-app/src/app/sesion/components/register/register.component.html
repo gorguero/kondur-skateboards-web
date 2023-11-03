@@ -56,6 +56,12 @@
                                     {{ getFieldError('password') }}
                                 </span>
                             </div>
+
+                            <!--INPUT NRO DE TELEFONO-->
+                            <div class="form-outline mb-3">
+                                <label class="form-label text-light">Teléfono</label>
+                                <input type="text" formControlName="nro_contacto" class="form-control" />
+                            </div>
                             
                         </div>
                         <div>
@@ -110,17 +116,23 @@
 
                         <div class="me-4">
                             <div class="form-outline mb-3">
+                                <label class="form-label text-light">Provincia</label>
+                                <input type="text" formControlName="provincia" class="form-control" />
+                            </div>
+                            <div class="form-outline mb-3">
                                 <label class="form-label text-light">Calle 1</label>
                                 <input type="text" formControlName="calle1" class="form-control" />
                             </div>
-                           
                             <div class="form-outline mb-3">
                                 <label class="form-label text-light" for="form3Example3cg">Altura</label>
                                 <input type="text" formControlName="altura" class="form-control" />
                             </div>
-                            
                         </div>
                         <div>
+                            <div class="form-outline mb-3">
+                                <label class="form-label text-light" for="form3Example3cg">Ciudad</label>
+                                <input type="text" formControlName="ciudad" class="form-control" />
+                            </div>
                             <div class="form-outline mb-3">
                                 <label class="form-label text-light">Calle 2</label>
                                 <input type="text" formControlName="calle2" class="form-control" />

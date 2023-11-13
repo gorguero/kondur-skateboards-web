@@ -33,7 +33,10 @@ export class UsuarioService {
   }
 
   obtenerUsuario( data:string ): Observable<Usuarios>{
-    return this.http.get<Usuarios>(`${url_base}/usuarios/byid?data=${data}`);
+    return this.http.get<Usuarios>(`${url_base}/usuarios/byid?data=${data}`)
+      .pipe(
+        map( (data:any) => data.userById )
+      );
   }
 
   updateUsuario( id:string, userUpdate:Usuarios ):Observable<Usuarios>{

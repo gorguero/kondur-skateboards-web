@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Usuarios from 'src/app/models/usuarios.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-perfil',
@@ -28,62 +29,85 @@ export class PerfilComponent implements OnInit {
       calle1: [''],
       calle2: [''],
       altura: [''],
-      codPostal: [''],
+      codpostal: [''],
     }),
   });
 
   constructor(
-    private auth: AuthService, 
+    private auth: AuthService,
     private usuarioService: UsuarioService,
     private fb: FormBuilder,
+    private toastr: ToastrService,
   ) {
     this.token = this.auth.getDecodedToken(this.tokenDecoded);
+
+  }
+
+  preCargarForm() {
     
+    const userFormEdit: any = {
+      nombre: this.usuarioActual.nombre,
+      apellido: this.usuarioActual.apellido,
+      nickname: this.usuarioActual.nickname,
+      email: this.usuarioActual.email,
+      nro_contacto: this.usuarioActual.nro_contacto,
+      direcciones: {
+        provincia: this.usuarioDirecciones[0].provincia,
+        ciudad: this.usuarioDirecciones[0].ciudad,
+        calle1: this.usuarioDirecciones[0].calle1,
+        calle2: this.usuarioDirecciones[0].calle2,
+        altura: this.usuarioDirecciones[0].altura,
+        codpostal: this.usuarioDirecciones[0].codpostal,
+      }
+    }
+
+    this.editUserForm.patchValue(userFormEdit);
   }
 
   ngOnInit(): void {
+
     this.usuarioService.obtenerUsuario(this.token.id)
-      .subscribe((data:any) => {
-        this.usuarioActual = data.userById;
+      .subscribe((usuario: Usuarios) => {
+        this.usuarioActual = usuario;
+        this.usuarioDirecciones = this.usuarioActual.direcciones;
+        
+        this.preCargarForm();
       });
+
   }
 
-  updateUser():void{
+  updateUser(): void {
     console.log(this.editUserForm.value);
 
     //Obtenemos los campos y valores del formGroup Direcciones
     const direccionesGroup = this.editUserForm.get('direcciones') as FormGroup;
     const provinciaControl = direccionesGroup.get('provincia');
-    const ciudadControl = direccionesGroup.get('ciudad'); 
-    const calle1Control = direccionesGroup.get('calle1'); 
-    const calle2Control = direccionesGroup.get('calle2'); 
-    const alturaControl = direccionesGroup.get('altura'); 
-    const codPostalControl = direccionesGroup.get('codPostal'); 
-    
+    const ciudadControl = direccionesGroup.get('ciudad');
+    const calle1Control = direccionesGroup.get('calle1');
+    const calle2Control = direccionesGroup.get('calle2');
+    const alturaControl = direccionesGroup.get('altura');
+    const codPostalControl = direccionesGroup.get('codpostal');
+
     const userEdit: Usuarios = {
       nombre: this.editUserForm.get('nombre')?.value,
       apellido: this.editUserForm.get('apellido')?.value,
       nickname: this.editUserForm.get('nickname')?.value,
       email: this.editUserForm.get('email')?.value,
       nro_contacto: this.editUserForm.get('nro_contacto')?.value,
-      direcciones: [
-        {
-          provincia: provinciaControl?.value,
-          ciudad: ciudadControl?.value,
-          calle1: calle1Control?.value,
-          calle2: calle2Control?.value,
-          altura: alturaControl?.value,
-          codPostal: codPostalControl?.value
-        }
-      ]
+      direcciones: {
+        provincia: provinciaControl?.value,
+        ciudad: ciudadControl?.value,
+        calle1: calle1Control?.value,
+        calle2: calle2Control?.value,
+        altura: alturaControl?.value,
+        codpostal: codPostalControl?.value
+      }
     }
-    console.log(this.token.id)
-    console.log(userEdit)
 
     this.usuarioService.updateUsuario(this.token.id, userEdit)
       .subscribe({
         next: resp => {
-          console.log(resp)
+          this.toastr.success('El perfil se actualizó exitosamente', 'Perfil Actualizado');
         },
         error: error => {
           console.log(error)

@@ -11,7 +11,7 @@ export class Usuarios {
     public rol?: 'ADMIN_ROLE' | 'USER_ROLE',
     public estado?: boolean,
     public uid?: string,
-    public direcciones?: object[],
+    public direcciones?: {},
     public nro_contacto?: string //si se rompe fue por esto
   ) {}
 }

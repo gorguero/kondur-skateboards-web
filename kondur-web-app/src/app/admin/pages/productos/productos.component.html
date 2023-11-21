@@ -34,6 +34,7 @@
                 <!-- MODAL -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <!-- FORMULARIO -->
                     <form class="modal-content" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
                       <div class="modal-header">
                         <h5 class="modal-title fw-bold fs-5">Agregar Producto</h5>
@@ -42,6 +43,7 @@
                       <div class="modal-body">
                         <div class="row">
                           <div class="col-md-6">
+                            <!-- NOMBRE -->
                             <div class="form-group text-start mb-3 has-validation">
                               <label for="nombre">Nombre del Producto:</label>
                               <!-- Logica de validacion input vacio -->
@@ -51,7 +53,7 @@
                                 El nombre del producto <strong>es obligatorio.</strong>
                               </div>
                             </div>
-
+                            <!-- IMAGEN -->
                             <div class="form-group text-start mb-3 has-validation">
                               <label for="imagen">Imagen del Producto:</label>
                               <!-- Logica de validacion input vacio -->
@@ -61,7 +63,7 @@
                                 La imagen del producto <strong>es obligatorio.</strong>
                               </div>
                             </div>
-
+                            <!-- DESCRIPCION -->
                             <div class="form-group text-start mb-3 has-validation">
                               <label for="descripcion">Descripción del Producto:</label>
                               <!-- Logica de validacion input vacio -->
@@ -73,7 +75,9 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="col-md-6">
+                            <!-- PRECIO -->
                             <div class="form-group text-start mb-3 has-validation">
                               <label for="precio">Precio:</label>
                               <!-- Logica de validacion input vacio -->
@@ -83,11 +87,11 @@
                                 El precio del producto <strong>es obligatorio.</strong>
                               </div>
                             </div>
-
+                            <!-- CATEGORIA -->
                             <div class="form-group text-start mb-3 has-validation">
                               <label for="categoria">Categoría del Producto:</label>
                               <!-- Logica de validacion input vacio -->
-                              <select formControlName="categoria" [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
+                              <select formControlName="categoria" (change)="onCategoriaChange()" [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
                                class="form-select" id="categoria" required>
                                 <option value="" selected>Seleccione una categoría</option>
                                 <option value="indumentaria">Indumentaria</option>
@@ -98,25 +102,67 @@
                                 La categoría del producto <strong>es obligatorio.</strong>
                               </div>
                             </div>
-                            <!-- FORM TALLAS -->
-                            <div formArrayName="tallas">
-                              <!-- CAMPO TALLES Y CANTIDAD DE CADA TALLE -->
-                              <ng-container *ngFor="let tallaGroup of tallas.controls; let i = index" [formGroupName]="i">
-                                <div class="form-group text-start mb-3 d-flex align-content-around">
-                                  <div class="has-validation">
-                                    <label for="nombre{{ i }}">Talle</label>
-                                    <input formControlName="nombre" type="text" class="form-control" id="nombre{{ i }}">
+
+                            <!--TALLAS/MEDIDAS-->
+                            <div *ngIf="categoriaSeleccionada !== 'ninguna'">
+                              <div  *ngIf="categoriaSeleccionada === 'tallas'" formArrayName="tallas" class="text-start">
+                                <!-- CAMPO TALLES Y CANTIDAD DE CADA TALLE -->
+                                <label>Talles</label>
+                                <div class="form-group mb-3">
+                                  <div class="d-flex contenedor-inputs">
+                                    <label>S:</label>
+                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="s">
                                   </div>
-                                  <div class="has-validation">
-                                    <label for="cantidad{{ i }}">Cantidad</label>
-                                    <input formControlName="cantidad" type="number" class="form-control" id="cantidad{{ i }}">
+                                  <div class="d-flex contenedor-inputs">
+                                    <label>M:</label>
+                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="m">
                                   </div>
-                                  <button (click)="eliminarTalla(i)">Eliminar</button>
-                                  <!-- Botón para agregar nueva talla -->
+                                  <div class="d-flex contenedor-inputs">
+                                    <label>L:</label>
+                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="l">
+                                  </div>
+                                  <div class="d-flex contenedor-inputs">
+                                    <label>XL:</label>
+                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="xl">
+                                  </div>
                                 </div>
-                              </ng-container>
-                              <button type="button" (click)="agregarTalla()">Agregar Talla</button>
+                              </div>
                             </div>
+
+                            <div *ngIf="categoriaSeleccionada === 'medidas'" formArrayName="medidas" class="text-start">
+                              <!-- CAMPO TALLES Y CANTIDAD DE CADA TALLE -->
+                              <label>Medidas</label>
+                              <div class="form-group mb-3">
+                                <div class="d-flex contenedor-inputs">
+                                  <label>Mediano (5):</label>
+                                  <input type="number"class="form-control inputsTallesMedidas" formControlName="chico" value="0">
+                                </div>
+                                <div class="d-flex contenedor-inputs">
+                                  <label>Chico (8):</label>
+                                  <input type="number"class="form-control inputsTallesMedidas" formControlName="mediano">
+                                </div>
+                                <div class="d-flex contenedor-inputs">
+                                  <label>Grande (8.5):</label>
+                                  <input type="number"class="form-control inputsTallesMedidas"formControlName="grande">
+                                </div>
+                              </div>
+                            </div>
+                            <!-- <ng-container *ngFor="let tallaGroup of tallas.controls; let i = index" [formGroupName]="i">
+                              <div class="form-group mb-3 d-flex align-content-around">
+                              
+                                <div class="has-validation">
+                                  <label for="nombre{{ i }}">Talle</label>
+                                  <input formControlName="nombre" type="text" class="form-control" id="nombre{{ i }}">
+                                </div>
+                                
+                                <div class="has-validation">
+                                  <label for="cantidad{{ i }}">Cantidad</label>
+                                  <input formControlName="cantidad" type="number" class="form-control" id="cantidad{{ i }}">
+                                </div>
+                              </div>
+                            </ng-container> -->
+                            <!-- Botón para agregar nueva talla -->
+                            <!-- <button type="button" (click)="agregarTalla()">Agregar Talla</button> -->
                             
                           </div>
                         </div>
@@ -135,6 +181,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
                         <th scope="col">Acciones</th>
                       </tr>
                     </thead>
@@ -143,6 +190,7 @@
                         <td class="align-middle">{{producto.nombreProducto}}</td>
                         <td class="align-middle">{{producto.categoria}}</td>
                         <td class="align-middle">{{producto.precio}}</td>
+                        <!-- <td class="align-middle">{{calcularSumaCantidadesTallas()}}</td> Mostrar la suma de cantidades -->
                         <td class="d-flex justify-content-around">
                           <a [routerLink]="['/administrador/productos', producto._id]" routerLinkActive="active">
                             <h1><i class="bi bi-pencil-fill"></i></h1>

@@ -79,6 +79,7 @@ export class CheckComponent {
       console.log(CHECK);
       this._checkService.editarCheck(this.id, CHECK).subscribe(data =>{
       this.toastr.info('Se actualizo el check exitosamente!', 'Check actualizado');
+      
       window.location.reload();
       }, error => {
         console.log(error);

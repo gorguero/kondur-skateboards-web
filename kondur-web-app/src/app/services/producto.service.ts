@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Output, EventEmitter } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Producto } from '../models/producto.model';
+import { ProductoIntf } from '../interfaces/producto.interface';
 
+const url_base = environment.url_base;
 @Injectable({
   providedIn: 'root'
 })
@@ -15,16 +18,16 @@ export class ProductoService {
     return this.http.get<Producto[]>(this.url);
   }
 
-  guardarProducto(producto: Producto): Observable<Producto> {
-    return this.http.post<Producto>(this.url, producto);
+  guardarProducto(data: ProductoIntf) {
+    return this.http.post(`${url_base}/productos`, data);
   }
 
   obtenerProducto(id: string): Observable<Producto> {
     return this.http.get<Producto>(`${this.url}${id}`);
   }
 
-  editarProducto(id: string, producto: Producto): Observable<any> {
-    return this.http.put(this.url + id, producto);
+  editarProducto(id: string, data: Producto): Observable<any> {
+    return this.http.put(this.url + id, data);
   }
 
   deshabilitarProducto(id: string): Observable<any> {

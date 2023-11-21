@@ -29,3 +29,12 @@ h2:hover{
     cursor: pointer;
 }
 
+.contenedor-inputs{
+    align-items: center;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+.inputsTallesMedidas{
+    width: 100px;
+    margin-left: 1rem;
+}

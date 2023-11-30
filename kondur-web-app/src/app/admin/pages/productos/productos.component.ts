@@ -21,7 +21,6 @@ export class ProductosComponent {
   ngOnInit(): void {
     this.obtenerProductos();
     this.productoForm.reset();
-    // this.calcularSumaCantidadesTallas();
     // Suscribirse a cambios en la categoría
     this.productoForm.get('categoria')?.valueChanges.subscribe((categoria) => {
       this.actualizarFormulariosSegunCategoria(categoria);
@@ -57,7 +56,6 @@ export class ProductosComponent {
      
   });
 
-  // FALTA VER PORQUE SE CARGA EN NULL LO QUE NO SE LLENA EN VEZ DE CERO
   get tallas(){
     return this.productoForm.get('tallas') as FormArray;
   }
@@ -75,32 +73,7 @@ export class ProductosComponent {
       this.categoriaSeleccionada = 'ninguna';
     }
   }
-  // funcion que me permite validar si una de las
-  // dos opciones de categoria  esta seleccionado
-  // onSelectChange(event: Event): void {
-  //   const selectElement = event.target as HTMLSelectElement;
-  //   let categoria = this.categoriaSeleccionada = selectElement.value;
-  //   const tallasControl = this.productoForm.get('tallas');
-  //   const medidasControl = this.productoForm.get('medidas');
-
-  //   tallasControl?.reset();
-  //   medidasControl?.reset();
-
-  //   if (categoria === 'indumentaria') {
-  //     tallasControl?.enable();
-  //     medidasControl?.disable();
-  //   } else if (categoria === 'tablas') {
-  //     tallasControl?.disable();
-  //     medidasControl?.enable();
-  //   } else {
-  //     tallasControl?.disable();
-  //     medidasControl?.disable();
-  //     this.productoForm.get('tallas')?.disable();
-  //     this.productoForm.get('medidas')?.disable();
-  //   }
-  // }
   
-
   //resetea el formulario al apretar cancelar
   resetearFormulario() {
     this.productoForm.reset({
@@ -109,8 +82,8 @@ export class ProductosComponent {
     });
   }
   
-   // Agrega esta función para actualizar los formularios según la categoría seleccionada
-   private actualizarFormulariosSegunCategoria(categoria: string) {
+  // Agrega esta función para actualizar los formularios según la categoría seleccionada
+  private actualizarFormulariosSegunCategoria(categoria: string) {
     const tallasControl = this.productoForm.get('tallas');
     const medidasControl = this.productoForm.get('medidas');
 
@@ -152,7 +125,7 @@ export class ProductosComponent {
     
     this._productoService.guardarProducto(productoData).subscribe(data =>{
       this.toastr.success('Se agrego un producto exitosamente!', 'Producto agregado');
-      // window.location.reload();
+      window.location.reload();
     }, error => {
       console.log(error);
       this.productoForm.reset();}

@@ -75,7 +75,6 @@ export class PerfilComponent implements OnInit {
       });
 
   }
-
   updateUser(): void {
     console.log(this.editUserForm.value);
 

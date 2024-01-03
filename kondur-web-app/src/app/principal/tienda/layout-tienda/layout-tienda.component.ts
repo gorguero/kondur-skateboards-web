@@ -26,10 +26,10 @@ export class LayoutTiendaComponent implements OnInit{
       /* Filtramos por indumentaria */
       this.indumentariaList = data.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
 
-      /* Filtramos por tablas */
+      // /* Filtramos por tablas */
       this.tablasList = data.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
 
-      /* Filtramos por lijas */
+      // /* Filtramos por lijas */
       this.lijasList = data.filter( (item: { categoria: string; }) => item.categoria === 'lijas' );
 
       this.productosList = data;

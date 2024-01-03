@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
+import { KeyValue } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-producto',
@@ -11,6 +13,8 @@ export class ProductoComponent implements OnInit {
   id: string | null;
   producto: any = {};
 
+  public carrito_data : any = {};
+
   constructor(
     private _productoService: ProductoService,
     private aRouter: ActivatedRoute)
@@ -20,10 +24,11 @@ export class ProductoComponent implements OnInit {
     this.obtenerProducto();
   }
 
-  obtenerProducto(){
-    if(this.id !== null){
-      this._productoService.obtenerProducto(this.id).subscribe(data => {
-        console.log(data);
+  obtenerProducto() {
+    if (this.id !== null) {
+      this._productoService.obtenerProducto(this.id).subscribe(
+        (data) => {
+          console.log(data);
           this.producto = data;
         },
         (error) => {

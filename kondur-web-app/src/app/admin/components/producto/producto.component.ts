@@ -16,6 +16,7 @@ export class ProductoComponent {
   public productoActual?: any = {};
   public productoTallas?: any = [];
   public productoMedidas?: any = [];
+  public categoriaActual?: any='';
 
   constructor(private fb: FormBuilder,
             private _productoService: ProductoService,
@@ -24,11 +25,7 @@ export class ProductoComponent {
             private router: Router){
     this.id = this.aRouter.snapshot.paramMap.get('id');
   }
-
-  
-  
-
-  
+ 
   public productoForm: FormGroup = this.fb.group({
     nombreProducto: ['', Validators.required],
     descripcion: ['', Validators.required],
@@ -47,43 +44,6 @@ export class ProductoComponent {
       grande: ['']
     })
   },{ });
-  
-  // preCargarForm(){
-
-  //   const productFormEdit: any ={
-  //     nombreProducto: this.productoActual.nombreProducto,
-  //     descripcion: this.productoActual.descripcion,
-  //     imagen:this.productoActual.imagen,
-  //     precio:this.productoActual.precio,
-  //     categoria:this.productoActual.categoria,
-  //     tallas: {
-  //       s: this.productoTallas.s,
-  //       m: this.productoTallas.m,
-  //       l: this.productoTallas.l,
-  //       xl: this.productoTallas.xl
-  //     },
-  //     medidas: {
-  //       chico: this.productoMedidas.chico,
-  //       mediano: this.productoMedidas.mediano,
-  //       grande: this.productoMedidas.grande
-  //     }
-  //   }
-  //   console.log("Valores antes de patchValue:", productFormEdit.nombreProducto);
-
-  // this.productoForm.patchValue(productFormEdit);
-
-  // console.log("Producto Form después de asignar valores:", this.productoForm.value);
-  //   // this.productoForm.setValue({
-  //   //   nombreProducto: productFormEdit.nombreProducto,
-  //   //   descripcion:productFormEdit.descripcion,
-  //   //   imagen:productFormEdit.imagen,
-  //   //   precio:productFormEdit.precio,
-  //   //   categoria:productFormEdit.categoria,
-  //   //   tallas:productFormEdit.tallas,
-  //   //   medidas:productFormEdit.medidas
-  //   // });
-  //   // console.log("Producto Form después de asignar valores:", this.productoForm.value);
-  // }
 
   preCargarForm() {
     if (this.productoActual) {
@@ -123,7 +83,7 @@ export class ProductoComponent {
         };
       }
   
-      console.log("Valores antes de patchValue:", productFormEdit.nombreProducto);
+      console.log("Valores antes de patchValue:", productFormEdit.estado);
   
       this.productoForm.patchValue(productFormEdit);
   
@@ -131,18 +91,16 @@ export class ProductoComponent {
     }
   }
   
-
   ngOnInit(): void {
     this._productoService.obtenerProducto(this.id)
     .subscribe((producto: Producto) => {
       this.productoActual = producto;
       this.productoTallas = this.productoActual.tallas;
       this.productoMedidas = this.productoActual.medidas;
-      
-      
+
       this.preCargarForm();
-      
-      console.log(this.productoActual.estado + " Esto viene de lo que carga el producto nombre");
+      this.categoriaActual = this.productoActual.categoria;
+      console.log(this.categoriaActual);
     });
   }
 
@@ -167,6 +125,7 @@ export class ProductoComponent {
      imagen: this.productoForm.get('imagen')?.value,
      precio: this.productoForm.get('precio')?.value,
      categoria: this.productoForm.get('categoria')?.value,
+     estado: true,
      tallas: {
       s: sTallaControl?.value,
       m: mTallaControl?.value,
@@ -181,20 +140,16 @@ export class ProductoComponent {
     }
     this._productoService.editarProducto(this.id, productEdit).subscribe(data =>{
       this.toastr.info('Se actualizo el producto exitosamente!', 'Producto actualizado');
-      console.log(productEdit + "esto se manda al final");
+      console.log("Contenido de productEdit:", productEdit);
+      console.log(productEdit.estado + "esto se manda al final");
       
-      // window.location.reload();
+      window.location.reload();
       }, error => {
         console.log(error);
         this.productoForm.reset();}
       )
   }
 
-  // Eliminar una talla o medida específica por índice
-  eliminarTalla(index: number) {
-  const tallas = this.productoForm.get('tallas') as FormArray;
-  tallas.removeAt(index);
-  }
   deshabilitarProducto(){
     if (this.id !== null){
       this._productoService.deshabilitarProducto(this.id).subscribe(
@@ -203,7 +158,6 @@ export class ProductoComponent {
           this.router.navigate(['/administrador/productos']).then(() => {
             window.location.reload();
         });
-        
         },(error) => {
           console.error(error);
         }

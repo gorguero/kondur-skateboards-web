@@ -9,52 +9,44 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <nav class="nav">
-        <mat-accordion>
-            <ul class=" navbar-nav justify-content-end flex-grow-1 pe-3 dropend">
-                <li class="ms-1">
+        <mat-accordion class="prueba-item">
+            <ul class=" navbar-nav justify-content-end flex-grow-1  dropend">
+                <li class="ms-2">
                     <div class="list__button">
                         <h2>
-                        <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active" data-bs-dismiss="offcanvas">Inicio</a>
+                        <a class="nav-link active " aria-current="page" routerLink="/home" routerLinkActive="active" data-bs-dismiss="offcanvas">Inicio</a>
                         </h2>
                     </div>
                 </li>
-                <li>
-                    <div>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    <h3>
-                                        <a class="nav-link active " routerLink="/tienda" routerLinkActive="active" data-bs-dismiss="offcanvas">Tienda</a>
-                                    </h3>
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <a routerLink="/tienda/indumentaria" routerLinkActive="active"class="nav-link" data-bs-dismiss="offcanvas">Indumentaria</a>
-                            <a routerLink="/tienda/tablas" routerLinkActive="active" class="nav-link" data-bs-dismiss="offcanvas">Tablas</a>
-                            <a routerLink="/tienda/lijas" routerLinkActive="active" class="nav-link" data-bs-dismiss="offcanvas">Lijas</a>
-                        </mat-expansion-panel>
-                    </div>
+                <li class="ms-2">
+                    <mat-expansion-panel id="item-tienda">
+                        <mat-expansion-panel-header class="list__button">
+                            <mat-panel-title>
+                                <h3>
+                                    <a class="nav-link active " routerLink="/tienda" routerLinkActive="active" data-bs-dismiss="offcanvas">Tienda</a>
+                                </h3>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <a routerLink="/tienda/indumentaria" routerLinkActive="active"class="nav-link" data-bs-dismiss="offcanvas">Indumentaria</a>
+                        <a routerLink="/tienda/tablas" routerLinkActive="active" class="nav-link" data-bs-dismiss="offcanvas">Tablas</a>
+                        <a routerLink="/tienda/lijas" routerLinkActive="active" class="nav-link" data-bs-dismiss="offcanvas">Lijas</a>
+                    </mat-expansion-panel>
                 </li>
-
-
-                <li class="ms-1">
+                <li class="ms-2">
                     <div class="list__button">
                         <h3>
                             <a routerLink="/checks" routerLinkActive="active" class="nav-link active" data-bs-dismiss="offcanvas">Checks</a>
                         </h3>
                     </div>
                 </li>
-
-                <li class="ms-1">
+                <li class="ms-2">
                     <div class="list__button">
                         <h3>
                             <a routerLink="/nosotros" routerLinkActive="active" class="nav-link active" data-bs-dismiss="offcanvas">Nosotros</a>
                         </h3>
                     </div>
-
                 </li>
-
-
-                <li class="">
+                <li class="ms-2">
                     <div class="list__button">
                         <a class="btn-registrate fw-bold text-white" routerLink="/sesion/Register" routerLinkActive="active" data-bs-dismiss="offcanvas">REGISTRATE</a>
                     </div>

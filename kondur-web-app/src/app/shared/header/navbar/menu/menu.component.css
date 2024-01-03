@@ -1,12 +1,27 @@
 .mat-expansion-panel{
     background: none;
 }
+.mat-expansion-panel-header{
+    padding: 0;
+}
 
 /* NAVBAR */
 .list__button{
     display: flex;
     align-items: center;
     gap: 1em;
-    width: 70%;
-    margin: 0 auto;
+    width: 100%;
+    /* background-color: green; */
+    /* margin: 0 auto; */
+}
+
+.prueba-item{
+    width: 100%;
+    margin: 0;
+}
+
+#item-tienda{
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto.model';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-tablas-page',
@@ -8,10 +9,19 @@ import { Producto } from 'src/app/models/producto.model';
 })
 export class TablasPageComponent implements OnInit{
   
-  @Input() tablaList:Producto[] = [];
+  tablasList:Producto[] = [];
+  constructor(private _productoService:ProductoService){}
   
   ngOnInit(): void {
-    console.log(this.tablaList)
+    this.obtenerProductos();
+  }
+  obtenerProductos(){
+    this._productoService.getProducto().subscribe( data =>{
+      // /* Filtramos por tablas */
+      this.tablasList = data.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
+    }, error =>{
+      console.log(error);
+    })
   }
 
 }

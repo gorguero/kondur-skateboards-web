@@ -82,7 +82,7 @@ export class ProductosComponent {
     });
   }
   
-  // Agrega esta función para actualizar los formularios según la categoría seleccionada
+  //función para actualizar los formularios según la categoría seleccionada
   private actualizarFormulariosSegunCategoria(categoria: string) {
     const tallasControl = this.productoForm.get('tallas');
     const medidasControl = this.productoForm.get('medidas');

@@ -93,16 +93,37 @@
               </div>
 
               <div class="form-group text-start mb-3 d-flex justify-content-between align-content-around">
-                <div formGroupName="tallas" class="form-group text-start mb-3">
-                  <!-- <p>Nombre de Talla: {{ talla.nombre }}</p> -->
-                  <label for="">s</label>
-                  <input formControlName="s" type="number" class="form-control" >
-                  <label for="">m</label>
-                  <input formControlName="m" type="number" class="form-control">
-                  <label for="">l</label>
-                  <input formControlName="l" type="number" class="form-control">
-                  <label for="">xl</label>
-                  <input formControlName="xl" type="number" class="form-control">
+                <div *ngIf="categoriaActual === 'indumentaria'" formGroupName="tallas" class="form-group text-start mb-3">
+                  <label class="fs-5 mb-4">Tallas</label>
+                  <div class="form-group mb-3 d-flex flex-column">
+
+                    <h3 for="">s</h3>
+                    <input formControlName="s" type="number" class="form-control mb-3" >
+                    <h3 for="">m</h3>
+                    <input formControlName="m" type="number" class="form-control mb-3">
+                    <h3 for="">l</h3>
+                    <input formControlName="l" type="number" class="form-control mb-3">
+                    <h3 for="">xl</h3>
+                    <input formControlName="xl" type="number" class="form-control mb-3">
+                  </div>
+                </div>
+                <div *ngIf="categoriaActual === 'tablas'" formArrayName="medidas" class="text-start">
+                  <label class="fs-5 mb-4">Medidas</label>
+                  <div class="form-group mb-3 d-flex flex-column">
+                    <div class="contenedor-inputs mb-3">
+                      <label>Mediano (5):</label>
+                      <input type="number" class="form-control inputsTallesMedidas" formControlName="chico">
+                    </div>
+                    <div class="contenedor-inputs mb-3">
+                      <label>Chico (8):</label>
+                      <input type="number" class="form-control inputsTallesMedidas" formControlName="mediano">
+                    </div>
+                    <div class="contenedor-inputs">
+                      <label>Grande (8.5):</label>
+                      <input type="number" class="form-control inputsTallesMedidas" formControlName="grande">
+                    </div>
+                  </div>
+                  
                 </div>
               </div>
             </div>

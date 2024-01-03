@@ -17,7 +17,7 @@
             </nav>
             <div class="row align-items-center pe-3">
                 <div class="col-md-6 text-center">
-                    <img id="producto-principal" class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                    <img id="producto-principal" class="card-img-top" src="{{producto.imagen}}" alt="..." />
                 </div>
                 <div class="col-md-6 contenedor-info p-3">
                     <h1 class="display-5 fw-bolder">{{producto.nombreProducto }}</h1>
@@ -25,16 +25,23 @@
                         <span class="text-decoration-line-through">$1500.00</span>
                         <span>${{producto.precio}}</span>
                     </div>
-                    <p class="lead">{{producto.descripcion}}</p>  
-                    <h3>Seleccione el talle:</h3>
-                    <select class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
-                        <option value="0">Seleccione un talle</option>
-                        <option value="1">S</option>
-                        <option value="2">M</option>
-                        <option value="3">L</option>
-                        <option value="4">XL</option>
-                        <option value="5">XLL</option>
-                    </select>
+                    <p class="lead">{{producto.descripcion}}</p>
+                    <div *ngIf="producto.categoria !== 'lijas'">
+
+                        <h3>Seleccione el talle:</h3>
+                        <select class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
+                            <option value="0">Seleccione un talle</option>
+                            <option *ngIf="producto.tallas.s > 0" value="s">S</option>
+                            <option *ngIf="producto.tallas.m > 0" value="m">M</option>
+                            <option *ngIf="producto.tallas.l > 0" value="l">L</option>
+                            <option *ngIf="producto.tallas.xl > 0" value="xl">XL</option>
+                            <option *ngIf="producto.medidas.chico > 0" value="chico">Chico</option>
+                            <option *ngIf="producto.medidas.mediano > 0" value="mediano">Mediano</option>
+                            <option *ngIf="producto.medidas.grande > 0" value="grande">Grande</option>
+                        </select>
+                    </div>
+                      
+                      
                     <h3 class="mt-4">Cantidad:</h3>
                     <div class="input-group mb-3 w-25">
                         <input type="number" class="form-control" aria-label="Number" aria-describedby="basic-addon1" value="1">

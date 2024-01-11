@@ -7,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CarritoComponent } from './header/carrito/carrito.component';
-
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -20,11 +20,13 @@ import { CarritoComponent } from './header/carrito/carrito.component';
   imports: [
     CommonModule,
     RouterModule,
+    ToastrModule.forRoot(),
     MatExpansionModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
+    ToastrModule
   ]
 })
 export class SharedModule { }

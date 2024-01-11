@@ -19,6 +19,8 @@ import { TablasPageComponent } from './tienda/pages/tablas-page/tablas-page.comp
 import { IndumentariaPageComponent } from './tienda/pages/indumentaria-page/indumentaria-page.component';
 import { LijasPageComponent } from './tienda/pages/lijas-page/lijas-page.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -48,7 +50,9 @@ import {YouTubePlayerModule} from '@angular/youtube-player';
     SharedModule,
     RouterModule,
     PrincipalRoutingModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    ToastrModule,
+    FormsModule
   ],
   exports:[
     LandingComponent,

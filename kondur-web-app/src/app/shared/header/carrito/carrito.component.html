@@ -17,137 +17,41 @@
               </tr>
             </thead>
             <tbody id="tabla-scroll">
-              <tr>
+              <tr *ngFor="let producto of listaItemsCarrito">
                 <td class="align-middle d-flex">
                   <div class="me-3">
-                    <img class="img-carrito" src="../../../../assets/imagenes/skate1.png" alt=""> 
+                    <img class="img-carrito" src="{{producto.imagen}}" alt=""> 
                   </div>
                   <div >
-                    <h2 class="m-0">Tabla White Kondur</h2>
+                    <h2 class="m-0">{{producto.nombreProducto}}</h2>
                   </div>
                 </td>
                 <td class="align-middle limit-width">
                   <div class="text">
-                    <h2>$6.500</h2>
+                    <h2>${{producto.precio}}</h2>
                   </div>
                 </td>
                 <td class="align-middle limit-width">
-                  <h2 class="ps-4">1</h2>
+                  <h2 class="ps-4">{{producto.cantidad}}</h2>
                 </td>
                 <td class="align-middle">
-                  <h2>$6.500</h2>
+                  <h2>${{producto.precio * producto.cantidad}}</h2>
                 </td>
                 <td class="aling-middle">
-                  <i class="btn bi bi-trash3-fill text-danger"></i>
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle d-flex ">
-                  <div class="me-3">
-                    <img class="img-carrito" src="../../../../assets/imagenes/skate1.png" alt=""> 
-                  </div>
-                  <div >
-                    <h2 class="m-0">Tabla White Kondur</h2>
-                  </div>
-                </td>
-                <td class="align-middle limit-width">
-                  <div class="text">
-                    <h2>$6.500</h2>
-                  </div>
-                </td>
-                <td class="align-middle">
-                  <h2 class="ps-4">1</h2>
-                </td>
-                <td class="align-middle">
-                  <h2>$6.500</h2>
-                </td>
-                <td class="aling-middle">
-                  <i class="btn bi bi-trash3-fill text-danger"></i>
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle d-flex">
-                  <div class="me-3">
-                    <img class="img-carrito" src="../../../../assets/imagenes/skate1.png" alt=""> 
-                  </div>
-                  <div >
-                    <h2 class="m-0">Tabla White Kondur</h2>
-                  </div>
-                </td>
-                <td class="align-middle limit-width">
-                  <div class="text">
-                    <h2>$6.500</h2>
-                  </div>
-                </td>
-                <td class="align-middle">
-                  <h2 class="ps-4">1</h2>
-                </td>
-                <td class="align-middle">
-                  <h2>$6.500</h2>
-                </td>
-                <td class="aling-middle">
-                  <i class="btn bi bi-trash3-fill text-danger"></i>
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle d-flex">
-                  <div class="me-3">
-                    <img class="img-carrito" src="../../../../assets/imagenes/skate1.png" alt=""> 
-                  </div>
-                  <div >
-                    <h2 class="m-0">Tabla White Kondur</h2>
-                  </div>
-                </td>
-                <td class="align-middle limit-width">
-                  <div class="text">
-                    <h2>$6.500</h2>
-                  </div>
-                </td>
-                <td class="align-middle">
-                  <h2 class="ps-4">1</h2>
-                </td>
-                <td class="align-middle">
-                  <h2>$6.500</h2>
-                </td>
-                <td class="aling-middle">
-                  <i class="btn bi bi-trash3-fill text-danger"></i>
-                </td>
-              </tr>
-              <tr>
-                <td class="align-middle d-flex">
-                  <div class="me-3">
-                    <img class="img-carrito" src="../../../../assets/imagenes/skate1.png" alt=""> 
-                  </div>
-                  <div >
-                    <h2 class="m-0">Tabla White Kondur</h2>
-                  </div>
-                </td>
-                <td class="align-middle limit-width">
-                  <div class="text">
-                    <h2>$6.500</h2>
-                  </div>
-                </td>
-                <td class="align-middle">
-                  <h2 class="ps-4">1</h2>
-                </td>
-                <td class="align-middle">
-                  <h2>$6.500</h2>
-                </td>
-                <td class="aling-middle">
-                  <i class="btn bi bi-trash3-fill text-danger"></i>
+                  <i class="btn bi bi-trash3-fill text-danger" (click)="eliminarProducto(producto._id)"></i>
                 </td>
               </tr>
             </tbody>
           </table>
           <!-- FIN TABLA -->
           <div class="border-top border-dark border-3 pt-2">
-            <h2 class="float-end fw-bold text-dark">Monto total: $1000</h2>
+            <h2 class="float-end fw-bold text-dark">Monto total: ${{ montoTotal }}</h2>
           </div>
         
       </div>
     </div>
     <div class="container d-flex mt-2">
-      <button class="btn btn-vaciar float-start">
+      <button class="btn btn-vaciar float-start" (click)="vaciarCarrito()">
         Vaciar Carrito<i class="bi bi-trash3-fill text-danger"></i>
       </button>
       <button class="btn btn-continuar float-start ms-2">Continuar compra</button>

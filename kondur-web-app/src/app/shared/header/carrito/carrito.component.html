@@ -14,16 +14,17 @@
                 <th scope="col"><h1>Precio</h1></th>
                 <th scope="col"><h1>Cantidad</h1></th>
                 <th scope="col"><h1>Total</h1></th>
+                <th scope="col"><h1>Acción</h1></th>
               </tr>
             </thead>
             <tbody id="tabla-scroll">
               <tr *ngFor="let producto of listaItemsCarrito">
-                <td class="align-middle d-flex">
+                <td class="d-flex align-items-center">
                   <div class="me-3">
-                    <img class="img-carrito" src="{{producto.imagen}}" alt=""> 
+                    <img class="img-carrito " src="{{producto.imagen}}" alt=""> 
                   </div>
                   <div >
-                    <h2 class="m-0">{{producto.nombreProducto}}</h2>
+                    <h2 class="m-0">{{producto.nombreProducto}}({{producto.talla}})</h2>
                   </div>
                 </td>
                 <td class="align-middle limit-width">
@@ -37,7 +38,7 @@
                 <td class="align-middle">
                   <h2>${{producto.precio * producto.cantidad}}</h2>
                 </td>
-                <td class="aling-middle">
+                <td class="align-middle">
                   <i class="btn bi bi-trash3-fill text-danger" (click)="eliminarProducto(producto._id)"></i>
                 </td>
               </tr>

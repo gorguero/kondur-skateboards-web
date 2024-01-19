@@ -8,47 +8,64 @@ import { ItemCarrito } from 'src/app/models/itemCarrito.model';
 })
 export class CarritoComponent {
 
-    listaItemsCarrito: ItemCarrito[] | undefined;
-    montoTotal: number = 0;
+  listaItemsCarrito: ItemCarrito[] | undefined;
+  montoTotal: number = 0;
+  private carritoKey = "carrito";
 
-    ngOnInit(): void {
-      this.cargarCarrito();
-    }
+  ngOnInit(): void {
+    this.cargarCarrito();
+  }
+  // private cargarCarrito() {
+  //   let carritoStorage = localStorage.getItem("carrito") as string;
+  //   let carrito = JSON.parse(carritoStorage);
+  //   this.listaItemsCarrito = carrito || [];
 
-    vaciarCarrito(){
-      localStorage.clear();
-      this.listaItemsCarrito = [];
-      this.calcularMontoTotal(); // Agrega esta línea para recalcular el monto total
-    }
-    
-    private cargarCarrito() {
-      let carritoStorage = localStorage.getItem("carrito") as string;
+  //   // Calcula el monto total al cargar el carrito
+  //   this.calcularMontoTotal();
+  // }
+  
+  calcularMontoTotal() {
+    // Suma los totales de los productos en el carrito
+    this.montoTotal = this.listaItemsCarrito?.reduce((total, producto) => {
+      return total + (producto.precio * producto.cantidad);
+    }, 0) || 0;
+  }
+
+
+  private cargarCarrito() {
+    let carritoStorage = localStorage.getItem(this.carritoKey);
+    if (carritoStorage) {
       let carrito = JSON.parse(carritoStorage);
-      this.listaItemsCarrito = carrito || [];
-
-      // Calcula el monto total al cargar el carrito
+      this.listaItemsCarrito = carrito;
       this.calcularMontoTotal();
+    } else {
+      // Puedes manejar el caso en el que no haya datos en el carrito
+      this.listaItemsCarrito = [];
+      this.montoTotal = 0;
     }
-    calcularMontoTotal() {
-      // Suma los totales de los productos en el carrito
-      this.montoTotal = this.listaItemsCarrito?.reduce((total, producto) => {
-        return total + (producto.precio * producto.cantidad);
-      }, 0) || 0;
-    }
-    eliminarProducto(id: string | undefined) {
-      if (id) {
-        // Realiza la lógica para eliminar el producto con el id proporcionado
-        // Puedes usar el método filter para filtrar el producto que coincide con el id
-        this.listaItemsCarrito = this.listaItemsCarrito?.filter(producto => producto._id !== id);
+  }
 
-        // Vuelve a calcular el monto total después de eliminar el producto
-        this.calcularMontoTotal();
-      } else {
-        console.error('El id del producto no está definido.');
-      }
-    }
+  private actualizarCarrito() {
+    localStorage.setItem(this.carritoKey, JSON.stringify(this.listaItemsCarrito));
+  }
 
-    private guardarCarritoEnLocalStorage() {
-      localStorage.setItem("carrito", JSON.stringify(this.listaItemsCarrito));
+  eliminarProducto(id: string | undefined) {
+    if (id) {
+      this.listaItemsCarrito = this.listaItemsCarrito?.filter(producto => producto._id !== id);
+      this.actualizarCarrito();
+      this.calcularMontoTotal();
+    } else {
+      console.error('El id del producto no está definido.');
     }
+  }
+
+  vaciarCarrito() {
+    localStorage.removeItem(this.carritoKey);
+    this.listaItemsCarrito = [];
+    this.calcularMontoTotal();
+  }
+
+  private guardarCarritoEnLocalStorage() {
+    localStorage.setItem("carrito", JSON.stringify(this.listaItemsCarrito));
+  }
 }

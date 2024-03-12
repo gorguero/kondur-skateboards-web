@@ -13,6 +13,7 @@ export class CarritoComponent {
 
     ngOnInit(): void {
       this.cargarCarrito();
+      console.log(this.listaItemsCarrito)
     }
 
     vaciarCarrito(){

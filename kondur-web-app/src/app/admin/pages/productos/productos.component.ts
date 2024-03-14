@@ -17,9 +17,12 @@ export class ProductosComponent {
   input2Habilitado: boolean;
   listProductos: Producto[] = [];
   sumaCantidadesTallas: number = 0;
+  desde:number = 0;
+  totalProductos:number = 0;
 
   ngOnInit(): void {
-    this.obtenerProductos();
+    // this.obtenerProductos();
+    this.cargarProductos();
     this.productoForm.reset();
     // Suscribirse a cambios en la categoría
     this.productoForm.get('categoria')?.valueChanges.subscribe((categoria) => {
@@ -132,20 +135,42 @@ export class ProductosComponent {
       )
       console.log(this.productoForm.value);
   }
-  obtenerProductos(){
-    this._productoService.getProducto().subscribe(data =>{
-      this.listProductos = data;
-    }, error =>{
-      console.log(error);
+
+  //Carga productos paginados
+  cargarProductos(){
+    this._productoService.getProductosPaginados(this.desde).subscribe({
+      next: ({totalProductos, productos}) => {
+        this.totalProductos = totalProductos;
+        this.listProductos = productos;
+      }
     })
   }
+  cambiarPagina( valor:number ){
+    this.desde += valor;
+
+    if( this.desde < 0 ){
+      this.desde = 0;
+    }else if( this.desde >= this.totalProductos ){
+      this.desde -= valor;
+    }
+
+    this.cargarProductos();
+  }
+
+  // obtenerProductos(){
+  //   this._productoService.getProducto().subscribe(data =>{
+  //     this.listProductos = data;
+  //   }, error =>{
+  //     console.log(error);
+  //   })
+  // }
 
   eliminarProducto(id: any) {
     if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
       this._productoService.deshabilitarProducto(id).subscribe(
         () => {
           this.toastr.success('El corredor se eliminó exitosamente', 'Corredor eliminado');
-          this.obtenerProductos(); // Actualiza la lista después de eliminar
+          // this.obtenerProductos(); // Actualiza la lista después de eliminar
         },error => {
           console.log(error);
           this.toastr.error('Hubo un error al eliminar el corredor', 'Error');

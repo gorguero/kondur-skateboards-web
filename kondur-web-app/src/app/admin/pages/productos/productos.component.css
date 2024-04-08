@@ -38,3 +38,19 @@ h2:hover{
     width: 100px;
     margin-left: 1rem;
 }
+
+.contenedor-table{
+    height: 543px;
+}
+/*Tamaño fijo de contenedor de tabla*/
+.table-fixed-height {
+    max-height: 400px; /* Altura fija para la tabla */
+}
+.table-fixed-height tbody tr{
+    min-height: 50px;
+}
+/* Establecer tamaños fijos para las columnas */
+.column-w th,
+.column-w td {
+    width: 100px;
+}

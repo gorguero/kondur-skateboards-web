@@ -5,7 +5,7 @@
     </h1>
     <div class="parent mb-5 mt-2">
       <!-- MENU DE CRUDS -->
-      <div class="div1 bg-black p-3 rounded"> 
+      <div class="div1 bg-black p-3 rounded">
         <div class="div2 text-center mt-4">
           <a class="text-decoration-none" routerLink="/administrador/productos" routerLinkActive="active">
             <h2 class=" border-bottom border-white">Productos</h2>
@@ -22,17 +22,33 @@
         </div>
       </div>
       <!-- TABLA CRUD -->
-      <div class="div6 bg-white ms-2 rounded">
+      <div class="div6 bg-white ms-2 rounded contenedor-table">
         <div class="row">
           <div class="col">
             <div class="card">
               <div class="card-body text-center">
-                <span class="titulo">LISTADO DE PRODUCTOS</span>
-                <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="resetearFormulario()">
-                  Agregar
-                </button>
+
+                <h3 class="fs-3">LISTADO DE PRODUCTOS</h3>
+
+                <!-- PAGINADO -->
+                <div class="py-3 d-flex justify-content-between">
+
+                  <div>
+                      <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
+                    &nbsp;
+                    <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+                  </div>
+
+                  <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    (click)="resetearFormulario()">
+                    Agregar
+                  </button>
+                </div>
+                
+
                 <!-- MODAL -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <!-- FORMULARIO -->
                     <form class="modal-content" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
@@ -48,7 +64,9 @@
                               <label for="nombre">Nombre del Producto:</label>
                               <!-- Logica de validacion input vacio -->
                               <input formControlName="nombreProducto" type="text" class="form-control"
-                              [ngClass]="{'is-invalid': productoForm.get('nombreProducto')?.hasError('required') && productoForm.get('nombreProducto')?.touched}" id="nombre" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingrese el nombre del producto" required>
+                                [ngClass]="{'is-invalid': productoForm.get('nombreProducto')?.hasError('required') && productoForm.get('nombreProducto')?.touched}"
+                                id="nombre" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+                                placeholder="Ingrese el nombre del producto" required>
                               <div class="invalid-feedback">
                                 El nombre del producto <strong>es obligatorio.</strong>
                               </div>
@@ -57,8 +75,9 @@
                             <div class="form-group text-start mb-3 has-validation">
                               <label for="imagen">Imagen del Producto:</label>
                               <!-- Logica de validacion input vacio -->
-                              <input formControlName="imagen" type="url" class="form-control" 
-                              [ngClass]="{'is-invalid': productoForm.get('imagen')?.hasError('required') && productoForm.get('imagen')?.touched}" id="imagen" placeholder="Ingrese la URL de la imagen" required>
+                              <input formControlName="imagen" type="url" class="form-control"
+                                [ngClass]="{'is-invalid': productoForm.get('imagen')?.hasError('required') && productoForm.get('imagen')?.touched}"
+                                id="imagen" placeholder="Ingrese la URL de la imagen" required>
                               <div class="invalid-feedback">
                                 La imagen del producto <strong>es obligatorio.</strong>
                               </div>
@@ -68,7 +87,8 @@
                               <label for="descripcion">Descripción del Producto:</label>
                               <!-- Logica de validacion input vacio -->
                               <textarea formControlName="descripcion" class="form-control"
-                              [ngClass]="{'is-invalid': productoForm.get('descripcion')?.hasError('required') && productoForm.get('descripcion')?.touched}" id="descripcion" placeholder="Ingrese la descripción del producto" required>
+                                [ngClass]="{'is-invalid': productoForm.get('descripcion')?.hasError('required') && productoForm.get('descripcion')?.touched}"
+                                id="descripcion" placeholder="Ingrese la descripción del producto" required>
                               </textarea>
                               <div class="invalid-feedback">
                                 La descripción del producto <strong>es obligatorio.</strong>
@@ -82,7 +102,8 @@
                               <label for="precio">Precio:</label>
                               <!-- Logica de validacion input vacio -->
                               <input formControlName="precio" type="number"
-                              [ngClass]="{'is-invalid': productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched}" class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
+                                [ngClass]="{'is-invalid': productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched}"
+                                class="form-control" id="precio" placeholder="Ingrese el precio del producto" required>
                               <div class="invalid-feedback">
                                 El precio del producto <strong>es obligatorio.</strong>
                               </div>
@@ -91,8 +112,9 @@
                             <div class="form-group text-start mb-3 has-validation">
                               <label for="categoria">Categoría del Producto:</label>
                               <!-- Logica de validacion input vacio -->
-                              <select formControlName="categoria" (change)="onCategoriaChange()" [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
-                               class="form-select" id="categoria" required>
+                              <select formControlName="categoria" (change)="onCategoriaChange()"
+                                [ngClass]="{'is-invalid': productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched}"
+                                class="form-select" id="categoria" required>
                                 <option value="" selected>Seleccione una categoría</option>
                                 <option value="indumentaria">Indumentaria</option>
                                 <option value="tablas">Tablas</option>
@@ -105,25 +127,25 @@
 
                             <!--TALLAS/MEDIDAS-->
                             <div *ngIf="categoriaSeleccionada !== 'ninguna'">
-                              <div  *ngIf="categoriaSeleccionada === 'tallas'" formArrayName="tallas" class="text-start">
+                              <div *ngIf="categoriaSeleccionada === 'tallas'" formArrayName="tallas" class="text-start">
                                 <!-- CAMPO TALLES Y CANTIDAD DE CADA TALLE -->
                                 <label>Talles</label>
                                 <div class="form-group mb-3">
                                   <div class="d-flex contenedor-inputs">
                                     <label>S:</label>
-                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="s">
+                                    <input type="number" class="form-control inputsTallesMedidas" formControlName="s">
                                   </div>
                                   <div class="d-flex contenedor-inputs">
                                     <label>M:</label>
-                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="m">
+                                    <input type="number" class="form-control inputsTallesMedidas" formControlName="m">
                                   </div>
                                   <div class="d-flex contenedor-inputs">
                                     <label>L:</label>
-                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="l">
+                                    <input type="number" class="form-control inputsTallesMedidas" formControlName="l">
                                   </div>
                                   <div class="d-flex contenedor-inputs">
                                     <label>XL:</label>
-                                    <input type="number"class="form-control inputsTallesMedidas" formControlName="xl">
+                                    <input type="number" class="form-control inputsTallesMedidas" formControlName="xl">
                                   </div>
                                 </div>
                               </div>
@@ -135,15 +157,17 @@
                               <div class="form-group mb-3">
                                 <div class="d-flex contenedor-inputs">
                                   <label>Mediano (5):</label>
-                                  <input type="number"class="form-control inputsTallesMedidas" formControlName="chico">
+                                  <input type="number" class="form-control inputsTallesMedidas" formControlName="chico">
                                 </div>
                                 <div class="d-flex contenedor-inputs">
                                   <label>Chico (8):</label>
-                                  <input type="number"class="form-control inputsTallesMedidas" formControlName="mediano">
+                                  <input type="number" class="form-control inputsTallesMedidas"
+                                    formControlName="mediano">
                                 </div>
                                 <div class="d-flex contenedor-inputs">
                                   <label>Grande (8.5):</label>
-                                  <input type="number"class="form-control inputsTallesMedidas"formControlName="grande">
+                                  <input type="number" class="form-control inputsTallesMedidas"
+                                    formControlName="grande">
                                 </div>
                               </div>
                             </div>
@@ -151,58 +175,51 @@
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" (click)="resetearFormulario()" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid"  data-bs-dismiss="modal">Guardar</button>
+                        <button type="button" class="btn btn-secondary" (click)="resetearFormulario()"
+                          data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid"
+                          data-bs-dismiss="modal">Guardar</button>
                       </div>
                     </form>
                   </div>
                 </div>
+
                 <!-- TABLA -->
-                <table class="table table-striped mt-3">
-                    <thead>
-                      <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Precio</th>
-                        <!-- <th scope="col">Cantidad</th> -->
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let producto of listProductos">
-                        <td class="align-middle">{{producto.nombreProducto}}</td>
-                        <td class="align-middle">{{producto.categoria}}</td>
-                        <td class="align-middle">{{producto.precio}}</td>
-                        <!-- <td class="align-middle">{{calcularSumaCantidadesTallas()}}</td> Mostrar la suma de cantidades -->
-                        <td class="d-flex justify-content-around">
-                          <a [routerLink]="['/administrador/productos', producto._id]" routerLinkActive="active">
-                            <h1><i class="bi bi-pencil-fill"></i></h1>
-                          </a>
-                          <a class="puntero" (click)="eliminarProducto(producto._id)">
-                            <h1><i class="bi bi-trash3-fill text-danger "></i></h1>
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                </table>
-                <!-- PAGINADO -->
-                <nav aria-label="Page navigation example" style="display:inline-block">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                <div class="container">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-fixed-height mt-3">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="column-w">Nombre</th>
+                          <th scope="col">Categoria</th>
+                          <th scope="col">Precio</th>
+                          <!-- <th scope="col">Cantidad</th> -->
+                          <th scope="col">Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let producto of listProductos">
+                          <td class="align-middle">{{producto.nombreProducto}}</td>
+                          <td class="align-middle">{{producto.categoria}}</td>
+                          <td class="align-middle">{{producto.precio}}</td>
+                          <!-- <td class="align-middle">{{calcularSumaCantidadesTallas()}}</td> Mostrar la suma de cantidades -->
+                          <td class="d-flex justify-content-around">
+                            <a [routerLink]="['/administrador/productos', producto._id]" routerLinkActive="active">
+                              <h1><i class="bi bi-pencil-fill"></i></h1>
+                            </a>
+                            <a class="puntero" (click)="eliminarProducto(producto._id)">
+                              <h1><i class="bi bi-trash3-fill text-danger "></i></h1>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+
+
               </div>
             </div>
           </div>

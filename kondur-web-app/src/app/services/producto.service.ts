@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Producto } from '../models/producto.model';
 import { ProductoIntf } from '../interfaces/producto.interface';
+import { CargarProductos } from '../interfaces/cargar-productos.interface';
 
 const url_base = environment.url_base;
 @Injectable({
@@ -16,6 +17,9 @@ export class ProductoService {
 
   getProducto(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.url);
+  }
+  getProductosPaginados( desde:number = 0 ){
+    return this.http.get<CargarProductos>(`${url_base}/productos?desde=${desde}`);
   }
 
   guardarProducto(data: ProductoIntf) {

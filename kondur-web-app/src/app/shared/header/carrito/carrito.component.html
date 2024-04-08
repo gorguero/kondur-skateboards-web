@@ -1,33 +1,55 @@
 <app-header></app-header>
 <div class="fondo-orange fullHeight">
   <div class="p-5">
-    <h1 class="text-uppercase text-black fw-bold text-center pt-5">
+
+    <h1 class="text-uppercase fs-2 text-black fw-bold text-center title-padding">
       Mi carrito
     </h1>
+
     <div class="container contenedor-carrito ps-4 pe-4">
+
       <div class="row">
-          <!-- TABLA -->
-          <table class="table"> 
+
+        <div class="empty-message text-center d-flex align-items-center justify-content-center "
+          *ngIf="listaItemsCarrito?.length === 0">
+          <h1 class="m-0 text-uppercase fw-bold">No hay productos en el carrito</h1>
+        </div>
+
+        <!-- TABLA -->
+        <div class="tabla-container" *ngIf="listaItemsCarrito!.length > 0">
+          <h2 class="fw-bold fs-3 text-center pb-3"> Productos agregados </h2>
+
+          <table class="table">
             <thead class="border-bottom border-dark border-3">
               <tr>
-                <th scope="col"><h1>Producto</h1></th>
-                <th scope="col"><h1>Precio</h1></th>
-                <th scope="col"><h1>Cantidad</h1></th>
-                <th scope="col"><h1>Total</h1></th>
-                <th scope="col"><h1>Acción</h1></th>
+                <th scope="col">
+                  <h1>Producto</h1>
+                </th>
+                <th scope="col">
+                  <h1>Precio</h1>
+                </th>
+                <th scope="col">
+                  <h1>Cantidad</h1>
+                </th>
+                <th scope="col">
+                  <h1>Total</h1>
+                </th>
+                <th scope="col">
+                  <h1>Acciones</h1>
+                </th>
               </tr>
             </thead>
             <tbody id="tabla-scroll">
               <tr *ngFor="let producto of listaItemsCarrito">
-                <td class="d-flex align-items-center">
+                <td class="align-middle d-flex">
                   <div class="me-3">
-                    <img class="img-carrito " src="{{producto.imagen}}" alt=""> 
+                    <img class="img-carrito" src="{{producto.imagen}}" alt="">
                   </div>
-                  <div >
-                    <h2 class="m-0">{{producto.nombreProducto}}({{producto.talla}})</h2>
+                  <div>
+                    <h2 class="m-0">{{producto.nombreProducto}}</h2>
                   </div>
                 </td>
-                <td class="align-middle limit-width">
+                <td class="align-middle limit-width ">
                   <div class="text">
                     <h2>${{producto.precio}}</h2>
                   </div>
@@ -38,25 +60,31 @@
                 <td class="align-middle">
                   <h2>${{producto.precio * producto.cantidad}}</h2>
                 </td>
-                <td class="align-middle">
+                <td class="aling-middle text-center">
                   <i class="btn bi bi-trash3-fill text-danger" (click)="eliminarProducto(producto._id)"></i>
                 </td>
               </tr>
             </tbody>
           </table>
-          <!-- FIN TABLA -->
-          <div class="border-top border-dark border-3 pt-2">
-            <h2 class="float-end fw-bold text-dark">Monto total: ${{ montoTotal }}</h2>
+
+        </div>
+        <!-- FIN TABLA -->
+
+        <div class="container d-flex justify-content-between mt-2 border-top border-dark border-3 pt-5">
+          <div>
+            <button class="btn btn-vaciar float-start" (click)="vaciarCarrito()">
+              Vaciar Carrito <i class="bi bi-trash3-fill text-danger"></i>
+            </button>
+            <button class="btn btn-continuar float-start ms-2">Continuar compra</button>
           </div>
-        
+          <h2 class="float-end fw-bold text-dark">Monto total: ${{ montoTotal }}</h2>
+        </div>
+
       </div>
     </div>
-    <div class="container d-flex mt-2">
-      <button class="btn btn-vaciar float-start" (click)="vaciarCarrito()">
-        Vaciar Carrito<i class="bi bi-trash3-fill text-danger"></i>
-      </button>
-      <button class="btn btn-continuar float-start ms-2">Continuar compra</button>
-    </div>
+
+
+
   </div>
 </div>
 <app-footer></app-footer>

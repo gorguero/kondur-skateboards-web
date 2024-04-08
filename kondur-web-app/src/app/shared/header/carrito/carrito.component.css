@@ -1,4 +1,16 @@
+.tabla-container{
+    overflow-y: auto;
+    max-height: 500px; /* Establece la altura máxima deseada */
+}
+.empty-message{
+    display: block;
+    height: 500px;
+}
 .contenedor-carrito{
+    height: 800px;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
     background: rgba(255, 255, 255, 0.623);
     border-radius: 20px;
 }
@@ -48,6 +60,7 @@ td i{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-#tabla-scroll {
-    overflow-y: scroll;
+.title-padding{
+    padding-top: 140px;
+    padding-bottom: 80px;
 }

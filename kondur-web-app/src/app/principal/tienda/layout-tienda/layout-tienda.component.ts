@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CargarProductos } from 'src/app/interfaces/cargar-productos.interface';
 // import { ToastrService } from 'ngx-toastr';
 // import { ItemCarrito } from 'src/app/models/itemCarrito.model';
 import { Producto } from 'src/app/models/producto.model';
@@ -24,23 +25,23 @@ export class LayoutTiendaComponent implements OnInit{
   }
 
   obtenerProductos(){
-    this._productoService.getProducto().subscribe( data =>{
 
-      /* Filtramos por indumentaria */
-      this.indumentariaList = data.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
+    this._productoService.getProductosPaginados()
+      .subscribe({
+        next: ({productos, totalProductos}:CargarProductos) => {
 
-      // /* Filtramos por tablas */
-      this.tablasList = data.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
+          /* Filtramos por indumentaria */
+          this.indumentariaList = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
 
-      // /* Filtramos por lijas */
-      this.lijasList = data.filter( (item: { categoria: string; }) => item.categoria === 'lijas' );
+          /* Filtramos por tablas */
+          this.tablasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
 
-      this.productosList = data;
-      console.log(data);
+          /* Filtramos por lijas */
+          this.lijasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'lijas' );
 
-    }, error =>{
-      console.log(error);
-    })
+          this.productosList = productos;
+        }
+      })
   }
   // agregarCarrito(producto: Producto){
   //   if (producto._id) { // Verificación de nulidad

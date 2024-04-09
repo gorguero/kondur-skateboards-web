@@ -75,7 +75,7 @@
             <button class="btn btn-vaciar float-start" (click)="vaciarCarrito()">
               Vaciar Carrito <i class="bi bi-trash3-fill text-danger"></i>
             </button>
-            <button class="btn btn-continuar float-start ms-2">Continuar compra</button>
+            <button class="btn btn-continuar float-start ms-2" (click)="iniciarPago()">Continuar compra</button>
           </div>
           <h2 class="float-end fw-bold text-dark">Monto total: ${{ montoTotal }}</h2>
         </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { CargarProductos } from 'src/app/interfaces/cargar-productos.interface';
 import { ItemCarrito } from 'src/app/models/itemCarrito.model';
 import { Producto } from 'src/app/models/producto.model';
 import { ProductoService } from 'src/app/services/producto.service';
@@ -19,15 +20,14 @@ export class IndumentariaPageComponent {
   }
 
   obtenerProductos(){
-    this._productoService.getProducto().subscribe( data =>{
-
-      /* Filtramos por indumentaria */
-      this.indumentariaList = data.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
-
-    }, error =>{
-      console.log(error);
+    this._productoService.getProductosPaginados().subscribe({
+      next: ({productos, totalProductos}:CargarProductos) => {
+        /* Filtramos por indumentaria */
+        this.indumentariaList = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
+      }
     })
   }
+  
   agregarCarrito(producto: Producto){
     if (producto._id) { // Verificación de nulidad
       let iCarrito: ItemCarrito ={

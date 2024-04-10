@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { CargarProductos } from 'src/app/interfaces/cargar-productos.interface';
 import { ItemCarrito } from 'src/app/models/itemCarrito.model';
 import { Producto } from 'src/app/models/producto.model';
 import { ProductoService } from 'src/app/services/producto.service';
@@ -17,14 +18,16 @@ export class TablasPageComponent implements OnInit{
   ngOnInit(): void {
     this.obtenerProductos();
   }
+
   obtenerProductos(){
-    this._productoService.getProducto().subscribe( data =>{
-      // /* Filtramos por tablas */
-      this.tablasList = data.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
-    }, error =>{
-      console.log(error);
+    this._productoService.getProductosPaginados().subscribe({
+      next: ({productos, totalProductos}:CargarProductos) => {
+        /* Filtramos por tablas */
+        this.tablasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
+      }
     })
   }
+  
   agregarCarrito(producto: Producto){
     if (producto._id) { // Verificación de nulidad
       let iCarrito: ItemCarrito ={

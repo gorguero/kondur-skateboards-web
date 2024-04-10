@@ -7,10 +7,7 @@
     height: 500px;
 }
 .contenedor-carrito{
-    height: 800px;
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    height: 750px;
     background: rgba(255, 255, 255, 0.623);
     border-radius: 20px;
 }
@@ -57,6 +54,14 @@ td p{
     white-space: nowrap;
 }
 .title-padding{
-    padding-top: 140px;
-    padding-bottom: 80px;
+    padding-top: 170px;
+    padding-bottom: 60px;
+}
+
+/*MEDIA QUERYS*/
+@media (max-width: 576px) {
+    .title-padding {
+        padding-top: 160px;
+        padding-bottom: 50px;
+    }
 }

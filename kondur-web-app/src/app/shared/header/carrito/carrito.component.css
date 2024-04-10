@@ -5,6 +5,9 @@
 .empty-message{
     display: block;
     height: 500px;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.623);
+    border: 2px solid black;
 }
 .contenedor-carrito{
     height: 750px;
@@ -64,4 +67,20 @@ td p{
         padding-top: 160px;
         padding-bottom: 50px;
     }
+    .empty-message{
+        display: block;
+        height: 500px;
+        width: 100%;
+        border: 2px solid black;
+    }
+    
 }
+
+@media (min-width: 576px) and (max-width: 980px) {
+    .empty-message{
+        display: block;
+        height: 500px;
+        width: 70%;
+        border: 2px solid black;
+    }
+  }

@@ -16,7 +16,7 @@ export class CarritoComponent {
   }
 
   vaciarCarrito() {
-    localStorage.clear();
+    // localStorage.clear();
     this.listaItemsCarrito = [];
     localStorage.setItem('carrito', JSON.stringify(this.listaItemsCarrito));
     this.calcularMontoTotal(); // Agrega esta línea para recalcular el monto total

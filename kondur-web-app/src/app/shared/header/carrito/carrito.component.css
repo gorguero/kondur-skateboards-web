@@ -5,12 +5,12 @@
 .empty-message{
     display: block;
     height: 500px;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.623);
+    border: 2px solid black;
 }
 .contenedor-carrito{
-    height: 800px;
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    height: 750px;
     background: rgba(255, 255, 255, 0.623);
     border-radius: 20px;
 }
@@ -61,6 +61,30 @@ td i{
     white-space: nowrap;
 }
 .title-padding{
-    padding-top: 140px;
-    padding-bottom: 80px;
+    padding-top: 170px;
+    padding-bottom: 60px;
 }
+
+/*MEDIA QUERYS*/
+@media (max-width: 576px) {
+    .title-padding {
+        padding-top: 160px;
+        padding-bottom: 50px;
+    }
+    .empty-message{
+        display: block;
+        height: 500px;
+        width: 100%;
+        border: 2px solid black;
+    }
+    
+}
+
+@media (min-width: 576px) and (max-width: 980px) {
+    .empty-message{
+        display: block;
+        height: 500px;
+        width: 70%;
+        border: 2px solid black;
+    }
+  }

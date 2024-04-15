@@ -21,16 +21,31 @@
           </a>
         </div>
       </div>
+
       <!-- TABLA CRUD -->
       <div class="div6 bg-white ms-2 rounded">
         <div class="row">
           <div class="col">
             <div class="card">
               <div class="card-body text-center">
+
                 <span class="titulo">LISTADO DE CHECKS</span>
-                <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Agregar
-                </button>
+
+                <!-- PAGINADO -->
+                <div class="py-3 d-flex justify-content-between">
+
+                  <div>
+                      <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
+                    &nbsp;
+                    <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+                  </div>
+
+                  <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Agregar
+                  </button>
+                </div>
+
+                
                 <!-- MODAL -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -96,7 +111,7 @@
                     <tbody>
                       <tr *ngFor="let check of listChecks">
                         <td class="align-middle">{{check.titulo}}</td>
-                        <td class="align-middle"><p>@{{check.ig_filmer}}</p></td>
+                        <td class="align-middle"><p>{{check.ig_filmer}}</p></td>
                         <td class="align-middle"><p>{{check.ig_rider}}</p></td>
                         <td class="align-middle ">
                             <div class="text">
@@ -114,29 +129,13 @@
                       </tr>
                     </tbody>
                 </table>
-                <!-- PAGINADO -->
-                <nav aria-label="Page navigation example" style="display:inline-block">
-                    <ul class="pagination">
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
-                    </ul>
-                </nav>
+
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>

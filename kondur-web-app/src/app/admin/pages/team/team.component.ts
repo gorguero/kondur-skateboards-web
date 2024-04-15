@@ -10,7 +10,10 @@ import { TeamService } from 'src/app/services/team.service';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent {
+
   listTeam: Team[]=[];
+  totalCorredores:number = 0;
+  desde:number = 0;
 
   constructor(private fb: FormBuilder,
               private _teamService: TeamService,
@@ -30,11 +33,26 @@ export class TeamComponent {
   })
 
   obtenerTeam(){
-    this._teamService.getTeam().subscribe(data =>{
-      this.listTeam = data;
-    }, error =>{
-      console.log(error);
-    })
+    this._teamService.getTeam().subscribe({
+      next: ({corredores, totalCorredores}) => {
+        this.listTeam = corredores;
+        this.totalCorredores = totalCorredores;
+      },
+      error: (err:any) => {
+        console.log(err)
+      }
+    });
+  }
+  cambiarPagina( valor:number ){
+    this.desde += valor;
+
+    if( this.desde < 0 ){
+      this.desde = 0;
+    }else if( this.desde >= this.totalCorredores ){
+      this.desde -= valor;
+    }
+
+    this.obtenerTeam();
   }
 
   agregarCorredor(){

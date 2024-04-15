@@ -11,21 +11,21 @@ export class CorredoresComponent implements OnInit {
 
   public listCorredores: any[] = [];
 
-  constructor(private teamService: TeamService) { }
+  constructor(private _teamService: TeamService) { }
 
   ngOnInit(): void {
     this.obtenerCorredores();
   }
 
   obtenerCorredores() {
-    return this.teamService.getTeam().subscribe(
-      data => {
-        this.listCorredores = data;
+    this._teamService.getTeam().subscribe({
+      next: ({corredores, totalCorredores}) => {
+        this.listCorredores = corredores;
       },
-      error => {
-        console.log(error)
+      error: (err:any) => {
+        console.log(err)
       }
-    )
+    });
   }
 
 }

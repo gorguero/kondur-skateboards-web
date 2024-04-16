@@ -10,7 +10,10 @@ import { CheckService } from 'src/app/services/check.service';
   styleUrls: ['./checks.component.css']
 })
 export class ChecksComponent {
+
   listChecks: Check[]= [];
+  totalChecks: number = 0;
+  desde:number = 0;
 
   constructor(private fb: FormBuilder,
               private _checkService: CheckService,
@@ -32,14 +35,29 @@ export class ChecksComponent {
   }
 
   obtenerChecks(){
-    this._checkService.getCheck().subscribe(data =>{
-      console.log(data);
-      this.listChecks = data;
-    }, error =>{
-      console.log(error);
-    })
+    this._checkService.getChecksPaginated(this.desde).subscribe({
+      next: ({checks, totalChecks}) => {
+        console.log(checks);
+        console.log(totalChecks);
+        this.listChecks = checks;
+        this.totalChecks = totalChecks;
+      },
+      error: (err:any) => {
+        console.log(err)
+      }
+    });
   }
-  
+  cambiarPagina( valor:number ){
+    this.desde += valor;
+
+    if( this.desde < 0 ){
+      this.desde = 0;
+    }else if( this.desde >= this.totalChecks ){
+      this.desde -= valor;
+    }
+
+    this.obtenerChecks();
+  }
 
   agregarCheck(){
     console.log(this.checkForm + 'es comdasdbasda');

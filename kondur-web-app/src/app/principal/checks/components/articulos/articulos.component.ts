@@ -9,7 +9,11 @@ import { CheckService } from 'src/app/services/check.service';
   styleUrls: ['./articulos.component.css']
 })
 export class ArticulosComponent implements OnInit {
+
   listChecks: Check[]=[];
+  desde: number = 0;
+
+
   constructor(
     private _checkService: CheckService,
     private _sanitizer: DomSanitizer
@@ -51,12 +55,14 @@ export class ArticulosComponent implements OnInit {
   // }
 
   obtenerChecks(){
-    this._checkService.getCheck().subscribe(data =>{
-      console.log(data);
-      this.listChecks = data;
-    }, error =>{
-      console.log(error);
-    })
+    this._checkService.getChecksPaginated(this.desde).subscribe({
+      next: ({checks}) => {
+        this.listChecks = checks;
+      },
+      error: (err:any) => {
+        console.log(err)
+      }
+    });
   }
 
 }

@@ -3,9 +3,9 @@ export class ItemCarrito {
       public nombreProducto: string,
       public imagen: string,
       public precio: number,
-      public talla: string,
-      public medida: string,
       public cantidad: number,
+      public talla?: string,
+      public medida?: string,
       public _id?: string
     ) {}
   }

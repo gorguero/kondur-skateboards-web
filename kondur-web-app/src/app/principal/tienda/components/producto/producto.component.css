@@ -32,3 +32,10 @@
     opacity: 1;
     visibility: visible;
 }
+
+/*Estilos Carousel de productos relacionados*/
+/* Ubicación en la parte superior */
+#relatedProductsCarousel .carousel-control-prev, 
+#relatedProductsCarousel .carousel-control-next {
+    bottom: 0;
+}

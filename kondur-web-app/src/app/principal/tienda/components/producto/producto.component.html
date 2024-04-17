@@ -71,71 +71,223 @@
             </div>
         </div>
     </section>
+
     <section class="mb-3">
         <div class="container fondo-productos px-4 px-lg-5 mt-5 border-top border-3 border-dark">
+
             <h2 class="fw-bolder mb-4 mt-5">Productos relacionados</h2>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                    <div class="card bg-dark h-100 contenedor-card">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
-                            <p class="text-white">$1500.00</p>
-                            <div class="d-flex justify-content-around">
-                                <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
-                                <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+
+            <div id="relatedProductsCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#relatedProductsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#relatedProductsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#relatedProductsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card bg-dark h-100 contenedor-card">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
-                            <p class="text-white">$1500.00</p>
-                            <div class="d-flex justify-content-around">
-                                <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
-                                <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+
+                    <!-- Puedes agregar más items al carousel replicando el bloque anterior y cambiando las imágenes y textos -->
+                    <div class="carousel-item">
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 2</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 2</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 2</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 2</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card bg-dark h-100 contenedor-card">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
-                            <p class="text-white">$1500.00</p>
-                            <div class="d-flex justify-content-around">
-                                <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
-                                <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+
+                    <div class="carousel-item">
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 3</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 3</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 3</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-5">
+                                <div class="card bg-dark h-100 contenedor-card">
+                                    
+                                    <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
+                                    
+                                    <div class="card-body text-center">
+                                        <p class="card-text fw-bold text-white">Remera Kondur Total White 3</p>
+                                        <p class="text-white">$1500.00</p>
+                                        <div class="d-flex justify-content-around">
+                                            <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
+                                            <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="col mb-5">
-                    <div class="card bg-dark h-100 contenedor-card">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="../../../assets/imagenes/remera-kondur-1.png" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold text-white">Remera Kondur Total White</p>
-                            <p class="text-white">$1500.00</p>
-                            <div class="d-flex justify-content-around">
-                                <a class="btn btn-outline-warning" routerLink="/tienda/:id" routerLinkActive="active">Ver más</a>
-                                <a class="btn btn-outline-light"><i class="bi bi-cart-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+
         </div>
     </section>
+
 </div>

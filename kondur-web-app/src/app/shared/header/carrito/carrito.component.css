@@ -21,6 +21,10 @@ th h1{
 td p{
     margin: 0;
 }
+td i{
+    font-size: 1.5rem;
+    padding-bottom: 1.2rem;
+}
 
 .btn-vaciar{
     background: black;
@@ -48,7 +52,7 @@ td p{
     text-overflow: ellipsis;
 }
 .img-carrito{
-    width: 50px;
+    width: 55px;
 }
 .limit-width {
     max-width: 200px; /* Puedes ajustar el valor según tus necesidades */

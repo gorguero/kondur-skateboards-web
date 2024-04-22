@@ -44,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     TablasPageComponent,
     IndumentariaPageComponent,
     LijasPageComponent,
+
   ],
   imports: [
     CommonModule,

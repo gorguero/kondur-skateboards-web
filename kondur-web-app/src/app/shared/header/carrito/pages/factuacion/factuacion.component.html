@@ -1,0 +1,221 @@
+<app-header></app-header>
+<div class="container-fluid h-100 container-row">
+   <div class="row h-100 align-items-center">
+      <div class="col  justify-content-center h-100 d-flex align-items-center ">
+         <div class="fondo-form-pedido  p-5 borde-formularios">
+            <h2 class="fw-bold text-center">
+               TU PEDIDO
+            </h2>
+            <div class="fondo-carrito form-floating formulario-scrollable pb-3">
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Producto</th>
+                        <th>Subtotal</th>
+                     </tr>
+                  </thead>
+                  <tbody class="border-top">
+                     <tr *ngFor="let producto of listaItemsCarrito">
+                        <td class="d-flex align-items-center">{{ producto.nombreProducto }}<strong
+                              class="ms-2">X{{producto.cantidad}}</strong></td>
+                        <td class="texto-derecha">${{ producto.precio * producto.cantidad }}</td>
+                     </tr>
+                  </tbody>
+                  <tfoot class="mt-4 border-top border-black">
+                     <tr>
+                        <th>Subtotal</th>
+                        <th><span>${{ subtotalTotal }}</span></th>
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div class="col  h-100 d-flex align-items-center justify-content-center ">
+         <div class="fondo-form-direccion p-5 borde-formularios">
+            <h2 class="fw-bold text-center">
+               DETALLES DE FACTURACION
+            </h2>
+            <form [formGroup]="facturacionForm" class="form-floating formulario-scrollable pb-3" autocomplete="off">
+               <div class=" scrollspy-example " data-bs-smooth-scroll="true">
+                  <div class="me-4">
+                     <div class="d-flex justify-content-around">
+                        <!--INPUT NOMBRE-->
+                        <div class="form-outline mb-3 me-2">
+                           <label class="form-label text-light">Nombre</label>
+                           <input type="text" formControlName="nombre" class="form-control" />
+                           <!-- Aquí puedes mostrar mensajes de error si el campo es inválido -->
+                           <div
+                              *ngIf="facturacionForm.get('nombre')?.invalid && facturacionForm.get('nombre')?.touched">
+                              <span class="text-danger" *ngIf="facturacionForm.get('nombre')?.hasError('required')">Este
+                                 campo es requerido</span>
+                              <span class="text-danger"
+                                 *ngIf="facturacionForm.get('nombre')?.hasError('minlength')">Mínimo 3 caracteres</span>
+                           </div>
+                        </div>
+                        <!--INPUT APELLIDO-->
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light">Apellido</label>
+                           <input type="text" formControlName="apellido" class="form-control" />
+                           <span class="form-text text-dark fw-bold"></span>
+                           <!-- Aquí puedes mostrar mensajes de error si el campo es inválido -->
+                           <div
+                              *ngIf="facturacionForm.get('apellido')?.invalid && facturacionForm.get('apellido')?.touched">
+                              <span class="text-danger"
+                                 *ngIf="facturacionForm.get('apellido')?.hasError('required')">Este
+                                 campo es requerido</span>
+                              <span class="text-danger"
+                                 *ngIf="facturacionForm.get('apellido')?.hasError('minlength')">Mínimo 3
+                                 caracteres</span>
+                           </div>
+                        </div>
+                     </div>
+                     <!--INPUT EMAIL-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light" for="form3Example3cg">Correo electronico</label>
+                        <input type="email" formControlName="email" class="form-control" />
+                        <div *ngIf="facturacionForm.get('email')?.invalid && facturacionForm.get('email')?.touched">
+                           <span class="text-danger" *ngIf="facturacionForm.get('email')?.hasError('required')">Este
+                              campo es requerido</span>
+                           <span class="text-danger" *ngIf="facturacionForm.get('email')?.hasError('email')">Ingrese un
+                              correo electrónico válido</span>
+                        </div>
+                     </div>
+                     <!--INPUT NRO DE TELEFONO-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light">Teléfono</label>
+                        <input type="tel" formControlName="nro_contacto" class="form-control"
+                           placeholder="Sin el 0 y el 15 Ej.: 3513800300" />
+                        <div
+                           *ngIf="facturacionForm.get('nro_contacto')?.invalid && facturacionForm.get('nro_contacto')?.touched">
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('nro_contacto')?.hasError('required')">Este
+                              campo es requerido
+                           </span>
+                        </div>
+
+                     </div>
+                     <!--INPUT TIPO DE DOCUMENTO-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light">Tipo de documento</label>
+                        <select class="form-select" formControlName="tipo_documentacion" name="tipo_documentacion">
+                           <option value="">Selecciona un tipo</option>
+                           <option value="DNI">DNI</option>
+                           <option value="CUIT">CUIT</option>
+                        </select>
+                        <div
+                           *ngIf="facturacionForm.get('tipo_documentacion')?.invalid && facturacionForm.get('tipo_documentacion')?.touched">
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('tipo_documentacion')?.hasError('required')">Este
+                              campo es requerido
+                           </span>
+                        </div>
+                     </div>
+                     <!--INPUT NRO DE DOCUMENTO-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light">DNI o CUIT</label>
+                        <input type="text" formControlName="numero_documentacion" class="form-control" />
+                        <div
+                           *ngIf="facturacionForm.get('numero_documentacion')?.invalid && facturacionForm.get('numero_documentacion')?.touched">
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('numero_documentacion')?.hasError('required')">
+                              Este campo es requerido
+                           </span>
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('numero_documentacion')?.hasError('minlength')">Mínimo 3
+                              caracteres</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <h4 class="fs-5 fw-bold">Su dirección</h4>
+               <div>
+
+                  <div class="me-4">
+                     <!--INPUT PROVINCIA-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light">Provincia</label>
+                        <select class="form-select" formControlName="provincia" name="provincia">
+                           <option value="">Selecciona una provincia</option>
+                           <option value="Buenos Aires">Buenos Aires</option>
+                           <option value="Catamarca">Catamarca</option>
+                           <option value="Chaco">Chaco</option>
+                           <option value="Chubut">Chubut</option>
+                           <option value="Córdoba">Córdoba</option>
+                           <option value="Corrientes">Corrientes</option>
+                           <option value="Entre Ríos">Entre Ríos</option>
+                           <option value="Formosa">Formosa</option>
+                           <option value="Jujuy">Jujuy</option>
+                           <option value="La Pampa">La Pampa</option>
+                           <option value="La Rioja">La Rioja</option>
+                           <option value="Mendoza">Mendoza</option>
+                           <option value="Misiones">Misiones</option>
+                           <option value="Neuquén">Neuquén</option>
+                           <option value="Río Negro">Río Negro</option>
+                           <option value="Salta">Salta</option>
+                           <option value="San Juan">San Juan</option>
+                           <option value="San Luis">San Luis</option>
+                           <option value="Santa Cruz">Santa Cruz</option>
+                           <option value="Santa Fe">Santa Fe</option>
+                           <option value="Santiago del Estero">Santiago del Estero</option>
+                           <option value="Tierra del Fuego">Tierra del Fuego</option>
+                           <option value="Tucumán">Tucumán</option>
+                        </select>
+                        <div
+                           *ngIf="facturacionForm.get('provincia')?.invalid && facturacionForm.get('provincia')?.touched">
+                           <span class="text-danger" *ngIf="facturacionForm.get('provincia')?.hasError('required')">
+                              Este campo es requerido
+                           </span>
+                        </div>
+                     </div>
+                     <!--INPUT LOCALIDAD-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light" for="form3Example3cg">Localidad</label>
+                        <input type="text" formControlName="localidad" class="form-control" />
+                        <div
+                           *ngIf="facturacionForm.get('localidad')?.invalid && facturacionForm.get('localidad')?.touched">
+                           <span class="text-danger" *ngIf="facturacionForm.get('localidad')?.hasError('required')">
+                              Este campo es requerido
+                           </span>
+                        </div>
+                     </div>
+                     <!--INPUT CODIGO POSTAL-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light" for="form3Example1cg">Código postal</label>
+                        <input type="text" formControlName="codPostal" class="form-control"
+                           placeholder="Solo 4 números" />
+                        <div
+                           *ngIf="facturacionForm.get('codPostal')?.invalid && facturacionForm.get('codPostal')?.touched">
+                           <span class="text-danger" *ngIf="facturacionForm.get('codPostal')?.hasError('required')">
+                              Este campo es requerido
+                           </span>
+                        </div>
+                     </div>
+                     <!--INPUT DOMICILIO-->
+                     <div class="form-outline mb-3">
+                        <label class="form-label text-light">Domicilio</label>
+                        <input type="text" formControlName="direccion" class="form-control"
+                           placeholder="Calle Y Numero De Casa / Depto" />
+                        <div
+                           *ngIf="facturacionForm.get('direccion')?.invalid && facturacionForm.get('direccion')?.touched">
+                           <span class="text-danger" *ngIf="facturacionForm.get('direccion')?.hasError('required')">
+                              Este campo es requerido
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex justify-content-center">
+                  <button type="submit"
+                  (click)="iniciarPago()"
+                     class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold btn-registrarse">
+                     Realizar el pedido
+                  </button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<app-footer></app-footer>

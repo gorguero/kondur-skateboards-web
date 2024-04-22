@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Venta } from '../models/venta.model';
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +14,9 @@ export class PaymentService {
   
     createOrder(): Observable<any> {
       return this.http.get(this.url);  // Cambia a una solicitud POST si es necesario
+    }
+    createVenta(venta: Venta): Observable<any>{
+      return this.http.post(this.url, venta);
     }
 
     handleSuccess(): Observable<any> {

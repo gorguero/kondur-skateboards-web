@@ -1,0 +1,102 @@
+.fondo-form-pedido {
+  background-color: #f77a00;
+  min-width: 80vh;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.541) !important;
+}
+.fondo-form-direccion {
+  background-color: #f77a00;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.541) !important;
+}
+.fondo-carrito {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.borde-formularios {
+  border-radius: 20px;
+  height: 500px;
+  padding-bottom: 300px;
+}
+.txt-ingresar {
+  color: black;
+}
+
+.txt-ingresar:hover {
+  color: white;
+}
+.btn-registrarse {
+  border: none;
+}
+
+.btn-registrarse:hover {
+  background: black;
+  border: none;
+  color: white;
+}
+.max-height {
+  max-height: 500px;
+}
+.formulario-scrollable {
+  overflow-y: auto; /* Hace que el contenido sea desplazable verticalmente */
+  max-height: 400px; /* Establece la altura máxima del formulario */
+  padding-right: 20px;
+}
+/* Estilos para la barra de desplazamiento */
+.formulario-scrollable::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+  width: 6px;
+}
+
+/* Estilos para el track de la barra de desplazamiento (la parte gris) */
+.formulario-scrollable::-webkit-scrollbar-track {
+  background: #f1f1f100; /* Color de fondo del track */
+}
+
+/* Estilos para el thumb de la barra de desplazamiento (el control deslizante) */
+.formulario-scrollable::-webkit-scrollbar-thumb {
+  background: #000000; /* Color del thumb */
+  border-radius: 5px; /* Borde redondeado del thumb */
+}
+
+/* Estilos para el thumb de la barra de desplazamiento al pasar el mouse sobre él */
+.formulario-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del thumb al pasar el mouse sobre él */
+}
+
+table {
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+}
+
+/* Estilos para las celdas del encabezado (th) */
+
+/* Estilos para el encabezado (thead) */
+thead th {
+    padding: 15px 0;
+    font-size: 1rem; /* Ajusta el espaciado vertical de los encabezados */
+}
+
+/* Estilos para el cuerpo (tbody) */
+tbody td {
+    padding: 10px 0; /* Ajusta el espaciado vertical de las celdas del cuerpo */
+}
+
+/* Estilos para el pie (tfoot) */
+tfoot th {
+    padding: 15px 0; /* Ajusta el espaciado vertical de los elementos del pie */
+}
+th:first-child {
+  text-align: left; /* Alinea el primer encabezado a la izquierda */
+}
+
+th:last-child {
+  text-align: right; /* Alinea el último encabezado a la derecha */
+}
+.texto-derecha {
+  text-align: right;
+}
+
+.container-row {
+  padding-top: 1rem;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

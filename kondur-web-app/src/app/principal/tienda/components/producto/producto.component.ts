@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
-import { KeyValue } from '@angular/common';
-import { filter } from 'rxjs/operators';
+
+import { CargarProductos } from 'src/app/interfaces/cargar-productos.interface';
+
 import { Producto } from 'src/app/models/producto.model';
 import { ToastrService } from 'ngx-toastr';
 import { ItemCarrito } from 'src/app/models/itemCarrito.model';
@@ -18,6 +19,7 @@ export class ProductoComponent implements OnInit {
   producto: any = {};
   cantidadSeleccionada: number = 1;
   tallaSeleccionada: string = '0';
+  productosRelacionados: Producto[] = [];
 
 
   constructor(
@@ -28,13 +30,13 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerProducto();
+    this.obtenerProductosRelacionadosIndumentaria();
   }
 
   obtenerProducto() {
     if (this.id !== null) {
       this._productoService.obtenerProducto(this.id).subscribe(
         (data) => {
-          console.log(data);
           this.producto = data;
         },
         (error) => {
@@ -43,6 +45,7 @@ export class ProductoComponent implements OnInit {
       );
     }
   }
+
   agregarCarrito(producto: Producto) {
     if (this.producto.categoria.toLowerCase() === 'lijas' || this.tallaSeleccionada) {
       let iCarrito: ItemCarrito = {
@@ -68,6 +71,25 @@ export class ProductoComponent implements OnInit {
     } else {
       console.error('El producto no tiene un _id definido o no se ha seleccionado una talla:', this.producto);
     }
+  }
+
+  obtenerProductosRelacionadosIndumentaria(){
+
+    this._productoService.getProductsFilter( 'indumentaria' )
+      .subscribe({
+        next: (resp:any) => {
+          this.productosRelacionados = resp;
+          console.log(this.productosRelacionados)
+        }
+      });
+    // this._productoService.getProductosPaginados()
+    //   .subscribe({
+    //     next: ( { productos }:CargarProductos ) => {
+    //       this.productosRelacionados = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
+    //       console.log(this.productosRelacionados)
+    //     }
+    //   })
+
   }
 
 }

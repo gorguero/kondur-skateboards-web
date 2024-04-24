@@ -21,6 +21,9 @@ export class ProductoService {
   getProductosPaginados( desde:number = 0 ){
     return this.http.get<CargarProductos>(`${url_base}/productos?desde=${desde}`);
   }
+  getProductsFilter( tipo:string ){
+    return this.http.get(`${url_base}/productos/filters?tipo=${tipo}`);
+  }
 
   guardarProducto(data: ProductoIntf) {
     return this.http.post(`${url_base}/productos`, data);

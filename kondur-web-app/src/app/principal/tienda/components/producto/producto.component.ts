@@ -35,14 +35,15 @@ export class ProductoComponent implements OnInit {
 
   obtenerProducto() {
     if (this.id !== null) {
-      this._productoService.obtenerProducto(this.id).subscribe(
-        (data) => {
+      this._productoService.obtenerProducto(this.id)
+      .subscribe({
+        next: (data:any) => {
           this.producto = data;
         },
-        (error) => {
-          console.error(error);
+        error: err => {
+          console.log(err);
         }
-      );
+      });
     }
   }
 
@@ -82,13 +83,6 @@ export class ProductoComponent implements OnInit {
           console.log(this.productosRelacionados)
         }
       });
-    // this._productoService.getProductosPaginados()
-    //   .subscribe({
-    //     next: ( { productos }:CargarProductos ) => {
-    //       this.productosRelacionados = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
-    //       console.log(this.productosRelacionados)
-    //     }
-    //   })
 
   }
 

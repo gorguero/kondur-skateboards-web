@@ -27,7 +27,18 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <span class="titulo">LISTADO DE VENTAS</span>
+
+                            <span class="fs-3">LISTADO DE VENTAS</span>
+
+                            <!-- PAGINADO -->
+                            <div class="py-3 d-flex justify-content-between">
+                              <div>
+                                <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
+                                &nbsp;
+                                <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+                              </div>
+                            </div>
+
                             <!-- TABLA -->
                             <table class="table table-striped mt-3">
                                 <thead>
@@ -40,67 +51,11 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td class="align-middle"><p>miguel99</p></td>
-                                    <td class="align-middle"><p>Miguel Aguirre</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle"><p>$15.000</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>miguel99</p></td>
-                                    <td class="align-middle"><p>Miguel Aguirre</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle"><p>$15.000</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>miguel99</p></td>
-                                    <td class="align-middle"><p>Miguel Aguirre</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle"><p>$15.000</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>miguel99</p></td>
-                                    <td class="align-middle"><p>Miguel Aguirre</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle"><p>$15.000</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a href="">
-                                        <h1><i class="bi bi-pencil-fill"></i></h1>
-                                      </a>
-                                      <a  href="">
-                                        <h1><i class="bi bi-trash3-fill text-danger"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="align-middle"><p>miguel99</p></td>
-                                    <td class="align-middle"><p>Miguel Aguirre</p></td>
-                                    <td class="align-middle"><p>23/06/23</p></td>
-                                    <td class="align-middle"><p>$15.000</p></td>
+                                  <tr *ngFor="let venta of listVentasPaginated">
+                                    <td class="align-middle"><p>{{venta.user_id}}</p></td>
+                                    <td class="align-middle"><p>{{venta.comprador.nombre}} {{venta.comprador.apellido}}</p></td>
+                                    <td class="align-middle"><p>{{venta.creado_en | date}}</p></td>
+                                    <td class="align-middle"><p>{{venta.estado}}</p></td>
                                     <td class="d-flex justify-content-around">
                                       <a href="">
                                         <h1><i class="bi bi-pencil-fill"></i></h1>
@@ -111,25 +66,8 @@
                                     </td>
                                   </tr>
                                 </tbody>
-                            </table>
-                            <!-- PAGINADO -->
-                            <nav aria-label="Page navigation example" style="display:inline-block">
-                                <ul class="pagination">
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                      <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                      <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                  </li>
-                                </ul>
-                            </nav>
+                          </table>
+                            
                         </div>
                     </div>
                 </div>

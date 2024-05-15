@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
 
 import { CargarProductos } from 'src/app/interfaces/cargar-productos.interface';
@@ -21,15 +21,20 @@ export class ProductoComponent implements OnInit {
   tallaSeleccionada: string = '0';
   productosRelacionados: Producto[] = [];
 
+  cantidadMaximaProductosRelacionados: number = 4;
+  listaCompletaDeProductos: Producto[] = [];
 
   constructor(
     private _productoService: ProductoService,
     private toastr: ToastrService,
-    private aRouter: ActivatedRoute)
+    private aRouter: ActivatedRoute,
+    private router: Router)
   { this.id = this.aRouter.snapshot.paramMap.get('id');}
 
   ngOnInit(): void {
     this.obtenerProducto();
+    this.obtenerTodosLosProductos();
+    this.obtenerProductosRelacionados();
     this.obtenerProductosRelacionadosIndumentaria();
   }
 
@@ -39,6 +44,8 @@ export class ProductoComponent implements OnInit {
       .subscribe({
         next: (data:any) => {
           this.producto = data;
+
+          this.obtenerProductosRelacionados();
         },
         error: err => {
           console.log(err);
@@ -46,6 +53,31 @@ export class ProductoComponent implements OnInit {
       });
     }
   }
+  obtenerTodosLosProductos() {
+    this._productoService.getProducto().subscribe(
+      (productos) => {
+        this.listaCompletaDeProductos = productos;
+  
+        this.obtenerProductosRelacionados();
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  
+
+  obtenerProductosRelacionados() {if (this.producto.categoria !== undefined) {
+      // Filtra la lista completa de productos para excluir el producto actual
+      this.productosRelacionados = this.listaCompletaDeProductos
+        .filter(producto => producto.categoria === this.producto.categoria && producto._id !== this.producto._id)
+        .slice(0, this.cantidadMaximaProductosRelacionados);
+    } else {
+      console.log('La categoría del producto es undefined.');
+    }
+  }
+  
+
 
   agregarCarrito(producto: Producto) {
     if (this.producto.categoria.toLowerCase() === 'lijas' || this.tallaSeleccionada) {
@@ -54,6 +86,8 @@ export class ProductoComponent implements OnInit {
         imagen: this.producto.imagen,
         precio: this.producto.precio,
         cantidad: this.cantidadSeleccionada,
+        talla:this.tallaSeleccionada,
+        medida:this.tallaSeleccionada,
         _id: this.producto._id
       };
 
@@ -73,7 +107,18 @@ export class ProductoComponent implements OnInit {
       console.error('El producto no tiene un _id definido o no se ha seleccionado una talla:', this.producto);
     }
   }
-
+  verMas(id: string | null | undefined) {
+    console.log('ID:', id);
+  
+    if (id !== undefined && id !== null) {
+      this.router.navigate(['/tienda', id]);
+    } else {
+      console.error('ID es null o undefined. No se puede realizar la navegación.');
+    }
+  }
+  
+  
+  
   obtenerProductosRelacionadosIndumentaria(){
 
     this._productoService.getProductsFilter( 'indumentaria' )

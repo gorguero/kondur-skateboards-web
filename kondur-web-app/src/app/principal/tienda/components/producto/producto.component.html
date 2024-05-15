@@ -284,7 +284,25 @@
 
             </div> -->
 
-        </div>
-    </section>
+          <h2 class="fw-bolder mb-4 mt-5">Productos relacionados</h2>
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let productoRelacionado of productosRelacionados; let i = index">
+              <div class="card bg-dark h-100 contenedor-card">
+                <img class="card-img-top" src="{{productoRelacionado.imagen}}" alt="{{productoRelacionado.nombreProducto}}" />
+                <div class="card-body text-center">
+                  <p class="card-text fw-bold text-white">{{productoRelacionado.nombreProducto}}</p>
+                  <p class="text-white">${{productoRelacionado.precio}}</p>
+                  <div class="d-flex justify-content-around">
+                    <!-- Corrección en el enlace routerLink -->
+                    <a class="btn btn-outline-warning" (click)="verMas(productoRelacionado._id)">Ver más</a>
 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
 </div>

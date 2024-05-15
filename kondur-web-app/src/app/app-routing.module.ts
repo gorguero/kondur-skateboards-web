@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CarritoComponent } from './shared/header/carrito/carrito.component';
 import { VentasComponent } from './admin/pages/ventas/ventas.component';
 import { AuthGuard } from './guards/auth.guard';
+import { FactuacionComponent } from './shared/header/carrito/pages/factuacion/factuacion.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   { //SHARED
     path: 'carrito',
     component: CarritoComponent
+  },
+  { //SHARED
+    path: 'facturacion',
+    component: FactuacionComponent
   },
   {
     path: '',

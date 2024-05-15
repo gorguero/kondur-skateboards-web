@@ -8,7 +8,7 @@ export class Producto {
     public estado?: boolean,
     public creadoEn?: Date,
     public tallas?:{},
-    public medidas?:{}, // Incluye las tallas o medidas
+    public medidas?:{},
     public _id?: string
   ) {}
 }

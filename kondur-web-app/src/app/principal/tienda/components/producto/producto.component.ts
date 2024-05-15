@@ -86,4 +86,9 @@ export class ProductoComponent implements OnInit {
 
   }
 
+  isCategoryLijas(producto:any): boolean{
+    console.log(producto.categoria)
+    return producto.categoria.toLowerCase() === 'lijas';
+  }
+
 }

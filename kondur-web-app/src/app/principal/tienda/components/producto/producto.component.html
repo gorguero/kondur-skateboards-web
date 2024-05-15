@@ -49,7 +49,7 @@
                     <div class="d-flex mt-5">
                         <div class="d-grid gap-2 col-6 mx-auto">
                             
-                            <button *ngIf="producto.categoria.toLowerCase() === 'lijas'"
+                            <button *ngIf="isCategoryLijas(producto)"
                                     class="btn btn-dark flex-shrink-0"
                                     (click)="agregarCarrito(producto)"
                                     type="button">
@@ -57,7 +57,7 @@
                             Agregar al carrito
                             </button>
                             
-                            <button *ngIf="producto.categoria.toLowerCase() !== 'lijas' "
+                            <button *ngIf="!isCategoryLijas(producto)"
                                     class="btn btn-dark flex-shrink-0"
                                     [disabled]=" tallaSeleccionada == '0'"
                                     (click)="agregarCarrito(producto)"
@@ -88,8 +88,7 @@
                 </div>
               
                 <div class="carousel-inner">
-                  <div *ngFor="let producto of productosRelacionados; let i = index"
-                       class="carousel-item" [class.active]="i === 0">
+                  <div *ngFor="let producto of productosRelacionados; let i = index" class="carousel-item" [class.active]="i === 0">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                       <div class="col mb-5">
                         <div class="card bg-dark h-100 contenedor-card">

@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CarritoComponent } from './header/carrito/carrito.component';
 import { ToastrModule } from 'ngx-toastr';
-import { FactuacionComponent } from './header/carrito/pages/factuacion/factuacion.component';
+import { FacturacionComponent } from './header/carrito/pages/facturacion/facturacion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuComponent,
     CarritoComponent,
     FooterComponent,
-    FactuacionComponent,
+    FacturacionComponent,
   ],
   imports: [
     CommonModule,

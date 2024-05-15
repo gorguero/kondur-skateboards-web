@@ -14,6 +14,7 @@ export class Venta {
     public provincia: string,
     public localidad: string,
     public direccion: string,
+    public telefono: number,
     public codPostal: number,
     
     public creado_en: Date,

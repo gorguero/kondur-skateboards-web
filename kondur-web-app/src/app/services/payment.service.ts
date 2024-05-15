@@ -15,10 +15,7 @@ export class PaymentService {
     createOrder(): Observable<any> {
       return this.http.get(this.url);  // Cambia a una solicitud POST si es necesario
     }
-    createVenta(venta: Venta): Observable<any>{
-      return this.http.post(this.url, venta);
-    }
-
+    
     handleSuccess(): Observable<any> {
         const successUrl = `${this.url}/success`;
         return this.http.get(successUrl);

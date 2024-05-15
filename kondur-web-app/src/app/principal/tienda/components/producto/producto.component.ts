@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
-import { KeyValue } from '@angular/common';
-import { filter } from 'rxjs/operators';
+
+import { CargarProductos } from 'src/app/interfaces/cargar-productos.interface';
+
 import { Producto } from 'src/app/models/producto.model';
 import { ToastrService } from 'ngx-toastr';
 import { ItemCarrito } from 'src/app/models/itemCarrito.model';
@@ -18,8 +19,8 @@ export class ProductoComponent implements OnInit {
   producto: any = {};
   cantidadSeleccionada: number = 1;
   tallaSeleccionada: string = '0';
-
   productosRelacionados: Producto[] = [];
+
   cantidadMaximaProductosRelacionados: number = 4;
   listaCompletaDeProductos: Producto[] = [];
 
@@ -34,20 +35,22 @@ export class ProductoComponent implements OnInit {
     this.obtenerProducto();
     this.obtenerTodosLosProductos();
     this.obtenerProductosRelacionados();
+    this.obtenerProductosRelacionadosIndumentaria();
   }
 
   obtenerProducto() {
     if (this.id !== null) {
-      this._productoService.obtenerProducto(this.id).subscribe(
-        (data) => {
+      this._productoService.obtenerProducto(this.id)
+      .subscribe({
+        next: (data:any) => {
           this.producto = data;
 
           this.obtenerProductosRelacionados();
         },
-        (error) => {
-          console.error(error);
+        error: err => {
+          console.log(err);
         }
-      );
+      });
     }
   }
   obtenerTodosLosProductos() {
@@ -116,4 +119,21 @@ export class ProductoComponent implements OnInit {
   
   
   
+  obtenerProductosRelacionadosIndumentaria(){
+
+    this._productoService.getProductsFilter( 'indumentaria' )
+      .subscribe({
+        next: (resp:any) => {
+          this.productosRelacionados = resp;
+          console.log(this.productosRelacionados)
+        }
+      });
+
+  }
+
+  isCategoryLijas(producto:any): boolean{
+    console.log(producto.categoria)
+    return producto.categoria.toLowerCase() === 'lijas';
+  }
+
 }

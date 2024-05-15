@@ -30,8 +30,8 @@ export class LayoutTiendaComponent implements OnInit{
       .subscribe({
         next: ({productos, totalProductos}:CargarProductos) => {
 
-          /* Filtramos por indumentaria */
-          this.indumentariaList = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
+          /* Filtramos por indumentaria 
+          this.indumentariaList = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );*/
 
           /* Filtramos por tablas */
           this.tablasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
@@ -41,7 +41,20 @@ export class LayoutTiendaComponent implements OnInit{
 
           this.productosList = productos;
         }
-      })
+      });
+      this.getIndumentariaList();
+  }
+
+  getIndumentariaList(){
+    this._productoService.getProductsFilter('indumentaria')
+      .subscribe({
+        next: (resp:any) => {
+          this.indumentariaList = resp;
+        },
+        error: err => {
+          console.log(err)
+        }
+      });
   }
   
 

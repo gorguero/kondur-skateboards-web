@@ -16,16 +16,16 @@ export class IndumentariaPageComponent {
   constructor(private _productoService:ProductoService,  private toastr: ToastrService){}
 
   ngOnInit(): void {
-    this.obtenerProductos();
+    this.obtenerProductosIndumentaria();
   }
 
-  obtenerProductos(){
-    this._productoService.getProductosPaginados().subscribe({
-      next: ({productos, totalProductos}:CargarProductos) => {
-        /* Filtramos por indumentaria */
-        this.indumentariaList = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );
-      }
-    })
+  obtenerProductosIndumentaria(){
+    this._productoService.getProductsFilter( 'indumentaria' )
+      .subscribe({
+        next: (resp:any) => {
+          this.indumentariaList = resp;
+        }
+      });
   }
   
   agregarCarrito(producto: Producto){

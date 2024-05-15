@@ -22,6 +22,7 @@ export class LayoutTiendaComponent implements OnInit{
 
   ngOnInit(): void {
     this.obtenerProductos();
+    this.getAllProductos();
   }
 
   obtenerProductos(){
@@ -33,8 +34,8 @@ export class LayoutTiendaComponent implements OnInit{
           /* Filtramos por indumentaria 
           this.indumentariaList = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );*/
 
-          /* Filtramos por tablas */
-          this.tablasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
+          /* Filtramos por tablas 
+          this.tablasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );*/
 
           /* Filtramos por lijas */
           this.lijasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'lijas' );
@@ -57,5 +58,15 @@ export class LayoutTiendaComponent implements OnInit{
       });
   }
   
+  getAllProductos(){
+    this._productoService.getProductsFilter('tablas')
+      .subscribe({
+        next: (resp:any) => {
+          this.tablasList = resp;
+          console.log(this.tablasList);
+        }
+        
+      });
+  }
 
 }

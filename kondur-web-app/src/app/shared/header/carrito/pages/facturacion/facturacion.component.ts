@@ -4,25 +4,30 @@ import { VentaServices } from 'src/app/services/venta.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
 import Venta from 'src/app/models/venta.model';
-
 @Component({
   selector: 'app-factuacion',
-  templateUrl: './factuacion.component.html',
-  styleUrls: ['./factuacion.component.css'],
+  templateUrl: './facturacion.component.html',
+  styleUrls: ['./facturacion.component.css'],
 })
-export class FactuacionComponent {
+export class FacturacionComponent {
   listaItemsCarrito: ItemCarrito[] = [];
   subtotalTotal: number = 0;
-
   facturacionForm: FormGroup;
 
+  public userLogged: any;
+  public token: any = '';
+  public user_id: string | undefined = '';
+
   constructor(
+    private auth: AuthService,
     private fb: FormBuilder,
     private toastr: ToastrService,
     private http: HttpClient,
     private _ventaService: VentaServices
   ) {
+    this.token = localStorage.getItem('token');
     this.facturacionForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', [Validators.required, Validators.minLength(3)]],
@@ -38,6 +43,12 @@ export class FactuacionComponent {
   }
 
   ngOnInit(): void {
+    //REVISA USUARIO TOKEN DE USUARIO
+    this.userLogged = this.auth.getDecodedToken(this.token);
+    
+    if (this.userLogged) {
+      this.user_id = this.userLogged.id;
+    }
     // Obtener la lista de productos del localStorage
     const carritoStorage = localStorage.getItem('carrito');
     if (carritoStorage) {
@@ -122,11 +133,13 @@ export class FactuacionComponent {
           codPostal: this.facturacionForm.get('codPostal')?.value,
           direccion: this.facturacionForm.get('direccion')?.value,
         },
+        user: this.user_id
       })
       .subscribe(
         (response) => {
           console.log('Respuesta del backend:', response);
           window.location.href = response; // Redirige a la URL de Mercado Pago
+          // this.guardarVenta();
         },
         (error) => {
           console.error('Error al iniciar el pago:', error);
@@ -135,7 +148,13 @@ export class FactuacionComponent {
       );
   }
   guardarVenta(): void {
-    const informacionVenta = new Venta(
+    let user_id: string | undefined = '';
+
+    if (this.userLogged) {
+      user_id = this.userLogged.id;
+    }
+
+    const informacionVenta = new Venta( 
       this.listaItemsCarrito, // Convertir el arreglo a JSON
       this.subtotalTotal,
       this.facturacionForm.get('nombre')?.value,
@@ -146,21 +165,21 @@ export class FactuacionComponent {
       this.facturacionForm.get('provincia')?.value,
       this.facturacionForm.get('localidad')?.value,
       this.facturacionForm.get('direccion')?.value,
+      this.facturacionForm.get('nro_contacto')?.value,
       this.facturacionForm.get('codPostal')?.value,
       new Date(), // creado_en
       'pendiente', // estado
+      user_id,
       this.facturacionForm.get('email')?.value
     );
-
+    console.log('Información de la venta:', informacionVenta);
     // Llamar al servicio para guardar la venta en el backend
     this._ventaService.createVenta(informacionVenta).subscribe(
       (response) => {
         console.log('Venta guardada en el backend:', response);
-        // Lógica adicional si es necesaria
       },
       (error) => {
         console.error('Error al guardar la venta en el backend:', error);
-        // Manejar el error según sea necesario
       }
     );
   }

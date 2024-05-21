@@ -7,14 +7,13 @@
     Mi carrito
   </h1>
 
-  <div class="empty-message mx-auto text-center d-flex align-items-center justify-content-center " *ngIf="listaItemsCarrito?.length === 0">
+  <div class="empty-message mx-auto text-center d-flex align-items-center justify-content-center " 
+      *ngIf="listaItemsCarrito?.length === 0 || listaItemsCarrito === undefined || listaItemsCarrito === null">
     <h1 class="m-0 text-uppercase fw-bold" style="font-size: 40px;">No hay productos en el carrito</h1>
   </div>
 
   <div class="container-md  contenedor-carrito" *ngIf="listaItemsCarrito!.length > 0">
 
-    
-    
     <h2 class="fw-bold fs-3 text-center pt-4 pb-3"> Productos agregados </h2>
 
     <div class="h-75 d-flex flex-column">

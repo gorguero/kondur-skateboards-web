@@ -17,9 +17,10 @@
 
                             <!--INPUT NOMBRE-->
                             <div class="form-outline mb-3">
-                                <label class="form-label text-light">Nombre</label>
+                                <label class="form-label text-light">Nombre <span class="fs-5 fw-bold">*</span></label>
                                 <input 
                                     type="text" 
+                                    placeholder="Ingrese su nombre"
                                     formControlName="nombre" 
                                     class="form-control" />
                                 <span
@@ -31,9 +32,10 @@
                            
                             <!--INPUT EMAIL-->
                             <div class="form-outline mb-3">
-                                <label class="form-label text-light" for="form3Example3cg">Correo electronico</label>
+                                <label class="form-label text-light" for="form3Example3cg">Correo electronico <span class="fs-5 fw-bold">*</span></label>
                                 <input 
                                     type="email" 
+                                    placeholder="Ingrese su email"
                                     formControlName="email" 
                                     class="form-control" />
                                 <span
@@ -45,9 +47,10 @@
 
                             <!--INPUT CONTRASEÑA-->
                             <div class="form-outline mb-3">
-                                <label class="form-label text-light" for="form3Example4cg">Contraseña</label>
+                                <label class="form-label text-light" for="form3Example4cg">Contraseña <span class="fs-5 fw-bold">*</span></label>
                                 <input 
                                     type="password" 
+                                    placeholder="Ingrese su contraseña"
                                     formControlName="password" 
                                     class="form-control" />
                                 <span
@@ -59,8 +62,12 @@
 
                             <!--INPUT NRO DE TELEFONO-->
                             <div class="form-outline mb-3">
-                                <label class="form-label text-light">Teléfono</label>
-                                <input type="text" formControlName="nro_contacto" class="form-control" />
+                                <label class="form-label text-light">Teléfono <span class="fs-5 fw-bold">*</span></label>
+                                <input 
+                                    type="text"
+                                    placeholder="Ingrese su número de telefono" 
+                                    formControlName="nro_contacto" 
+                                    class="form-control" />
                                 <span
                                     *ngIf="isValidField('nro_contacto')"
                                     class="form-text text-dark fw-bold">
@@ -72,9 +79,10 @@
                         <div>
                             <!--INPUT APELLIDO-->
                             <div class="form-outline mb-3">
-                                <label class="form-label text-light">Apellido</label>
+                                <label class="form-label text-light">Apellido <span class="fs-5 fw-bold">*</span></label>
                                 <input 
                                     type="text" 
+                                    placeholder="Ingrese su apellido"
                                     formControlName="apellido" 
                                     class="form-control" />
                                 <span
@@ -86,9 +94,10 @@
 
                             <!--INPUT NOMBRE USUARIO-->
                             <div class="form-outline mb-3">
-                                <label class="form-label text-light" for="form3Example1cg">Usuario</label>
+                                <label class="form-label text-light" for="form3Example1cg">Usuario <span class="fs-5 fw-bold">*</span></label>
                                 <input 
                                     type="text" 
+                                    placeholder="Ingrese un nombre de usuario"
                                     formControlName="nickname" 
                                     class="form-control"/>
                                 <span
@@ -100,9 +109,10 @@
 
                             <!--REPITE CONTRASEÑA-->
                             <div class="form-outline mb-3">
-                                <label class="form-label text-light" for="form3Example4cdg">Repite tu contraseña</label>
+                                <label class="form-label text-light" for="form3Example4cdg">Repite tu contraseña <span class="fs-5 fw-bold">*</span></label>
                                 <input 
                                     type="password" 
+                                    placeholder="Repita su contraseña"
                                     formControlName="repPassword" 
                                     class="form-control" />
                                 <span
@@ -152,7 +162,7 @@
                     <div class="form-check d-flex justify-content-center">
                         <input class="form-check-input me-2" type="checkbox" id="invalidCheck" formControlName="terminos"/>
                         <label *ngIf="!isValidField('terminos')" class="form-check-label text-light" for="invalidCheck">
-                            Estoy de acuerdo con todos los <a href="#!" class="text-warning"><u>Terminos y servicios</u></a>
+                            Estoy de acuerdo con todos los <a href="#!" class="text-warning"><u>Terminos y servicios</u></a><span class="fs-5 fw-bold">*</span>
                         </label>
                         <label *ngIf="isValidField('terminos')" class="form-check-label text-light" for="invalidCheck">
                             <span class="text-dark fw-bold">Debe estar de acuerdo con nuestros </span> <a href="#!" class="text-warning"><u>Terminos y servicios</u></a>

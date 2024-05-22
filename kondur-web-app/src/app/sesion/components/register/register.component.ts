@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     nickname: ['', [Validators.required, Validators.minLength(5)]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     repPassword: ['', [Validators.required, Validators.minLength(8)]],
-    nro_contacto: [''],
+    nro_contacto: ['', [Validators.required]],
     direcciones: this.fb.group({
       provincia: [''],
       ciudad: [''],
@@ -60,8 +60,10 @@ export class RegisterComponent implements OnInit {
 
           },
           error: err => {
+            console.warn(err);
             const errorEmailExist = err.error.errors.email;
             const errorNicknameExist = err.error.errors.nickname;
+            const errorNroContactExist = err.error.errors.nro_contacto;
 
             if( errorEmailExist && errorNicknameExist ){
               this.toastr.error(`El email: ${errorEmailExist.value} y el username ${errorNicknameExist.value} ya están registrados`, 'Campos ya existentes');
@@ -73,6 +75,11 @@ export class RegisterComponent implements OnInit {
                 this.toastr.error(`${errorNicknameExist.msg}`, 'Error');
               }
             }
+
+            if( errorNroContactExist ){
+              this.toastr.error(`${errorNroContactExist.msg}`, 'Error');
+            }
+
           }
         }
     );

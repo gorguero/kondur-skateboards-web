@@ -24,9 +24,13 @@ export class CarritoComponent {
 
   private cargarCarrito() {
     let carritoStorage = localStorage.getItem('carrito') as string;
-    let carrito = this.eliminarDuplicados(JSON.parse(carritoStorage));
-    this.listaItemsCarrito = carrito || [];
+    let carrito;
 
+    if( carritoStorage !== null ){
+      carrito = this.eliminarDuplicados(JSON.parse(carritoStorage));
+    }
+
+    this.listaItemsCarrito = carrito || [];
     // Calcula el monto total al cargar el carrito
     this.calcularMontoTotal();
   }

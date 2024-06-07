@@ -1,224 +1,199 @@
 <div class="container-fluid h-100">
-    <div class="row h-100 align-items-center">
-        <div class="col bg-black justify-content-center h-100 d-flex align-items-center pt-5"> 
-            <img class="logo-login opacity-75" src="../../../assets/imagenes/logo-kondur.png" alt="">
-        </div>
-        <div class="col fondo-formulario  h-100 d-flex align-items-center justify-content-center">
-           <div class="shadow-lg p-5 borde-formularios">
-                <h2 class="fw-bold text-center">
-                    <a class="text-decoration-none text-uppercase txt-ingresar" routerLink="../login/login.component.html"routerLinkActive="active">Ingresar</a>
-                    |
-                    <a class="text-decoration-none text-white text-uppercase txt-registrarse" routerLink="/sesion/Register" routerLinkActive="active">Registrarse</a>
-                </h2>
-                <form class="form-floating  formulario-scrollable pb-3" [formGroup]="registroForm" (ngSubmit)="registrarUsuario()" autocomplete="off">
+   <div class="row h-100 align-items-center">
+      <div class="col bg-black justify-content-center h-100 d-flex align-items-center pt-5">
+         <img class="logo-login opacity-75" src="../../../assets/imagenes/logo-kondur.png" alt="">
+      </div>
+      <div class="col fondo-formulario  h-100 d-flex align-items-center justify-content-center">
+         <div class="shadow-lg p-5 borde-formularios">
+            <h2 class="fw-bold text-center">
+               <a class="text-decoration-none text-uppercase txt-ingresar" routerLink="../login/login.component.html"
+                  routerLinkActive="active">Ingresar</a>
+               |
+               <a class="text-decoration-none text-white text-uppercase txt-registrarse" routerLink="/sesion/Register"
+                  routerLinkActive="active">Registrarse</a>
+            </h2>
+            <form class="form-floating  formulario-scrollable pb-3" [formGroup]="registroForm"
+               (ngSubmit)="registrarUsuario()" autocomplete="off">
 
-                    <div class="container">
+               <div class="container">
 
-                        <div class="row">
+                  <div class="row">
 
-                            <!--INPUT NOMBRE-->
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light">Nombre <span class="fs-5 fw-bold">*</span></label>
-                                    <input 
-                                        type="text" 
-                                        placeholder="Ingrese su nombre"
-                                        formControlName="nombre" 
-                                        class="form-control" />
-                                    <span
-                                        *ngIf="isValidField('nombre')"
-                                        class="form-text text-dark fw-bold">
-                                        {{ getFieldError('nombre') }}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!--INPUT APELLIDO-->
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light">Apellido <span class="fs-5 fw-bold">*</span></label>
-                                    <input 
-                                        type="text" 
-                                        placeholder="Ingrese su apellido"
-                                        formControlName="apellido" 
-                                        class="form-control" />
-                                    <span
-                                        *ngIf="isValidField('apellido')"
-                                        class="form-text text-dark fw-bold">
-                                        {{ getFieldError('apellido') }}
-                                    </span>
-                                </div>
-                            </div>
-
+                     <!--INPUT NOMBRE-->
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light">Nombre <span class="fs-5 fw-bold">*</span></label>
+                           <input type="text" placeholder="Ingrese su nombre" formControlName="nombre"
+                              class="form-control" />
+                           <span *ngIf="isValidField('nombre')" class="form-text text-dark fw-bold">
+                              {{ getFieldError('nombre') }}
+                           </span>
                         </div>
+                     </div>
 
-                        <div class="row">
-
-                            <!--INPUT EMAIL-->
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light" for="form3Example3cg">Correo electronico <span class="fs-5 fw-bold">*</span></label>
-                                    <input 
-                                        type="email" 
-                                        placeholder="Ingrese su email"
-                                        formControlName="email" 
-                                        class="form-control" />
-                                    <span
-                                        *ngIf="isValidField('email')"
-                                        class="form-text text-dark fw-bold">
-                                        {{ getFieldError('email') }}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!--INPUT NOMBRE USUARIO-->
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light" for="form3Example1cg">Usuario <span class="fs-5 fw-bold">*</span></label>
-                                    <input 
-                                        type="text" 
-                                        placeholder="Ingrese un nombre de usuario"
-                                        formControlName="nickname" 
-                                        class="form-control"/>
-                                    <span
-                                        *ngIf="isValidField('nickname')"
-                                        class="form-text text-dark fw-bold">
-                                        {{ getFieldError('nickname') }}
-                                    </span>    
-                                </div>
-                            </div>
-
+                     <!--INPUT APELLIDO-->
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light">Apellido <span class="fs-5 fw-bold">*</span></label>
+                           <input type="text" placeholder="Ingrese su apellido" formControlName="apellido"
+                              class="form-control" />
+                           <span *ngIf="isValidField('apellido')" class="form-text text-dark fw-bold">
+                              {{ getFieldError('apellido') }}
+                           </span>
                         </div>
+                     </div>
 
-                        <div class="row">
+                  </div>
 
-                            <!--INPUT CONTRASEÑA-->
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light" for="form3Example4cg">Contraseña <span class="fs-5 fw-bold">*</span></label>
-                                    <input 
-                                        type="password" 
-                                        placeholder="Ingrese su contraseña"
-                                        formControlName="password" 
-                                        class="form-control" />
-                                    <span
-                                        *ngIf="isValidField('password')"
-                                        class="form-text text-dark fw-bold">
-                                        {{ getFieldError('password') }}
-                                    </span>
-                                </div>
-                            </div>
+                  <div class="row">
 
-                            <!--REPITE CONTRASEÑA-->
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light" for="form3Example4cdg">Repite tu contraseña <span class="fs-5 fw-bold">*</span></label>
-                                    <input 
-                                        type="password" 
-                                        placeholder="Repita su contraseña"
-                                        formControlName="repPassword" 
-                                        class="form-control" />
-                                    <span
-                                        *ngIf="isValidField('repPassword')"
-                                        class="form-text text-dark fw-bold">
-                                        {{ getFieldError('repPassword') }}
-                                    </span>
-                                </div>
-                            </div>
-
+                     <!--INPUT EMAIL-->
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light" for="form3Example3cg">Correo electronico <span
+                                 class="fs-5 fw-bold">*</span></label>
+                           <input type="email" placeholder="Ingrese su email" formControlName="email"
+                              class="form-control" />
+                           <span *ngIf="isValidField('email')" class="form-text text-dark fw-bold">
+                              {{ getFieldError('email') }}
+                           </span>
                         </div>
+                     </div>
 
-                        <div class="row">
-
-                            <!--INPUT NRO DE TELEFONO-->
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light">Teléfono <span class="fs-5 fw-bold">*</span></label>
-                                    <input 
-                                        type="text"
-                                        placeholder="Ingrese su número de telefono" 
-                                        formControlName="nro_contacto" 
-                                        class="form-control" />
-                                    <span
-                                        *ngIf="isValidField('nro_contacto')"
-                                        class="form-text text-dark fw-bold">
-                                        {{ getFieldError('nro_contacto') }}
-                                    </span> 
-                                </div>
-                            </div>
-
+                     <!--INPUT NOMBRE USUARIO-->
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light" for="form3Example1cg">Usuario <span
+                                 class="fs-5 fw-bold">*</span></label>
+                           <input type="text" placeholder="Ingrese un nombre de usuario" formControlName="nickname"
+                              class="form-control" />
+                           <span *ngIf="isValidField('nickname')" class="form-text text-dark fw-bold">
+                              {{ getFieldError('nickname') }}
+                           </span>
                         </div>
+                     </div>
 
-                    </div>
-                    
+                  </div>
 
-                    <hr class="border border-4">
+                  <div class="row">
 
-                    <h4 class="fs-5 fw-bold">Su dirección</h4>
-                    <div class="container" formGroupName="direcciones">
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light">Provincia</label>
-                                    <input type="text" formControlName="provincia" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light" for="form3Example3cg">Ciudad</label>
-                                    <input type="text" formControlName="ciudad" class="form-control" />
-                                </div>
-                            </div>
+                     <!--INPUT CONTRASEÑA-->
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light" for="form3Example4cg">Contraseña <span
+                                 class="fs-5 fw-bold">*</span></label>
+                           <input type="password" placeholder="Ingrese su contraseña" formControlName="password"
+                              class="form-control" />
+                           <span *ngIf="isValidField('password')" class="form-text text-dark fw-bold">
+                              {{ getFieldError('password') }}
+                           </span>
                         </div>
+                     </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light">Calle 1</label>
-                                    <input type="text" formControlName="calle1" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light">Calle 2</label>
-                                    <input type="text" formControlName="calle2" class="form-control" />
-                                </div>
-                            </div>
+                     <!--REPITE CONTRASEÑA-->
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light" for="form3Example4cdg">Repite tu contraseña <span
+                                 class="fs-5 fw-bold">*</span></label>
+                           <input type="password" placeholder="Repita su contraseña" formControlName="repPassword"
+                              class="form-control" />
+                           <span *ngIf="isValidField('repPassword')" class="form-text text-dark fw-bold">
+                              {{ getFieldError('repPassword') }}
+                           </span>
                         </div>
+                     </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light" for="form3Example3cg">Altura</label>
-                                    <input type="text" formControlName="altura" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-outline mb-3">
-                                    <label class="form-label text-light" for="form3Example1cg">Código postal</label>
-                                    <input type="text" formControlName="codPostal" class="form-control"/>
-                                </div>
-                            </div>
+                  </div>
+
+                  <div class="row">
+
+                     <!--INPUT NRO DE TELEFONO-->
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light">Teléfono <span class="fs-5 fw-bold">*</span></label>
+                           <input type="text" placeholder="Ingrese su número de telefono" formControlName="nro_contacto"
+                              class="form-control" />
+                           <span *ngIf="isValidField('nro_contacto')" class="form-text text-dark fw-bold">
+                              {{ getFieldError('nro_contacto') }}
+                           </span>
                         </div>
-                    </div>
+                     </div>
 
-                    <div class="form-check d-flex justify-content-center">
-                        <input class="form-check-input me-2" type="checkbox" id="invalidCheck" formControlName="terminos"/>
-                        <label *ngIf="!isValidField('terminos')" class="form-check-label text-light" for="invalidCheck">
-                            Estoy de acuerdo con todos los <a href="#!" class="text-warning"><u>Terminos y servicios</u></a><span class="fs-5 fw-bold">*</span>
-                        </label>
-                        <label *ngIf="isValidField('terminos')" class="form-check-label text-light" for="invalidCheck">
-                            <span class="text-dark fw-bold">Debe estar de acuerdo con nuestros </span> <a href="#!" class="text-warning"><u>Terminos y servicios</u></a>
-                        </label>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold btn-registrarse">
-                            Registrarse
-                        </button>  
-                    </div>
-                </form>
-           </div>
-        </div>
-    </div>
+                  </div>
+
+               </div>
+
+
+               <hr class="border border-4">
+
+               <h4 class="fs-5 fw-bold">Su dirección</h4>
+               <div class="container" formGroupName="direcciones">
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light">Provincia</label>
+                           <input type="text" formControlName="provincia" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light" for="form3Example3cg">Ciudad</label>
+                           <input type="text" formControlName="ciudad" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light">Calle 1</label>
+                           <input type="text" formControlName="calle1" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light">Calle 2</label>
+                           <input type="text" formControlName="calle2" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light" for="form3Example3cg">Altura</label>
+                           <input type="text" formControlName="altura" class="form-control" />
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                           <label class="form-label text-light" for="form3Example1cg">Código postal</label>
+                           <input type="text" formControlName="codPostal" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form-check d-flex justify-content-center">
+                  <input class="form-check-input me-2" type="checkbox" id="invalidCheck" formControlName="terminos" />
+                  <label *ngIf="!isValidField('terminos')" class="form-check-label text-light" for="invalidCheck">
+                     Estoy de acuerdo con todos los <a href="#!" class="text-warning"><u>Terminos y
+                           servicios</u></a><span class="fs-5 fw-bold">*</span>
+                  </label>
+                  <label *ngIf="isValidField('terminos')" class="form-check-label text-light" for="invalidCheck">
+                     <span class="text-dark fw-bold">Debe estar de acuerdo con nuestros </span> <a href="#!"
+                        class="text-warning"><u>Terminos y servicios</u></a>
+                  </label>
+               </div>
+               <div class="d-flex justify-content-center">
+                  <button type="submit"
+                     class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold btn-registrarse">
+                     Registrarse
+                  </button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
 </div>

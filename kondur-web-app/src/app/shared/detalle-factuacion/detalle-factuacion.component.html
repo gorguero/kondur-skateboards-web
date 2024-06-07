@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="fondo-white">
+  <section class="container fondo-productos  pe-5 ps-5 pt-1 pb-5">
+    <a routerLink="/sesion/MiPerfil" routerLinkActive="active"
+              class="btn"><i class="bi bi-arrow-left-square-fill btn-back"></i></a>
+              <h1>DETALLE DE COMPRA #{{ ventaActual._id }}</h1>
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Fecha de facturación: {{ventaActual.creado_en | date:'dd/MM/yyyy'}}</h2>
+      <button type="button" class="btn btn-dark btn-sm" (click)="downloadPDF(ventaActual._id)">Imprimir <i class="bi bi-printer-fill"></i></button>
+      </div>
+    <div class="fondo-contenido p-3">
+      <div class="row align-i1tems-center">
+        <div class="contenedor-info">
+          <div class="fs-5 mb-5 pt-3">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col-3">Productos</th>
+                  <th class="text-center" scope="col">Precio</th>
+                  <th class="text-center" scope="col">Cantidad</th>
+                  <th class="text-center" scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of ventaActual.productos" class="align-middle">
+                  <th class="img-producto" scope="row"><img [src]="producto.imagen" alt="">{{producto.nombreProducto}}</th>
+                  <td class="text-center">{{producto.precio | currency }}</td>
+                  <td class="text-center">{{producto.cantidad }}</td>
+                  <td class="text-center">{{getTotalProducto(producto) | currency}}</td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="text-end"><strong>Total Venta:</strong></td>
+                  <td class="text-center"><strong>{{getTotalVenta() | currency}}</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>Detalle de envío:</h2>
+            <h3><b>Provincia:</b> {{ventaActual.direccion_envio.provincia}}</h3>
+            <h3><b>Localidad:</b> {{ventaActual.direccion_envio.localidad}}</h3>
+            <h3><b>Dirección:</b> {{ventaActual.direccion_envio.direccion}}</h3>
+            <h3><b>Código Postal:</b> {{ventaActual.direccion_envio.codPostal}}</h3>
+            <h3><b>Teléfono:</b> {{ventaActual.direccion_envio.telefono}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

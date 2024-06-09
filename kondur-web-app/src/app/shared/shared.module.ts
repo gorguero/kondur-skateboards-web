@@ -10,6 +10,7 @@ import { CarritoComponent } from './header/carrito/carrito.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FacturacionComponent } from './header/carrito/pages/facturacion/facturacion.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetalleFactuacionComponent } from './detalle-factuacion/detalle-factuacion.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CarritoComponent,
     FooterComponent,
     FacturacionComponent,
+    DetalleFactuacionComponent,
   ],
   imports: [
     CommonModule,

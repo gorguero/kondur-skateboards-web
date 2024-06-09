@@ -1,230 +1,209 @@
 <div class="fondo-white">
-    <div class="container mb-5 separador">
-        <h2 class="text-center text-uppercase fw-bold text-black titulo-team">Mi Perfil</h2>
-        <div class="d-flex justify-content-between mt-3">
-            <div class="panelDeDatos">
-                <!-- <div class="text-center">
-                    <h2 class="fw-bold text-uppercase">Mis Datos</h2>
-                </div> -->
-
-                <div class="card bg-dark" style="border-radius: 15px;">
-                    <div class="card-body p-5">
-                        <h2 class="fw-bold text-white text-uppercase">Mis Datos</h2>
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example1cg">Nombre completo:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ usuarioActual.nombre }} {{usuarioActual.apellido}}
-                            </h3>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example2cg">Nombre de usuario:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ usuarioActual.nickname }}
-                            </h3>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example3cg">Mi correo electronico:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ usuarioActual.email }}
-                            </h3>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example5cg">Telefono:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ usuarioActual.nro_contacto }}
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <!-- PANEL DE MI DIRECCION -->
-                <div class="text-center mt-4">
-                    <h2 class="fw-bold text-uppercase">Mi Dirección</h2>
-                </div>
-
-                <div class="card bg-dark" style="border-radius: 15px;">
-                    <div class="card-body p-5" *ngFor="let item of usuarioActual.direcciones">
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example7cg">Calle/Avenida:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ item.calle1 }}
-                            </h3>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example7cg">Altura:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ item.altura }}
-                            </h3>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example8cg">Código postal:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ item.codpostal }}
-                            </h3>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example9cg">Provincia:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ item.provincia }}
-                            </h3>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label text-light" for="form3Example10cg">Ciudad:</label>
-                            <h3 class="text-white fw-bold">
-                                {{ item.ciudad }}
-                            </h3>
-                        </div>
-                    </div>
-                </div>
+  <div class="container mb-5 separador">
+    <h2 class="text-center text-uppercase fw-bold text-black titulo-team">Mi Perfil</h2>
+    <div class="d-flex justify-content-between mt-3">
+      <div class="panelDeDatos">
+        <div class="card bg-dark" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <h2 class="fw-bold text-white text-uppercase">Mis Datos</h2>
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example1cg">Nombre completo:</label>
+              <h3 class="text-white fw-bold">
+                {{ usuarioActual.nombre }} {{usuarioActual.apellido}}
+              </h3>
             </div>
-            <div class="panelDeDatos">
-                <mat-accordion>
-                    <ul class=" navbar-nav justify-content-end flex-grow-1 pe-3 dropend">
-                        <li>
-                            <mat-expansion-panel class="bg-white" style="border-radius: 15px;">
-                                <mat-expansion-panel-header class="bg-dark">
-                                    <mat-panel-title class="bg-dark">
-                                        <h2 class="m-0 p-0 fw-bold text-uppercase text-white">Editar datos personales</h2>
-                                    </mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <div class="card  border-0 mt-3">
-                                    <div class="card-body p-2">
-                                        <form [formGroup]="editUserForm" (ngSubmit)="updateUser()">
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label " for="form3Example1cg">Nombre</label>
-                                                <input type="text" formControlName="nombre" class="form-control form-control-lg"/>
-                                            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example2cg">Nombre de usuario:</label>
+              <h3 class="text-white fw-bold">
+                {{ usuarioActual.nickname }}
+              </h3>
+            </div>
 
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label " for="form3Example1cg">Apellido</label>
-                                                <input type="text" formControlName="apellido" class="form-control form-control-lg"/>
-                                            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example3cg">Mi correo electronico:</label>
+              <h3 class="text-white fw-bold">
+                {{ usuarioActual.email }}
+              </h3>
+            </div>
 
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label " for="form3Example1cg">Nombre de usuario</label>
-                                                <input type="text" formControlName="nickname" class="form-control form-control-lg"/>
-                                            </div>
-                
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label " for="form3Example3cg">Correo electronico</label>
-                                                <input type="email" formControlName="email" class="form-control form-control-lg"/>
-                                            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example5cg">Telefono:</label>
+              <h3 class="text-white fw-bold">
+                {{ usuarioActual.nro_contacto }}
+              </h3>
+            </div>
+          </div>
+        </div>
+        <!-- PANEL DE MI DIRECCION -->
+        <div class="text-center mt-4">
+          <h2 class="fw-bold text-uppercase">Mi Dirección</h2>
+        </div>
+        <div class="card bg-dark" style="border-radius: 15px;">
+          <div class="card-body p-5" *ngFor="let item of usuarioActual.direcciones">
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example7cg">Calle/Avenida:</label>
+              <h3 class="text-white fw-bold">
+                {{ item.calle1 }}
+              </h3>
+            </div>
 
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label " for="form3Example3cg">Teléfono</label>
-                                                <input type="email" formControlName="nro_contacto" class="form-control form-control-lg"/>
-                                            </div>
-                
-                                            <!-- <div class="form-outline mb-4">
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example7cg">Altura:</label>
+              <h3 class="text-white fw-bold">
+                {{ item.altura }}
+              </h3>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example8cg">Código postal:</label>
+              <h3 class="text-white fw-bold">
+                {{ item.codPostal }}
+              </h3>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example9cg">Provincia:</label>
+              <h3 class="text-white fw-bold">
+                {{ item.provincia }}
+              </h3>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label class="form-label text-light" for="form3Example10cg">Ciudad:</label>
+              <h3 class="text-white fw-bold">
+                {{ item.ciudad }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- PANEL DE HISTORIAL DE COMPRAS -->
+      <div class="panelDeDatos">
+        <div class="card mb-5 p-3 tabla-historial" style="border-radius: 15px;">
+          <h2 class="fw-bold text-uppercase">Mis compras</h2>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Fecha de compra</th>
+                <th scope="col">Comprobante</th>
+                <th scope="col">Detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let venta of ventas">
+                <td>{{venta.creado_en | date }}</td>
+                <td>{{venta._id}}</td>
+                <td>
+                  <a [routerLink]="['/detalle-facturacion', venta._id]" routerLinkActive="active">
+                    <i class="bi bi-search"></i></a>
+                    <button type="button" class="btn text-black ms-3" (click)="downloadPDF(venta._id)"><i class="bi bi-printer-fill"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-center btn-historial">
+            <button>
+              <i class="bi bi-arrow-left-square-fill"></i>
+            </button>
+            <button>
+              <i class="bi bi-arrow-right-square-fill"></i>
+            </button>
+          </div>
+        </div>
+        <!-- PANEL PARA EDITAR TUS DATOS -->
+        <mat-accordion>
+          <ul class=" navbar-nav justify-content-end flex-grow-1 pe-3 dropend">
+            <li>
+              <mat-expansion-panel class="bg-white" style="border-radius: 15px;">
+                <mat-expansion-panel-header class="bg-dark">
+                  <mat-panel-title class="bg-dark">
+                    <h2 class="m-0 p-0 fw-bold text-uppercase text-white">Editar datos personales
+                    </h2>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <!-- FORM PARA EDITAR DATOS -->
+                <div class="card  border-0 mt-3">
+                  <div class="card-body p-2">
+                    <form [formGroup]="editUserForm" (ngSubmit)="updateUser()">
+                      <div class="form-outline mb-4">
+                        <label class="form-label " for="form3Example1cg">Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control form-control-lg" />
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label " for="form3Example1cg">Apellido</label>
+                        <input type="text" formControlName="apellido" class="form-control form-control-lg" />
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label " for="form3Example3cg">Correo
+                          electronico</label>
+                        <input type="email" formControlName="email" class="form-control form-control-lg" />
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label " for="form3Example3cg">Teléfono</label>
+                        <input type="email" formControlName="nro_contacto" class="form-control form-control-lg" />
+                      </div>
+
+                      <!-- <div class="form-outline mb-4">
                                                 <label class="form-label " for="form3Example4cg">Contraseña</label>
                                                 <input type="password" formControlName="" class="form-control form-control-lg"/>
                                             </div> -->
 
-                                            <hr>
+                      <hr>
 
-                                            <h4 class="fs-5 fw-bold">Dirección</h4>
-                                            <div formGroupName="direcciones">
+                      <h4 class="fs-5 fw-bold">Dirección</h4>
+                      <div formGroupName="direcciones">
 
-                                                <div class="form-outline mb-4">
-                                                    <label class="form-label" for="form3Example18cg">Provincia</label>
-                                                    <input type="text" formControlName="provincia" class="form-control form-control-lg" />
-                                                </div>
-                    
-                                                <div class="form-outline mb-4">
-                                                    <label class="form-label" for="form3Example4cdg">Ciudad</label>
-                                                    <input type="text" formControlName="ciudad" class="form-control form-control-lg"/>
-                                                </div>
-    
-                                                <div class="form-outline mb-4">
-                                                    <label class="form-label" for="form3Example1cg">Calle principal</label>
-                                                    <input type="text" formControlName="calle1" class="form-control form-control-lg"/>
-                                                </div>
-    
-                                                <div class="form-outline mb-4">
-                                                    <label class="form-label" for="form3Example1cg">Calle secundaria</label>
-                                                    <input type="text" formControlName="calle2" class="form-control form-control-lg"/>
-                                                </div>
-    
-                                                <div class="form-outline mb-4">
-                                                    <label class="form-label" for="form3Example1cg">Altura</label>
-                                                    <input type="text" formControlName="altura" class="form-control form-control-lg"/>
-                                                </div>
-                    
-                                                <div class="form-outline mb-4">
-                                                    <label class="form-label" for="form3Example3cg">Código postal</label>
-                                                    <input type="text" formControlName="codpostal" class="form-control form-control-lg"/>
-                                                </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form3Example18cg">Provincia</label>
+                          <input type="text" formControlName="provincia" class="form-control form-control-lg" />
+                        </div>
 
-                                            </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form3Example4cdg">Ciudad</label>
+                          <input type="text" formControlName="ciudad" class="form-control form-control-lg" />
+                        </div>
 
-                                            <div class="d-flex justify-content-center">
-                                                <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
-                                                    Guardar
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                    </ul>
-                </mat-accordion>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form3Example1cg">Calle
+                            principal</label>
+                          <input type="text" formControlName="calle1" class="form-control form-control-lg" />
+                        </div>
 
-                <!-- <mat-accordion>
-                    <ul class=" navbar-nav justify-content-end flex-grow-1 pe-3 dropend mt-5">
-                        <li>
-                            <mat-expansion-panel class="bg-white" style="border-radius: 15px;">
-                                <mat-expansion-panel-header class=" bg-dark">
-                                    <mat-panel-title class=" bg-dark">
-                                        <h2 class="m-0 p-0 fw-bold text-uppercase text-white">Editar dirección</h2>
-                                    </mat-panel-title>
-                                    
-                                </mat-expansion-panel-header>
-                                <div class="card border-0 mt-3">
-                                    <div class="card-body p-2">
-                                        <form>
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="form3Example1cg">Calle/Avenida</label>
-                                                <input type="text" id="form3Example16cg" class="form-control form-control-lg" value="Avellaneda 186"/>
-                                            </div>
-                
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="form3Example3cg">Código postal</label>
-                                                <input type="number" id="form3Example17cg" class="form-control form-control-lg" value="4700" />
-                                            </div>
-                
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="form3Example18cg">Provincia</label>
-                                                <input type="text" id="form3Example4cg" class="form-control form-control-lg" value="Catamarca" />
-                                            </div>
-                
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="form3Example4cdg">Ciudad</label>
-                                                <input type="text" id="form3Example19cdg" class="form-control form-control-lg" value="San Fernando del Valle de Catamarca"/>
-                                            </div>
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="form3Example4cdg">Telefono de contacto</label>
-                                                <input type="tel" id="form3Example20cdg" class="form-control form-control-lg" value="(3834)283401"/>
-                                            </div>
-                
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
-                                                    Guardar
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </mat-expansion-panel>
-                        </li>
-                    </ul>
-                </mat-accordion> -->
-            </div>
-        </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form3Example1cg">Calle
+                            secundaria</label>
+                          <input type="text" formControlName="calle2" class="form-control form-control-lg" />
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form3Example1cg">Altura</label>
+                          <input type="text" formControlName="altura" class="form-control form-control-lg" />
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form3Example3cg">Código
+                            postal</label>
+                          <input type="text" formControlName="codPostal" class="form-control form-control-lg" />
+                        </div>
+
+                      </div>
+
+                      <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold">
+                          Guardar
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </li>
+          </ul>
+        </mat-accordion>
+      </div>
     </div>
+  </div>
 </div>

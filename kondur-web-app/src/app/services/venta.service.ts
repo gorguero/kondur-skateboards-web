@@ -21,4 +21,17 @@ export class VentaServices{
     getVentasPaginadas( desde:number = 0 ){
       return this.http.get<VentasServiceResp>(`${this.url}?desde=${desde}`);
     }
+
+    getVentasByUserId(id: string): Observable<any> {
+      return this.http.get<any>(`${this.url}/usuario/${id}`);
+    }
+
+    getVentaById(id:string): Observable<any>{
+      return this.http.get<any>(`${this.url}/detalle/${id}`)
+    }
+
+    generatePDF(ventaId: string): Observable<Blob> {
+      return this.http.get(`${this.url}/generate-pdf/${ventaId}`, { responseType: 'blob' });
+    }
+
 }

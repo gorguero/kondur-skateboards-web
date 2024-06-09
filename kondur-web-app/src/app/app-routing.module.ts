@@ -5,6 +5,7 @@ import { CarritoComponent } from './shared/header/carrito/carrito.component';
 import { VentasComponent } from './admin/pages/ventas/ventas.component';
 import { AuthGuard } from './guards/auth.guard';
 import { FacturacionComponent } from './shared/header/carrito/pages/facturacion/facturacion.component';
+import { DetalleFactuacionComponent } from './shared/detalle-factuacion/detalle-factuacion.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
     path: 'facturacion',
     component: FacturacionComponent
   },
+  {
+    path: 'detalle-facturacion/:id',
+    component: DetalleFactuacionComponent
+  }
+  ,
   {
     path: '',
     loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalModule)

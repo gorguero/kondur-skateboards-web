@@ -4,6 +4,8 @@ import Usuarios from 'src/app/models/usuarios.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ToastrService } from 'ngx-toastr';
+import { VentaServices } from 'src/app/services/venta.service';
+import Venta from 'src/app/models/venta.model';
 
 @Component({
   selector: 'app-perfil',
@@ -16,6 +18,7 @@ export class PerfilComponent implements OnInit {
   private token: any = '';
   public usuarioActual?: any = {};
   public usuarioDirecciones?: any = [];
+  public ventas: any= [];
 
   public editUserForm: FormGroup = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(3)]],
@@ -29,22 +32,47 @@ export class PerfilComponent implements OnInit {
       calle1: [''],
       calle2: [''],
       altura: [''],
-      codpostal: [''],
+      codPostal: [''],
     }),
   });
 
   constructor(
     private auth: AuthService,
     private usuarioService: UsuarioService,
+    private ventasService: VentaServices,
     private fb: FormBuilder,
     private toastr: ToastrService,
+    private _ventaService: VentaServices
   ) {
     this.token = this.auth.getDecodedToken(this.tokenDecoded);
 
   }
+  ngOnInit(): void {
+    this.usuarioService.obtenerUsuario(this.token.id)
+      .subscribe((usuario: Usuarios) => {
+        this.usuarioActual = usuario;
+        this.usuarioDirecciones = this.usuarioActual.direcciones;
+        
+        this.preCargarForm();
+      });
+
+      this.ventasService.getVentasByUserId(this.token.id).subscribe(
+        (response) => {
+          // Verifica si la respuesta es válida y si contiene el campo "ventas"
+          if (response && response.ventas) {
+            // Asigna el valor de "ventas" al arreglo en el componente
+            this.ventas = response.ventas;
+          } else {
+            console.error('La respuesta no contiene el campo "ventas" esperado.');
+          }
+        },
+        (error) => {
+          console.error('Error al obtener ventas:', error);
+        }
+      );
+  }
 
   preCargarForm() {
-    
     const userFormEdit: any = {
       nombre: this.usuarioActual.nombre,
       apellido: this.usuarioActual.apellido,
@@ -57,23 +85,10 @@ export class PerfilComponent implements OnInit {
         calle1: this.usuarioDirecciones[0].calle1,
         calle2: this.usuarioDirecciones[0].calle2,
         altura: this.usuarioDirecciones[0].altura,
-        codpostal: this.usuarioDirecciones[0].codpostal,
+        codPostal: this.usuarioDirecciones[0].codPostal,
       }
     }
-
     this.editUserForm.patchValue(userFormEdit);
-  }
-
-  ngOnInit(): void {
-
-    this.usuarioService.obtenerUsuario(this.token.id)
-      .subscribe((usuario: Usuarios) => {
-        this.usuarioActual = usuario;
-        this.usuarioDirecciones = this.usuarioActual.direcciones;
-        
-        this.preCargarForm();
-      });
-
   }
   updateUser(): void {
     console.log(this.editUserForm.value);
@@ -85,7 +100,7 @@ export class PerfilComponent implements OnInit {
     const calle1Control = direccionesGroup.get('calle1');
     const calle2Control = direccionesGroup.get('calle2');
     const alturaControl = direccionesGroup.get('altura');
-    const codPostalControl = direccionesGroup.get('codpostal');
+    const codPostalControl = direccionesGroup.get('codPostal');
 
     const userEdit: Usuarios = {
       nombre: this.editUserForm.get('nombre')?.value,
@@ -99,23 +114,37 @@ export class PerfilComponent implements OnInit {
         calle1: calle1Control?.value,
         calle2: calle2Control?.value,
         altura: alturaControl?.value,
-        codpostal: codPostalControl?.value
+        codPostal: codPostalControl?.value
       }
     }
-
+     
     this.usuarioService.updateUsuario(this.token.id, userEdit)
       .subscribe({
         next: resp => {
           this.toastr.success('El perfil se actualizó exitosamente', 'Perfil Actualizado');
         },
-        error: error => {
-          console.log(error)
+        error: error => {7
+          this.toastr.error(error.error.msg, 'Revisar errores');
         }
       })
   }
 
   getToken() {
     return this.token;
+  }
+
+  downloadPDF(ventaId: string) {
+    this._ventaService.generatePDF(ventaId).subscribe(response => {
+      const blob = new Blob([response], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'detalle-compra.pdf';
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }, error => {
+      console.error('Error generating PDF', error);
+    });
   }
 
 }

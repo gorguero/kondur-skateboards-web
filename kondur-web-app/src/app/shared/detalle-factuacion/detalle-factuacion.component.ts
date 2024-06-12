@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import Venta from 'src/app/models/venta.model';
 import { VentaServices } from 'src/app/services/venta.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-detalle-factuacion',
   templateUrl: './detalle-factuacion.component.html',
@@ -10,17 +11,11 @@ import { VentaServices } from 'src/app/services/venta.service';
 export class DetalleFactuacionComponent implements OnInit {
   private id: any = '';
   public ventaActual: any ={};
-  orderNumber: string = '321654';
-  shippingDetails = {
-    province: 'Catamarca',
-    city: 'San Fernando del Valle de Catamarca',
-    address: 'Padre Juan Reinoso 666',
-    postalCode: '47000',
-    phone: '3834-755090'
-  };
 
-  constructor(private aRouter: ActivatedRoute, 
-    private _ventaService: VentaServices
+  constructor(
+    private aRouter: ActivatedRoute, 
+    private _ventaService: VentaServices,
+    private location: Location
   ) {
     // this.subTotal = this.orderItems.reduce((acc, item) => acc + item.total, 0);
     this.id = this.aRouter.snapshot.paramMap.get('id');
@@ -56,5 +51,9 @@ export class DetalleFactuacionComponent implements OnInit {
     }, error => {
       console.error('Error generating PDF', error);
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

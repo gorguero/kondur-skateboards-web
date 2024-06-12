@@ -146,5 +146,7 @@ export class PerfilComponent implements OnInit {
       console.error('Error generating PDF', error);
     });
   }
-
+  getTotalVenta(productos: any[]): number {
+    return productos.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
+  }
 }

@@ -85,14 +85,14 @@
             <thead>
               <tr>
                 <th scope="col">Fecha de compra</th>
-                <th scope="col">Comprobante</th>
+                <th scope="col">Monto total</th>
                 <th scope="col">Detalle</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let venta of ventas">
                 <td>{{venta.creado_en | date }}</td>
-                <td>{{venta._id}}</td>
+                <td>{{ getTotalVenta(venta.productos) | currency }}</td>
                 <td>
                   <a [routerLink]="['/detalle-facturacion', venta._id]" routerLinkActive="active">
                     <i class="bi bi-search"></i></a>

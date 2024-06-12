@@ -8,12 +8,12 @@ import { Venta } from '../models/venta.model';
 })
 
 export class PaymentService {
-    private url = 'http://localhost:5000/api/payment/';  // Cambia la URL según tu configuración
+    private url = 'http://localhost:5000/api/payment/';
   
     constructor(private http: HttpClient) { }
   
     createOrder(): Observable<any> {
-      return this.http.get(this.url);  // Cambia a una solicitud POST si es necesario
+      return this.http.get(this.url);  
     }
     
     handleSuccess(): Observable<any> {

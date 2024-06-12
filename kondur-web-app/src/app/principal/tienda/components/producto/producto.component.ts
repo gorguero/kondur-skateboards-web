@@ -18,7 +18,8 @@ export class ProductoComponent implements OnInit {
   id: string | null;
   producto: any = {};
   cantidadSeleccionada: number = 1;
-  tallaSeleccionada: string = '0';
+  tallaSeleccionada: string | null = null; 
+  medidaSeleccionada: string | null = null;
   productosRelacionados: Producto[] = [];
 
   cantidadMaximaProductosRelacionados: number = 4;
@@ -80,24 +81,24 @@ export class ProductoComponent implements OnInit {
 
 
   agregarCarrito(producto: Producto) {
-    if (this.producto.categoria.toLowerCase() === 'lijas' || this.tallaSeleccionada) {
+    if (this.producto.categoria.toLowerCase() === 'lijas' || this.tallaSeleccionada !== null || this.medidaSeleccionada !== null) {
       let iCarrito: ItemCarrito = {
         nombreProducto: this.producto.nombreProducto,
         imagen: this.producto.imagen,
         precio: this.producto.precio,
         cantidad: this.cantidadSeleccionada,
-        talla:this.tallaSeleccionada,
-        medida:this.tallaSeleccionada,
+        talla: this.tallaSeleccionada,
+        medida: this.medidaSeleccionada,
         _id: this.producto._id
       };
-
+      
       let carrito: ItemCarrito[] = localStorage.getItem("carrito")
         ? JSON.parse(localStorage.getItem("carrito") as string)
         : [];
-
+  
       carrito.push(iCarrito);
       localStorage.setItem("carrito", JSON.stringify(carrito));
-
+  
       this.toastr.success('Producto agregado al carrito', 'Éxito', {
         timeOut: 3000,
         progressBar: true,

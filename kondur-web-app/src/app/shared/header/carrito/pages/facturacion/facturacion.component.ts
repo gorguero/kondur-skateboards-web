@@ -137,7 +137,6 @@ export class FacturacionComponent {
       })
       .subscribe(
         (response) => {
-          console.log('Respuesta del backend:', response);
           window.location.href = response; // Redirige a la URL de Mercado Pago
           // this.guardarVenta();
         },
@@ -153,9 +152,18 @@ export class FacturacionComponent {
     if (this.userLogged) {
       user_id = this.userLogged.id;
     }
+    const listaItemsCarritoInterface = this.listaItemsCarrito.map((item: ItemCarrito) => ({
+      nombreProducto: item.nombreProducto,
+      imagen: item.imagen,
+      precio: item.precio,
+      cantidad: item.cantidad,
+      talla: item.talla,
+      medida: item.medida,
+      _id: item._id
+    }));
 
     const informacionVenta = new Venta( 
-      this.listaItemsCarrito, // Convertir el arreglo a JSON
+      listaItemsCarritoInterface, // Convertir el arreglo a JSON
       this.subtotalTotal,
       this.facturacionForm.get('nombre')?.value,
       this.facturacionForm.get('apellido')?.value,
@@ -183,6 +191,4 @@ export class FacturacionComponent {
       }
     );
   }
-
-  // VER DONDE EJECUTAR ESA FUNCION DE GUARDADO
 }

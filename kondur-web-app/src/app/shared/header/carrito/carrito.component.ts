@@ -67,24 +67,4 @@ export class CarritoComponent {
       (item, index, self) => index === self.findIndex((t) => t._id === item._id)
     );
   }
-
-  //   FUNCIONES PARA MERCADOPAGO
-  iniciarPago() {
-    console.log('Datos enviados al backend:', this.listaItemsCarrito); // Agrega este console.log para ver qué está enviando
-
-    this.http
-      .post<any>('http://localhost:5000/api/payment/createOrder', {
-        productos: this.listaItemsCarrito,
-      })
-      .subscribe(
-        (response) => {
-          console.log('Respuesta del backend:', response);
-          window.location.href = response; // Redirige a la URL de Mercado Pago
-        },
-        (error) => {
-          console.error('Error al iniciar el pago:', error);
-          // Maneja el error según tu necesidad
-        }
-      );
-  }
 }

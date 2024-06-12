@@ -3,8 +3,8 @@ export interface ItemCarrito {
   imagen: string,
   precio: number,
   cantidad: number,
-  talla?: string,
-  medida?: string,
+  talla?: string | null,
+  medida?: string | null,
   _id?: string
   }
   

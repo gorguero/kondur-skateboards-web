@@ -36,7 +36,8 @@
 /* IMGAEN TABLA */
 
 .img-producto img{
-    max-width: 3.5rem;
+    /* max-width: 3.5rem; */
+    max-height: 4rem;
     margin-right: 1rem;
 }
 .inputsTallesMedidas{

@@ -27,24 +27,7 @@
           <div class="col">
             <div class="card">
               <div class="card-body text-center">
-
                 <h3 class="fs-3">LISTADO DE PRODUCTOS</h3>
-
-                <!-- PAGINADO -->
-                <div class="py-3 d-flex justify-content-between">
-
-                  <div>
-                      <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
-                    &nbsp;
-                    <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
-                  </div>
-
-                  <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    (click)="resetearFormulario()">
-                    Agregar
-                  </button>
-                </div>
-                
 
                 <!-- MODAL -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -184,6 +167,21 @@
                   </div>
                 </div>
 
+                <!-- BÚSQUEDA -->
+                <div class="py-3 d-flex justify-content-between">
+                  <div class="d-flex">
+                    <input type="text" class="form-control search-productos me-2" placeholder="Buscar productos..." [(ngModel)]="searchTerm" 
+                    (input)="onSearch()"/>
+                  </div>
+                  <!-- BOTON AGREGAR PRODUCTO -->
+                  <div>
+                    <button type="button" class="btn btn-success float-end" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal" (click)="resetearFormulario()">
+                      Agregar producto
+                    </button>
+                  </div>
+                </div>
+
                 <!-- TABLA -->
                 <div class="container">
                   <div class="table-responsive">
@@ -198,7 +196,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let producto of listProductos">
+                        <tr *ngFor="let producto of filteredProductos">
                           <td class="align-middle">{{producto.nombreProducto}}</td>
                           <td class="align-middle">{{producto.categoria}}</td>
                           <td class="align-middle">{{producto.precio}}</td>
@@ -210,12 +208,25 @@
                             <a class="puntero" (click)="eliminarProducto(producto._id)">
                               <h1><i class="bi bi-trash3-fill text-danger "></i></h1>
                             </a>
+                            <i class="puntero bi bi-exclamation-triangle-fill alerta-stock"
+                              [ngClass]="getStockStatus(producto).color" [matTooltip]="getStockStatus(producto).message"
+                              matTooltipPosition="above"></i>
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
+
+                <!-- PAGINADO -->
+                <div class=" d-flex justify-content-between">
+                  <div>
+                    <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anterior</button>
+                    &nbsp;
+                    <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguiente</button>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

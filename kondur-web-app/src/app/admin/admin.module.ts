@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 // Componentes
 import { ProductosComponent } from './pages/productos/productos.component';
@@ -14,6 +15,8 @@ import { TeamComponent } from './pages/team/team.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { CheckComponent } from './components/check/check.component';
 import { CorredorComponent } from './components/corredor/corredor.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { CorredorComponent } from './components/corredor/corredor.component';
     SharedModule,
     RouterModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    MatTooltipModule
   ],
   exports:[
     LayoutAdminComponent

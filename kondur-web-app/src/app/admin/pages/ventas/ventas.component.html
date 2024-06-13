@@ -4,73 +4,79 @@
       Administrar Ventas
     </h1>
     <div class="parent mb-5 mt-2">
-        <!-- MENU DE CRUDS -->
-        <div class="div1 bg-black p-3 rounded"> 
-            <div class="div2 text-center mt-4">
-                <a class="text-decoration-none" routerLink="/administrador/productos" routerLinkActive="active">
-                    <h2 class=" border-bottom border-white">Productos</h2>
-                </a>
-                <a class="text-decoration-none" routerLink="/administrador/ventas" routerLinkActive="active">
-                    <h2 class="border-bottom border-white">Ventas</h2>
-                </a>
-                <a class="text-decoration-none" routerLink="/administrador/checks" routerLinkActive="active">
-                    <h2 class="border-bottom border-white">Checks</h2>
-                </a>
-                <a class="text-decoration-none" routerLink="/administrador/team" routerLinkActive="active">
-                  <h2 class="border-bottom border-white">Team</h2>
-                </a>
-            </div>
+      <!-- MENU DE CRUDS -->
+      <div class="div1 bg-black p-3 rounded">
+        <div class="div2 text-center mt-4">
+          <a class="text-decoration-none" routerLink="/administrador/productos" routerLinkActive="active">
+            <h2 class=" border-bottom border-white">Productos</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/ventas" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Ventas</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/checks" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Checks</h2>
+          </a>
+          <a class="text-decoration-none" routerLink="/administrador/team" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Team</h2>
+          </a>
         </div>
-        <!-- TABLA CRUD -->
-        <div class="div6 bg-white ms-2 rounded">
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
+      </div>
+      <!-- TABLA CRUD -->
+      <div class="div6 bg-white ms-2 rounded">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body text-center">
 
-                            <span class="fs-3">LISTADO DE VENTAS</span>
+                <span class="fs-3">LISTADO DE VENTAS</span>
 
-                            <!-- PAGINADO -->
-                            <div class="py-3 d-flex justify-content-between">
-                              <div>
-                                <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
-                                &nbsp;
-                                <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
-                              </div>
-                            </div>
-
-                            <!-- TABLA -->
-                            <table class="table table-striped mt-3">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Cliente</th>
-                                    <th scope="col">Fecha de compra</th>
-                                    <th scope="col">Monto total</th>
-                                    <th scope="col">Acciones</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr *ngFor="let venta of listVentasPaginated">
-                                    <td class="align-middle"><p>{{venta.user_id}}</p></td>
-                                    <td class="align-middle"><p>{{venta.comprador.nombre}} {{venta.comprador.apellido}}</p></td>
-                                    <td class="align-middle"><p>{{venta.creado_en | date}}</p></td>
-                                    <td class="align-middle"><p>{{ getTotalVenta(venta.productos) | currency }}</p></td>
-                                    <td class="d-flex justify-content-around">
-                                      <a [routerLink]="['/detalle-facturacion', venta._id]" routerLinkActive="active">
-                                        <h1><i class="bi bi-search"></i></h1>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                          </table>
-                              <!-- queda ver de señalar la falta de stock y ver que onda los search -->
-                        </div>
-                    </div>
+                <!-- PAGINADO -->
+                <div class="py-3 d-flex justify-content-between">
+                  <div>
+                    <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
+                    &nbsp;
+                    <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+                  </div>
                 </div>
+
+                <!-- TABLA -->
+                <table class="table table-striped mt-3">
+                  <thead>
+                    <tr>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Cliente</th>
+                      <th scope="col">Fecha de compra</th>
+                      <th scope="col">Monto total</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let venta of listVentasPaginated">
+                      <td class="align-middle">
+                        <p>{{venta.user_id}}</p>
+                      </td>
+                      <td class="align-middle">
+                        <p>{{venta.comprador.nombre}} {{venta.comprador.apellido}}</p>
+                      </td>
+                      <td class="align-middle">
+                        <p>{{venta.creado_en | date}}</p>
+                      </td>
+                      <td class="align-middle">
+                        <p>{{ getTotalVenta(venta.productos) | currency }}</p>
+                      </td>
+                      <td class="d-flex justify-content-around">
+                        <a [routerLink]="['/detalle-facturacion', venta._id]" routerLinkActive="active">
+                          <h1><i class="bi bi-search"></i></h1>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
-

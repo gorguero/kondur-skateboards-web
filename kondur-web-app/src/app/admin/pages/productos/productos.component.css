@@ -1,56 +1,89 @@
 .parent {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
-.div1 { grid-area: 1 / 2 / 6 / 4; }
-.div2 { grid-area: 2 / 2 / 3 / 4; }
-.div3 { grid-area: 3 / 2 / 4 / 4; }
-.div4 { grid-area: 4 / 2 / 5 / 4; }
-.div6 { grid-area: 1 / 4 / 6 / 12; }
+.div1 {
+  grid-area: 1 / 2 / 6 / 4;
+}
+.div2 {
+  grid-area: 2 / 2 / 3 / 4;
+}
+.div3 {
+  grid-area: 3 / 2 / 4 / 4;
+}
+.div4 {
+  grid-area: 4 / 2 / 5 / 4;
+}
+.div6 {
+  grid-area: 1 / 4 / 6 / 12;
+}
 
-h2{
-    color: white;
-    transition: background-color 0.3s ease;
+h2 {
+  color: white;
+  transition: background-color 0.3s ease;
 }
-h2:hover{
-    color: black;
-    background-color:white;
+h2:hover {
+  color: black;
+  background-color: white;
 }
-.active h2{
-    background-color: white;
-    color: black;
+.active h2 {
+  background-color: white;
+  color: black;
 }
 /* PARA EL BOTOND DE BORRAR */
-.puntero{
-    cursor: pointer;
+.puntero {
+  cursor: pointer;
 }
 
-.contenedor-inputs{
-    align-items: center;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
+.contenedor-inputs {
+  align-items: center;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
-.inputsTallesMedidas{
-    width: 100px;
-    margin-left: 1rem;
+.inputsTallesMedidas {
+  width: 100px;
+  margin-left: 1rem;
 }
 
-.contenedor-table{
-    height: 543px;
+.contenedor-table {
+  height: 543px;
 }
 /*Tamaño fijo de contenedor de tabla*/
 .table-fixed-height {
-    max-height: 400px; /* Altura fija para la tabla */
+  max-height: 400px; /* Altura fija para la tabla */
 }
-.table-fixed-height tbody tr{
-    min-height: 50px;
+.table-fixed-height tbody tr {
+  min-height: 50px;
 }
 /* Establecer tamaños fijos para las columnas */
 .column-w th,
 .column-w td {
-    width: 100px;
+  width: 100px;
+}
+.alerta-stock {
+  font-size: 1.5rem;
+}
+.text-warning {
+  color: yellow;
+}
+
+.text-danger {
+  color: red;
+}
+
+.text-secondary {
+  color: gray;
+}
+.alerta-stock{
+    font-size: 1.5rem;
+}
+
+.search-productos{
+  border-color: black;
+  background-color: rgba(87, 87, 87, 0.205);
+  width: 100%;
 }

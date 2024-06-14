@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit{
   constructor(private fb:FormBuilder, private auth:AuthService, private router:Router, private toastr: ToastrService){
     this.token = this.auth.token;
   }
+    // USAR ESTA VERIFICACION PARA DEJAR ENTRAR A FACTURACION
 
   ngOnInit(): void {
     if(this.token){

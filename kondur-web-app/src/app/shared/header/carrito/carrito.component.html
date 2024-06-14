@@ -75,9 +75,23 @@
             <button class="btn btn-vaciar float-start" (click)="vaciarCarrito()">
               Vaciar Carrito <i class="bi bi-trash3-fill text-danger"></i>
             </button>
-            <a routerLink="/facturacion" routerLinkActive="active" class="me-4">
-              <button class="btn btn-continuar float-start ms-2">Continuar compra</button>
-            </a>
+            <div class="d-flex align-items-center">
+              <a
+                [routerLink]="token ? '/facturacion' : null"
+                routerLinkActive="active"
+                class="me-4"
+              >
+                <button
+                  class="btn btn-continuar float-start ms-2"
+                  [disabled]="!token"
+                >
+                  Continuar compra
+                </button>
+              </a>
+              <span *ngIf="!token" class="ms-3 text-danger">
+                Para continuar con la compra, por favor inicie sesión.
+              </span>
+            </div>
           </div>
           <h2 class="float-end fw-bold text-dark">Monto total: ${{ montoTotal }}</h2>
         </div>

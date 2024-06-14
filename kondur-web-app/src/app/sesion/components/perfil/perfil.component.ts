@@ -51,6 +51,8 @@ export class PerfilComponent implements OnInit {
     this.usuarioService.obtenerUsuario(this.token.id)
       .subscribe((usuario: Usuarios) => {
         this.usuarioActual = usuario;
+        console.log(this.usuarioActual);
+        
         this.usuarioDirecciones = this.usuarioActual.direcciones;
         
         this.preCargarForm();

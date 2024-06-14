@@ -92,6 +92,8 @@
                               *ngIf="facturacionForm.get('nro_contacto')?.hasError('required')">Este
                               campo es requerido
                            </span>
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('nro_contacto')?.hasError('minlength')">Mínimo 10 caracteres</span>
                         </div>
                      </div>
                      <!--INPUT TIPO DE DOCUMENTO-->
@@ -121,8 +123,7 @@
                               Este campo es requerido
                            </span>
                            <span class="text-danger"
-                              *ngIf="facturacionForm.get('numero_documentacion')?.hasError('minlength')">Mínimo 3
-                              caracteres</span>
+                              *ngIf="facturacionForm.get('numero_documentacion')?.hasError('minlength')">Mínimo 7 caracteres</span>
                         </div>
                      </div>
                   </div>
@@ -175,6 +176,8 @@
                            <span class="text-danger" *ngIf="facturacionForm.get('localidad')?.hasError('required')">
                               Este campo es requerido
                            </span>
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('localidad')?.hasError('minlength')">Mínimo 4 caracteres</span>
                         </div>
                      </div>
                      <!--INPUT CODIGO POSTAL-->
@@ -187,6 +190,8 @@
                            <span class="text-danger" *ngIf="facturacionForm.get('codPostal')?.hasError('required')">
                               Este campo es requerido
                            </span>
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('codPostal')?.hasError('minlength')">Mínimo 4 caracteres</span>
                         </div>
                      </div>
                      <!--INPUT DOMICILIO-->
@@ -199,13 +204,16 @@
                            <span class="text-danger" *ngIf="facturacionForm.get('direccion')?.hasError('required')">
                               Este campo es requerido
                            </span>
+                           <span class="text-danger"
+                              *ngIf="facturacionForm.get('direccion')?.hasError('minlength')">Mínimo 5 caracteres</span>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="d-flex justify-content-center">
                   <button type="submit" (click)="iniciarPago()"
-                     class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold btn-registrarse">
+                     class="btn btn-warning btn-block btn-lg gradient-custom-4 fw-bold btn-registrarse"
+                     [disabled]="facturacionForm.invalid">
                      Realizar el pedido
                   </button>
                </div>

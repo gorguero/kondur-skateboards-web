@@ -1,17 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemCarrito } from 'src/app/models/itemCarrito.model';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css'],
 })
 export class CarritoComponent {
+  public token: string = '';
   listaItemsCarrito: ItemCarrito[] | undefined;
   montoTotal: number = 0;
-  constructor(private http: HttpClient) {}
+
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
+    this.token = this.auth.token;
+  }
 
   ngOnInit(): void {
+     this.token = this.auth.token;
     this.cargarCarrito();
   }
 
@@ -26,7 +39,7 @@ export class CarritoComponent {
     let carritoStorage = localStorage.getItem('carrito') as string;
     let carrito;
 
-    if( carritoStorage !== null ){
+    if (carritoStorage !== null) {
       carrito = this.eliminarDuplicados(JSON.parse(carritoStorage));
     }
 

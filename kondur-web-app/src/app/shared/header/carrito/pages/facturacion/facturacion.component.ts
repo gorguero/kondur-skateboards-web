@@ -5,7 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
+
 import Venta from 'src/app/models/venta.model';
+import Usuarios from 'src/app/models/usuarios.model';
 @Component({
   selector: 'app-factuacion',
   templateUrl: './facturacion.component.html',
@@ -15,17 +19,21 @@ export class FacturacionComponent {
   listaItemsCarrito: ItemCarrito[] = [];
   subtotalTotal: number = 0;
   facturacionForm: FormGroup;
+  addressUsu = [];
 
   public userLogged: any;
   public token: any = '';
   public user_id: string | undefined = '';
-
+  public usuarioActual?: any = {};
+  public usuarioDirecciones?: any = [];
   constructor(
     private auth: AuthService,
+    private router: Router,
     private fb: FormBuilder,
     private toastr: ToastrService,
     private http: HttpClient,
-    private _ventaService: VentaServices
+    private _ventaService: VentaServices,
+    private _usuarioService: UsuarioService
   ) {
     this.token = localStorage.getItem('token');
     this.facturacionForm = this.fb.group({
@@ -34,21 +42,42 @@ export class FacturacionComponent {
       email: ['', [Validators.required, Validators.email]],
       nro_contacto: ['', [Validators.required, Validators.minLength(10)]],
       tipo_documentacion: ['', Validators.required],
-      numero_documentacion: ['', Validators.required, Validators.minLength(7)],
+      numero_documentacion: [
+        '',
+        [Validators.required, Validators.minLength(7)],
+      ],
       provincia: ['', Validators.required],
-      localidad: ['', Validators.required],
-      codPostal: ['', [Validators.required, Validators.pattern(/^\d{4}$/)]],
-      direccion: ['', Validators.required],
+      localidad: ['', [Validators.required, Validators.minLength(4)]],
+      codPostal: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\d{4}$/),
+          Validators.minLength(4),
+        ],
+      ],
+      direccion: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
 
   ngOnInit(): void {
     //REVISA USUARIO TOKEN DE USUARIO
     this.userLogged = this.auth.getDecodedToken(this.token);
-    
+
+    if (!this.auth.token) {
+      this.router.navigateByUrl('/sesion/login');
+    }
     if (this.userLogged) {
       this.user_id = this.userLogged.id;
     }
+
+    this._usuarioService
+      .obtenerUsuario(this.userLogged.id)
+      .subscribe((usuario: Usuarios) => {
+        this.usuarioActual = usuario;
+        this.usuarioDirecciones = this.usuarioActual.direcciones;
+        this.preCargarForm();
+      });
     // Obtener la lista de productos del localStorage
     const carritoStorage = localStorage.getItem('carrito');
     if (carritoStorage) {
@@ -59,6 +88,21 @@ export class FacturacionComponent {
     }
     // Calcular el subtotal total
     this.calcularSubtotalTotal();
+  }
+
+  preCargarForm() {
+    const userFormEdit: any = {
+      nombre: this.usuarioActual.nombre,
+      apellido: this.usuarioActual.apellido,
+      email: this.usuarioActual.email,
+      nro_contacto: this.usuarioActual.nro_contacto,
+      provincia: this.usuarioDirecciones[0].provincia,
+      localidad: this.usuarioDirecciones[0].ciudad,
+      direccion: this.usuarioDirecciones[0].calle1,
+      altura: this.usuarioDirecciones[0].altura,
+      codPostal: this.usuarioDirecciones[0].codPostal,
+    };
+    this.facturacionForm.patchValue(userFormEdit);
   }
 
   calcularSubtotalTotal() {
@@ -75,9 +119,6 @@ export class FacturacionComponent {
       );
       return;
     }
-
-    // Lógica para registrar la facturación
-    // ...
 
     // Mostrar mensaje de éxito
     this.toastr.success(
@@ -114,6 +155,14 @@ export class FacturacionComponent {
 
   //   FUNCIONES PARA MERCADOPAGO
   iniciarPago() {
+    if (this.facturacionForm.invalid) {
+      this.toastr.error(
+        'Por favor completa correctamente el formulario',
+        'Error en el formulario'
+      );
+      return;
+    }
+
     console.log('Datos enviados al backend:', this.listaItemsCarrito); // Agrega este console.log para ver qué está enviando
 
     this.http
@@ -133,7 +182,7 @@ export class FacturacionComponent {
           codPostal: this.facturacionForm.get('codPostal')?.value,
           direccion: this.facturacionForm.get('direccion')?.value,
         },
-        user: this.user_id
+        user: this.user_id,
       })
       .subscribe(
         (response) => {
@@ -152,17 +201,19 @@ export class FacturacionComponent {
     if (this.userLogged) {
       user_id = this.userLogged.id;
     }
-    const listaItemsCarritoInterface = this.listaItemsCarrito.map((item: ItemCarrito) => ({
-      nombreProducto: item.nombreProducto,
-      imagen: item.imagen,
-      precio: item.precio,
-      cantidad: item.cantidad,
-      talla: item.talla,
-      medida: item.medida,
-      _id: item._id
-    }));
+    const listaItemsCarritoInterface = this.listaItemsCarrito.map(
+      (item: ItemCarrito) => ({
+        nombreProducto: item.nombreProducto,
+        imagen: item.imagen,
+        precio: item.precio,
+        cantidad: item.cantidad,
+        talla: item.talla,
+        medida: item.medida,
+        _id: item._id,
+      })
+    );
 
-    const informacionVenta = new Venta( 
+    const informacionVenta = new Venta(
       listaItemsCarritoInterface, // Convertir el arreglo a JSON
       this.subtotalTotal,
       this.facturacionForm.get('nombre')?.value,

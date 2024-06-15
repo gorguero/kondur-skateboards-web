@@ -30,14 +30,6 @@ export class LayoutTiendaComponent implements OnInit{
     this._productoService.getProductosPaginados()
       .subscribe({
         next: ({productos, totalProductos}:CargarProductos) => {
-
-          /* Filtramos por indumentaria 
-          this.indumentariaList = productos.filter( (item: { categoria: string; }) => item.categoria === 'indumentaria' );*/
-
-          /* Filtramos por tablas 
-          this.tablasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );*/
-
-          /* Filtramos por lijas */
           this.lijasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'lijas' );
 
           this.productosList = productos;

@@ -1,34 +1,31 @@
-/*CARRUSEL*/
-.separador{
+/* CARRUSEL */
+.separador {
     padding-top: 80px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-.carousel{
-height: 500px;
+.carousel {
+    height: 500px;
 }
 
-.contenedor-carrucel{
+.contenedor-carrucel {
     width: 100%;
-    height: 500px;
-    position: relative; /* añadimos una posición relativa al contenedor del carrusel */
+    position: relative; /* Posición relativa al contenedor del carrusel */
 }
 
 .contenedor-carrucel img {
     height: 100%;
     width: 100%;
-    object-fit: cover; /* ajustamos el tamaño de la imagen para que se adapte al contenedor sin deformarse */
-    position: absolute; /* añadimos una posición absoluta a las imágenes */
-    top: 0; /* ajustamos la posición vertical */
-    left: 0; /* ajustamos la posición horizontal */
+    position: absolute; /* Posición absoluta a las imágenes */
+    top: 0; /* Ajuste de posición vertical */
+    left: 0; /* Ajuste de posición horizontal */
 }
 
-.contenedor-carrucel .carousel-inner{
-height: 100%;
-}
-
-.contenedor-carrucel .carousel-item{
+.contenedor-carrucel .carousel-inner {
     height: 100%;
 }
-  
+
+.contenedor-carrucel .carousel-item {
+    height: 100%;
+}

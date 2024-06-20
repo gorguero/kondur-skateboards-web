@@ -16,14 +16,14 @@ export class TablasPageComponent implements OnInit{
   constructor(private _productoService:ProductoService ,  private toastr: ToastrService){}
   
   ngOnInit(): void {
-    this.obtenerProductos();
+    this.obtenerProductosTablas();
   }
 
-  obtenerProductos(){
-    this._productoService.getProductosPaginados().subscribe({
-      next: ({productos, totalProductos}:CargarProductos) => {
-        /* Filtramos por tablas */
-        this.tablasList = productos.filter( (item: { categoria: string; }) => item.categoria === 'tablas' );
+  obtenerProductosTablas(){
+    this._productoService.getProductsFilter('tablas')
+    .subscribe({
+      next:(resp:any)=>{
+        this.tablasList = resp;
       }
     })
   }

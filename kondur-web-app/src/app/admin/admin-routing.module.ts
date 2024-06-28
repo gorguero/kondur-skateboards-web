@@ -8,6 +8,7 @@ import { LayoutAdminComponent } from "./layout-admin/layout-admin.component";
 import { ProductoComponent } from "./components/producto/producto.component";
 import { CheckComponent } from "./components/check/check.component";
 import { CorredorComponent } from "./components/corredor/corredor.component";
+import { StatsComponent } from "./pages/stats/stats.component";
 
 const routes: Routes = [
     {
@@ -21,6 +22,7 @@ const routes: Routes = [
             {path:'ventas', component: VentasComponent},
             {path:'team', component: TeamComponent},
             {path:'team/:id', component: CorredorComponent},
+            {path:'stats',component: StatsComponent},
             {path:'**', redirectTo:'productos'},
         ]
     }

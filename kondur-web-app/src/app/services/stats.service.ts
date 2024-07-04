@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { VentaPorMes } from '../interfaces/ventaPorMes.interface';
 
 
 @Injectable({
@@ -31,5 +32,9 @@ import { environment } from 'src/environments/environment';
   
     getProductosMasVendidos(): Observable<any> {
       return this.http.get(`${this.baseUrl}/stats/productos-mas-vendidos`);
+    }
+    
+    getIngresosPorMes(): Observable<any> {
+      return this.http.get(`${this.baseUrl}/stats/ingresos-por-mes`);
     }
   }

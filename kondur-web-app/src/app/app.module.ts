@@ -11,7 +11,8 @@ import { AdminModule } from './admin/admin.module';
 import { PrincipalModule } from './principal/principal.module';
 import { SesionModule } from './sesion/sesion.module';
 
-
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { NgApexchartsModule } from 'ng-apexcharts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +27,12 @@ import { SesionModule } from './sesion/sesion.module';
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgApexchartsModule
+
+    
   ],
-  providers: [],
+  providers: [provideCharts(withDefaultRegisterables())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

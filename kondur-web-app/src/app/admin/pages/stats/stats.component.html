@@ -4,10 +4,10 @@
             Estadísticas
         </h1>
         <div class=" mb-5 mt-2">
-           
-
             <!-- TABLA CRUD -->
             <div class="div6 bg-white ms-2 rounded">
+                <a (click)="goBack()"
+                class="btn"><i class="bi bi-arrow-left-square-fill btn-back"></i></a>
                 <div class="row">
                     <div class="col">
                         <div class="card">
@@ -16,46 +16,54 @@
                                     <div class="card card-stats mb-3">
                                         <div class="card-header">Ingresos Totales</div>
                                         <div class="card-body">
-                                            <p class="funte-unica">{{ ingresosTotales | currency }}</p>
+                                            <p class="fuente-unica">{{ ingresosTotales | currency }}</p>
                                         </div>
                                     </div>
                                     <div class="card card-stats mb-3">
                                         <div class="card-header">Total de Ventas</div>
                                         <div class="card-body">
-                                            <p class="funte-unica">{{ totalVentas }}</p>
+                                            <p class="fuente-unica">{{ totalVentas }}</p>
+                                            <ul>
+                                                <li *ngFor="let item of ventasPorMes">
+                                                    <ul class="list-group aling">
+                                                        <li class="list-group-item"> Mes {{ item._id }}/24: {{ item.total }}</li>
+                                                      </ul>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-around">
                                     <div class="card card-stats mb-3">
-                                        <div class="card-header">Ventas por Mes</div>
+                                        <div class="card-header">Ingresos por Mes (en Pesos argentinos - ARS)</div>
                                         <div class="card-body">
-                                            <ul>
-                                                <li *ngFor="let item of ventasPorMes">
-                                                    Mes {{ item._id }}: {{ item.total }}
-                                                </li>
-                                            </ul>
+                                            <div style="text-align:center">
+                                                <apx-chart
+                                        [series]="chartOptionsIngresos.series! "
+                                        [chart]="chartOptionsIngresos.chart!"
+                                        [xaxis]="chartOptionsIngresos.xaxis!"
+                                        [title]="chartOptionsIngresos.title!"
+                                        ></apx-chart>
+                                                <!-- <apx-chart
+                                                  [series]="chartOptionsVentas.series!"
+                                                  [chart]="chartOptionsVentas.chart!"
+                                                  [xaxis]="chartOptionsVentas.xaxis!"
+                                                  [title]="chartOptionsVentas.title!"
+                                                ></apx-chart> -->
+                                              </div>
                                         </div>
                                     </div>
                                     <div class="card card-stats mb-3">
                                         <div class="card-header">Productos por Categoría</div>
                                         <div class="card-body">
-                                            <ul>
-                                                <li *ngFor="let item of productosPorCategoria">
-                                                    {{ item._id }}: {{ item.total }}
-                                                </li>
-                                            </ul>
+                                            <apx-chart
+                                            [series]="pieChartOptions.series!"
+                                            [chart]="pieChartOptions.chart!"
+                                            [labels]="pieChartOptions.labels!"
+                                            [responsive]="pieChartOptions.responsive!"
+                                            [title]="pieChartOptions.title!">
+                                          </apx-chart>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card card-stats mb-3">
-                                    <div class="card-header">Productos más Vendidos</div>
-                                    <div class="card-body">
-                                        <ul>
-                                            <li *ngFor="let item of productosMasVendidos">
-                                                {{ item._id }}: {{ item.total }}
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

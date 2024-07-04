@@ -17,7 +17,7 @@ import { CheckComponent } from './components/check/check.component';
 import { CorredorComponent } from './components/corredor/corredor.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { StatsComponent } from './pages/stats/stats.component';
-
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -39,7 +39,8 @@ import { StatsComponent } from './pages/stats/stats.component';
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgApexchartsModule
   ],
   exports:[
     LayoutAdminComponent

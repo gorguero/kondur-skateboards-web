@@ -11,7 +11,9 @@ export class VentasComponent implements OnInit {
   listVentasPaginated: CargarVentas[] = [];
   totalVentas: number = 0;
   desde: number = 0;
-  
+  nombreCliente: string = '';
+  fechaInicio: string = '';
+  fechaFin: string = '';
   constructor(private _ventasService: VentaServices) {}
 
   ngOnInit(): void {
@@ -20,13 +22,13 @@ export class VentasComponent implements OnInit {
 
   // Carga productos paginados
   cargarVentas() {
-    this._ventasService.getVentasPaginadas(this.desde)
+    this._ventasService.getVentasPaginadas(this.desde, this.nombreCliente, this.fechaInicio, this.fechaFin)
       .subscribe({
         next: (resp: VentasServiceResp) => {
           this.listVentasPaginated = resp.ventas;
           this.totalVentas = resp.totalVentas;
         },
-        error: (err) => console.log(err)    
+        error: (err) => console.log(err)
       });
   }
 
@@ -41,7 +43,10 @@ export class VentasComponent implements OnInit {
 
     this.cargarVentas();
   }
-
+  buscarVentas() {
+    this.desde = 0;
+    this.cargarVentas();
+  }
   getTotalVenta(productos: any[]): number {
     return productos.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
   }

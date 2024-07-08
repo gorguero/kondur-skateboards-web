@@ -189,6 +189,18 @@ export class ProductosComponent {
       );
     }
   }
+  // Lógica de filtro
+  filtrarProductos(estado: string): void {
+    if (estado === 'revisar') {
+      this.filteredProductos = this.listProductos.filter(producto => this.getStockStatus(producto).color === 'text-warning');
+    } else if (estado === 'sinStock') {
+      this.filteredProductos = this.listProductos.filter(producto => this.getStockStatus(producto).color === 'text-danger');
+    } else if (estado === 'todoBien') {
+      this.filteredProductos = this.listProductos.filter(producto => this.getStockStatus(producto).color === 'text-secondary');
+    } else {
+      this.filteredProductos = this.listProductos;
+    }
+  }
   getStockStatus(producto: any): { color: string; message: string } {
     let hasZeroStock = false;
     let allZeroStock = true;

@@ -19,6 +19,9 @@
           <a class="text-decoration-none" routerLink="/administrador/team" routerLinkActive="active">
             <h2 class="border-bottom border-white">Team</h2>
           </a>
+          <a class="text-decoration-none" routerLink="/administrador/stats" routerLinkActive="active">
+            <h2 class="border-bottom border-white">Stats</h2>
+          </a>
         </div>
       </div>
       <!-- TABLA CRUD -->
@@ -26,8 +29,7 @@
         <div class="row">
           <div class="col">
             <div class="card">
-              <div class="card-body text-center">
-                <h3 class="fs-3">LISTADO DE PRODUCTOS</h3>
+              <div class="card-body">
 
                 <!-- MODAL -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -173,8 +175,9 @@
                     <input type="text" class="form-control search-productos me-2" placeholder="Buscar productos..." [(ngModel)]="searchTerm" 
                     (input)="onSearch()"/>
                   </div>
-
-                <!-- BOTON AGREGAR PRODUCTO -->
+                  <!-- Botones de filtro -->
+                  
+                  <!-- BOTON AGREGAR PRODUCTO -->
                   <div>
                     <button type="button" class="btn btn-success float-end" data-bs-toggle="modal"
                       data-bs-target="#exampleModal" (click)="resetearFormulario()">
@@ -182,13 +185,18 @@
                     </button>
                   </div>
                 </div>
-
+                <div>
+                  <p>Filtrar por:</p>
+                  <button class="btn btn-outline-warning ms-2" (click)="filtrarProductos('revisar')">Revisar</button>
+                  <button class="btn btn-outline-danger ms-2" (click)="filtrarProductos('sinStock')">Sin Stock</button>
+                  <button class="btn btn-outline-secondary ms-2" (click)="filtrarProductos('todoBien')">Full Stock</button>
+                </div>
                 <!-- TABLA -->
                 <div class="container">
                   <div class="table-responsive">
                     <table class="table table-striped table-fixed-height mt-3">
                       <thead>
-                        <tr>
+                        <tr class="text-center">
                           <th scope="col" class="column-w">Nombre</th>
                           <th scope="col">Categoria</th>
                           <th scope="col">Precio</th>
@@ -197,10 +205,10 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let producto of filteredProductos">
+                        <tr class="text-center" *ngFor="let producto of filteredProductos">
                           <td class="align-middle">{{producto.nombreProducto}}</td>
                           <td class="align-middle">{{producto.categoria}}</td>
-                          <td class="align-middle">{{producto.precio}}</td>
+                          <td class="align-middle">{{producto.precio | currency}}</td>
                           <!-- <td class="align-middle">{{calcularSumaCantidadesTallas()}}</td> Mostrar la suma de cantidades -->
                           <td class="d-flex justify-content-around">
                             <a [routerLink]="['/administrador/productos', producto._id]" routerLinkActive="active">

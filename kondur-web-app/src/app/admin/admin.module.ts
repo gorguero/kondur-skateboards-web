@@ -16,7 +16,8 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { CheckComponent } from './components/check/check.component';
 import { CorredorComponent } from './components/corredor/corredor.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { StatsComponent } from './pages/stats/stats.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ProductoComponent,
     CheckComponent,
     CorredorComponent,
+    StatsComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgApexchartsModule
   ],
   exports:[
     LayoutAdminComponent

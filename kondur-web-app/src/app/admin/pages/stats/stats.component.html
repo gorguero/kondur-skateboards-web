@@ -16,7 +16,7 @@
                                     <div class="card card-stats mb-3">
                                         <div class="card-header">Ingresos Totales</div>
                                         <div class="card-body">
-                                            <p class="fuente-unica">{{ ingresosTotales | currency }}</p>
+                                            <p class="fuente-unica">{{ ingresosTotales | currency: 'ARS':'symbol':'1.2-2' }}</p>
                                         </div>
                                     </div>
                                     <div class="card card-stats mb-3">
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="card card-stats mb-3">
-                                        <div class="card-header">Productos por Categoría</div>
+                                        <div class="card-header">Productos cargados por Categoría</div>
                                         <div class="card-body">
                                             <apx-chart
                                             [series]="pieChartOptions.series!"

@@ -38,7 +38,6 @@ export type ChartOptions = {
 })
 export class StatsComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
-  // public chartOptionsVentas: Partial<ChartOptions>;
   public chartOptionsIngresos: Partial<ChartOptions>;
   public pieChartOptions: Partial<ChartOptions>;
   productosPorCategoria: any;
@@ -126,13 +125,12 @@ export class StatsComponent implements OnInit {
         }
       }],
       title: {
-        text: "Productos por Categoría"
+        text: "Productos cargados por Categoría"
       }
     };
   
   }
   
-
   ngOnInit(): void {
     this.statsService.getTotalVentas().subscribe(data => this.totalVentas = data.totalVentas);
     this.statsService.getIngresosTotales().subscribe(data => this.ingresosTotales = data.totalIngresos);

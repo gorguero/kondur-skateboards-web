@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -18,9 +18,24 @@ export class VentaServices{
       return this.http.post(this.url, venta);
     }
 
-    getVentasPaginadas( desde:number = 0 ){
-      return this.http.get<VentasServiceResp>(`${this.url}?desde=${desde}`);
+    getVentasPaginadas(desde: number, nombreCliente?: string, fechaInicio?: string, fechaFin?: string): Observable<VentasServiceResp> {
+      let params = new HttpParams().set('desde', desde.toString());
+  
+      if (nombreCliente) {
+        params = params.set('nombreCliente', nombreCliente);
+      }
+  
+      if (fechaInicio && fechaFin) {
+        params = params.set('fechaInicio', fechaInicio).set('fechaFin', fechaFin);
+      }
+  
+      return this.http.get<VentasServiceResp>(`${this.url}`, { params });
     }
+  
+
+    // getVentasPaginadas( desde:number = 0 ){
+    //   return this.http.get<VentasServiceResp>(`${this.url}?desde=${desde}`);
+    // }
 
     getVentasByUserId(id: string): Observable<any> {
       return this.http.get<any>(`${this.url}/usuario/${id}`);

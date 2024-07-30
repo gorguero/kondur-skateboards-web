@@ -21,6 +21,7 @@ import { LijasPageComponent } from './tienda/pages/lijas-page/lijas-page.compone
 import {YouTubePlayerModule} from '@angular/youtube-player';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { RecomendadosComponent } from './home/components/recomendados/recomendados.component';
 
 
 
@@ -44,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     TablasPageComponent,
     IndumentariaPageComponent,
     LijasPageComponent,
+    RecomendadosComponent,
 
   ],
   imports: [

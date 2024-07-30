@@ -134,8 +134,14 @@ export class StatsComponent implements OnInit {
   ngOnInit(): void {
     this.statsService.getTotalVentas().subscribe(data => this.totalVentas = data.totalVentas);
     this.statsService.getIngresosTotales().subscribe(data => this.ingresosTotales = data.totalIngresos);
-    this.statsService.getProductosMasVendidos().subscribe(data => this.productosMasVendidos = data);
     this.statsService.getVentasPorMes().subscribe(data => this.ventasPorMes = data);
+    this.statsService.getProductosMasVendidos().subscribe(data => {
+      this.productosMasVendidos = data;
+      console.log('Productos Más Vendidos:', this.productosMasVendidos);
+    });
+
+   
+    
 
     // this.statsService.getVentasPorMes().subscribe((data: VentaPorMes[]) => {
     //   console.log('Datos de ventas por mes:', data); 

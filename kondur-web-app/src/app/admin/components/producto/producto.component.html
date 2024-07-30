@@ -10,7 +10,7 @@
         <div class="col-md-6 contenedor-info p-3" *ngIf="productoActual">
           <h1 class="display-5 fw-bolder">{{productoActual.nombreProducto}}</h1>
           <div class="fs-5 mb-5">
-            <span>${{productoActual.precio}}</span>
+            <span>{{productoActual.precio | currency}}</span>
           </div>
           <p class="lead">{{productoActual.descripcion}}</p>
           <h3>Seleccione el talle:</h3>

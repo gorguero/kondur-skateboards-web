@@ -1,0 +1,44 @@
+<section class="mb-3">
+  <div class="container fondo-productos px-4 px-lg-5 mt-5 border-top border-3 border-dark">
+    <h2 class="fw-bolder mb-4 mt-5">Productos recomendados</h2>
+
+    <div id="relatedProductsCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button *ngFor="let grupo of productosMasVendidosGrupos; let i = index" type="button"
+          data-bs-target="#relatedProductsCarousel" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
+          aria-current="true" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div *ngFor="let grupo of productosMasVendidosGrupos; let i = index" class="carousel-item"
+          [class.active]="i === 0">
+          <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 justify-content-center">
+            <div *ngFor="let producto of grupo" class="col mb-5">
+              <div class="card bg-dark h-100 contenedor-card">
+                <img class="card-img-top" [src]="producto.imagenUrl" alt="{{ producto.nombreProducto }}">
+                <div class="card-body text-center">
+                  <p class="card-text fw-bold text-white">{{ producto.nombreProducto }}</p>
+                  <div class="d-flex justify-content-around">
+                    <a class="btn btn-outline-warning" [routerLink]="['/tienda', producto._id]">Ver más</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev ms-3" type="button" data-bs-target="#relatedProductsCarousel"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+
+      <button class="carousel-control-next me-3" type="button" data-bs-target="#relatedProductsCarousel"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-danger" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</section>

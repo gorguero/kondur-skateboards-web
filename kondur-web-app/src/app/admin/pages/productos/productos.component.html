@@ -172,19 +172,19 @@
                 <!-- BÚSQUEDA -->
                 <div class="py-3 d-flex justify-content-between">
                   <div class="d-flex">
-                    <input type="text" class="form-control search-productos me-2" placeholder="Buscar productos..." [(ngModel)]="searchTerm" 
-                    (input)="onSearch()"/>
+                    <input type="text" class="form-control search-productos me-2" placeholder="Buscar productos..." [(ngModel)]="searchTerm"/>
+                    <button (click)="buscarProductos()" class="btn btn-dark">Buscar</button>
                   </div>
-                  <!-- Botones de filtro -->
                   
                   <!-- BOTON AGREGAR PRODUCTO -->
                   <div>
                     <button type="button" class="btn btn-success float-end" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal" (click)="resetearFormulario()">
-                      Agregar producto
-                    </button>
-                  </div>
+                    data-bs-target="#exampleModal" (click)="resetearFormulario()">
+                    Agregar producto
+                  </button>
                 </div>
+              </div>
+              <!-- Botones de filtro -->
                 <div>
                   <p>Filtrar por:</p>
                   <button class="btn btn-outline-warning ms-2" (click)="filtrarProductos('revisar')">Revisar</button>
@@ -230,9 +230,8 @@
                 <!-- PAGINADO -->
                 <div class=" d-flex justify-content-between">
                   <div>
-                    <button (click)="cambiarPagina(-5)" class="btn btn-secondary">Anterior</button>
-                    &nbsp;
-                    <button (click)="cambiarPagina(5)" class="btn btn-secondary">Siguiente</button>
+                    <button class="btn btn-secondary me-3" (click)="cambiarPagina(-5)" [disabled]="desde === 0">Anterior</button>
+                    <button class="btn btn-secondary" (click)="cambiarPagina(5)" [disabled]="desde + 5 >= totalProductos">Siguiente</button>
                   </div>
                 </div>
 

@@ -151,15 +151,34 @@ export class ProductosComponent {
   }
 
   //Carga productos paginados
+  // cargarProductos() {
+  //   this._productoService.getProductosPaginados(this.desde).subscribe({
+  //     next: ({ totalProductos, productos }) => {
+  //       this.totalProductos = totalProductos;
+  //       this.listProductos = productos;
+  //       this.filteredProductos = productos; // Inicializar filteredProductos
+  //     }
+  //   });
+  // }
   cargarProductos() {
-    this._productoService.getProductosPaginados(this.desde).subscribe({
-      next: ({ totalProductos, productos }) => {
-        this.totalProductos = totalProductos;
-        this.listProductos = productos;
-        this.filteredProductos = productos; // Inicializar filteredProductos
-      }
+    this._productoService.getProductosPaginadosAdmin(this.desde, this.searchTerm).subscribe({
+      next: (resp: any) => {
+        this.listProductos = resp.productos;
+        this.totalProductos = resp.totalProductos;
+        this.filteredProductos = resp.productos; // Asigna los productos filtrados aquí
+        console.log(this.listProductos);
+      },
+      error: (err) => {
+        console.log(err);
+        this.toastr.error(
+          'Hubo un error al cargar los productos',
+          'Error'
+        );
+      },
     });
   }
+  
+
   cambiarPagina(valor: number) {
     this.desde += valor;
 
@@ -169,6 +188,11 @@ export class ProductosComponent {
       this.desde -= valor;
     }
 
+    this.cargarProductos();
+  }
+
+  buscarProductos() {
+    this.desde = 0;
     this.cargarProductos();
   }
 

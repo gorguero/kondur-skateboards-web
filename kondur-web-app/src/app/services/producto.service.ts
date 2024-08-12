@@ -21,6 +21,11 @@ export class ProductoService {
   getProductosPaginados( desde:number = 0 ){
     return this.http.get<CargarProductos>(`${url_base}/productos?desde=${desde}`);
   }
+
+  getProductosPaginadosAdmin(desde: number, nombreProducto: string): Observable<any> {
+    return this.http.get<any>(`${this.url}productos/?desde=${desde}&nombreProducto=${nombreProducto}`);
+  }
+  
   getProductsFilter( tipo:string ){
     return this.http.get(`${url_base}/productos/filters?tipo=${tipo}`);
   }

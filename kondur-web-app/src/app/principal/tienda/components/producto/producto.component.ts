@@ -103,7 +103,7 @@ export class ProductoComponent implements OnInit {
     return grupos;
   }
 
-  agregarCarrito(producto: Producto) {
+  agregarCarrito(producto: Producto) {    
     if (
       this.producto &&
       (this.producto.categoria.toLowerCase() === 'lijas' ||

@@ -13,8 +13,8 @@ export class RegisterComponent implements OnInit {
   
   // ESPACIO PARA VALIDACION DE FORMULARIO DE REGISTRO
   public registroForm: FormGroup = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(3)]],
-    apellido: ['', [Validators.required, Validators.minLength(3)]],
+    nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$'), Validators.minLength(3)]],
+    apellido: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$'), Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     nickname: ['', [Validators.required, Validators.minLength(5)]],
     password: ['', [Validators.required, Validators.minLength(8)]],
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       this.registroForm.markAllAsTouched();
       return;
     }
-    console.log(this.registroForm.value)
+
     this.usuarioService.registrarUsuario( this.registroForm.value )
       .subscribe(
         {
@@ -106,6 +106,9 @@ export class RegisterComponent implements OnInit {
         
         case 'minlength':
           return `Mínimo ${errors['minlength'].requiredLength} carácteres*`;
+
+        case 'pattern':
+          return 'Solo se permite el ingreso de letras'
       }
 
     }
